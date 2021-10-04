@@ -1,0 +1,12 @@
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\bin\Debug\StockIt.exe.config
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\bin\Debug\StockIt.exe
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\bin\Debug\StockIt.pdb
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.csproj.AssemblyReference.cache
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.Properties.Resources.resources
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.csproj.GenerateResource.cache
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.csproj.CoreCompileInputs.cache
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.exe
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.pdb
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmAggProductos.resources
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmPrincipal.resources
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmInicio.resources
