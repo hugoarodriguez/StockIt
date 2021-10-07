@@ -55,7 +55,7 @@ namespace StockIt
             // panelSideMenu
             // 
             this.panelSideMenu.AutoScroll = true;
-            this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(117)))), ((int)(((byte)(169)))));
             this.panelSideMenu.Controls.Add(this.btnCerrarSesion);
             this.panelSideMenu.Controls.Add(this.panelSubMenuReportes);
             this.panelSideMenu.Controls.Add(this.btnReportes);
@@ -81,7 +81,7 @@ namespace StockIt
             this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
             this.btnCerrarSesion.Location = new System.Drawing.Point(0, 715);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -94,12 +94,13 @@ namespace StockIt
             // 
             // panelSubMenuReportes
             // 
-            this.panelSubMenuReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.panelSubMenuReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(163)))), ((int)(((byte)(203)))));
             this.panelSubMenuReportes.Controls.Add(this.btnReporteVentas);
             this.panelSubMenuReportes.Controls.Add(this.btnReporteClientes);
             this.panelSubMenuReportes.Controls.Add(this.btnReporteReservas);
             this.panelSubMenuReportes.Controls.Add(this.btnReporteProductos);
             this.panelSubMenuReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSubMenuReportes.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.panelSubMenuReportes.Location = new System.Drawing.Point(0, 550);
             this.panelSubMenuReportes.Name = "panelSubMenuReportes";
             this.panelSubMenuReportes.Size = new System.Drawing.Size(250, 165);
@@ -111,7 +112,7 @@ namespace StockIt
             this.btnReporteVentas.FlatAppearance.BorderSize = 0;
             this.btnReporteVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReporteVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporteVentas.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnReporteVentas.ForeColor = System.Drawing.Color.White;
             this.btnReporteVentas.Location = new System.Drawing.Point(0, 120);
             this.btnReporteVentas.Name = "btnReporteVentas";
             this.btnReporteVentas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -128,7 +129,7 @@ namespace StockIt
             this.btnReporteClientes.FlatAppearance.BorderSize = 0;
             this.btnReporteClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReporteClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporteClientes.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnReporteClientes.ForeColor = System.Drawing.Color.White;
             this.btnReporteClientes.Location = new System.Drawing.Point(0, 80);
             this.btnReporteClientes.Name = "btnReporteClientes";
             this.btnReporteClientes.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -145,7 +146,7 @@ namespace StockIt
             this.btnReporteReservas.FlatAppearance.BorderSize = 0;
             this.btnReporteReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReporteReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporteReservas.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnReporteReservas.ForeColor = System.Drawing.Color.White;
             this.btnReporteReservas.Location = new System.Drawing.Point(0, 40);
             this.btnReporteReservas.Name = "btnReporteReservas";
             this.btnReporteReservas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -162,7 +163,7 @@ namespace StockIt
             this.btnReporteProductos.FlatAppearance.BorderSize = 0;
             this.btnReporteProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReporteProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporteProductos.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnReporteProductos.ForeColor = System.Drawing.Color.White;
             this.btnReporteProductos.Location = new System.Drawing.Point(0, 0);
             this.btnReporteProductos.Name = "btnReporteProductos";
             this.btnReporteProductos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -179,7 +180,7 @@ namespace StockIt
             this.btnReportes.FlatAppearance.BorderSize = 0;
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportes.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Location = new System.Drawing.Point(0, 505);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -196,7 +197,7 @@ namespace StockIt
             this.btnClientes.FlatAppearance.BorderSize = 0;
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClientes.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnClientes.ForeColor = System.Drawing.Color.White;
             this.btnClientes.Location = new System.Drawing.Point(0, 460);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -213,7 +214,7 @@ namespace StockIt
             this.btnCategorias.FlatAppearance.BorderSize = 0;
             this.btnCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCategorias.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnCategorias.ForeColor = System.Drawing.Color.White;
             this.btnCategorias.Location = new System.Drawing.Point(0, 415);
             this.btnCategorias.Name = "btnCategorias";
             this.btnCategorias.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -230,7 +231,7 @@ namespace StockIt
             this.btnProductos.FlatAppearance.BorderSize = 0;
             this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProductos.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnProductos.ForeColor = System.Drawing.Color.White;
             this.btnProductos.Location = new System.Drawing.Point(0, 370);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -247,7 +248,7 @@ namespace StockIt
             this.btnVentas.FlatAppearance.BorderSize = 0;
             this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVentas.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnVentas.ForeColor = System.Drawing.Color.White;
             this.btnVentas.Location = new System.Drawing.Point(0, 325);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -264,7 +265,7 @@ namespace StockIt
             this.btnAggClientes.FlatAppearance.BorderSize = 0;
             this.btnAggClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAggClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAggClientes.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnAggClientes.ForeColor = System.Drawing.Color.White;
             this.btnAggClientes.Location = new System.Drawing.Point(0, 280);
             this.btnAggClientes.Name = "btnAggClientes";
             this.btnAggClientes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -281,7 +282,7 @@ namespace StockIt
             this.btnAggCategorias.FlatAppearance.BorderSize = 0;
             this.btnAggCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAggCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAggCategorias.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnAggCategorias.ForeColor = System.Drawing.Color.White;
             this.btnAggCategorias.Location = new System.Drawing.Point(0, 235);
             this.btnAggCategorias.Name = "btnAggCategorias";
             this.btnAggCategorias.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -298,7 +299,7 @@ namespace StockIt
             this.btnAggReservas.FlatAppearance.BorderSize = 0;
             this.btnAggReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAggReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAggReservas.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnAggReservas.ForeColor = System.Drawing.Color.White;
             this.btnAggReservas.Location = new System.Drawing.Point(0, 190);
             this.btnAggReservas.Name = "btnAggReservas";
             this.btnAggReservas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -315,7 +316,7 @@ namespace StockIt
             this.btnAggProductos.FlatAppearance.BorderSize = 0;
             this.btnAggProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAggProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAggProductos.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnAggProductos.ForeColor = System.Drawing.Color.White;
             this.btnAggProductos.Location = new System.Drawing.Point(0, 145);
             this.btnAggProductos.Name = "btnAggProductos";
             this.btnAggProductos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -332,7 +333,7 @@ namespace StockIt
             this.btnInicio.FlatAppearance.BorderSize = 0;
             this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInicio.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnInicio.ForeColor = System.Drawing.Color.White;
             this.btnInicio.Location = new System.Drawing.Point(0, 100);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -345,6 +346,7 @@ namespace StockIt
             // 
             // panelLogo
             // 
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(95)))), ((int)(((byte)(134)))));
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
@@ -353,14 +355,14 @@ namespace StockIt
             // 
             // panelFormularioHijo
             // 
-            this.panelFormularioHijo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelFormularioHijo.BackColor = System.Drawing.Color.White;
             this.panelFormularioHijo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFormularioHijo.Location = new System.Drawing.Point(250, 0);
             this.panelFormularioHijo.Name = "panelFormularioHijo";
             this.panelFormularioHijo.Size = new System.Drawing.Size(1012, 763);
             this.panelFormularioHijo.TabIndex = 1;
             // 
-            // Form1
+            // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -368,7 +370,7 @@ namespace StockIt
             this.Controls.Add(this.panelFormularioHijo);
             this.Controls.Add(this.panelSideMenu);
             this.MinimumSize = new System.Drawing.Size(1100, 810);
-            this.Name = "Form1";
+            this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panelSideMenu.ResumeLayout(false);
