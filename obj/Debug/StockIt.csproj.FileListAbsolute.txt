@@ -11,3 +11,17 @@ C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internaci
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmInicio.resources
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmProductos.resources
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.CustomControls.ProductoCard.resources
+C:\Users\AMILTONR\Source\Repos\StockIt\bin\Debug\StockIt.exe.config
+C:\Users\AMILTONR\Source\Repos\StockIt\bin\Debug\StockIt.exe
+C:\Users\AMILTONR\Source\Repos\StockIt\bin\Debug\StockIt.pdb
+C:\Users\AMILTONR\Source\Repos\StockIt\obj\Debug\StockIt.csproj.AssemblyReference.cache
+C:\Users\AMILTONR\Source\Repos\StockIt\obj\Debug\StockIt.CustomControls.ProductoCard.resources
+C:\Users\AMILTONR\Source\Repos\StockIt\obj\Debug\StockIt.frmInicio.resources
+C:\Users\AMILTONR\Source\Repos\StockIt\obj\Debug\StockIt.frmPrincipal.resources
+C:\Users\AMILTONR\Source\Repos\StockIt\obj\Debug\StockIt.frmAggProductos.resources
+C:\Users\AMILTONR\Source\Repos\StockIt\obj\Debug\StockIt.frmProductos.resources
+C:\Users\AMILTONR\Source\Repos\StockIt\obj\Debug\StockIt.Properties.Resources.resources
+C:\Users\AMILTONR\Source\Repos\StockIt\obj\Debug\StockIt.csproj.GenerateResource.cache
+C:\Users\AMILTONR\Source\Repos\StockIt\obj\Debug\StockIt.csproj.CoreCompileInputs.cache
+C:\Users\AMILTONR\Source\Repos\StockIt\obj\Debug\StockIt.exe
+C:\Users\AMILTONR\Source\Repos\StockIt\obj\Debug\StockIt.pdb

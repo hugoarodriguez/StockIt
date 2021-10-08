@@ -154,5 +154,10 @@ namespace StockIt
             formularioHijo.BringToFront();
             formularioHijo.Show();
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
