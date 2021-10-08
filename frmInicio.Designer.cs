@@ -40,7 +40,7 @@ namespace StockIt
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.label1.Size = new System.Drawing.Size(994, 716);
+            this.label1.Size = new System.Drawing.Size(1228, 1051);
             this.label1.TabIndex = 1;
             this.label1.Text = "¡Bienvenido!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -49,7 +49,7 @@ namespace StockIt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 716);
+            this.ClientSize = new System.Drawing.Size(1228, 1051);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmInicio";
