@@ -72,7 +72,7 @@ namespace StockIt
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(250, 763);
+            this.panelSideMenu.Size = new System.Drawing.Size(250, 1051);
             this.panelSideMenu.TabIndex = 0;
             // 
             // btnCerrarSesion
@@ -359,16 +359,19 @@ namespace StockIt
             this.panelFormularioHijo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFormularioHijo.Location = new System.Drawing.Point(250, 0);
             this.panelFormularioHijo.Name = "panelFormularioHijo";
-            this.panelFormularioHijo.Size = new System.Drawing.Size(1012, 763);
+            this.panelFormularioHijo.Size = new System.Drawing.Size(1228, 1051);
             this.panelFormularioHijo.TabIndex = 1;
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 763);
+            this.ClientSize = new System.Drawing.Size(1478, 1051);
             this.Controls.Add(this.panelFormularioHijo);
             this.Controls.Add(this.panelSideMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1100, 810);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
