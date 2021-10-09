@@ -54,5 +54,11 @@ namespace StockIt
             formularioHijo.BringToFront();
             formularioHijo.Show();
         }
+
+        private void lklPasOlv_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            abrirFormularioHijo(new frmRecuperarCuenta());
+            limpiarControles();
+        }
     }
 }
