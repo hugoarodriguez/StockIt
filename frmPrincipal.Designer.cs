@@ -48,11 +48,8 @@ namespace StockIt
             this.btnInicio = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelFormularioHijo = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panelSubMenuReportes.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSideMenu
@@ -74,9 +71,9 @@ namespace StockIt
             this.panelSideMenu.Controls.Add(this.panelLogo);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelSideMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelSideMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(188, 854);
+            this.panelSideMenu.Size = new System.Drawing.Size(251, 1055);
             this.panelSideMenu.TabIndex = 0;
             // 
             // btnCerrarSesion
@@ -86,11 +83,11 @@ namespace StockIt
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 585);
-            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 725);
+            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.btnCerrarSesion.Size = new System.Drawing.Size(188, 37);
+            this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(251, 46);
             this.btnCerrarSesion.TabIndex = 12;
             this.btnCerrarSesion.Text = "Cerrar Sesión";
             this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -106,10 +103,10 @@ namespace StockIt
             this.panelSubMenuReportes.Controls.Add(this.btnReporteProductos);
             this.panelSubMenuReportes.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMenuReportes.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.panelSubMenuReportes.Location = new System.Drawing.Point(0, 451);
-            this.panelSubMenuReportes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelSubMenuReportes.Location = new System.Drawing.Point(0, 560);
+            this.panelSubMenuReportes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSubMenuReportes.Name = "panelSubMenuReportes";
-            this.panelSubMenuReportes.Size = new System.Drawing.Size(188, 134);
+            this.panelSubMenuReportes.Size = new System.Drawing.Size(251, 165);
             this.panelSubMenuReportes.TabIndex = 11;
             // 
             // btnReporteVentas
@@ -119,11 +116,11 @@ namespace StockIt
             this.btnReporteVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReporteVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporteVentas.ForeColor = System.Drawing.Color.White;
-            this.btnReporteVentas.Location = new System.Drawing.Point(0, 96);
-            this.btnReporteVentas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReporteVentas.Location = new System.Drawing.Point(0, 117);
+            this.btnReporteVentas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReporteVentas.Name = "btnReporteVentas";
-            this.btnReporteVentas.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
-            this.btnReporteVentas.Size = new System.Drawing.Size(188, 32);
+            this.btnReporteVentas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnReporteVentas.Size = new System.Drawing.Size(251, 39);
             this.btnReporteVentas.TabIndex = 3;
             this.btnReporteVentas.Text = "Ventas";
             this.btnReporteVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -137,11 +134,11 @@ namespace StockIt
             this.btnReporteClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReporteClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporteClientes.ForeColor = System.Drawing.Color.White;
-            this.btnReporteClientes.Location = new System.Drawing.Point(0, 64);
-            this.btnReporteClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReporteClientes.Location = new System.Drawing.Point(0, 78);
+            this.btnReporteClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReporteClientes.Name = "btnReporteClientes";
-            this.btnReporteClientes.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
-            this.btnReporteClientes.Size = new System.Drawing.Size(188, 32);
+            this.btnReporteClientes.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnReporteClientes.Size = new System.Drawing.Size(251, 39);
             this.btnReporteClientes.TabIndex = 2;
             this.btnReporteClientes.Text = "Clientes";
             this.btnReporteClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -155,11 +152,11 @@ namespace StockIt
             this.btnReporteReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReporteReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporteReservas.ForeColor = System.Drawing.Color.White;
-            this.btnReporteReservas.Location = new System.Drawing.Point(0, 32);
-            this.btnReporteReservas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReporteReservas.Location = new System.Drawing.Point(0, 39);
+            this.btnReporteReservas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReporteReservas.Name = "btnReporteReservas";
-            this.btnReporteReservas.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
-            this.btnReporteReservas.Size = new System.Drawing.Size(188, 32);
+            this.btnReporteReservas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnReporteReservas.Size = new System.Drawing.Size(251, 39);
             this.btnReporteReservas.TabIndex = 1;
             this.btnReporteReservas.Text = "Reservas";
             this.btnReporteReservas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -174,10 +171,10 @@ namespace StockIt
             this.btnReporteProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporteProductos.ForeColor = System.Drawing.Color.White;
             this.btnReporteProductos.Location = new System.Drawing.Point(0, 0);
-            this.btnReporteProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReporteProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReporteProductos.Name = "btnReporteProductos";
-            this.btnReporteProductos.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
-            this.btnReporteProductos.Size = new System.Drawing.Size(188, 32);
+            this.btnReporteProductos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnReporteProductos.Size = new System.Drawing.Size(251, 39);
             this.btnReporteProductos.TabIndex = 0;
             this.btnReporteProductos.Text = "Productos";
             this.btnReporteProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -191,11 +188,11 @@ namespace StockIt
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.White;
-            this.btnReportes.Location = new System.Drawing.Point(0, 414);
-            this.btnReportes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReportes.Location = new System.Drawing.Point(0, 514);
+            this.btnReportes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.btnReportes.Size = new System.Drawing.Size(188, 37);
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnReportes.Size = new System.Drawing.Size(251, 46);
             this.btnReportes.TabIndex = 10;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -209,11 +206,11 @@ namespace StockIt
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.ForeColor = System.Drawing.Color.White;
-            this.btnClientes.Location = new System.Drawing.Point(0, 377);
-            this.btnClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClientes.Location = new System.Drawing.Point(0, 468);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.btnClientes.Size = new System.Drawing.Size(188, 37);
+            this.btnClientes.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnClientes.Size = new System.Drawing.Size(251, 46);
             this.btnClientes.TabIndex = 9;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -227,11 +224,11 @@ namespace StockIt
             this.btnCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategorias.ForeColor = System.Drawing.Color.White;
-            this.btnCategorias.Location = new System.Drawing.Point(0, 340);
-            this.btnCategorias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCategorias.Location = new System.Drawing.Point(0, 422);
+            this.btnCategorias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCategorias.Name = "btnCategorias";
-            this.btnCategorias.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.btnCategorias.Size = new System.Drawing.Size(188, 37);
+            this.btnCategorias.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnCategorias.Size = new System.Drawing.Size(251, 46);
             this.btnCategorias.TabIndex = 8;
             this.btnCategorias.Text = "Categorías";
             this.btnCategorias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -245,11 +242,11 @@ namespace StockIt
             this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductos.ForeColor = System.Drawing.Color.White;
-            this.btnProductos.Location = new System.Drawing.Point(0, 303);
-            this.btnProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProductos.Location = new System.Drawing.Point(0, 376);
+            this.btnProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.btnProductos.Size = new System.Drawing.Size(188, 37);
+            this.btnProductos.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnProductos.Size = new System.Drawing.Size(251, 46);
             this.btnProductos.TabIndex = 7;
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -263,11 +260,11 @@ namespace StockIt
             this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentas.ForeColor = System.Drawing.Color.White;
-            this.btnVentas.Location = new System.Drawing.Point(0, 266);
-            this.btnVentas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVentas.Location = new System.Drawing.Point(0, 330);
+            this.btnVentas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVentas.Name = "btnVentas";
-            this.btnVentas.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.btnVentas.Size = new System.Drawing.Size(188, 37);
+            this.btnVentas.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnVentas.Size = new System.Drawing.Size(251, 46);
             this.btnVentas.TabIndex = 6;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -281,11 +278,11 @@ namespace StockIt
             this.btnAggClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAggClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAggClientes.ForeColor = System.Drawing.Color.White;
-            this.btnAggClientes.Location = new System.Drawing.Point(0, 229);
-            this.btnAggClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAggClientes.Location = new System.Drawing.Point(0, 284);
+            this.btnAggClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAggClientes.Name = "btnAggClientes";
-            this.btnAggClientes.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.btnAggClientes.Size = new System.Drawing.Size(188, 37);
+            this.btnAggClientes.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnAggClientes.Size = new System.Drawing.Size(251, 46);
             this.btnAggClientes.TabIndex = 5;
             this.btnAggClientes.Text = "Agregar Clientes";
             this.btnAggClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -299,11 +296,11 @@ namespace StockIt
             this.btnAggCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAggCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAggCategorias.ForeColor = System.Drawing.Color.White;
-            this.btnAggCategorias.Location = new System.Drawing.Point(0, 192);
-            this.btnAggCategorias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAggCategorias.Location = new System.Drawing.Point(0, 238);
+            this.btnAggCategorias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAggCategorias.Name = "btnAggCategorias";
-            this.btnAggCategorias.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.btnAggCategorias.Size = new System.Drawing.Size(188, 37);
+            this.btnAggCategorias.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnAggCategorias.Size = new System.Drawing.Size(251, 46);
             this.btnAggCategorias.TabIndex = 4;
             this.btnAggCategorias.Text = "Agregar Categorías";
             this.btnAggCategorias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -317,11 +314,11 @@ namespace StockIt
             this.btnAggReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAggReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAggReservas.ForeColor = System.Drawing.Color.White;
-            this.btnAggReservas.Location = new System.Drawing.Point(0, 155);
-            this.btnAggReservas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAggReservas.Location = new System.Drawing.Point(0, 192);
+            this.btnAggReservas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAggReservas.Name = "btnAggReservas";
-            this.btnAggReservas.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.btnAggReservas.Size = new System.Drawing.Size(188, 37);
+            this.btnAggReservas.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnAggReservas.Size = new System.Drawing.Size(251, 46);
             this.btnAggReservas.TabIndex = 3;
             this.btnAggReservas.Text = "Agregar Reservas";
             this.btnAggReservas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -335,11 +332,11 @@ namespace StockIt
             this.btnAggProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAggProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAggProductos.ForeColor = System.Drawing.Color.White;
-            this.btnAggProductos.Location = new System.Drawing.Point(0, 118);
-            this.btnAggProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAggProductos.Location = new System.Drawing.Point(0, 146);
+            this.btnAggProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAggProductos.Name = "btnAggProductos";
-            this.btnAggProductos.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.btnAggProductos.Size = new System.Drawing.Size(188, 37);
+            this.btnAggProductos.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnAggProductos.Size = new System.Drawing.Size(251, 46);
             this.btnAggProductos.TabIndex = 2;
             this.btnAggProductos.Text = "Agregar Productos";
             this.btnAggProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -353,11 +350,11 @@ namespace StockIt
             this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.ForeColor = System.Drawing.Color.White;
-            this.btnInicio.Location = new System.Drawing.Point(0, 81);
-            this.btnInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInicio.Location = new System.Drawing.Point(0, 100);
+            this.btnInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.btnInicio.Size = new System.Drawing.Size(188, 37);
+            this.btnInicio.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnInicio.Size = new System.Drawing.Size(251, 46);
             this.btnInicio.TabIndex = 1;
             this.btnInicio.Text = "Inicio";
             this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -369,61 +366,38 @@ namespace StockIt
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(95)))), ((int)(((byte)(134)))));
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(188, 81);
+            this.panelLogo.Size = new System.Drawing.Size(251, 100);
             this.panelLogo.TabIndex = 0;
             // 
             // panelFormularioHijo
             // 
             this.panelFormularioHijo.BackColor = System.Drawing.Color.White;
-            this.panelFormularioHijo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFormularioHijo.Location = new System.Drawing.Point(188, 81);
-            this.panelFormularioHijo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelFormularioHijo.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelFormularioHijo.Location = new System.Drawing.Point(254, 0);
+            this.panelFormularioHijo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelFormularioHijo.Name = "panelFormularioHijo";
-            this.panelFormularioHijo.Size = new System.Drawing.Size(920, 773);
+            this.panelFormularioHijo.Size = new System.Drawing.Size(1226, 1055);
             this.panelFormularioHijo.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnCerrar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(188, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(920, 81);
-            this.panel1.TabIndex = 2;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.Location = new System.Drawing.Point(841, 12);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(67, 45);
-            this.btnCerrar.TabIndex = 0;
-            this.btnCerrar.Text = "X";
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1108, 854);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1480, 1055);
             this.Controls.Add(this.panelFormularioHijo);
             this.Controls.Add(this.panelSideMenu);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(829, 665);
+            this.MinimumSize = new System.Drawing.Size(1105, 818);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Stock It";
             this.panelSideMenu.ResumeLayout(false);
             this.panelSubMenuReportes.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -449,8 +423,6 @@ namespace StockIt
         private System.Windows.Forms.Button btnReporteProductos;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Panel panelFormularioHijo;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnCerrar;
     }
 }
 
