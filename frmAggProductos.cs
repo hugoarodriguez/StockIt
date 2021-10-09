@@ -16,7 +16,6 @@ namespace StockIt
         public frmAggProductos()
         {
             InitializeComponent();
-            estiloInicial();
         }
 
         private void frmAggProductos_Load(object sender, EventArgs e)
@@ -24,20 +23,25 @@ namespace StockIt
             
         }
 
-        /*Este método asigna las dimensiones de tamaño para los controles de tipo TextBox y ComboBox,
-         * ya que Windows Forms no permite modificar la altura (heigth) en las propiedades del control*/
-        private void estiloInicial()
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
-            this.txtNomProd.AutoSize = false;
-            this.txtNomProd.Size = new System.Drawing.Size(600, 30);
-            this.txtCanProd.AutoSize = false;
-            this.txtCanProd.Size = new System.Drawing.Size(200, 30);
-            this.cbxCatProd.AutoSize = false;
-            this.cbxCatProd.Size = new System.Drawing.Size(200, 30);
-            this.txtPreProd.AutoSize = false;
-            this.txtPreProd.Size = new System.Drawing.Size(200, 30);
-            this.txtDetPRod.AutoSize = false;
-            this.txtDetPRod.Size = new System.Drawing.Size(600, 30);
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            //Preguntar si desea cancelar
+            limpiarControles();
+        }
+
+        private void limpiarControles()
+        {
+            pbxImgProd.Image = null;
+            txtNomProd.Text = null;
+            nudCanProd.Value = 0;
+            //cbxCatProd.SelectedIndex = 0;
+            mskPreProd.Text = null;
+            txtDetProd.Text = null;
         }
     }
 }

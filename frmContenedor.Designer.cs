@@ -86,6 +86,7 @@ namespace StockIt
             // txtUsuario
             // 
             this.txtUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(491, 329);
             this.txtUsuario.Name = "txtUsuario";
@@ -106,6 +107,7 @@ namespace StockIt
             // txtPassword
             // 
             this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(491, 438);
             this.txtPassword.Name = "txtPassword";

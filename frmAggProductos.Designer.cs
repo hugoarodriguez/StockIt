@@ -30,21 +30,22 @@ namespace StockIt
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbxImgProd = new System.Windows.Forms.PictureBox();
             this.btnSImagen = new System.Windows.Forms.Button();
             this.txtNomProd = new System.Windows.Forms.TextBox();
-            this.txtCanProd = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtPreProd = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtDetPRod = new System.Windows.Forms.TextBox();
+            this.txtDetProd = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cbxCatProd = new System.Windows.Forms.ComboBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.nudCanProd = new System.Windows.Forms.NumericUpDown();
+            this.mskPreProd = new System.Windows.Forms.MaskedTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImgProd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCanProd)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -59,15 +60,15 @@ namespace StockIt
             this.label1.Text = "Agregar Productos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // pictureBox1
+            // pbxImgProd
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(180, 145);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(180, 180);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pbxImgProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbxImgProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbxImgProd.Location = new System.Drawing.Point(180, 145);
+            this.pbxImgProd.Name = "pbxImgProd";
+            this.pbxImgProd.Size = new System.Drawing.Size(180, 180);
+            this.pbxImgProd.TabIndex = 1;
+            this.pbxImgProd.TabStop = false;
             // 
             // btnSImagen
             // 
@@ -86,20 +87,12 @@ namespace StockIt
             // txtNomProd
             // 
             this.txtNomProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNomProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.txtNomProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomProd.Location = new System.Drawing.Point(180, 373);
             this.txtNomProd.Name = "txtNomProd";
             this.txtNomProd.Size = new System.Drawing.Size(800, 30);
             this.txtNomProd.TabIndex = 3;
-            // 
-            // txtCanProd
-            // 
-            this.txtCanProd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCanProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCanProd.Location = new System.Drawing.Point(180, 446);
-            this.txtCanProd.Name = "txtCanProd";
-            this.txtCanProd.Size = new System.Drawing.Size(200, 30);
-            this.txtCanProd.TabIndex = 4;
             // 
             // label2
             // 
@@ -134,15 +127,6 @@ namespace StockIt
             this.label4.TabIndex = 8;
             this.label4.Text = "Precio Producto";
             // 
-            // txtPreProd
-            // 
-            this.txtPreProd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPreProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPreProd.Location = new System.Drawing.Point(180, 606);
-            this.txtPreProd.Name = "txtPreProd";
-            this.txtPreProd.Size = new System.Drawing.Size(800, 30);
-            this.txtPreProd.TabIndex = 7;
-            // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -154,14 +138,15 @@ namespace StockIt
             this.label5.TabIndex = 10;
             this.label5.Text = "Detalles Adicionales (Opcional)";
             // 
-            // txtDetPRod
+            // txtDetProd
             // 
-            this.txtDetPRod.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDetPRod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDetPRod.Location = new System.Drawing.Point(180, 686);
-            this.txtDetPRod.Name = "txtDetPRod";
-            this.txtDetPRod.Size = new System.Drawing.Size(800, 30);
-            this.txtDetPRod.TabIndex = 9;
+            this.txtDetProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDetProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            this.txtDetProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDetProd.Location = new System.Drawing.Point(180, 686);
+            this.txtDetProd.Name = "txtDetProd";
+            this.txtDetProd.Size = new System.Drawing.Size(800, 30);
+            this.txtDetProd.TabIndex = 9;
             // 
             // label6
             // 
@@ -177,6 +162,7 @@ namespace StockIt
             // cbxCatProd
             // 
             this.cbxCatProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbxCatProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.cbxCatProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCatProd.FormattingEnabled = true;
             this.cbxCatProd.Location = new System.Drawing.Point(180, 523);
@@ -197,6 +183,7 @@ namespace StockIt
             this.btnAgregar.TabIndex = 13;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnCancelar
             // 
@@ -211,6 +198,33 @@ namespace StockIt
             this.btnCancelar.TabIndex = 14;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // nudCanProd
+            // 
+            this.nudCanProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.nudCanProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            this.nudCanProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudCanProd.Location = new System.Drawing.Point(180, 444);
+            this.nudCanProd.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nudCanProd.Name = "nudCanProd";
+            this.nudCanProd.Size = new System.Drawing.Size(200, 30);
+            this.nudCanProd.TabIndex = 15;
+            // 
+            // mskPreProd
+            // 
+            this.mskPreProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mskPreProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            this.mskPreProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskPreProd.Location = new System.Drawing.Point(180, 602);
+            this.mskPreProd.Mask = "$999999.99";
+            this.mskPreProd.Name = "mskPreProd";
+            this.mskPreProd.Size = new System.Drawing.Size(200, 30);
+            this.mskPreProd.TabIndex = 16;
             // 
             // frmAggProductos
             // 
@@ -218,25 +232,27 @@ namespace StockIt
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1231, 1055);
+            this.Controls.Add(this.mskPreProd);
+            this.Controls.Add(this.nudCanProd);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.cbxCatProd);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtDetPRod);
+            this.Controls.Add(this.txtDetProd);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtPreProd);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtCanProd);
             this.Controls.Add(this.txtNomProd);
             this.Controls.Add(this.btnSImagen);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbxImgProd);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAggProductos";
             this.Text = "frmAggProductos";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.frmAggProductos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImgProd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCanProd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,19 +261,19 @@ namespace StockIt
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbxImgProd;
         private System.Windows.Forms.Button btnSImagen;
         private System.Windows.Forms.TextBox txtNomProd;
-        private System.Windows.Forms.TextBox txtCanProd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtPreProd;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtDetPRod;
+        private System.Windows.Forms.TextBox txtDetProd;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbxCatProd;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.NumericUpDown nudCanProd;
+        private System.Windows.Forms.MaskedTextBox mskPreProd;
     }
 }
