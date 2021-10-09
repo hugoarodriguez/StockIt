@@ -30,7 +30,7 @@ namespace StockIt
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSolicitar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,15 +52,15 @@ namespace StockIt
             this.label2.TabIndex = 10;
             this.label2.Text = "Correo Electrónico";
             // 
-            // txtUsuario
+            // txtCorreo
             // 
-            this.txtUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(491, 452);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(500, 30);
-            this.txtUsuario.TabIndex = 9;
+            this.txtCorreo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreo.Location = new System.Drawing.Point(491, 452);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(500, 30);
+            this.txtCorreo.TabIndex = 9;
             // 
             // label1
             // 
@@ -147,7 +147,7 @@ namespace StockIt
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSolicitar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtUsuario);
+            this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRecuperarCuenta";
@@ -162,7 +162,7 @@ namespace StockIt
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSolicitar;
         private System.Windows.Forms.Label label3;
