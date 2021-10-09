@@ -16,6 +16,7 @@ namespace StockIt
         public frmAggProductos()
         {
             InitializeComponent();
+            
         }
 
         private void frmAggProductos_Load(object sender, EventArgs e)
@@ -34,9 +35,15 @@ namespace StockIt
             limpiarControles();
         }
 
+        private void btnSImagen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Limpia los controles del formulario
         private void limpiarControles()
         {
-            pbxImgProd.Image = null;
+            pbxImgProd.Image = StockIt.Properties.Resources.noImage;
             txtNomProd.Text = null;
             nudCanProd.Value = 0;
             //cbxCatProd.SelectedIndex = 0;

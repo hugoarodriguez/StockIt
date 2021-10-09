@@ -64,9 +64,13 @@ namespace StockIt
             // 
             this.pbxImgProd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbxImgProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbxImgProd.Image = global::StockIt.Properties.Resources.noImage;
             this.pbxImgProd.Location = new System.Drawing.Point(180, 145);
+            this.pbxImgProd.MaximumSize = new System.Drawing.Size(180, 180);
+            this.pbxImgProd.MinimumSize = new System.Drawing.Size(180, 180);
             this.pbxImgProd.Name = "pbxImgProd";
             this.pbxImgProd.Size = new System.Drawing.Size(180, 180);
+            this.pbxImgProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxImgProd.TabIndex = 1;
             this.pbxImgProd.TabStop = false;
             // 
@@ -80,9 +84,10 @@ namespace StockIt
             this.btnSImagen.Location = new System.Drawing.Point(423, 225);
             this.btnSImagen.Name = "btnSImagen";
             this.btnSImagen.Size = new System.Drawing.Size(130, 40);
-            this.btnSImagen.TabIndex = 2;
+            this.btnSImagen.TabIndex = 1;
             this.btnSImagen.Text = "Seleccionar";
             this.btnSImagen.UseVisualStyleBackColor = false;
+            this.btnSImagen.Click += new System.EventHandler(this.btnSImagen_Click);
             // 
             // txtNomProd
             // 
@@ -92,7 +97,7 @@ namespace StockIt
             this.txtNomProd.Location = new System.Drawing.Point(180, 373);
             this.txtNomProd.Name = "txtNomProd";
             this.txtNomProd.Size = new System.Drawing.Size(800, 30);
-            this.txtNomProd.TabIndex = 3;
+            this.txtNomProd.TabIndex = 2;
             // 
             // label2
             // 
@@ -146,7 +151,7 @@ namespace StockIt
             this.txtDetProd.Location = new System.Drawing.Point(180, 686);
             this.txtDetProd.Name = "txtDetProd";
             this.txtDetProd.Size = new System.Drawing.Size(800, 30);
-            this.txtDetProd.TabIndex = 9;
+            this.txtDetProd.TabIndex = 6;
             // 
             // label6
             // 
@@ -168,7 +173,7 @@ namespace StockIt
             this.cbxCatProd.Location = new System.Drawing.Point(180, 523);
             this.cbxCatProd.Name = "cbxCatProd";
             this.cbxCatProd.Size = new System.Drawing.Size(200, 33);
-            this.cbxCatProd.TabIndex = 12;
+            this.cbxCatProd.TabIndex = 4;
             // 
             // btnAgregar
             // 
@@ -180,7 +185,7 @@ namespace StockIt
             this.btnAgregar.Location = new System.Drawing.Point(478, 771);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(130, 40);
-            this.btnAgregar.TabIndex = 13;
+            this.btnAgregar.TabIndex = 7;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -195,7 +200,7 @@ namespace StockIt
             this.btnCancelar.Location = new System.Drawing.Point(659, 771);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(130, 40);
-            this.btnCancelar.TabIndex = 14;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -213,7 +218,7 @@ namespace StockIt
             0});
             this.nudCanProd.Name = "nudCanProd";
             this.nudCanProd.Size = new System.Drawing.Size(200, 30);
-            this.nudCanProd.TabIndex = 15;
+            this.nudCanProd.TabIndex = 3;
             // 
             // mskPreProd
             // 
@@ -224,7 +229,7 @@ namespace StockIt
             this.mskPreProd.Mask = "$999999.99";
             this.mskPreProd.Name = "mskPreProd";
             this.mskPreProd.Size = new System.Drawing.Size(200, 30);
-            this.mskPreProd.TabIndex = 16;
+            this.mskPreProd.TabIndex = 5;
             // 
             // frmAggProductos
             // 
