@@ -374,25 +374,25 @@ namespace StockIt
             // panelFormularioHijo
             // 
             this.panelFormularioHijo.BackColor = System.Drawing.Color.White;
-            this.panelFormularioHijo.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelFormularioHijo.Location = new System.Drawing.Point(254, 0);
+            this.panelFormularioHijo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFormularioHijo.Location = new System.Drawing.Point(251, 0);
             this.panelFormularioHijo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelFormularioHijo.Name = "panelFormularioHijo";
-            this.panelFormularioHijo.Size = new System.Drawing.Size(1226, 1055);
+            this.panelFormularioHijo.Size = new System.Drawing.Size(1231, 1055);
             this.panelFormularioHijo.TabIndex = 1;
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1480, 1055);
+            this.ClientSize = new System.Drawing.Size(1482, 1055);
             this.Controls.Add(this.panelFormularioHijo);
             this.Controls.Add(this.panelSideMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1105, 818);
+            this.MinimumSize = new System.Drawing.Size(1500, 1028);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock It";

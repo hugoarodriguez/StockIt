@@ -37,7 +37,7 @@ namespace StockIt
             // 
             // label1
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
@@ -52,7 +52,7 @@ namespace StockIt
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(203, 132);
+            this.label2.Location = new System.Drawing.Point(211, 157);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(163, 20);
             this.label2.TabIndex = 7;
@@ -62,7 +62,7 @@ namespace StockIt
             // 
             this.txtNomProd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNomProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomProd.Location = new System.Drawing.Point(207, 159);
+            this.txtNomProd.Location = new System.Drawing.Point(215, 184);
             this.txtNomProd.Name = "txtNomProd";
             this.txtNomProd.Size = new System.Drawing.Size(800, 30);
             this.txtNomProd.TabIndex = 6;
@@ -71,7 +71,7 @@ namespace StockIt
             // 
             this.flpListadoProductos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flpListadoProductos.AutoScroll = true;
-            this.flpListadoProductos.Location = new System.Drawing.Point(107, 225);
+            this.flpListadoProductos.Location = new System.Drawing.Point(115, 250);
             this.flpListadoProductos.Name = "flpListadoProductos";
             this.flpListadoProductos.Size = new System.Drawing.Size(1000, 543);
             this.flpListadoProductos.TabIndex = 8;
@@ -81,7 +81,7 @@ namespace StockIt
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1210, 1004);
+            this.ClientSize = new System.Drawing.Size(1226, 1055);
             this.Controls.Add(this.flpListadoProductos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNomProd);
