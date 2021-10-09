@@ -134,8 +134,8 @@ namespace StockIt
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            //Funcionalidades (llamar formulario correspondiente)
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
+            this.Close();
         }
 
         private Form formularioActivo = null;

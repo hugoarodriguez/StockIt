@@ -88,6 +88,9 @@
     <EmbeddedResource Include="CustomControls\ProductoCard.resx">
       <DependentUpon>ProductoCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmContenedor.resx">
+      <DependentUpon>frmContenedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>

@@ -26,3 +26,4 @@ C:\Users\AMILTONR\Source\Repos\StockIt\obj\Debug\StockIt.csproj.CoreCompileInput
 C:\Users\AMILTONR\Source\Repos\StockIt\obj\Debug\StockIt.exe
 C:\Users\AMILTONR\Source\Repos\StockIt\obj\Debug\StockIt.pdb
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.csproj.AssemblyReference.cache
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmContenedor.resources

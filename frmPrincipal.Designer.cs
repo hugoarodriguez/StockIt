@@ -388,13 +388,11 @@ namespace StockIt
             this.ClientSize = new System.Drawing.Size(1482, 1055);
             this.Controls.Add(this.panelFormularioHijo);
             this.Controls.Add(this.panelSideMenu);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1500, 1028);
             this.Name = "frmPrincipal";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock It";
             this.panelSideMenu.ResumeLayout(false);
             this.panelSubMenuReportes.ResumeLayout(false);
