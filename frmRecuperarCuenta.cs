@@ -20,7 +20,7 @@ namespace StockIt
 
         private void btnSolicitar_Click(object sender, EventArgs e)
         {
-            //Abrir ventana modal que muestra contraseña temporal
+            //Abrir ventana modal que muestra contraseña temporal (si el correo es válido y existe en la BD)
             try
             {
                 string email = txtCorreo.Text;
