@@ -141,10 +141,16 @@ namespace StockIt
             this.Close();
         }
 
+        private void lklCorreo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            abrirFormularioHijo(new frmCambiarClave());
+            ocultarSubMenu();
+        }
+
         private Form formularioActivo = null;
         private void abrirFormularioHijo(Form formularioHijo)
         {
-            if(formularioActivo != null)
+            if (formularioActivo != null)
             {
                 formularioActivo.Close();
             }

@@ -48,8 +48,11 @@ namespace StockIt
             this.btnInicio = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelFormularioHijo = new System.Windows.Forms.Panel();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lklCorreo = new System.Windows.Forms.LinkLabel();
             this.panelSideMenu.SuspendLayout();
             this.panelSubMenuReportes.SuspendLayout();
+            this.panelLogo.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSideMenu
@@ -364,6 +367,8 @@ namespace StockIt
             // panelLogo
             // 
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(95)))), ((int)(((byte)(134)))));
+            this.panelLogo.Controls.Add(this.lklCorreo);
+            this.panelLogo.Controls.Add(this.lblNombre);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -381,6 +386,32 @@ namespace StockIt
             this.panelFormularioHijo.Size = new System.Drawing.Size(1231, 1055);
             this.panelFormularioHijo.TabIndex = 1;
             // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoEllipsis = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.White;
+            this.lblNombre.Location = new System.Drawing.Point(9, 19);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(236, 23);
+            this.lblNombre.TabIndex = 0;
+            this.lblNombre.Text = "Nombre Apellido";
+            // 
+            // lklCorreo
+            // 
+            this.lklCorreo.AutoEllipsis = true;
+            this.lklCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lklCorreo.ForeColor = System.Drawing.Color.White;
+            this.lklCorreo.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.lklCorreo.LinkColor = System.Drawing.Color.White;
+            this.lklCorreo.Location = new System.Drawing.Point(9, 56);
+            this.lklCorreo.Name = "lklCorreo";
+            this.lklCorreo.Size = new System.Drawing.Size(239, 23);
+            this.lklCorreo.TabIndex = 1;
+            this.lklCorreo.TabStop = true;
+            this.lklCorreo.Text = "correo@gmail.com";
+            this.lklCorreo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklCorreo_LinkClicked);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -396,6 +427,7 @@ namespace StockIt
             this.Text = "Stock It";
             this.panelSideMenu.ResumeLayout(false);
             this.panelSubMenuReportes.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -421,6 +453,8 @@ namespace StockIt
         private System.Windows.Forms.Button btnReporteProductos;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Panel panelFormularioHijo;
+        private System.Windows.Forms.LinkLabel lklCorreo;
+        private System.Windows.Forms.Label lblNombre;
     }
 }
 
