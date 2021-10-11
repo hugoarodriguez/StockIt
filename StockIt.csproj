@@ -52,6 +52,30 @@
     <Compile Include="CustomControls\ProductoCard.Designer.cs">
       <DependentUpon>ProductoCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCategorias.Designer.cs">
+      <DependentUpon>frmCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClientes.Designer.cs">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModClientes.Designer.cs">
+      <DependentUpon>frmModClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAggClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAggClientes.Designer.cs">
+      <DependentUpon>frmAggClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmContenedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,17 +112,35 @@
     <Compile Include="frmRecuperarCuenta.Designer.cs">
       <DependentUpon>frmRecuperarCuenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReservas.Designer.cs">
+      <DependentUpon>frmReservas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />
     <EmbeddedResource Include="CustomControls\ProductoCard.resx">
       <DependentUpon>ProductoCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAggClientes.resx">
+      <DependentUpon>frmAggClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCategorias.resx">
+      <DependentUpon>frmCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClientes.resx">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmContenedor.resx">
       <DependentUpon>frmContenedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModClientes.resx">
+      <DependentUpon>frmModClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
@@ -111,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRecuperarCuenta.resx">
       <DependentUpon>frmRecuperarCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReservas.resx">
+      <DependentUpon>frmReservas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
