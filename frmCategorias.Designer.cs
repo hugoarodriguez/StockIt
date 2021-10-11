@@ -33,7 +33,6 @@ namespace StockIt
             this.txtCategoria = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.flpListadoCategorias = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // label2
@@ -41,7 +40,7 @@ namespace StockIt
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(158, 100);
+            this.label2.Location = new System.Drawing.Point(160, 161);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 17);
@@ -51,9 +50,9 @@ namespace StockIt
             // txtCategoria
             // 
             this.txtCategoria.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCategoria.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.txtCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCategoria.Location = new System.Drawing.Point(161, 119);
+            this.txtCategoria.Location = new System.Drawing.Point(163, 180);
             this.txtCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(461, 26);
@@ -79,7 +78,7 @@ namespace StockIt
             this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(626, 117);
+            this.btnAgregar.Location = new System.Drawing.Point(653, 180);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(98, 32);
@@ -87,23 +86,11 @@ namespace StockIt
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             // 
-            // flpListadoCategorias
-            // 
-            this.flpListadoCategorias.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flpListadoCategorias.AutoScroll = true;
-            this.flpListadoCategorias.Location = new System.Drawing.Point(86, 170);
-            this.flpListadoCategorias.Margin = new System.Windows.Forms.Padding(2);
-            this.flpListadoCategorias.Name = "flpListadoCategorias";
-            this.flpListadoCategorias.Size = new System.Drawing.Size(750, 471);
-            this.flpListadoCategorias.TabIndex = 35;
-            // 
             // frmCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(923, 857);
-            this.Controls.Add(this.flpListadoCategorias);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCategoria);
@@ -111,7 +98,6 @@ namespace StockIt
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCategorias";
             this.Text = "frmCategorias";
-            this.Load += new System.EventHandler(this.frmCategorias_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,6 +109,5 @@ namespace StockIt
         private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.FlowLayoutPanel flpListadoCategorias;
     }
 }

@@ -1,5 +1,4 @@
-﻿using StockIt.CustomControls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,51 +15,6 @@ namespace StockIt
         public frmClientes()
         {
             InitializeComponent();
-        }
-
-        private void frmClientes_Load(object sender, EventArgs e)
-        {
-            cargarClientes();
-        }
-
-        private void cargarClientes()
-        {
-            ClienteCard[] clientes = new ClienteCard[10];
-            for (int i = 0; i < clientes.Length; i++)
-            {
-                clientes[i] = new ClienteCard();
-                clientes[i].Name = "ClienteCard" + i.ToString();
-                clientes[i].NomClie = "Cliente " + i.ToString();
-                clientes[i].TelClie = "7121-2321";
-                clientes[i].CorrClie = "correo@mail.com";
-                clientes[i].SexClie = "Masculino";
-
-                //Creación de btnEditar
-                clientes[i].BtnEditarProp = new Button();
-                clientes[i].ButtonClickEditar += new EventHandler(btnEditar_ButtonClick);
-
-                void btnEditar_ButtonClick(object sender, EventArgs e)
-                {
-                    //Manejar evento
-                    ClienteCard clienteCardItem = ((ClienteCard)sender);
-                    this.txtClientes.Text = clienteCardItem.Name + "Editar";
-                }
-
-                //Creación de btnEliminar
-                clientes[i].BtnEliminarProp = new Button();
-                clientes[i].ButtonClickEliminar += new EventHandler(btnEliminar_ButtonClick);
-
-                void btnEliminar_ButtonClick(object sender, EventArgs e)
-                {
-                    //Manejar evento
-                    ClienteCard clienteCardItem = ((ClienteCard)sender);
-                    this.txtClientes.Text = clienteCardItem.Name + "Eliminar";
-                    clienteCardItem.Dispose();
-                }
-
-                //Agregamos el ProductoCard al FlowLAyoutPanel
-                flpListadoClientes.Controls.Add(clientes[i]);
-            }
         }
     }
 }
