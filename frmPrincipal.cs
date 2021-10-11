@@ -73,6 +73,7 @@ namespace StockIt
         private void btnAggClientes_Click(object sender, EventArgs e)
         {
             //Funcionalidades (llamar formulario correspondiente)
+            abrirFormularioHijo(new frmAggClientes());
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
@@ -92,12 +93,14 @@ namespace StockIt
         private void btnCategorias_Click(object sender, EventArgs e)
         {
             //Funcionalidades (llamar formulario correspondiente)
+            abrirFormularioHijo(new frmCategorias());
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
             //Funcionalidades (llamar formulario correspondiente)
+            abrirFormularioHijo(new frmClientes());
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
