@@ -28,3 +28,9 @@ C:\Users\AMILTONR\Source\Repos\StockIt\obj\Debug\StockIt.pdb
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.csproj.AssemblyReference.cache
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmContenedor.resources
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmRecuperarCuenta.resources
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmAggClientes.resources
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmCategorias.resources
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmClientes.resources
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmModClientes.resources
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmReservas.resources
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmClaveTemporal.resources

@@ -27,9 +27,17 @@ namespace StockIt
                 Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,5})+)$");
                 Match match = regex.Match(email);
                 if (match.Success)
+                {
                     MessageBox.Show("Correo válido");
+                    this.Close();
+                    frmClaveTemporal frmClaveTemporal = new frmClaveTemporal();
+                    frmClaveTemporal.Show();
+                }
                 else
+                {
                     MessageBox.Show("Correo inválido");
+                }
+                    
             }
             catch (Exception)
             {
