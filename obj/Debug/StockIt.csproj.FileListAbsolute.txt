@@ -28,6 +28,35 @@ C:\Users\AMILTONR\Source\Repos\StockIt\obj\Debug\StockIt.pdb
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.csproj.AssemblyReference.cache
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmContenedor.resources
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmRecuperarCuenta.resources
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+D:\Documentos\GitHub\StockIt\bin\Debug\StockIt.exe.config
+D:\Documentos\GitHub\StockIt\bin\Debug\StockIt.exe
+D:\Documentos\GitHub\StockIt\bin\Debug\StockIt.pdb
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.csproj.AssemblyReference.cache
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.CustomControls.ProductoCard.resources
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.frmAggClientes.resources
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.frmCategorias.resources
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.frmClientes.resources
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.frmContenedor.resources
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.frmInicio.resources
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.frmModClientes.resources
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.frmPrincipal.resources
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.frmAggProductos.resources
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.frmProductos.resources
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.frmRecuperarCuenta.resources
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.frmReservas.resources
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.Properties.Resources.resources
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.csproj.GenerateResource.cache
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.csproj.CoreCompileInputs.cache
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.exe
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.pdb
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.CustomControls.CategoriaCard.resources
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.CustomControls.ClienteCard.resources
+D:\Documentos\GitHub\StockIt\obj\Debug\StockIt.CustomControls.ReservaCard.resources
+=======
+>>>>>>> Stashed changes
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmAggClientes.resources
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmCategorias.resources
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmClientes.resources
@@ -35,3 +64,7 @@ C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internaci
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmReservas.resources
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmClaveTemporal.resources
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmCambiarClave.resources
+<<<<<<< Updated upstream
+=======
+>>>>>>> 68a1891dd2a3a5e96b4dc036b952994eadeb181f
+>>>>>>> Stashed changes

@@ -46,17 +46,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControls\CategoriaCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\CategoriaCard.Designer.cs">
+      <DependentUpon>CategoriaCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ClienteCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ClienteCard.Designer.cs">
+      <DependentUpon>ClienteCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\ProductoCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CustomControls\ProductoCard.Designer.cs">
       <DependentUpon>ProductoCard.cs</DependentUpon>
     </Compile>
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+    <Compile Include="CustomControls\ReservaCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ReservaCard.Designer.cs">
+      <DependentUpon>ReservaCard.cs</DependentUpon>
+=======
+>>>>>>> Stashed changes
     <Compile Include="frmCambiarClave.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCambiarClave.Designer.cs">
       <DependentUpon>frmCambiarClave.cs</DependentUpon>
+<<<<<<< Updated upstream
+=======
+>>>>>>> 68a1891dd2a3a5e96b4dc036b952994eadeb181f
+>>>>>>> Stashed changes
     </Compile>
     <Compile Include="frmCategorias.cs">
       <SubType>Form</SubType>
@@ -133,8 +159,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="CustomControls\CategoriaCard.resx">
+      <DependentUpon>CategoriaCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ClienteCard.resx">
+      <DependentUpon>ClienteCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ProductoCard.resx">
       <DependentUpon>ProductoCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ReservaCard.resx">
+      <DependentUpon>ReservaCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAggClientes.resx">
       <DependentUpon>frmAggClientes.cs</DependentUpon>
