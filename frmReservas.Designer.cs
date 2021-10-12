@@ -32,6 +32,7 @@ namespace StockIt
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtReservas = new System.Windows.Forms.TextBox();
+            this.flpListadoReservas = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // label1
@@ -52,7 +53,7 @@ namespace StockIt
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(160, 161);
+            this.label2.Location = new System.Drawing.Point(158, 100);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 17);
@@ -62,26 +63,38 @@ namespace StockIt
             // txtReservas
             // 
             this.txtReservas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtReservas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            this.txtReservas.BackColor = System.Drawing.SystemColors.Window;
             this.txtReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReservas.Location = new System.Drawing.Point(163, 183);
+            this.txtReservas.Location = new System.Drawing.Point(161, 119);
             this.txtReservas.Margin = new System.Windows.Forms.Padding(2);
             this.txtReservas.Name = "txtReservas";
             this.txtReservas.Size = new System.Drawing.Size(601, 26);
             this.txtReservas.TabIndex = 25;
-            this.txtReservas.TextChanged += new System.EventHandler(this.txtNomMClie_TextChanged);
+            // 
+            // flpListadoReservas
+            // 
+            this.flpListadoReservas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flpListadoReservas.AutoScroll = true;
+            this.flpListadoReservas.Location = new System.Drawing.Point(86, 170);
+            this.flpListadoReservas.Margin = new System.Windows.Forms.Padding(2);
+            this.flpListadoReservas.Name = "flpListadoReservas";
+            this.flpListadoReservas.Size = new System.Drawing.Size(750, 471);
+            this.flpListadoReservas.TabIndex = 27;
             // 
             // frmReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(923, 857);
+            this.Controls.Add(this.flpListadoReservas);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtReservas);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmReservas";
             this.Text = "frmReservas";
+            this.Load += new System.EventHandler(this.frmReservas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,5 +105,6 @@ namespace StockIt
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtReservas;
+        private System.Windows.Forms.FlowLayoutPanel flpListadoReservas;
     }
 }
