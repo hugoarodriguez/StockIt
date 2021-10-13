@@ -113,6 +113,7 @@ namespace StockIt
         private void btnReporteProductos_Click(object sender, EventArgs e)
         {
             //Funcionalidades (llamar formulario correspondiente)
+            abrirFormularioHijo(new frmReporteProductos());
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 

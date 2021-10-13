@@ -142,6 +142,18 @@
     <Compile Include="frmRecuperarCuenta.Designer.cs">
       <DependentUpon>frmRecuperarCuenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistro.Designer.cs">
+      <DependentUpon>frmRegistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteProductos.Designer.cs">
+      <DependentUpon>frmReporteProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReservas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +204,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRecuperarCuenta.resx">
       <DependentUpon>frmRecuperarCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistro.resx">
+      <DependentUpon>frmRegistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteProductos.resx">
+      <DependentUpon>frmReporteProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReservas.resx">
       <DependentUpon>frmReservas.cs</DependentUpon>

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace StockIt
 {
-    public partial class frmRegistro : Form
+    public partial class frmReporteProductos : Form
     {
-        public frmRegistro()
+        public frmReporteProductos()
         {
             InitializeComponent();
-        }
-
-        private void btnVolver_Click(object sender, EventArgs e)
-        {
-
         }
 
     }
