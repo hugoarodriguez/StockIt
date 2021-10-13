@@ -46,11 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControls\CategoriaCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\CategoriaCard.Designer.cs">
+      <DependentUpon>CategoriaCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ClienteCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ClienteCard.Designer.cs">
+      <DependentUpon>ClienteCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\ProductoCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CustomControls\ProductoCard.Designer.cs">
       <DependentUpon>ProductoCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ReservaCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ReservaCard.Designer.cs">
+      <DependentUpon>ReservaCard.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCambiarClave.cs">
       <SubType>Form</SubType>
@@ -133,6 +151,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="CustomControls\CategoriaCard.resx">
+      <DependentUpon>CategoriaCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ProductoCard.resx">
       <DependentUpon>ProductoCard.cs</DependentUpon>
     </EmbeddedResource>
