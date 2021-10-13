@@ -17,18 +17,17 @@ namespace StockIt.CustomControls
             InitializeComponent();
         }
 
-        private String catProd;
+        private string categoria;
         private Button btnEditarProp;
         private Button btnEliminarProp;
 
-        
         [Category("Custom Props")]
-        public String CatProd
+        public String Categ
         {
-            get { return catProd; }
-            set { catProd = value; this.lblCatProd.Text = value; }
+            get { return categoria; }
+            set { categoria = value; this.lblCategoria.Text = value; }
         }
-                
+
         [Category("Custom Props")]
         public Button BtnEditarProp
         {
@@ -42,7 +41,6 @@ namespace StockIt.CustomControls
             get { return btnEliminarProp; }
             set { btnEliminarProp = value; this.btnEliminar = value; }
         }
-
 
         [Browsable(true)]
         [Category("Action")]
@@ -58,7 +56,6 @@ namespace StockIt.CustomControls
         [Category("Action")]
         [Description("Invocado cuando el usuario hace clic en boton Eliminar")]
         public event EventHandler ButtonClickEliminar;
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (this.ButtonClickEliminar != null)

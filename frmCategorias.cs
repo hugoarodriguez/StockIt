@@ -30,7 +30,7 @@ namespace StockIt
             {
                 categorias[i] = new CategoriaCard();
                 categorias[i].Name = "CategoriaCard" + i.ToString();
-                categorias[i].CatProd = "Categoría" + " " + i.ToString();
+                categorias[i].Categ = "Categoría" + " " + i.ToString();
 
                 //Creación de btnEditar
                 categorias[i].BtnEditarProp = new Button();
