@@ -48,7 +48,7 @@ namespace StockIt
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 24, 0, 0);
-            this.label1.Size = new System.Drawing.Size(923, 57);
+            this.label1.Size = new System.Drawing.Size(923, 81);
             this.label1.TabIndex = 6;
             this.label1.Text = "Reporte de Productos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -58,7 +58,7 @@ namespace StockIt
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(182, 127);
+            this.label2.Location = new System.Drawing.Point(204, 128);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 17);
@@ -69,7 +69,7 @@ namespace StockIt
             // 
             this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(267, 126);
+            this.comboBox1.Location = new System.Drawing.Point(289, 127);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(150, 21);
             this.comboBox1.TabIndex = 8;
@@ -79,7 +79,7 @@ namespace StockIt
             // 
             this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(599, 119);
+            this.comboBox2.Location = new System.Drawing.Point(550, 124);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(150, 21);
             this.comboBox2.TabIndex = 9;
@@ -90,7 +90,7 @@ namespace StockIt
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(538, 123);
+            this.label3.Location = new System.Drawing.Point(489, 125);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 17);
@@ -99,10 +99,11 @@ namespace StockIt
             // 
             // gridProductos
             // 
+            this.gridProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.gridProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridProductos.Location = new System.Drawing.Point(104, 239);
+            this.gridProductos.Location = new System.Drawing.Point(74, 245);
             this.gridProductos.Name = "gridProductos";
-            this.gridProductos.Size = new System.Drawing.Size(775, 323);
+            this.gridProductos.Size = new System.Drawing.Size(775, 325);
             this.gridProductos.TabIndex = 11;
             // 
             // btnFiltrar
@@ -112,7 +113,7 @@ namespace StockIt
             this.btnFiltrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiltrar.ForeColor = System.Drawing.Color.White;
-            this.btnFiltrar.Location = new System.Drawing.Point(352, 163);
+            this.btnFiltrar.Location = new System.Drawing.Point(341, 175);
             this.btnFiltrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(98, 32);
@@ -123,11 +124,11 @@ namespace StockIt
             // btnLimpiar
             // 
             this.btnLimpiar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(117)))), ((int)(((byte)(169)))));
+            this.btnLimpiar.BackColor = System.Drawing.Color.Gray;
             this.btnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(512, 163);
+            this.btnLimpiar.Location = new System.Drawing.Point(492, 175);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(98, 32);
@@ -152,6 +153,7 @@ namespace StockIt
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmReporteProductos";
             this.Text = "frmReporteProductos";
+            this.Load += new System.EventHandler(this.frmReporteProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

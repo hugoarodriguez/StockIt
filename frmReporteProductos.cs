@@ -17,5 +17,9 @@ namespace StockIt
             InitializeComponent();
         }
 
+        private void frmReporteProductos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
