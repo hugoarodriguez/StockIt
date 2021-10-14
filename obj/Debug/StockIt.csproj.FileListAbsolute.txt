@@ -104,3 +104,6 @@ C:\Users\Admin\Source\Repos\StockIt\obj\Debug\StockIt.csproj.GenerateResource.ca
 C:\Users\Admin\Source\Repos\StockIt\obj\Debug\StockIt.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Source\Repos\StockIt\obj\Debug\StockIt.exe
 C:\Users\Admin\Source\Repos\StockIt\obj\Debug\StockIt.pdb
+C:\Users\Admin\Source\Repos\StockIt\obj\Debug\StockIt.frmReporteClientes.resources
+C:\Users\Admin\Source\Repos\StockIt\obj\Debug\StockIt.frmReporteReservas.resources
+C:\Users\Admin\Source\Repos\StockIt\obj\Debug\StockIt.frmReporteVentas.resources

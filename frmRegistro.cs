@@ -19,7 +19,17 @@ namespace StockIt
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private void btnVolver_MouseHover(object sender, EventArgs e)
+        {
+            btnVolver.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void btnVolver_MouseLeave(object sender, EventArgs e)
+        {
+            btnVolver.BorderStyle = BorderStyle.None;
         }
 
     }

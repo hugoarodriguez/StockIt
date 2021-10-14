@@ -60,5 +60,10 @@ namespace StockIt
             abrirFormularioHijo(new frmRecuperarCuenta());
             limpiarControles();
         }
+
+        private void lklRegistrate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            abrirFormularioHijo(new frmRegistro());
+        }
     }
 }

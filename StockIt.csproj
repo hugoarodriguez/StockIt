@@ -148,6 +148,12 @@
     <Compile Include="frmRegistro.Designer.cs">
       <DependentUpon>frmRegistro.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteClientes.Designer.cs">
+      <DependentUpon>frmReporteClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReporteProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,12 @@
     </Compile>
     <Compile Include="frmReporteReservas.Designer.cs">
       <DependentUpon>frmReporteReservas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteVentas.Designer.cs">
+      <DependentUpon>frmReporteVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReservas.cs">
       <SubType>Form</SubType>
@@ -214,11 +226,17 @@
     <EmbeddedResource Include="frmRegistro.resx">
       <DependentUpon>frmRegistro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteClientes.resx">
+      <DependentUpon>frmReporteClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReporteProductos.resx">
       <DependentUpon>frmReporteProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteReservas.resx">
       <DependentUpon>frmReporteReservas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteVentas.resx">
+      <DependentUpon>frmReporteVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReservas.resx">
       <DependentUpon>frmReservas.cs</DependentUpon>
