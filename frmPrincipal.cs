@@ -113,24 +113,28 @@ namespace StockIt
         private void btnReporteProductos_Click(object sender, EventArgs e)
         {
             //Funcionalidades (llamar formulario correspondiente)
+            abrirFormularioHijo(new frmReporteProductos());
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
         private void btnReporteReservas_Click(object sender, EventArgs e)
         {
             //Funcionalidades (llamar formulario correspondiente)
+            abrirFormularioHijo(new frmReporteReservas());
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
         private void btnReporteClientes_Click(object sender, EventArgs e)
         {
             //Funcionalidades (llamar formulario correspondiente)
+            abrirFormularioHijo(new frmReporteClientes());
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
         private void btnReporteVentas_Click(object sender, EventArgs e)
         {
             //Funcionalidades (llamar formulario correspondiente)
+            abrirFormularioHijo(new frmReporteVentas());
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
         #endregion
