@@ -12,11 +12,11 @@ namespace StockIt
 {
     public partial class frmPrincipal : Form
     {
+        Utils utils = new Utils();
         public frmPrincipal()
         {
             InitializeComponent();
             estiloInicial();
-            abrirFormularioHijo(new frmInicio());
         }
 
         private void estiloInicial()
@@ -44,17 +44,28 @@ namespace StockIt
                 subMenu.Visible = false;
             }
         }
-                
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            //Abrimos el formulario principal
+            frmInicio formularioHijo = new frmInicio();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
+        }
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            abrirFormularioHijo(new frmInicio());
+            frmInicio formularioHijo = new frmInicio();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
         private void btnAggProductos_Click(object sender, EventArgs e)
         {
-            abrirFormularioHijo(new frmAggProductos());
+            frmAggProductos formularioHijo = new frmAggProductos();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
@@ -72,8 +83,9 @@ namespace StockIt
 
         private void btnAggClientes_Click(object sender, EventArgs e)
         {
-            //Funcionalidades (llamar formulario correspondiente)
-            abrirFormularioHijo(new frmAggClientes());
+            frmAggClientes formularioHijo = new frmAggClientes();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
@@ -85,22 +97,25 @@ namespace StockIt
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            //Funcionalidades (llamar formulario correspondiente)
-            abrirFormularioHijo(new frmProductos());
+            frmProductos formularioHijo = new frmProductos();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)
         {
-            //Funcionalidades (llamar formulario correspondiente)
-            abrirFormularioHijo(new frmCategorias());
+            frmCategorias formularioHijo = new frmCategorias();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            //Funcionalidades (llamar formulario correspondiente)
-            abrirFormularioHijo(new frmClientes());
+            frmClientes formularioHijo = new frmClientes();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
@@ -112,29 +127,33 @@ namespace StockIt
 
         private void btnReporteProductos_Click(object sender, EventArgs e)
         {
-            //Funcionalidades (llamar formulario correspondiente)
-            abrirFormularioHijo(new frmReporteProductos());
+            frmReporteProductos formularioHijo = new frmReporteProductos();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
         private void btnReporteReservas_Click(object sender, EventArgs e)
         {
-            //Funcionalidades (llamar formulario correspondiente)
-            abrirFormularioHijo(new frmReporteReservas());
+            frmReporteReservas formularioHijo = new frmReporteReservas();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
         private void btnReporteClientes_Click(object sender, EventArgs e)
         {
-            //Funcionalidades (llamar formulario correspondiente)
-            abrirFormularioHijo(new frmReporteClientes());
+            frmReporteClientes formularioHijo = new frmReporteClientes();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
         private void btnReporteVentas_Click(object sender, EventArgs e)
         {
-            //Funcionalidades (llamar formulario correspondiente)
-            abrirFormularioHijo(new frmReporteVentas());
+            frmReporteVentas formularioHijo = new frmReporteVentas();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
         #endregion
@@ -147,25 +166,10 @@ namespace StockIt
 
         private void lklCorreo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            abrirFormularioHijo(new frmCambiarClave());
+            frmCambiarClave formularioHijo = new frmCambiarClave();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();
-        }
-
-        private Form formularioActivo = null;
-        private void abrirFormularioHijo(Form formularioHijo)
-        {
-            if (formularioActivo != null)
-            {
-                formularioActivo.Close();
-            }
-            formularioActivo = formularioHijo;
-            formularioHijo.TopLevel = false;
-            formularioHijo.FormBorderStyle = FormBorderStyle.None;
-            formularioHijo.Dock = DockStyle.Fill;
-            panelFormularioHijo.Controls.Add(formularioHijo);
-            panelFormularioHijo.Tag = formularioHijo;
-            formularioHijo.BringToFront();
-            formularioHijo.Show();
         }
     }
 }

@@ -217,6 +217,9 @@
     <EmbeddedResource Include="frmModClientes.resx">
       <DependentUpon>frmModClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarProductos.resx">
+      <DependentUpon>frmModificarProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>

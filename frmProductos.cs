@@ -44,6 +44,13 @@ namespace StockIt
                     //Manejar evento
                     ProductoCard productoCardItem = ((ProductoCard)sender);
                     this.txtNomProd.Text = productoCardItem.Name + "Editar";
+
+                    //Hacer consulta en la BD del registro seleccionado
+
+                    //Abrimos el formulario para modificar el producto
+                    Utils utils = new Utils();
+                    utils.setFormToPanelFormularioHijo(new frmModificarProductos());
+
                 }
 
                 //Creación de btnEliminar

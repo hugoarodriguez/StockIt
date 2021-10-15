@@ -30,7 +30,6 @@ namespace StockIt
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.pbxImgProd = new System.Windows.Forms.PictureBox();
             this.btnSImagen = new System.Windows.Forms.Button();
             this.txtNomProd = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,8 +43,9 @@ namespace StockIt
             this.btnCancelar = new System.Windows.Forms.Button();
             this.nudCanProd = new System.Windows.Forms.NumericUpDown();
             this.mskPreProd = new System.Windows.Forms.MaskedTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxImgProd)).BeginInit();
+            this.pbxImgProd = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudCanProd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImgProd)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -59,19 +59,6 @@ namespace StockIt
             this.label1.TabIndex = 0;
             this.label1.Text = "Agregar Productos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // pbxImgProd
-            // 
-            this.pbxImgProd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbxImgProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbxImgProd.Image = global::StockIt.Properties.Resources.noImage;
-            this.pbxImgProd.Location = new System.Drawing.Point(180, 150);
-            this.pbxImgProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbxImgProd.Name = "pbxImgProd";
-            this.pbxImgProd.Size = new System.Drawing.Size(160, 160);
-            this.pbxImgProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbxImgProd.TabIndex = 1;
-            this.pbxImgProd.TabStop = false;
             // 
             // btnSImagen
             // 
@@ -238,6 +225,19 @@ namespace StockIt
             this.mskPreProd.Size = new System.Drawing.Size(200, 30);
             this.mskPreProd.TabIndex = 5;
             // 
+            // pbxImgProd
+            // 
+            this.pbxImgProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbxImgProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbxImgProd.Image = global::StockIt.Properties.Resources.noImage;
+            this.pbxImgProd.Location = new System.Drawing.Point(180, 150);
+            this.pbxImgProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbxImgProd.Name = "pbxImgProd";
+            this.pbxImgProd.Size = new System.Drawing.Size(160, 160);
+            this.pbxImgProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxImgProd.TabIndex = 1;
+            this.pbxImgProd.TabStop = false;
+            // 
             // frmAggProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -261,11 +261,13 @@ namespace StockIt
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAggProductos";
             this.Text = "frmAggProductos";
             this.Load += new System.EventHandler(this.frmAggProductos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbxImgProd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCanProd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImgProd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

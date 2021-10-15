@@ -30,6 +30,7 @@ namespace StockIt
         private void InitializeComponent()
         {
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.lblFormOpen = new System.Windows.Forms.Label();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.panelSubMenuReportes = new System.Windows.Forms.Panel();
             this.btnReporteVentas = new System.Windows.Forms.Button();
@@ -59,6 +60,7 @@ namespace StockIt
             // 
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(117)))), ((int)(((byte)(169)))));
+            this.panelSideMenu.Controls.Add(this.lblFormOpen);
             this.panelSideMenu.Controls.Add(this.btnCerrarSesion);
             this.panelSideMenu.Controls.Add(this.panelSubMenuReportes);
             this.panelSideMenu.Controls.Add(this.btnReportes);
@@ -78,6 +80,16 @@ namespace StockIt
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(251, 1102);
             this.panelSideMenu.TabIndex = 0;
+            // 
+            // lblFormOpen
+            // 
+            this.lblFormOpen.AutoSize = true;
+            this.lblFormOpen.Location = new System.Drawing.Point(52, 1014);
+            this.lblFormOpen.Name = "lblFormOpen";
+            this.lblFormOpen.Size = new System.Drawing.Size(89, 17);
+            this.lblFormOpen.TabIndex = 13;
+            this.lblFormOpen.Text = "lblFormOpen";
+            this.lblFormOpen.Visible = false;
             // 
             // btnCerrarSesion
             // 
@@ -425,7 +437,9 @@ namespace StockIt
             this.MinimizeBox = false;
             this.Name = "frmPrincipal";
             this.Text = "Stock It";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.panelSideMenu.ResumeLayout(false);
+            this.panelSideMenu.PerformLayout();
             this.panelSubMenuReportes.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -452,9 +466,10 @@ namespace StockIt
         private System.Windows.Forms.Button btnReporteReservas;
         private System.Windows.Forms.Button btnReporteProductos;
         private System.Windows.Forms.Button btnCerrarSesion;
-        private System.Windows.Forms.Panel panelFormularioHijo;
         private System.Windows.Forms.LinkLabel lklCorreo;
         private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Panel panelFormularioHijo;
+        private System.Windows.Forms.Label lblFormOpen;
     }
 }
 
