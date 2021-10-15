@@ -44,6 +44,8 @@ namespace StockIt
             this.label1 = new System.Windows.Forms.Label();
             this.pbxImgProd = new System.Windows.Forms.PictureBox();
             this.btnEditar = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtCanAct = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudCanProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImgProd)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +67,7 @@ namespace StockIt
             this.nudCanProd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nudCanProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.nudCanProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudCanProd.Location = new System.Drawing.Point(180, 450);
+            this.nudCanProd.Location = new System.Drawing.Point(423, 450);
             this.nudCanProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nudCanProd.Maximum = new decimal(new int[] {
             1000000,
@@ -153,11 +155,11 @@ namespace StockIt
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(176, 420);
+            this.label3.Location = new System.Drawing.Point(419, 420);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 20);
+            this.label3.Size = new System.Drawing.Size(153, 20);
             this.label3.TabIndex = 21;
-            this.label3.Text = "Cantidad";
+            this.label3.Text = "Cantidad a Agregar";
             // 
             // label2
             // 
@@ -238,12 +240,37 @@ namespace StockIt
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(176, 420);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(127, 20);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Cantidad Actual";
+            // 
+            // txtCanAct
+            // 
+            this.txtCanAct.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCanAct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            this.txtCanAct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCanAct.Location = new System.Drawing.Point(180, 450);
+            this.txtCanAct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCanAct.Name = "txtCanAct";
+            this.txtCanAct.ReadOnly = true;
+            this.txtCanAct.Size = new System.Drawing.Size(200, 30);
+            this.txtCanAct.TabIndex = 28;
+            // 
             // frmModificarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1231, 1102);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtCanAct);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.mskPreProd);
             this.Controls.Add(this.nudCanProd);
@@ -289,5 +316,7 @@ namespace StockIt
         private System.Windows.Forms.PictureBox pbxImgProd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtCanAct;
     }
 }
