@@ -47,9 +47,9 @@ namespace StockIt
             this.btnAggProductos = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.panelFormularioHijo = new System.Windows.Forms.Panel();
-            this.lblNombre = new System.Windows.Forms.Label();
             this.lklCorreo = new System.Windows.Forms.LinkLabel();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.panelFormularioHijo = new System.Windows.Forms.Panel();
             this.panelSideMenu.SuspendLayout();
             this.panelSubMenuReportes.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -76,7 +76,7 @@ namespace StockIt
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSideMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(251, 1055);
+            this.panelSideMenu.Size = new System.Drawing.Size(251, 1102);
             this.panelSideMenu.TabIndex = 0;
             // 
             // btnCerrarSesion
@@ -376,27 +376,6 @@ namespace StockIt
             this.panelLogo.Size = new System.Drawing.Size(251, 100);
             this.panelLogo.TabIndex = 0;
             // 
-            // panelFormularioHijo
-            // 
-            this.panelFormularioHijo.BackColor = System.Drawing.Color.White;
-            this.panelFormularioHijo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFormularioHijo.Location = new System.Drawing.Point(251, 0);
-            this.panelFormularioHijo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelFormularioHijo.Name = "panelFormularioHijo";
-            this.panelFormularioHijo.Size = new System.Drawing.Size(1231, 1055);
-            this.panelFormularioHijo.TabIndex = 1;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoEllipsis = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(9, 19);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(236, 23);
-            this.lblNombre.TabIndex = 0;
-            this.lblNombre.Text = "Nombre Apellido";
-            // 
             // lklCorreo
             // 
             this.lklCorreo.AutoEllipsis = true;
@@ -412,11 +391,32 @@ namespace StockIt
             this.lklCorreo.Text = "correo@gmail.com";
             this.lklCorreo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklCorreo_LinkClicked);
             // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoEllipsis = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.White;
+            this.lblNombre.Location = new System.Drawing.Point(9, 19);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(236, 23);
+            this.lblNombre.TabIndex = 0;
+            this.lblNombre.Text = "Nombre Apellido";
+            // 
+            // panelFormularioHijo
+            // 
+            this.panelFormularioHijo.BackColor = System.Drawing.Color.White;
+            this.panelFormularioHijo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFormularioHijo.Location = new System.Drawing.Point(251, 0);
+            this.panelFormularioHijo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelFormularioHijo.Name = "panelFormularioHijo";
+            this.panelFormularioHijo.Size = new System.Drawing.Size(1231, 1102);
+            this.panelFormularioHijo.TabIndex = 1;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1482, 1055);
+            this.ClientSize = new System.Drawing.Size(1482, 1102);
             this.Controls.Add(this.panelFormularioHijo);
             this.Controls.Add(this.panelSideMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
