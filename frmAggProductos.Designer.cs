@@ -30,7 +30,6 @@ namespace StockIt
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.pbxImgProd = new System.Windows.Forms.PictureBox();
             this.btnSImagen = new System.Windows.Forms.Button();
             this.txtNomProd = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,8 +43,9 @@ namespace StockIt
             this.btnCancelar = new System.Windows.Forms.Button();
             this.nudCanProd = new System.Windows.Forms.NumericUpDown();
             this.mskPreProd = new System.Windows.Forms.MaskedTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxImgProd)).BeginInit();
+            this.pbxImgProd = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudCanProd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImgProd)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -53,28 +53,12 @@ namespace StockIt
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 24, 0, 0);
-            this.label1.Size = new System.Drawing.Size(923, 57);
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label1.Size = new System.Drawing.Size(1231, 70);
             this.label1.TabIndex = 0;
             this.label1.Text = "Agregar Productos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // pbxImgProd
-            // 
-            this.pbxImgProd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbxImgProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbxImgProd.Image = global::StockIt.Properties.Resources.noImage;
-            this.pbxImgProd.Location = new System.Drawing.Point(135, 118);
-            this.pbxImgProd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pbxImgProd.MaximumSize = new System.Drawing.Size(136, 147);
-            this.pbxImgProd.MinimumSize = new System.Drawing.Size(136, 147);
-            this.pbxImgProd.Name = "pbxImgProd";
-            this.pbxImgProd.Size = new System.Drawing.Size(136, 147);
-            this.pbxImgProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbxImgProd.TabIndex = 1;
-            this.pbxImgProd.TabStop = false;
             // 
             // btnSImagen
             // 
@@ -83,10 +67,10 @@ namespace StockIt
             this.btnSImagen.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnSImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSImagen.ForeColor = System.Drawing.Color.White;
-            this.btnSImagen.Location = new System.Drawing.Point(317, 183);
-            this.btnSImagen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSImagen.Location = new System.Drawing.Point(423, 226);
+            this.btnSImagen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSImagen.Name = "btnSImagen";
-            this.btnSImagen.Size = new System.Drawing.Size(98, 32);
+            this.btnSImagen.Size = new System.Drawing.Size(131, 39);
             this.btnSImagen.TabIndex = 1;
             this.btnSImagen.Text = "Seleccionar";
             this.btnSImagen.UseVisualStyleBackColor = false;
@@ -97,10 +81,10 @@ namespace StockIt
             this.txtNomProd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNomProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.txtNomProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomProd.Location = new System.Drawing.Point(135, 303);
-            this.txtNomProd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNomProd.Location = new System.Drawing.Point(180, 370);
+            this.txtNomProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNomProd.Name = "txtNomProd";
-            this.txtNomProd.Size = new System.Drawing.Size(601, 26);
+            this.txtNomProd.Size = new System.Drawing.Size(800, 30);
             this.txtNomProd.TabIndex = 2;
             // 
             // label2
@@ -108,10 +92,9 @@ namespace StockIt
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(132, 281);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(176, 340);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 17);
+            this.label2.Size = new System.Drawing.Size(163, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Nombre de Producto";
             // 
@@ -120,10 +103,9 @@ namespace StockIt
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(132, 342);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(176, 420);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 17);
+            this.label3.Size = new System.Drawing.Size(75, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "Cantidad";
             // 
@@ -132,10 +114,9 @@ namespace StockIt
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(132, 470);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(176, 580);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 17);
+            this.label4.Size = new System.Drawing.Size(129, 20);
             this.label4.TabIndex = 8;
             this.label4.Text = "Precio Producto";
             // 
@@ -144,10 +125,9 @@ namespace StockIt
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(132, 535);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(176, 660);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(205, 17);
+            this.label5.Size = new System.Drawing.Size(245, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "Detalles Adicionales (Opcional)";
             // 
@@ -156,10 +136,10 @@ namespace StockIt
             this.txtDetProd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDetProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.txtDetProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDetProd.Location = new System.Drawing.Point(135, 557);
-            this.txtDetProd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDetProd.Location = new System.Drawing.Point(180, 690);
+            this.txtDetProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDetProd.Name = "txtDetProd";
-            this.txtDetProd.Size = new System.Drawing.Size(601, 26);
+            this.txtDetProd.Size = new System.Drawing.Size(800, 30);
             this.txtDetProd.TabIndex = 6;
             // 
             // label6
@@ -167,10 +147,9 @@ namespace StockIt
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(132, 405);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(176, 500);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 17);
+            this.label6.Size = new System.Drawing.Size(81, 20);
             this.label6.TabIndex = 11;
             this.label6.Text = "Categoría";
             // 
@@ -180,10 +159,10 @@ namespace StockIt
             this.cbxCatProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.cbxCatProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCatProd.FormattingEnabled = true;
-            this.cbxCatProd.Location = new System.Drawing.Point(135, 425);
-            this.cbxCatProd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxCatProd.Location = new System.Drawing.Point(180, 530);
+            this.cbxCatProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxCatProd.Name = "cbxCatProd";
-            this.cbxCatProd.Size = new System.Drawing.Size(151, 28);
+            this.cbxCatProd.Size = new System.Drawing.Size(200, 33);
             this.cbxCatProd.TabIndex = 4;
             // 
             // btnAgregar
@@ -193,10 +172,10 @@ namespace StockIt
             this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(358, 626);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregar.Location = new System.Drawing.Point(477, 760);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(98, 32);
+            this.btnAgregar.Size = new System.Drawing.Size(131, 39);
             this.btnAgregar.TabIndex = 7;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -209,10 +188,10 @@ namespace StockIt
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(494, 626);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Location = new System.Drawing.Point(659, 760);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(98, 32);
+            this.btnCancelar.Size = new System.Drawing.Size(131, 39);
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -223,15 +202,15 @@ namespace StockIt
             this.nudCanProd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nudCanProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.nudCanProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudCanProd.Location = new System.Drawing.Point(135, 361);
-            this.nudCanProd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudCanProd.Location = new System.Drawing.Point(180, 450);
+            this.nudCanProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nudCanProd.Maximum = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
             this.nudCanProd.Name = "nudCanProd";
-            this.nudCanProd.Size = new System.Drawing.Size(150, 26);
+            this.nudCanProd.Size = new System.Drawing.Size(200, 30);
             this.nudCanProd.TabIndex = 3;
             // 
             // mskPreProd
@@ -239,19 +218,32 @@ namespace StockIt
             this.mskPreProd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mskPreProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.mskPreProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskPreProd.Location = new System.Drawing.Point(135, 489);
-            this.mskPreProd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mskPreProd.Location = new System.Drawing.Point(180, 610);
+            this.mskPreProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mskPreProd.Mask = "$999999.99";
             this.mskPreProd.Name = "mskPreProd";
-            this.mskPreProd.Size = new System.Drawing.Size(151, 26);
+            this.mskPreProd.Size = new System.Drawing.Size(200, 30);
             this.mskPreProd.TabIndex = 5;
+            // 
+            // pbxImgProd
+            // 
+            this.pbxImgProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbxImgProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbxImgProd.Image = global::StockIt.Properties.Resources.noImage;
+            this.pbxImgProd.Location = new System.Drawing.Point(180, 150);
+            this.pbxImgProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbxImgProd.Name = "pbxImgProd";
+            this.pbxImgProd.Size = new System.Drawing.Size(160, 160);
+            this.pbxImgProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxImgProd.TabIndex = 1;
+            this.pbxImgProd.TabStop = false;
             // 
             // frmAggProductos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(923, 640);
+            this.ClientSize = new System.Drawing.Size(1231, 1102);
             this.Controls.Add(this.mskPreProd);
             this.Controls.Add(this.nudCanProd);
             this.Controls.Add(this.btnCancelar);
@@ -268,12 +260,14 @@ namespace StockIt
             this.Controls.Add(this.pbxImgProd);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAggProductos";
             this.Text = "frmAggProductos";
             this.Load += new System.EventHandler(this.frmAggProductos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbxImgProd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCanProd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImgProd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
