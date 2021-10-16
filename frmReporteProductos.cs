@@ -21,5 +21,20 @@ namespace StockIt
         {
 
         }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnImprimir_MouseHover(object sender, EventArgs e)
+        {
+            btnImprimir.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void btnImprimir_MouseLeave(object sender, EventArgs e)
+        {
+            btnImprimir.BorderStyle = BorderStyle.None;
+        }
     }
 }

@@ -114,3 +114,4 @@ C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internaci
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmReporteReservas.resources
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmReporteVentas.resources
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmModificarProductos.resources
+C:\Users\Admin\Source\Repos\StockIt\obj\Debug\StockIt.frmModificarProductos.resources
