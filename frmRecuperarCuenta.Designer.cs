@@ -46,9 +46,10 @@ namespace StockIt
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(491, 412);
+            this.label2.Location = new System.Drawing.Point(368, 335);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 20);
+            this.label2.Size = new System.Drawing.Size(125, 17);
             this.label2.TabIndex = 10;
             this.label2.Text = "Correo Electrónico";
             // 
@@ -57,18 +58,20 @@ namespace StockIt
             this.txtCorreo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreo.Location = new System.Drawing.Point(491, 452);
+            this.txtCorreo.Location = new System.Drawing.Point(368, 367);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(500, 30);
+            this.txtCorreo.Size = new System.Drawing.Size(376, 26);
             this.txtCorreo.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 150, 0, 0);
-            this.label1.Size = new System.Drawing.Size(1482, 213);
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 122, 0, 0);
+            this.label1.Size = new System.Drawing.Size(1112, 173);
             this.label1.TabIndex = 8;
             this.label1.Text = "Recuperar Tu Cuenta";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -80,9 +83,10 @@ namespace StockIt
             this.btnSolicitar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnSolicitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSolicitar.ForeColor = System.Drawing.Color.White;
-            this.btnSolicitar.Location = new System.Drawing.Point(676, 507);
+            this.btnSolicitar.Location = new System.Drawing.Point(507, 412);
+            this.btnSolicitar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSolicitar.Name = "btnSolicitar";
-            this.btnSolicitar.Size = new System.Drawing.Size(130, 40);
+            this.btnSolicitar.Size = new System.Drawing.Size(98, 32);
             this.btnSolicitar.TabIndex = 11;
             this.btnSolicitar.Text = "Solicitar";
             this.btnSolicitar.UseVisualStyleBackColor = false;
@@ -93,9 +97,10 @@ namespace StockIt
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(486, 242);
+            this.label3.Location = new System.Drawing.Point(364, 197);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(260, 29);
+            this.label3.Size = new System.Drawing.Size(204, 24);
             this.label3.TabIndex = 12;
             this.label3.Text = "Favor, indicar tu email. ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -104,9 +109,10 @@ namespace StockIt
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(486, 271);
+            this.label4.Location = new System.Drawing.Point(364, 220);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(500, 102);
+            this.label4.Size = new System.Drawing.Size(375, 83);
             this.label4.TabIndex = 13;
             this.label4.Text = "Se te asignará una contraseña temporal, deberás cambiarla al iniciar sesión nueva" +
     "mente";
@@ -116,9 +122,10 @@ namespace StockIt
             // 
             this.btnVolver.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnVolver.Image = global::StockIt.Properties.Resources.backButton1;
-            this.btnVolver.Location = new System.Drawing.Point(57, 45);
+            this.btnVolver.Location = new System.Drawing.Point(43, 37);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(64, 64);
+            this.btnVolver.Size = new System.Drawing.Size(48, 52);
             this.btnVolver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnVolver.TabIndex = 14;
             this.btnVolver.TabStop = false;
@@ -138,10 +145,10 @@ namespace StockIt
             // 
             // frmRecuperarCuenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1482, 1055);
+            this.ClientSize = new System.Drawing.Size(1040, 640);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -150,6 +157,7 @@ namespace StockIt
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmRecuperarCuenta";
             this.Text = "frmRecuperarCuenta";
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();

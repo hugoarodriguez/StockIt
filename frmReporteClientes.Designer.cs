@@ -60,12 +60,16 @@ namespace StockIt
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Image = global::StockIt.Properties.Resources.printingButton;
-            this.btnImprimir.Location = new System.Drawing.Point(727, 84);
+            this.btnImprimir.Image = global::StockIt.Properties.Resources.printingButton1;
+            this.btnImprimir.Location = new System.Drawing.Point(726, 84);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(49, 50);
+            this.btnImprimir.Size = new System.Drawing.Size(50, 50);
+            this.btnImprimir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnImprimir.TabIndex = 14;
             this.btnImprimir.TabStop = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            this.btnImprimir.MouseLeave += new System.EventHandler(this.btnImprimir_MouseLeave);
+            this.btnImprimir.MouseHover += new System.EventHandler(this.btnImprimir_MouseHover);
             // 
             // frmReporteClientes
             // 

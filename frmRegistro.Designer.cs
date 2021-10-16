@@ -125,6 +125,8 @@ namespace StockIt
             this.btnVolver.TabIndex = 17;
             this.btnVolver.TabStop = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            this.btnVolver.MouseLeave += new System.EventHandler(this.btnVolver_MouseLeave);
+            this.btnVolver.MouseHover += new System.EventHandler(this.btnVolver_MouseHover);
             // 
             // label4
             // 
