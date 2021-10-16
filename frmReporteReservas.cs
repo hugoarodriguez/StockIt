@@ -17,8 +17,14 @@ namespace StockIt
             InitializeComponent();
         }
 
-    
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
 
-    
+        }
+
+        private void dateFin_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

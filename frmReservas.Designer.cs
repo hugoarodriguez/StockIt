@@ -53,7 +53,7 @@ namespace StockIt
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(158, 100);
+            this.label2.Location = new System.Drawing.Point(158, 66);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 17);
@@ -65,7 +65,7 @@ namespace StockIt
             this.txtReservas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtReservas.BackColor = System.Drawing.SystemColors.Window;
             this.txtReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReservas.Location = new System.Drawing.Point(161, 119);
+            this.txtReservas.Location = new System.Drawing.Point(161, 85);
             this.txtReservas.Margin = new System.Windows.Forms.Padding(2);
             this.txtReservas.Name = "txtReservas";
             this.txtReservas.Size = new System.Drawing.Size(601, 26);
@@ -75,7 +75,7 @@ namespace StockIt
             // 
             this.flpListadoReservas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flpListadoReservas.AutoScroll = true;
-            this.flpListadoReservas.Location = new System.Drawing.Point(86, 170);
+            this.flpListadoReservas.Location = new System.Drawing.Point(86, 136);
             this.flpListadoReservas.Margin = new System.Windows.Forms.Padding(2);
             this.flpListadoReservas.Name = "flpListadoReservas";
             this.flpListadoReservas.Size = new System.Drawing.Size(750, 471);
@@ -86,7 +86,7 @@ namespace StockIt
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(923, 857);
+            this.ClientSize = new System.Drawing.Size(923, 788);
             this.Controls.Add(this.flpListadoReservas);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtReservas);
