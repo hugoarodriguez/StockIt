@@ -64,11 +64,23 @@
     <Compile Include="CustomControls\ProductoCard.Designer.cs">
       <DependentUpon>ProductoCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\ProductoVRCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ProductoVRCard.Designer.cs">
+      <DependentUpon>ProductoVRCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\ReservaCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CustomControls\ReservaCard.Designer.cs">
       <DependentUpon>ReservaCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAggReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAggReserva.Designer.cs">
+      <DependentUpon>frmAggReserva.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCambiarClave.cs">
       <SubType>Form</SubType>
@@ -198,8 +210,14 @@
     <EmbeddedResource Include="CustomControls\ProductoCard.resx">
       <DependentUpon>ProductoCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ProductoVRCard.resx">
+      <DependentUpon>ProductoVRCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAggClientes.resx">
       <DependentUpon>frmAggClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAggReserva.resx">
+      <DependentUpon>frmAggReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCambiarClave.resx">
       <DependentUpon>frmCambiarClave.cs</DependentUpon>

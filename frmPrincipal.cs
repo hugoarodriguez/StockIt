@@ -71,7 +71,9 @@ namespace StockIt
 
         private void btnAggReservas_Click(object sender, EventArgs e)
         {
-            //Funcionalidades (llamar formulario correspondiente)
+            frmAggReserva formularioHijo = new frmAggReserva();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
