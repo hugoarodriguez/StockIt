@@ -29,6 +29,7 @@ namespace StockIt
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSImagen = new System.Windows.Forms.Button();
             this.txtNomProd = new System.Windows.Forms.TextBox();
@@ -53,12 +54,19 @@ namespace StockIt
             this.txtPrecUnitario = new System.Windows.Forms.TextBox();
             this.txtPrecVenta = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblIDCompra = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.lklCorreo = new System.Windows.Forms.LinkLabel();
+            this.lklProductos = new System.Windows.Forms.LinkLabel();
+            this.ttSelProveedor = new System.Windows.Forms.ToolTip(this.components);
+            this.ttSelImagen = new System.Windows.Forms.ToolTip(this.components);
+            this.ttAgregar = new System.Windows.Forms.ToolTip(this.components);
+            this.ttLimpiar = new System.Windows.Forms.ToolTip(this.components);
+            this.ttFinalizar = new System.Windows.Forms.ToolTip(this.components);
+            this.ttCancelar = new System.Windows.Forms.ToolTip(this.components);
+            this.ttProductos = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudCanProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImgProd)).BeginInit();
             this.SuspendLayout();
@@ -100,7 +108,7 @@ namespace StockIt
             this.txtNomProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNomProd.Name = "txtNomProd";
             this.txtNomProd.Size = new System.Drawing.Size(800, 30);
-            this.txtNomProd.TabIndex = 2;
+            this.txtNomProd.TabIndex = 4;
             // 
             // label2
             // 
@@ -155,7 +163,7 @@ namespace StockIt
             this.txtDetProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDetProd.Name = "txtDetProd";
             this.txtDetProd.Size = new System.Drawing.Size(800, 30);
-            this.txtDetProd.TabIndex = 7;
+            this.txtDetProd.TabIndex = 11;
             // 
             // label6
             // 
@@ -178,7 +186,7 @@ namespace StockIt
             this.cbxCatProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxCatProd.Name = "cbxCatProd";
             this.cbxCatProd.Size = new System.Drawing.Size(350, 33);
-            this.cbxCatProd.TabIndex = 4;
+            this.cbxCatProd.TabIndex = 3;
             // 
             // nudCanProd
             // 
@@ -194,7 +202,8 @@ namespace StockIt
             0});
             this.nudCanProd.Name = "nudCanProd";
             this.nudCanProd.Size = new System.Drawing.Size(200, 30);
-            this.nudCanProd.TabIndex = 3;
+            this.nudCanProd.TabIndex = 5;
+            this.nudCanProd.ValueChanged += new System.EventHandler(this.nudCanProd_ValueChanged);
             // 
             // pbxImgProd
             // 
@@ -230,8 +239,9 @@ namespace StockIt
             this.mskPorGanancia.Mask = "000";
             this.mskPorGanancia.Name = "mskPorGanancia";
             this.mskPorGanancia.Size = new System.Drawing.Size(200, 30);
-            this.mskPorGanancia.TabIndex = 6;
+            this.mskPorGanancia.TabIndex = 8;
             this.mskPorGanancia.ValidatingType = typeof(int);
+            this.mskPorGanancia.TextChanged += new System.EventHandler(this.mskPorGanancia_TextChanged);
             // 
             // txtGanancia
             // 
@@ -243,7 +253,8 @@ namespace StockIt
             this.txtGanancia.Name = "txtGanancia";
             this.txtGanancia.ReadOnly = true;
             this.txtGanancia.Size = new System.Drawing.Size(200, 30);
-            this.txtGanancia.TabIndex = 14;
+            this.txtGanancia.TabIndex = 9;
+            this.txtGanancia.Text = "$0.00";
             // 
             // label8
             // 
@@ -266,7 +277,8 @@ namespace StockIt
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.ReadOnly = true;
             this.txtProveedor.Size = new System.Drawing.Size(350, 30);
-            this.txtProveedor.TabIndex = 16;
+            this.txtProveedor.TabIndex = 17;
+            this.txtProveedor.Text = "Quitar cuando se use la BD";
             // 
             // btnSelProveedor
             // 
@@ -279,7 +291,7 @@ namespace StockIt
             this.btnSelProveedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSelProveedor.Name = "btnSelProveedor";
             this.btnSelProveedor.Size = new System.Drawing.Size(50, 39);
-            this.btnSelProveedor.TabIndex = 17;
+            this.btnSelProveedor.TabIndex = 2;
             this.btnSelProveedor.Text = "...";
             this.btnSelProveedor.UseVisualStyleBackColor = false;
             // 
@@ -301,10 +313,11 @@ namespace StockIt
             this.mskPrecLote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskPrecLote.Location = new System.Drawing.Point(480, 530);
             this.mskPrecLote.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.mskPrecLote.Mask = "$999999.99";
+            this.mskPrecLote.Mask = "$000000.00";
             this.mskPrecLote.Name = "mskPrecLote";
             this.mskPrecLote.Size = new System.Drawing.Size(200, 30);
-            this.mskPrecLote.TabIndex = 19;
+            this.mskPrecLote.TabIndex = 6;
+            this.mskPrecLote.TextChanged += new System.EventHandler(this.mskPrecLote_TextChanged);
             // 
             // label10
             // 
@@ -327,7 +340,8 @@ namespace StockIt
             this.txtPrecUnitario.Name = "txtPrecUnitario";
             this.txtPrecUnitario.ReadOnly = true;
             this.txtPrecUnitario.Size = new System.Drawing.Size(200, 30);
-            this.txtPrecUnitario.TabIndex = 21;
+            this.txtPrecUnitario.TabIndex = 7;
+            this.txtPrecUnitario.Text = "$0.00";
             // 
             // txtPrecVenta
             // 
@@ -339,7 +353,8 @@ namespace StockIt
             this.txtPrecVenta.Name = "txtPrecVenta";
             this.txtPrecVenta.ReadOnly = true;
             this.txtPrecVenta.Size = new System.Drawing.Size(200, 30);
-            this.txtPrecVenta.TabIndex = 23;
+            this.txtPrecVenta.TabIndex = 10;
+            this.txtPrecVenta.Text = "$0.00";
             // 
             // label11
             // 
@@ -352,16 +367,16 @@ namespace StockIt
             this.label11.TabIndex = 22;
             this.label11.Text = "Precio Venta";
             // 
-            // label13
+            // lblIDCompra
             // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(540, 150);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(440, 20);
-            this.label13.TabIndex = 25;
-            this.label13.Text = "ID Compra: 0";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblIDCompra.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblIDCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIDCompra.Location = new System.Drawing.Point(540, 150);
+            this.lblIDCompra.Name = "lblIDCompra";
+            this.lblIDCompra.Size = new System.Drawing.Size(440, 20);
+            this.lblIDCompra.TabIndex = 25;
+            this.lblIDCompra.Text = "ID Compra: 0";
+            this.lblIDCompra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnAgregar
             // 
@@ -374,7 +389,7 @@ namespace StockIt
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(131, 39);
-            this.btnAgregar.TabIndex = 8;
+            this.btnAgregar.TabIndex = 12;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -390,25 +405,25 @@ namespace StockIt
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(131, 39);
-            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.TabIndex = 15;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // button1
+            // btnFinalizar
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(95)))), ((int)(((byte)(134)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(618, 750);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 39);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Finalizar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnFinalizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(95)))), ((int)(((byte)(134)))));
+            this.btnFinalizar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnFinalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizar.ForeColor = System.Drawing.Color.White;
+            this.btnFinalizar.Location = new System.Drawing.Point(618, 750);
+            this.btnFinalizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(131, 39);
+            this.btnFinalizar.TabIndex = 14;
+            this.btnFinalizar.Text = "Finalizar";
+            this.btnFinalizar.UseVisualStyleBackColor = false;
             // 
             // btnLimpiar
             // 
@@ -421,24 +436,26 @@ namespace StockIt
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(131, 39);
-            this.btnLimpiar.TabIndex = 28;
+            this.btnLimpiar.TabIndex = 13;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // lklCorreo
+            // lklProductos
             // 
-            this.lklCorreo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lklCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lklCorreo.ForeColor = System.Drawing.Color.White;
-            this.lklCorreo.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lklCorreo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(120)))), ((int)(((byte)(217)))));
-            this.lklCorreo.Location = new System.Drawing.Point(540, 180);
-            this.lklCorreo.Name = "lklCorreo";
-            this.lklCorreo.Size = new System.Drawing.Size(440, 23);
-            this.lklCorreo.TabIndex = 29;
-            this.lklCorreo.TabStop = true;
-            this.lklCorreo.Text = "Productos de esta compra: 0";
-            this.lklCorreo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lklProductos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lklProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lklProductos.ForeColor = System.Drawing.Color.White;
+            this.lklProductos.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.lklProductos.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(120)))), ((int)(((byte)(217)))));
+            this.lklProductos.Location = new System.Drawing.Point(540, 180);
+            this.lklProductos.Name = "lklProductos";
+            this.lklProductos.Size = new System.Drawing.Size(440, 23);
+            this.lklProductos.TabIndex = 16;
+            this.lklProductos.TabStop = true;
+            this.lklProductos.Text = "Productos de esta compra: 0";
+            this.lklProductos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lklProductos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklProductos_LinkClicked);
             // 
             // frmAggProductos
             // 
@@ -446,10 +463,10 @@ namespace StockIt
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1231, 1102);
-            this.Controls.Add(this.lklCorreo);
+            this.Controls.Add(this.lklProductos);
             this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label13);
+            this.Controls.Add(this.btnFinalizar);
+            this.Controls.Add(this.lblIDCompra);
             this.Controls.Add(this.txtPrecVenta);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtPrecUnitario);
@@ -516,11 +533,18 @@ namespace StockIt
         private System.Windows.Forms.TextBox txtPrecUnitario;
         private System.Windows.Forms.TextBox txtPrecVenta;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblIDCompra;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnFinalizar;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.LinkLabel lklCorreo;
+        private System.Windows.Forms.LinkLabel lklProductos;
+        private System.Windows.Forms.ToolTip ttSelProveedor;
+        private System.Windows.Forms.ToolTip ttSelImagen;
+        private System.Windows.Forms.ToolTip ttAgregar;
+        private System.Windows.Forms.ToolTip ttLimpiar;
+        private System.Windows.Forms.ToolTip ttFinalizar;
+        private System.Windows.Forms.ToolTip ttCancelar;
+        private System.Windows.Forms.ToolTip ttProductos;
     }
 }
