@@ -76,7 +76,7 @@ namespace StockIt
             this.txtNomClie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNomClie.Name = "txtNomClie";
             this.txtNomClie.Size = new System.Drawing.Size(800, 30);
-            this.txtNomClie.TabIndex = 6;
+            this.txtNomClie.TabIndex = 1;
             // 
             // label3
             // 
@@ -98,7 +98,7 @@ namespace StockIt
             this.txtApeClie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtApeClie.Name = "txtApeClie";
             this.txtApeClie.Size = new System.Drawing.Size(800, 30);
-            this.txtApeClie.TabIndex = 8;
+            this.txtApeClie.TabIndex = 2;
             // 
             // cbxSexoClie
             // 
@@ -110,7 +110,7 @@ namespace StockIt
             this.cbxSexoClie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxSexoClie.Name = "cbxSexoClie";
             this.cbxSexoClie.Size = new System.Drawing.Size(200, 33);
-            this.cbxSexoClie.TabIndex = 12;
+            this.cbxSexoClie.TabIndex = 3;
             // 
             // label6
             // 
@@ -154,7 +154,7 @@ namespace StockIt
             this.txtCorreoClie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCorreoClie.Name = "txtCorreoClie";
             this.txtCorreoClie.Size = new System.Drawing.Size(800, 30);
-            this.txtCorreoClie.TabIndex = 16;
+            this.txtCorreoClie.TabIndex = 5;
             // 
             // btnCancelar
             // 
@@ -167,7 +167,7 @@ namespace StockIt
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(131, 39);
-            this.btnCancelar.TabIndex = 19;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -183,7 +183,7 @@ namespace StockIt
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(131, 39);
-            this.btnAgregar.TabIndex = 18;
+            this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -198,7 +198,7 @@ namespace StockIt
             this.mskNumClie.Mask = "0000-0000";
             this.mskNumClie.Name = "mskNumClie";
             this.mskNumClie.Size = new System.Drawing.Size(200, 30);
-            this.mskNumClie.TabIndex = 20;
+            this.mskNumClie.TabIndex = 4;
             this.mskNumClie.ValidatingType = typeof(int);
             // 
             // frmAggClientes
