@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -58,5 +59,51 @@ namespace StockIt
 
             }
         }
+
+        #region Métodos para validaciones
+        public bool validarEmail(string email)
+        {
+            bool r;
+
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,5})+)$");
+            Match match = regex.Match(email);
+            if (match.Success)
+            {
+                r = true;
+            }
+            else
+            {
+                r = false;
+            }
+
+            return r;
+        }
+
+        #endregion
+
+        #region Métodos para Messagebox
+
+        //MessageBox de "Dato Requerido"
+        public void messageBoxCampoRequerido(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Dato requerido",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        //MessageBox de "Formato incorrecto"
+        public void messageBoxFormatoIncorrecto(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Formato incorrecto",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        //MessageBox de "Operación exitosa"
+        public void messageBoxOperacionExitosa(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Operación exitosa",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        #endregion
     }
 }
