@@ -27,6 +27,54 @@ namespace StockIt
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             
+            string preProdP1 = mskPrecLote.Text.Trim().Replace("$", "");
+            string preProdFull = preProdP1.Trim().Replace(".", "");
+
+            //Validar campos vacíos
+            if (txtNomProd.Text.Trim() == "" || ((int)nudCanProd.Value) == 0 || /*cbxCatProd.SelectedIndex == 0  ||*/
+                preProdFull == "" || mskPorGanancia.Text.Trim() == "")
+            {
+                if (txtNomProd.Text.Trim() == "")
+                {
+                    MessageBox.Show("Debes asignarle un nombre al producto.", "Dato requerido",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtNomProd.Focus();
+                }
+                else if(((int)nudCanProd.Value) == 0)
+                {
+                    MessageBox.Show("Debes asignar la cantidad de producto.", "Dato requerido",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    nudCanProd.Focus();
+                }
+                //Descomentar cando se consulten los datos de la BD
+                /*else if (cbxCatProd.SelectedIndex == 0)
+                {
+                    MessageBox.Show("Debes seleccionar la categoría del producto.", "Dato requerido",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    cbxCatProd.Focus();
+                }*/
+                else if (preProdFull == "")
+                {
+                    MessageBox.Show("Debes asignar el precio del producto.", "Dato requerido",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    mskPrecLote.Focus();
+                }
+                else if (mskPorGanancia.Text.Trim() == "")
+                {
+                    MessageBox.Show("Debes asignar el porcentaje de ganancia que deseas obtener del precio del producto.", "Dato requerido",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    mskPorGanancia.Focus();
+                }
+            } 
+            else
+            {
+                string nombreProducto = txtNomProd.Text.Trim();
+                int cantidad = ((int)nudCanProd.Value);
+                int idCategoria = (cbxCatProd.SelectedIndex + 1);
+                double preProd = double.Parse(preProdFull);
+
+
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -59,7 +107,7 @@ namespace StockIt
             txtNomProd.Text = null;
             nudCanProd.Value = 0;
             //cbxCatProd.SelectedIndex = 0;
-            mskPreProd.Text = null;
+            mskPrecLote.Text = null;
             txtDetProd.Text = null;
         }
     }
