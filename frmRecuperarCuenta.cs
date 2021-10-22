@@ -35,6 +35,10 @@ namespace StockIt
                     string email = txtCorreo.Text.Trim();
                     if (utils.validarEmail(email))
                     {
+                        //Validar la existencia del email en la BD
+
+
+                        //Si el correo existe mostrar la clave temporal
                         this.Close();
                         frmClaveTemporal frmClaveTemporal = new frmClaveTemporal();
                         frmClaveTemporal.Show();
