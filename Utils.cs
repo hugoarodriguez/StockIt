@@ -79,9 +79,43 @@ namespace StockIt
             return r;
         }
 
+
+        /* Valida que la contraseña contenga:
+         * 8 o más caracteres,
+         * al menos un número digito,
+         * al menos una letra minúscula,
+         * al menos una letra mayúscula,
+         * al menos un carácter especial: !*@#$%^&+=
+         */
+        public bool validarPassword(string password)
+        {
+            bool r;
+
+            Regex regex = new Regex(@"^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$");
+            Match match = regex.Match(password);
+            if (match.Success)
+            {
+                r = true;
+            }
+            else
+            {
+                r = false;
+            }
+
+            return r;
+        }
+
         #endregion
 
         #region Métodos para Messagebox
+
+        //MessageBox Alerta
+        public void messageBoxAlerta(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Alerta",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
 
         //MessageBox de "Dato Requerido"
         public void messageBoxCampoRequerido(string mensaje)

@@ -38,6 +38,7 @@ namespace StockIt
             this.txtClaveNC = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCambiar = new System.Windows.Forms.Button();
+            this.chkbMostrarPwd = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label2
@@ -58,6 +59,7 @@ namespace StockIt
             this.txtClaveA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtClaveA.Location = new System.Drawing.Point(215, 180);
             this.txtClaveA.Name = "txtClaveA";
+            this.txtClaveA.PasswordChar = '*';
             this.txtClaveA.Size = new System.Drawing.Size(800, 30);
             this.txtClaveA.TabIndex = 7;
             // 
@@ -91,6 +93,7 @@ namespace StockIt
             this.txtClaveN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtClaveN.Location = new System.Drawing.Point(215, 280);
             this.txtClaveN.Name = "txtClaveN";
+            this.txtClaveN.PasswordChar = '*';
             this.txtClaveN.Size = new System.Drawing.Size(800, 30);
             this.txtClaveN.TabIndex = 9;
             // 
@@ -112,6 +115,7 @@ namespace StockIt
             this.txtClaveNC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtClaveNC.Location = new System.Drawing.Point(215, 380);
             this.txtClaveNC.Name = "txtClaveNC";
+            this.txtClaveNC.PasswordChar = '*';
             this.txtClaveNC.Size = new System.Drawing.Size(800, 30);
             this.txtClaveNC.TabIndex = 11;
             // 
@@ -122,10 +126,10 @@ namespace StockIt
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(652, 450);
+            this.btnCancelar.Location = new System.Drawing.Point(642, 487);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(130, 40);
-            this.btnCancelar.TabIndex = 17;
+            this.btnCancelar.TabIndex = 18;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -137,13 +141,25 @@ namespace StockIt
             this.btnCambiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnCambiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCambiar.ForeColor = System.Drawing.Color.White;
-            this.btnCambiar.Location = new System.Drawing.Point(452, 450);
+            this.btnCambiar.Location = new System.Drawing.Point(463, 487);
             this.btnCambiar.Name = "btnCambiar";
             this.btnCambiar.Size = new System.Drawing.Size(130, 40);
-            this.btnCambiar.TabIndex = 16;
+            this.btnCambiar.TabIndex = 17;
             this.btnCambiar.Text = "Cambiar";
             this.btnCambiar.UseVisualStyleBackColor = false;
             this.btnCambiar.Click += new System.EventHandler(this.btnCambiar_Click);
+            // 
+            // chkbMostrarPwd
+            // 
+            this.chkbMostrarPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chkbMostrarPwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkbMostrarPwd.Location = new System.Drawing.Point(215, 426);
+            this.chkbMostrarPwd.Name = "chkbMostrarPwd";
+            this.chkbMostrarPwd.Size = new System.Drawing.Size(215, 24);
+            this.chkbMostrarPwd.TabIndex = 16;
+            this.chkbMostrarPwd.Text = "Mostrar Contraseñas";
+            this.chkbMostrarPwd.UseVisualStyleBackColor = true;
+            this.chkbMostrarPwd.CheckedChanged += new System.EventHandler(this.chkbMostrarPwd_CheckedChanged);
             // 
             // frmCambiarClave
             // 
@@ -151,6 +167,7 @@ namespace StockIt
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1231, 1102);
+            this.Controls.Add(this.chkbMostrarPwd);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCambiar);
             this.Controls.Add(this.label4);
@@ -179,5 +196,6 @@ namespace StockIt
         private System.Windows.Forms.TextBox txtClaveNC;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnCambiar;
+        private System.Windows.Forms.CheckBox chkbMostrarPwd;
     }
 }

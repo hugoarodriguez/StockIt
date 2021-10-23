@@ -12,6 +12,8 @@ namespace StockIt
 {
     public partial class frmCambiarClave : Form
     {
+        Utils utils = new Utils();
+
         public frmCambiarClave()
         {
             InitializeComponent();
@@ -25,55 +27,67 @@ namespace StockIt
 
             if(pwdActual == "" || pwdNueva == "" || pwdNuevaC == "")
             {
-                //Si uno de los campos está vacío
+                //Si al menos uno de los campos está vacío
                 if(pwdActual == "")
                 {
-                    MessageBox.Show("Debes ingresar tu contraseña actual.", "Dato requerido",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    utils.messageBoxCampoRequerido("Debes ingresar tu contraseña actual.");
                     txtClaveA.Focus();
                 }
                 else if (pwdNueva == "")
                 {
-                    MessageBox.Show("Debes ingresar una contraseña nueva.", "Dato requerido",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    utils.messageBoxCampoRequerido("Debes ingresar una contraseña nueva.");
                     txtClaveN.Focus();
                 }
                 else if (pwdNuevaC == "")
                 {
-                    MessageBox.Show("Debes confirmar tu contraseña.", "Dato requerido",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    utils.messageBoxCampoRequerido("Debes confirmar tu contraseña.");
                     txtClaveNC.Focus();
                 }
             }
             else
             {
-                //Si los campos contienen datos
-                //Validar formatos de contraseña con una expresión regular
-                if (pwdNueva == pwdNuevaC)
+                //Validar el formato de la contraseña nueva
+                if (utils.validarPassword(pwdNueva))
                 {
-                    //Validar existencia de pwdActual en la BD
-                    string pwdBD = "password1";
-                    if(pwdActual == pwdBD)
+                    //Validamos la coincidencia entre la Nueva Contraseña y su Confirmación
+                    if (pwdNueva == pwdNuevaC)
                     {
-                        MessageBox.Show("Contraseña cambiada con éxito.", "Contraseña cambiada",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtClaveA.Focus();
+                        //Validar existencia de pwdActual en la BD
+                        string pwdBD = "password1";//Obtener de la BD
+                        if (pwdActual == pwdBD)
+                        {
+                            utils.messageBoxOperacionExitosa("Contraseña cambiada con éxito.");
+                            //Cambiar contraseña
 
-                        //Cambiar contraseña
-                        //Limpiar campos
-                        limpiarControles();
-                    } 
+
+                            //Ocultamos las contraseñas
+                            chkbMostrarPwd.Checked = false;
+
+                            //Limpiar campos
+                            limpiarControles();
+                            txtClaveA.Focus();
+                        }
+                        else
+                        {
+                            utils.messageBoxAlerta("La contraseña actual no coincide con la registrada.");
+                            txtClaveA.Focus();
+                        }
+                    }
                     else
                     {
-                        MessageBox.Show("La contraseña actual no coincide con la registrada.", "Contraseña actual equivocada",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        txtClaveA.Focus();
+                        utils.messageBoxAlerta("La contraseña nueva y su confirmación deben coincidir.");
+                        txtClaveN.Focus();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("La contraseña actual y su confirmación deben coincidir.", "Contraseñas no coinciden",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    utils.messageBoxFormatoIncorrecto("La contraseña debe contener como mínimo: " +
+                        "\n+ 8 carácteres." +
+                        "\n+ Un número dígito." +
+                        "\n+ Una letra minúscula." +
+                        "\n+ Una letra mayúscula." +
+                        "\n+ Un carácter especial (!*@#$%^&+=).");
+                    txtClaveN.Focus();
                 }
             }
         }
@@ -81,6 +95,36 @@ namespace StockIt
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limpiarControles();
+        }
+
+        private void chkbMostrarPwd_CheckedChanged(object sender, EventArgs e)
+        {
+            if (txtClaveA.PasswordChar == '*')
+            {
+                txtClaveA.PasswordChar = '\0';
+            }
+            else
+            {
+                txtClaveA.PasswordChar = '*';
+            }
+
+            if (txtClaveN.PasswordChar == '*')
+            {
+                txtClaveN.PasswordChar = '\0';
+            }
+            else
+            {
+                txtClaveN.PasswordChar = '*';
+            }
+
+            if (txtClaveNC.PasswordChar == '*')
+            {
+                txtClaveNC.PasswordChar = '\0';
+            }
+            else
+            {
+                txtClaveNC.PasswordChar = '*';
+            }
         }
 
         private void limpiarControles()
