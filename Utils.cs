@@ -116,6 +116,12 @@ namespace StockIt
                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
+        //Get Messagebox "Cancelar Operación"
+        public DialogResult getMessageBoxCancelarOperacion(string mensaje)
+        {
+            return MessageBox.Show(mensaje, "Cancelar operación",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+        }
 
         //MessageBox de "Dato Requerido"
         public void messageBoxCampoRequerido(string mensaje)

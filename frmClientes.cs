@@ -44,6 +44,12 @@ namespace StockIt
                     //Manejar evento
                     ClienteCard clienteCardItem = ((ClienteCard)sender);
                     this.txtClientes.Text = clienteCardItem.Name + "Editar";
+
+                    //Hacer consulta en la BD del registro seleccionado
+
+                    //Abrimos el formulario para modificar el cliente según el ID
+                    Utils utils = new Utils();
+                    utils.setFormToPanelFormularioHijo(new frmModClientes());
                 }
 
                 //Creación de btnEliminar
@@ -61,6 +67,11 @@ namespace StockIt
                 //Agregamos el ProductoCard al FlowLAyoutPanel
                 flpListadoClientes.Controls.Add(clientes[i]);
             }
+        }
+
+        private void txtClientes_TextChanged(object sender, EventArgs e)
+        {
+            //Filtrar clientes mientras se va escribiendo el nombre
         }
     }
 }

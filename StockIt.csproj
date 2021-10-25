@@ -207,6 +207,9 @@
     <EmbeddedResource Include="CustomControls\CategoriaCard.resx">
       <DependentUpon>CategoriaCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ClienteCard.resx">
+      <DependentUpon>ClienteCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ProductoCard.resx">
       <DependentUpon>ProductoCard.cs</DependentUpon>
     </EmbeddedResource>
