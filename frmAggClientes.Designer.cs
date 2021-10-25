@@ -60,7 +60,7 @@ namespace StockIt
             this.txtNomClie.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNomClie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.txtNomClie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomClie.Location = new System.Drawing.Point(228, 227);
+            this.txtNomClie.Location = new System.Drawing.Point(228, 230);
             this.txtNomClie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNomClie.Name = "txtNomClie";
             this.txtNomClie.Size = new System.Drawing.Size(800, 30);
@@ -71,7 +71,7 @@ namespace StockIt
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(224, 273);
+            this.label3.Location = new System.Drawing.Point(224, 280);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 20);
             this.label3.TabIndex = 9;
@@ -82,7 +82,7 @@ namespace StockIt
             this.txtApeClie.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtApeClie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.txtApeClie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApeClie.Location = new System.Drawing.Point(228, 300);
+            this.txtApeClie.Location = new System.Drawing.Point(228, 310);
             this.txtApeClie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtApeClie.Name = "txtApeClie";
             this.txtApeClie.Size = new System.Drawing.Size(800, 30);
@@ -94,7 +94,7 @@ namespace StockIt
             this.cbxSexoClie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.cbxSexoClie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSexoClie.FormattingEnabled = true;
-            this.cbxSexoClie.Location = new System.Drawing.Point(228, 374);
+            this.cbxSexoClie.Location = new System.Drawing.Point(228, 390);
             this.cbxSexoClie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxSexoClie.Name = "cbxSexoClie";
             this.cbxSexoClie.Size = new System.Drawing.Size(200, 33);
@@ -105,7 +105,7 @@ namespace StockIt
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(224, 349);
+            this.label6.Location = new System.Drawing.Point(224, 360);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 20);
             this.label6.TabIndex = 13;
@@ -116,7 +116,7 @@ namespace StockIt
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(224, 423);
+            this.label4.Location = new System.Drawing.Point(224, 440);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(155, 20);
             this.label4.TabIndex = 15;
@@ -127,7 +127,7 @@ namespace StockIt
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(224, 496);
+            this.label5.Location = new System.Drawing.Point(224, 520);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(147, 20);
             this.label5.TabIndex = 17;
@@ -138,7 +138,7 @@ namespace StockIt
             this.txtCorreoClie.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCorreoClie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.txtCorreoClie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreoClie.Location = new System.Drawing.Point(228, 523);
+            this.txtCorreoClie.Location = new System.Drawing.Point(228, 550);
             this.txtCorreoClie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCorreoClie.Name = "txtCorreoClie";
             this.txtCorreoClie.Size = new System.Drawing.Size(800, 30);
@@ -151,7 +151,7 @@ namespace StockIt
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(707, 625);
+            this.btnCancelar.Location = new System.Drawing.Point(657, 630);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(131, 39);
@@ -167,7 +167,7 @@ namespace StockIt
             this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(525, 625);
+            this.btnAgregar.Location = new System.Drawing.Point(475, 630);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(131, 39);
@@ -181,7 +181,7 @@ namespace StockIt
             this.mskNumClie.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mskNumClie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.mskNumClie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskNumClie.Location = new System.Drawing.Point(228, 450);
+            this.mskNumClie.Location = new System.Drawing.Point(228, 470);
             this.mskNumClie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mskNumClie.Mask = "0000-0000";
             this.mskNumClie.Name = "mskNumClie";
