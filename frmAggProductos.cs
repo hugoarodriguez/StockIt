@@ -12,6 +12,7 @@ namespace StockIt
 {
     public partial class frmAggProductos : Form
     {
+        Utils utils = new Utils();
 
         public frmAggProductos()
         {
@@ -36,57 +37,47 @@ namespace StockIt
             {
                 if (txtProveedor.Text.Trim() == "")
                 {
-                    MessageBox.Show("Debes seleccionar un proveedor.", "Dato requerido",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    btnSelProveedor.Focus();
+                    utils.messageBoxCampoRequerido("Debes seleccionar un proveedor.");
                 }
                 //Descomentar cando se consulten los datos de la BD
                 /*else if (cbxCatProd.SelectedIndex == 0)
                 {
-                    MessageBox.Show("Debes seleccionar la categoría del producto.", "Dato requerido",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    utils.messageBoxCampoRequerido("Debes seleccionar la categoría del producto.");
                     cbxCatProd.Focus();
                 }*/
                 else if (txtNomProd.Text.Trim() == "")
                 {
-                    MessageBox.Show("Debes asignarle un nombre al producto.", "Dato requerido",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    utils.messageBoxCampoRequerido("Debes asignarle un nombre al producto.");
                     txtNomProd.Focus();
                 }
                 else if (((int)nudCanProd.Value) <= 0)
                 {
-                    MessageBox.Show("Debes asignar la cantidad de producto.", "Dato requerido",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    utils.messageBoxCampoRequerido("Debes asignar la cantidad de producto.");
                     nudCanProd.Focus();
                 }
                 else if (double.Parse(precLoteFull) <= 0.0)
                 {
-                    MessageBox.Show("Debes asignar el precio del lote de productos.", "Dato requerido",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    utils.messageBoxCampoRequerido("Debes asignar el precio del lote de productos.");
                     mskPrecLote.Focus();
                 }
                 else if (txtPrecUnitario.Text.Trim() == "$0.00")
                 {
-                    MessageBox.Show("Debes definir Cantidad y Precio Lote para calcular el Precio Unitario.", "Dato requerido",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    utils.messageBoxCampoRequerido("Debes definir Cantidad y Precio Lote\npara calcular el Precio Unitario.");
                     nudCanProd.Focus();
                 }
                 else if (mskPorGanancia.Text.Trim() == "")
                 {
-                    MessageBox.Show("Debes asignar el porcentaje de ganancia que deseas obtener del precio del producto.", "Dato requerido",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    utils.messageBoxCampoRequerido("Debes asignar el porcentaje de ganancia\nque deseas obtener del precio del producto.");
                     mskPorGanancia.Focus();
                 }
                 else if (txtGanancia.Text.Trim() == "$0.00")
                 {
-                    MessageBox.Show("Debes asignar el porcentaje de ganancia que deseas obtener del precio del producto.", "Dato requerido",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    utils.messageBoxCampoRequerido("Debes asignar el porcentaje de ganancia\nque deseas obtener del precio del producto.");
                     mskPorGanancia.Focus();
                 }
                 else if (txtPrecVenta.Text.Trim() == "$0.00")
                 {
-                    MessageBox.Show("Debes asignar el porcentaje de ganancia que deseas obtener del precio del producto.", "Dato requerido",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    utils.messageBoxCampoRequerido("Debes asignar el porcentaje de ganancia\nque deseas obtener del precio del producto.");
                     mskPorGanancia.Focus();
                 }
             } 
@@ -104,8 +95,7 @@ namespace StockIt
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("¿Estás seguro que deseas cancelar la compra actual?", "Cancelar compra", 
-                MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation);
+            DialogResult dialogResult = utils.getMessageBoxCancelarOperacion("¿Estás seguro que deseas cancelar la compra actual?");
             if (dialogResult == DialogResult.Yes)
             {
                 //Limpiamos arreglo que contenga nuestros productos
