@@ -10,46 +10,46 @@ using System.Windows.Forms;
 
 namespace StockIt.CustomControls
 {
-    public partial class ClienteCard : UserControl
+    public partial class ProveedorCard : UserControl
     {
-        public ClienteCard()
+        public ProveedorCard()
         {
             InitializeComponent();
         }
 
-        private string nomClie;
-        private string telClie;
-        private string corrClie;
-        private string sexClie;
+        private string nomProveedor;
+        private string telProveedor;
+        private string corrProveedor;
+        private string dirProveedor;
         private Button btnEditarProp;
         private Button btnEliminarProp;
 
         [Category("Custom Props")]
-        public string NomClie
+        public string NomProveedor
         {
-            get { return nomClie; }
-            set { nomClie = value; this.lblNomClie.Text = value; }
+            get { return nomProveedor; }
+            set { nomProveedor = value; this.lblNomProveedor.Text = value; }
         }
 
         [Category("Custom Props")]
-        public string TelClie
+        public string TelProveedor
         {
-            get { return telClie; }
-            set { telClie = value; this.lblTelClie.Text = value; }
+            get { return telProveedor; }
+            set { telProveedor = value; this.lblTelProveedor.Text = value; }
         }
 
         [Category("Custom Props")]
-        public string CorrClie
+        public string CorrProveedor
         {
-            get { return corrClie; }
-            set { corrClie = value; this.lblCorrClie.Text = value.ToString(); }
+            get { return corrProveedor; }
+            set { corrProveedor = value; this.lblCorrProveedor.Text = value.ToString(); }
         }
 
         [Category("Custom Props")]
-        public string SexClie
+        public string DirProveedor
         {
-            get { return sexClie; }
-            set { sexClie = value; this.lblSexClie.Text = value.ToString(); }
+            get { return dirProveedor; }
+            set { dirProveedor = value; this.lblDirProveedor.Text = value.ToString(); }
         }
 
         [Category("Custom Props")]

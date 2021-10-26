@@ -10,15 +10,16 @@ using System.Windows.Forms;
 
 namespace StockIt
 {
-    public partial class frmAggProveedores : Form
+    public partial class frmModProveedores : Form
     {
         Utils utils = new Utils();
-        public frmAggProveedores()
+
+        public frmModProveedores()
         {
             InitializeComponent();
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnActualizar_Click(object sender, EventArgs e)
         {
             string numProveedor = mskNumProveedor.Text.Trim();
 
@@ -53,12 +54,14 @@ namespace StockIt
                     string email = txtCorreoProveedor.Text.Trim();
                     if (utils.validarEmail(email))
                     {
-                        //Registramos el proveedor
+                        //Actualizamos el proveedor
 
 
-                        //Mensaje de registro exitoso
-                        utils.messageBoxOperacionExitosa("El proveedor se ha registrado satisfactoriamente.");
+                        //Mensaje de actualización exitosa
+                        utils.messageBoxOperacionExitosa("El proveedor se ha actualizado satisfactoriamente.");
                         limpiarCampos();
+
+                        utils.setFormToPanelFormularioHijo(new frmProveedores());
                     }
                     else
                     {
@@ -77,16 +80,26 @@ namespace StockIt
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = utils.getMessageBoxCancelarOperacion("¿Quieres cancelar la actualización del proveedor? \nSe perderán todos los cambios que no se guardaron.");
+            if (dialogResult == DialogResult.Yes)
+            {
+                //Cargamos el frmProveedores
+                utils.setFormToPanelFormularioHijo(new frmProveedores());
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
             limpiarCampos();
         }
 
         private void limpiarCampos()
         {
+            //Reestablecer campos a los valores iniciales obtenidos de la BD
             txtNomProveedor.Text = null;
             mskNumProveedor.Text = null;
             txtDirProveedor.Text = null;
             txtCorreoProveedor.Text = null;
-            txtNomProveedor.Focus();
         }
     }
 }

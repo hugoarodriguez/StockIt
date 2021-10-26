@@ -52,7 +52,7 @@ namespace StockIt
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(213, 147);
+            this.label2.Location = new System.Drawing.Point(213, 140);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(163, 20);
             this.label2.TabIndex = 7;
@@ -63,7 +63,7 @@ namespace StockIt
             this.txtNomProd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNomProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.txtNomProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomProd.Location = new System.Drawing.Point(217, 174);
+            this.txtNomProd.Location = new System.Drawing.Point(217, 170);
             this.txtNomProd.Name = "txtNomProd";
             this.txtNomProd.Size = new System.Drawing.Size(800, 30);
             this.txtNomProd.TabIndex = 6;

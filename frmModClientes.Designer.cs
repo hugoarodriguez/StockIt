@@ -56,7 +56,7 @@ namespace StockIt
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(131, 39);
-            this.btnCancelar.TabIndex = 34;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -72,7 +72,7 @@ namespace StockIt
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(131, 39);
-            this.btnActualizar.TabIndex = 33;
+            this.btnActualizar.TabIndex = 6;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -100,7 +100,7 @@ namespace StockIt
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(131, 39);
-            this.btnLimpiar.TabIndex = 44;
+            this.btnLimpiar.TabIndex = 7;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
@@ -115,7 +115,7 @@ namespace StockIt
             this.mskNumClie.Mask = "0000-0000";
             this.mskNumClie.Name = "mskNumClie";
             this.mskNumClie.Size = new System.Drawing.Size(200, 30);
-            this.mskNumClie.TabIndex = 48;
+            this.mskNumClie.TabIndex = 4;
             this.mskNumClie.ValidatingType = typeof(int);
             // 
             // label5
@@ -138,7 +138,7 @@ namespace StockIt
             this.txtCorreoClie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCorreoClie.Name = "txtCorreoClie";
             this.txtCorreoClie.Size = new System.Drawing.Size(800, 30);
-            this.txtCorreoClie.TabIndex = 49;
+            this.txtCorreoClie.TabIndex = 5;
             // 
             // label4
             // 
@@ -161,7 +161,7 @@ namespace StockIt
             this.cbxSexoClie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxSexoClie.Name = "cbxSexoClie";
             this.cbxSexoClie.Size = new System.Drawing.Size(200, 33);
-            this.cbxSexoClie.TabIndex = 47;
+            this.cbxSexoClie.TabIndex = 3;
             // 
             // label6
             // 
@@ -195,7 +195,7 @@ namespace StockIt
             this.txtApeClie.Name = "txtApeClie";
             this.txtApeClie.ReadOnly = true;
             this.txtApeClie.Size = new System.Drawing.Size(800, 30);
-            this.txtApeClie.TabIndex = 46;
+            this.txtApeClie.TabIndex = 2;
             // 
             // label2
             // 
@@ -218,7 +218,7 @@ namespace StockIt
             this.txtNomClie.Name = "txtNomClie";
             this.txtNomClie.ReadOnly = true;
             this.txtNomClie.Size = new System.Drawing.Size(800, 30);
-            this.txtNomClie.TabIndex = 45;
+            this.txtNomClie.TabIndex = 1;
             // 
             // frmModClientes
             // 
@@ -241,7 +241,7 @@ namespace StockIt
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnActualizar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmModClientes";
             this.Text = "frmModCLientes";
             this.Load += new System.EventHandler(this.frmModClientes_Load);

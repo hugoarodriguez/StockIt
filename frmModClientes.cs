@@ -94,7 +94,7 @@ namespace StockIt
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = utils.getMessageBoxCancelarOperacion("¿Quieres cancelar la actualización del cliente?. \nSe perderán todos los cambios que no se guardaron.");
+            DialogResult dialogResult = utils.getMessageBoxCancelarOperacion("¿Quieres cancelar la actualización del cliente? \nSe perderán todos los cambios que no se guardaron.");
             if (dialogResult == DialogResult.Yes)
             {
                 //Cargamos el frmClientes

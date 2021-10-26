@@ -111,7 +111,9 @@ namespace StockIt
 
         private void btnProveedores_Click(object sender, EventArgs e)
         {
-            //Funcionalidades (llamar formulario correspondiente)
+            frmProveedores formularioHijo = new frmProveedores();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 

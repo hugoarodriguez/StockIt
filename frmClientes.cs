@@ -64,7 +64,7 @@ namespace StockIt
                     clienteCardItem.Dispose();
                 }
 
-                //Agregamos el ProductoCard al FlowLAyoutPanel
+                //Agregamos el ClienteCard al FlowLAyoutPanel
                 flpListadoClientes.Controls.Add(clientes[i]);
             }
         }
