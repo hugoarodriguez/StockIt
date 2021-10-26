@@ -42,6 +42,7 @@ namespace StockIt
             this.dtpFecEntrega = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.txtComentarios = new System.Windows.Forms.TextBox();
+            this.lblIdCliente = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -92,6 +93,7 @@ namespace StockIt
             this.btnSelCliente.TabIndex = 8;
             this.btnSelCliente.Text = "...";
             this.btnSelCliente.UseVisualStyleBackColor = false;
+            this.btnSelCliente.Click += new System.EventHandler(this.btnSelCliente_Click);
             // 
             // flpListadoProductos
             // 
@@ -116,6 +118,7 @@ namespace StockIt
             this.btnAgregar.TabIndex = 10;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnCancelar
             // 
@@ -131,6 +134,7 @@ namespace StockIt
             this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblSubTotal
             // 
@@ -169,8 +173,9 @@ namespace StockIt
             // dtpFecEntrega
             // 
             this.dtpFecEntrega.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpFecEntrega.CustomFormat = "yyyy-MM-dd";
             this.dtpFecEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFecEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFecEntrega.Location = new System.Drawing.Point(900, 310);
             this.dtpFecEntrega.Name = "dtpFecEntrega";
             this.dtpFecEntrega.Size = new System.Drawing.Size(200, 30);
@@ -200,12 +205,25 @@ namespace StockIt
             this.txtComentarios.Size = new System.Drawing.Size(200, 200);
             this.txtComentarios.TabIndex = 36;
             // 
+            // lblIdCliente
+            // 
+            this.lblIdCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblIdCliente.AutoSize = true;
+            this.lblIdCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdCliente.Location = new System.Drawing.Point(280, 150);
+            this.lblIdCliente.Name = "lblIdCliente";
+            this.lblIdCliente.Size = new System.Drawing.Size(74, 20);
+            this.lblIdCliente.TabIndex = 37;
+            this.lblIdCliente.Text = "IdCliente";
+            this.lblIdCliente.Visible = false;
+            // 
             // frmAggReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1231, 1102);
+            this.Controls.Add(this.lblIdCliente);
             this.Controls.Add(this.txtComentarios);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dtpFecEntrega);
@@ -245,5 +263,6 @@ namespace StockIt
         private System.Windows.Forms.DateTimePicker dtpFecEntrega;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtComentarios;
+        private System.Windows.Forms.Label lblIdCliente;
     }
 }
