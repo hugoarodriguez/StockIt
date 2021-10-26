@@ -76,6 +76,12 @@
     <Compile Include="CustomControls\ReservaCard.Designer.cs">
       <DependentUpon>ReservaCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAggProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAggProveedores.Designer.cs">
+      <DependentUpon>frmAggProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAggReserva.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAggClientes.resx">
       <DependentUpon>frmAggClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAggProveedores.resx">
+      <DependentUpon>frmAggProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAggReserva.resx">
       <DependentUpon>frmAggReserva.cs</DependentUpon>
