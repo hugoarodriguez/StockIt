@@ -13,6 +13,9 @@ namespace StockIt
 {
     public partial class frmProductos : Form
     {
+        Utils utils = new Utils();
+        ProductoCard[] productos;
+
         public frmProductos()
         {
             InitializeComponent();
@@ -25,7 +28,7 @@ namespace StockIt
 
         private void cargarProductos()
         {
-            ProductoCard[] productos = new ProductoCard[10];
+            productos = new ProductoCard[10];
             for (int i = 0; i < productos.Length; i++)
             {
                 productos[i] = new ProductoCard();
@@ -72,7 +75,7 @@ namespace StockIt
 
         private void txtNomProd_TextChanged(object sender, EventArgs e)
         {
-            //Filtrar registros por nombre de producto mientras el usuario escriba
+            utils.filtrarCardsProductos(productos, txtNomProd);
         }
     }
 }

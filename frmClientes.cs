@@ -13,6 +13,8 @@ namespace StockIt
 {
     public partial class frmClientes : Form
     {
+        Utils utils = new Utils();
+        ClienteCard[] clientes;
         public frmClientes()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace StockIt
 
         private void cargarClientes()
         {
-            ClienteCard[] clientes = new ClienteCard[10];
+            clientes = new ClienteCard[10];
             for (int i = 0; i < clientes.Length; i++)
             {
                 clientes[i] = new ClienteCard();
@@ -71,7 +73,7 @@ namespace StockIt
 
         private void txtClientes_TextChanged(object sender, EventArgs e)
         {
-            //Filtrar clientes mientras se va escribiendo el nombre
+            utils.filtrarCardsClientes(clientes, txtClientes);
         }
     }
 }

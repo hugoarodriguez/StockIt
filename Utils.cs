@@ -63,16 +63,16 @@ namespace StockIt
 
         #region Métodos para filtros con Custom Controls
 
-        //Filtro de Card en pantalla de Reservas
-        public void filtrarCardsProductos(ProductoVRCard[] productosVR, TextBox txtNomProd)
+        //Filtro de Card en pantalla de AgregarReservas
+        public void filtrarCardsProductosReservas(ProductoVRCard[] productosVR, TextBox textBox)
         {
             for (int i = 0; i < productosVR.Length; i++)
             {
-                if (txtNomProd.Text != "")
+                if (textBox.Text != "")
                 {
-                    string nomProdCard = productosVR[i].NomProd.Trim().ToUpper();
-                    string nomProdBusqueda = txtNomProd.Text.Trim().ToUpper();
-                    if (nomProdCard.Contains(nomProdBusqueda))
+                    string valor = productosVR[i].NomProd.Trim().ToUpper();
+                    string valorBusqueda = textBox.Text.Trim().ToUpper();
+                    if (valor.Contains(valorBusqueda))
                     {
                         productosVR[i].Show();
                     }
@@ -87,6 +87,82 @@ namespace StockIt
                 }
             }
         }
+
+        //Filtro de Card en pantalla de Proveedores
+        public void filtrarCardsProveedores(ProveedorCard[] proveedores, TextBox textBox)
+        {
+            for (int i = 0; i < proveedores.Length; i++)
+            {
+                if (textBox.Text != "")
+                {
+                    string valor = proveedores[i].NomProveedor.Trim().ToUpper();
+                    string valorBusqueda = textBox.Text.Trim().ToUpper();
+                    if (valor.Contains(valorBusqueda))
+                    {
+                        proveedores[i].Show();
+                    }
+                    else
+                    {
+                        proveedores[i].Hide();
+                    }
+                }
+                else
+                {
+                    proveedores[i].Show();
+                }
+            }
+        }
+
+        //Filtro de Card en pantalla de Productos
+        public void filtrarCardsProductos(ProductoCard[] productos, TextBox textBox)
+        {
+            for (int i = 0; i < productos.Length; i++)
+            {
+                if (textBox.Text != "")
+                {
+                    string valor = productos[i].NomProd.Trim().ToUpper();
+                    string valorBusqueda = textBox.Text.Trim().ToUpper();
+                    if (valor.Contains(valorBusqueda))
+                    {
+                        productos[i].Show();
+                    }
+                    else
+                    {
+                        productos[i].Hide();
+                    }
+                }
+                else
+                {
+                    productos[i].Show();
+                }
+            }
+        }
+
+        //Filtro de Card en pantalla de Clientes
+        public void filtrarCardsClientes(ClienteCard[] clientes, TextBox textBox)
+        {
+            for (int i = 0; i < clientes.Length; i++)
+            {
+                if (textBox.Text != "")
+                {
+                    string valor = clientes[i].NomClie.Trim().ToUpper();
+                    string valorBusqueda = textBox.Text.Trim().ToUpper();
+                    if (valor.Contains(valorBusqueda))
+                    {
+                        clientes[i].Show();
+                    }
+                    else
+                    {
+                        clientes[i].Hide();
+                    }
+                }
+                else
+                {
+                    clientes[i].Show();
+                }
+            }
+        }
+
         #endregion
 
         #region Métodos para validaciones

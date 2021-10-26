@@ -13,6 +13,7 @@ namespace StockIt
 {
     public partial class frmProveedores : Form
     {
+        Utils utils = new Utils();
         ProveedorCard[] proveedores;
         public frmProveedores()
         {
@@ -73,7 +74,7 @@ namespace StockIt
 
         private void txtNomProveedor_TextChanged(object sender, EventArgs e)
         {
-
+            utils.filtrarCardsProveedores(proveedores, txtNomProveedor);
         }
     }
 }

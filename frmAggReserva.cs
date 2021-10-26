@@ -61,7 +61,7 @@ namespace StockIt
 
         private void txtNomProd_TextChanged(object sender, EventArgs e)
         {
-            utils.filtrarCardsProductos(productosVR, txtNomProd);
+            utils.filtrarCardsProductosReservas(productosVR, txtNomProd);
         }
 
         private void cargarProductos()
