@@ -69,5 +69,10 @@ namespace StockIt
                 flpListadoProductos.Controls.Add(productos[i]);
             }
         }
+
+        private void txtNomProd_TextChanged(object sender, EventArgs e)
+        {
+            //Filtrar registros por nombre de producto mientras el usuario escriba
+        }
     }
 }

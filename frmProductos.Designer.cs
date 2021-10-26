@@ -61,11 +61,13 @@ namespace StockIt
             // txtNomProd
             // 
             this.txtNomProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNomProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.txtNomProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomProd.Location = new System.Drawing.Point(217, 174);
             this.txtNomProd.Name = "txtNomProd";
             this.txtNomProd.Size = new System.Drawing.Size(800, 30);
             this.txtNomProd.TabIndex = 6;
+            this.txtNomProd.TextChanged += new System.EventHandler(this.txtNomProd_TextChanged);
             // 
             // flpListadoProductos
             // 
