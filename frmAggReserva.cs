@@ -14,6 +14,7 @@ namespace StockIt
 {
     public partial class frmAggReserva : Form
     {
+        Utils utils = new Utils();
         ProductoVRCard[] productosVR;
         ECliente[] eClientes;
 
@@ -56,6 +57,11 @@ namespace StockIt
         private void btnCancelar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtNomProd_TextChanged(object sender, EventArgs e)
+        {
+            utils.filtrarCardsProductos(productosVR, txtNomProd);
         }
 
         private void cargarProductos()

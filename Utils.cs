@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockIt.CustomControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -59,6 +60,34 @@ namespace StockIt
 
             }
         }
+
+        #region Métodos para filtros con Custom Controls
+
+        //Filtro de Card en pantalla de Reservas
+        public void filtrarCardsProductos(ProductoVRCard[] productosVR, TextBox txtNomProd)
+        {
+            for (int i = 0; i < productosVR.Length; i++)
+            {
+                if (txtNomProd.Text != "")
+                {
+                    string nomProdCard = productosVR[i].NomProd.Trim().ToUpper();
+                    string nomProdBusqueda = txtNomProd.Text.Trim().ToUpper();
+                    if (nomProdCard.Contains(nomProdBusqueda))
+                    {
+                        productosVR[i].Show();
+                    }
+                    else
+                    {
+                        productosVR[i].Hide();
+                    }
+                }
+                else
+                {
+                    productosVR[i].Show();
+                }
+            }
+        }
+        #endregion
 
         #region Métodos para validaciones
         public bool validarEmail(string email)

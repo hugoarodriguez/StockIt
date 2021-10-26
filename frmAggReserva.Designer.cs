@@ -43,6 +43,8 @@ namespace StockIt
             this.label4 = new System.Windows.Forms.Label();
             this.txtComentarios = new System.Windows.Forms.TextBox();
             this.lblIdCliente = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtNomProd = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -62,7 +64,7 @@ namespace StockIt
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(213, 150);
+            this.label2.Location = new System.Drawing.Point(70, 150);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 20);
             this.label2.TabIndex = 7;
@@ -73,10 +75,10 @@ namespace StockIt
             this.txtCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.txtCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCliente.Location = new System.Drawing.Point(217, 180);
+            this.txtCliente.Location = new System.Drawing.Point(70, 180);
             this.txtCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(720, 30);
+            this.txtCliente.Size = new System.Drawing.Size(710, 30);
             this.txtCliente.TabIndex = 6;
             // 
             // btnSelCliente
@@ -86,7 +88,7 @@ namespace StockIt
             this.btnSelCliente.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnSelCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelCliente.ForeColor = System.Drawing.Color.White;
-            this.btnSelCliente.Location = new System.Drawing.Point(967, 176);
+            this.btnSelCliente.Location = new System.Drawing.Point(800, 176);
             this.btnSelCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSelCliente.Name = "btnSelCliente";
             this.btnSelCliente.Size = new System.Drawing.Size(50, 39);
@@ -99,9 +101,9 @@ namespace StockIt
             // 
             this.flpListadoProductos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flpListadoProductos.AutoScroll = true;
-            this.flpListadoProductos.Location = new System.Drawing.Point(50, 233);
+            this.flpListadoProductos.Location = new System.Drawing.Point(70, 290);
             this.flpListadoProductos.Name = "flpListadoProductos";
-            this.flpListadoProductos.Size = new System.Drawing.Size(830, 580);
+            this.flpListadoProductos.Size = new System.Drawing.Size(810, 520);
             this.flpListadoProductos.TabIndex = 9;
             // 
             // btnAgregar
@@ -111,7 +113,7 @@ namespace StockIt
             this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(935, 630);
+            this.btnAgregar.Location = new System.Drawing.Point(935, 687);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(131, 39);
@@ -127,7 +129,7 @@ namespace StockIt
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(935, 680);
+            this.btnCancelar.Location = new System.Drawing.Point(935, 737);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(131, 39);
@@ -141,9 +143,9 @@ namespace StockIt
             this.lblSubTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSubTotal.AutoEllipsis = true;
             this.lblSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubTotal.Location = new System.Drawing.Point(1038, 233);
+            this.lblSubTotal.Location = new System.Drawing.Point(959, 290);
             this.lblSubTotal.Name = "lblSubTotal";
-            this.lblSubTotal.Size = new System.Drawing.Size(150, 23);
+            this.lblSubTotal.Size = new System.Drawing.Size(229, 23);
             this.lblSubTotal.TabIndex = 32;
             this.lblSubTotal.Text = "$0.00";
             this.lblSubTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -152,9 +154,9 @@ namespace StockIt
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(900, 233);
+            this.label6.Location = new System.Drawing.Point(900, 290);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 23);
+            this.label6.Size = new System.Drawing.Size(66, 23);
             this.label6.TabIndex = 31;
             this.label6.Text = "Total:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -163,7 +165,7 @@ namespace StockIt
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(900, 280);
+            this.label3.Location = new System.Drawing.Point(900, 337);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(220, 23);
             this.label3.TabIndex = 33;
@@ -176,7 +178,7 @@ namespace StockIt
             this.dtpFecEntrega.CustomFormat = "yyyy-MM-dd";
             this.dtpFecEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFecEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFecEntrega.Location = new System.Drawing.Point(900, 310);
+            this.dtpFecEntrega.Location = new System.Drawing.Point(900, 367);
             this.dtpFecEntrega.Name = "dtpFecEntrega";
             this.dtpFecEntrega.Size = new System.Drawing.Size(200, 30);
             this.dtpFecEntrega.TabIndex = 34;
@@ -185,7 +187,7 @@ namespace StockIt
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(900, 369);
+            this.label4.Location = new System.Drawing.Point(900, 426);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(220, 23);
             this.label4.TabIndex = 35;
@@ -197,7 +199,7 @@ namespace StockIt
             this.txtComentarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtComentarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.txtComentarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComentarios.Location = new System.Drawing.Point(900, 394);
+            this.txtComentarios.Location = new System.Drawing.Point(900, 451);
             this.txtComentarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtComentarios.MaximumSize = new System.Drawing.Size(200, 200);
             this.txtComentarios.Multiline = true;
@@ -210,12 +212,35 @@ namespace StockIt
             this.lblIdCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblIdCliente.AutoSize = true;
             this.lblIdCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdCliente.Location = new System.Drawing.Point(280, 150);
+            this.lblIdCliente.Location = new System.Drawing.Point(137, 150);
             this.lblIdCliente.Name = "lblIdCliente";
             this.lblIdCliente.Size = new System.Drawing.Size(74, 20);
             this.lblIdCliente.TabIndex = 37;
             this.lblIdCliente.Text = "IdCliente";
             this.lblIdCliente.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(70, 225);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(223, 20);
+            this.label5.TabIndex = 39;
+            this.label5.Text = "Búscar producto por nombre";
+            // 
+            // txtNomProd
+            // 
+            this.txtNomProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNomProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            this.txtNomProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomProd.Location = new System.Drawing.Point(70, 255);
+            this.txtNomProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNomProd.Name = "txtNomProd";
+            this.txtNomProd.Size = new System.Drawing.Size(780, 30);
+            this.txtNomProd.TabIndex = 38;
+            this.txtNomProd.TextChanged += new System.EventHandler(this.txtNomProd_TextChanged);
             // 
             // frmAggReserva
             // 
@@ -223,6 +248,8 @@ namespace StockIt
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1231, 1102);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtNomProd);
             this.Controls.Add(this.lblIdCliente);
             this.Controls.Add(this.txtComentarios);
             this.Controls.Add(this.label4);
@@ -264,5 +291,7 @@ namespace StockIt
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtComentarios;
         private System.Windows.Forms.Label lblIdCliente;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtNomProd;
     }
 }
