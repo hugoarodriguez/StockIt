@@ -22,6 +22,7 @@ namespace StockIt.CustomControls
         private int canProd;
         private double preProd;
         private double subTotal;
+        private NumericUpDown nudCanReservaProp;
 
         [Category("Custom Props")]
         public string NomProd
@@ -48,14 +49,31 @@ namespace StockIt.CustomControls
         public double PreProd
         {
             get { return preProd; }
-            set { preProd = value; this.lblPreProd.Text = "$" + value.ToString(); }
+            set { preProd = value; this.lblPreProd.Text = "$" + value.ToString("0.00"); }
         }
 
         [Category("Custom Props")]
         public double SubTotal
         {
             get { return subTotal; }
-            set { subTotal = value; this.lblSubTotal.Text = "$" + value.ToString(); }
+            set { subTotal = value; this.lblSubTotal.Text = "$" + value.ToString("0.00"); }
+        }
+
+        [Category("Custom Props")]
+        public NumericUpDown NudCanReservaProp
+        {
+            get { return nudCanReservaProp; }
+            set { nudCanReservaProp = value; this.nudCanReserva = value; }
+        }
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invocado cuando el usuario modifica el valor del campo Reservar")]
+        public event EventHandler ValueChangedNUDCanReserva;
+        private void nudCanReserva_ValueChanged(object sender, EventArgs e)
+        {
+            if (this.ValueChangedNUDCanReserva != null)
+                this.ValueChangedNUDCanReserva(this, e);
         }
     }
 }

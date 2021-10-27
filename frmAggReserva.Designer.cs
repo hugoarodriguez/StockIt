@@ -29,6 +29,7 @@ namespace StockIt
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCliente = new System.Windows.Forms.TextBox();
@@ -36,7 +37,7 @@ namespace StockIt
             this.flpListadoProductos = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblSubTotal = new System.Windows.Forms.Label();
+            this.lblTotalReserva = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dtpFecEntrega = new System.Windows.Forms.DateTimePicker();
@@ -45,6 +46,8 @@ namespace StockIt
             this.lblIdCliente = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNomProd = new System.Windows.Forms.TextBox();
+            this.lklCambiarVista = new System.Windows.Forms.LinkLabel();
+            this.ttCambiarVista = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -78,6 +81,7 @@ namespace StockIt
             this.txtCliente.Location = new System.Drawing.Point(70, 180);
             this.txtCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCliente.Name = "txtCliente";
+            this.txtCliente.ReadOnly = true;
             this.txtCliente.Size = new System.Drawing.Size(710, 30);
             this.txtCliente.TabIndex = 6;
             // 
@@ -138,17 +142,17 @@ namespace StockIt
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // lblSubTotal
+            // lblTotalReserva
             // 
-            this.lblSubTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblSubTotal.AutoEllipsis = true;
-            this.lblSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubTotal.Location = new System.Drawing.Point(959, 290);
-            this.lblSubTotal.Name = "lblSubTotal";
-            this.lblSubTotal.Size = new System.Drawing.Size(229, 23);
-            this.lblSubTotal.TabIndex = 32;
-            this.lblSubTotal.Text = "$0.00";
-            this.lblSubTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTotalReserva.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotalReserva.AutoEllipsis = true;
+            this.lblTotalReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalReserva.Location = new System.Drawing.Point(959, 290);
+            this.lblTotalReserva.Name = "lblTotalReserva";
+            this.lblTotalReserva.Size = new System.Drawing.Size(229, 23);
+            this.lblTotalReserva.TabIndex = 32;
+            this.lblTotalReserva.Text = "$0.00";
+            this.lblTotalReserva.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
             // 
@@ -242,12 +246,29 @@ namespace StockIt
             this.txtNomProd.TabIndex = 38;
             this.txtNomProd.TextChanged += new System.EventHandler(this.txtNomProd_TextChanged);
             // 
+            // lklCambiarVista
+            // 
+            this.lklCambiarVista.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lklCambiarVista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lklCambiarVista.ForeColor = System.Drawing.Color.White;
+            this.lklCambiarVista.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.lklCambiarVista.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(120)))), ((int)(((byte)(217)))));
+            this.lklCambiarVista.Location = new System.Drawing.Point(900, 255);
+            this.lklCambiarVista.Name = "lklCambiarVista";
+            this.lklCambiarVista.Size = new System.Drawing.Size(196, 23);
+            this.lklCambiarVista.TabIndex = 40;
+            this.lklCambiarVista.TabStop = true;
+            this.lklCambiarVista.Text = "Cambiar Vista";
+            this.lklCambiarVista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lklCambiarVista.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklCambiarVista_LinkClicked);
+            // 
             // frmAggReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1231, 1102);
+            this.Controls.Add(this.lklCambiarVista);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtNomProd);
             this.Controls.Add(this.lblIdCliente);
@@ -255,7 +276,7 @@ namespace StockIt
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dtpFecEntrega);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.lblSubTotal);
+            this.Controls.Add(this.lblTotalReserva);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
@@ -284,7 +305,7 @@ namespace StockIt
         private System.Windows.Forms.FlowLayoutPanel flpListadoProductos;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label lblSubTotal;
+        private System.Windows.Forms.Label lblTotalReserva;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpFecEntrega;
@@ -293,5 +314,7 @@ namespace StockIt
         private System.Windows.Forms.Label lblIdCliente;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtNomProd;
+        private System.Windows.Forms.LinkLabel lklCambiarVista;
+        private System.Windows.Forms.ToolTip ttCambiarVista;
     }
 }

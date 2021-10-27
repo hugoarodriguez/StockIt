@@ -174,6 +174,7 @@ namespace StockIt.CustomControls
             this.nudCanReserva.Name = "nudCanReserva";
             this.nudCanReserva.Size = new System.Drawing.Size(150, 30);
             this.nudCanReserva.TabIndex = 28;
+            this.nudCanReserva.ValueChanged += new System.EventHandler(this.nudCanReserva_ValueChanged);
             // 
             // label6
             // 
@@ -195,7 +196,7 @@ namespace StockIt.CustomControls
             this.lblSubTotal.Name = "lblSubTotal";
             this.lblSubTotal.Size = new System.Drawing.Size(150, 23);
             this.lblSubTotal.TabIndex = 30;
-            this.lblSubTotal.Text = "Precio";
+            this.lblSubTotal.Text = "SubTotal";
             this.lblSubTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ProductoVRCard
