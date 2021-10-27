@@ -33,6 +33,7 @@ namespace StockIt
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblFormularioLlamada = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,12 +94,25 @@ namespace StockIt
             this.label2.Text = "Haz doble click en la columna vacía que aparece al principio del cliente para sel" +
     "eccionarlo";
             // 
+            // lblFormularioLlamada
+            // 
+            this.lblFormularioLlamada.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFormularioLlamada.AutoSize = true;
+            this.lblFormularioLlamada.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormularioLlamada.Location = new System.Drawing.Point(237, 123);
+            this.lblFormularioLlamada.Name = "lblFormularioLlamada";
+            this.lblFormularioLlamada.Size = new System.Drawing.Size(170, 20);
+            this.lblFormularioLlamada.TabIndex = 14;
+            this.lblFormularioLlamada.Text = "lblFormularioLlamada";
+            this.lblFormularioLlamada.Visible = false;
+            // 
             // frmSeleccionarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1482, 1102);
+            this.Controls.Add(this.lblFormularioLlamada);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label1);
@@ -122,5 +136,6 @@ namespace StockIt
         private System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label lblFormularioLlamada;
     }
 }

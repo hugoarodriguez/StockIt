@@ -62,8 +62,16 @@ namespace StockIt
                 {
                     //Manejar evento
                     ClienteCard clienteCardItem = ((ClienteCard)sender);
-                    this.txtClientes.Text = clienteCardItem.Name + "Eliminar";
-                    clienteCardItem.Dispose();
+                    DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas eliminar el cliente" +
+                        " \"" + clienteCardItem.NomClie + "\"?");
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        /*
+                         * Validar si el cliente seleccionado para eliminar tiene alguna reserva relacionada en la BD.
+                         * Si NO tienen ninguno relacionada SI se debe permitir eliminar
+                         */
+                        clienteCardItem.Dispose();
+                    }
                 }
 
                 //Agregamos el ClienteCard al FlowLAyoutPanel

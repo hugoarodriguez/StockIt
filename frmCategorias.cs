@@ -66,17 +66,19 @@ namespace StockIt
                 {
                     //Manejar evento
                     CategoriaCard categoriaCardItem = ((CategoriaCard)sender);
-                    this.txtCategoria.Text = categoriaCardItem.Name + "Eliminar";
-
-                    /*
-                     * Validar si la categoría seleccionada para eliminar tiene productos (con stock o reserva activa)
-                     * relacionados en la BD.
-                     * Si NO tienen ninguno relacionado SI se debe permitir eliminar
-                     */
-                    categoriaCardItem.Dispose();
+                    DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas eliminar el cliente" +
+                        " \"" + categoriaCardItem.Categ + "\"?");
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        /*
+                         * Validar si la categoría seleccionada para eliminar tiene algún producto relacionado en la BD.
+                         * Si NO tienen ninguno relacionada SI se debe permitir eliminar
+                         */
+                        categoriaCardItem.Dispose();
+                    }
                 }
 
-                //Agregamos el ProductoCard al FlowLAyoutPanel
+                //Agregamos el CategoriaCard al FlowLAyoutPanel
                 flpListadoCategorias.Controls.Add(categorias[i]);
             }
         }

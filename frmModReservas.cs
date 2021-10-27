@@ -1,4 +1,5 @@
 ﻿using StockIt.CustomControls;
+using StockIt_Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,11 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using StockIt_Entidades;
 
 namespace StockIt
 {
-    public partial class frmAggReserva : Form
+    public partial class frmModReservas : Form
     {
         Utils utils = new Utils();
         ProductoVRCard[] productosVR;
@@ -22,16 +22,19 @@ namespace StockIt
         private string textoTTCambiarVista1 = "Haz clic para mostrar únicamente los productos agregados a la reserva";
         private string textoTTCambiarVista2 = "Haz clic para mostrar todos los productos disponibles";
 
-        public frmAggReserva()
+        public frmModReservas()
         {
             InitializeComponent();
         }
 
-        private void frmAggReserva_Load(object sender, EventArgs e)
+        private void frmModReserva_Load(object sender, EventArgs e)
         {
             cargarProductos();
             cargarClientes();
             ttCambiarVista.SetToolTip(lklCambiarVista, textoTTCambiarVista1);
+            ttActualizar.SetToolTip(btnActualizar, "Haz click para establecer los cambios a la reserva");
+            ttLimpiar.SetToolTip(btnLimpiar, "Haz click para reestablecer los datos de la reserva");
+            ttCancelar.SetToolTip(btnCancelar, "Haz click para ignorar los cambios y volver a las Reservas");
         }
 
         private void btnSelCliente_Click(object sender, EventArgs e)
@@ -55,7 +58,7 @@ namespace StockIt
             frmSeleccionarCliente.Show();
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnActualizar_Click(object sender, EventArgs e)
         {
             //Agregar validación de Fecha
             if (totalReserva <= 0 || lblIdCliente.Text == "" || txtCliente.Text == "")
@@ -113,36 +116,36 @@ namespace StockIt
                 try
                 {
                     //Llamar método de capa lógica para guardar la reserva enviar como argumentos a eEncabezadoReservas y eDetallesReservas[]
-                    utils.messageBoxOperacionExitosa("La reserva fue agregada satisfactoriamente.");
+                    utils.messageBoxOperacionExitosa("La reserva fue actualizada satisfactoriamente.");
+
+                    //Volvemos al formulario Reservas
+                    limpiarDatosReserva();
+                    utils.setFormToPanelFormularioHijo(new frmReservas());
+
                 }
                 catch (Exception)
                 {
-                    utils.messageBoxOperacionSinExito("No se pudo agregar la reserva. Intente más tarde.");
+                    utils.messageBoxOperacionSinExito("No se pudo actualizr la reserva. Intente más tarde.");
+                    //Volvemos al formulario Reservas
+                    limpiarDatosReserva();
+                    utils.setFormToPanelFormularioHijo(new frmReservas());
                 }
-
-                //Limpiamos el formulario
-                limpiarDatosReserva();
-
-                //Limpiamos el control FlowLayoutPanel
-                flpListadoProductos.Controls.Clear();
-
-                //Limpiamos el arreglo que contiene los Cards
-                productosVR = null;
-
-                //Cargamos los productos nuevamente
-                cargarProductos();
             }
+        }
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            //Reestablecer los datos de la reserva
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = utils.getMessageBoxCancelarOperacion(
-                "¿Estás seguro que deseas cancelar la Reserva?" +
-                "\nSe quitarán todos los productos que fueron" +
-                "\nagragados con anterioridad.");
+                "¿Estás seguro que deseas cancelar la modificación de la Reserva?" +
+                "\nTodos los cambios realizados se descartarán.");
             if (dialogResult == DialogResult.Yes)
             {
                 limpiarDatosReserva();
+                utils.setFormToPanelFormularioHijo(new frmReservas());
             }
         }
 
@@ -203,7 +206,7 @@ namespace StockIt
                         else
                         {
                             //Opción de Decremento
-                            totalReserva -=  productoVRCardItem.PreProd;
+                            totalReserva -= productoVRCardItem.PreProd;
                         }
 
                         productoVRCardItem.SubTotal = subTotalNuevo;
@@ -216,11 +219,12 @@ namespace StockIt
                     }
 
                     //Evaluamos el subtotal para cambiar el color del Fondo y Letra del CustomControl
-                    if(((int)productoVRCardItem.SubTotal) > 0)
+                    if (((int)productoVRCardItem.SubTotal) > 0)
                     {
                         productoVRCardItem.BackColor = Color.FromArgb(95, 189, 89);
                         productoVRCardItem.ForeColor = Color.White;
-                    } else
+                    }
+                    else
                     {
                         if (tipoVista == false)
                         {

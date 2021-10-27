@@ -64,8 +64,16 @@ namespace StockIt
                 {
                     //Manejar evento
                     ProductoCard productoCardItem = ((ProductoCard)sender);
-                    this.txtNomProd.Text = productoCardItem.Name + "Eliminar";
-                    productoCardItem.Dispose();
+                    DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas eliminar el producto" +
+                        " \"" + productoCardItem.NomProd + "\"?");
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        /*
+                         * Validar si el producto seleccionado para eliminar tiene alguna reserva SIN FINALIZAR relacionada en la BD.
+                         * Si NO tienen ninguno relacionada SI se debe permitir eliminar
+                         */
+                        productoCardItem.Dispose();
+                    }
                 }
 
                 //Agregamos el ProductoCard al FlowLAyoutPanel

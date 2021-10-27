@@ -163,6 +163,31 @@ namespace StockIt
             }
         }
 
+        //Filtro de Card en pantalla de Reservas
+        public void filtrarCardsReservas(ReservaCard[] reservas, TextBox textBox)
+        {
+            for (int i = 0; i < reservas.Length; i++)
+            {
+                if (textBox.Text != "")
+                {
+                    string valor = reservas[i].NomClie.Trim().ToUpper();
+                    string valorBusqueda = textBox.Text.Trim().ToUpper();
+                    if (valor.Contains(valorBusqueda))
+                    {
+                        reservas[i].Show();
+                    }
+                    else
+                    {
+                        reservas[i].Hide();
+                    }
+                }
+                else
+                {
+                    reservas[i].Show();
+                }
+            }
+        }
+
         #endregion
 
         #region Métodos para validaciones
@@ -225,6 +250,13 @@ namespace StockIt
         public DialogResult getMessageBoxCancelarOperacion(string mensaje)
         {
             return MessageBox.Show(mensaje, "Cancelar operación",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+        }
+
+        //Get Messagebox "Alerta"
+        public DialogResult getMessageBoxAlerta(string mensaje)
+        {
+            return MessageBox.Show(mensaje, "Alerta",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
         }
 

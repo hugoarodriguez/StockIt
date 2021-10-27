@@ -125,7 +125,7 @@ namespace StockIt
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            //Reestablecer los cambos con sus datos iniciales
+            //Reestablecer los campos con sus datos iniciales
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -154,6 +154,12 @@
     <Compile Include="frmModProveedores.Designer.cs">
       <DependentUpon>frmModProveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModReservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModReservas.Designer.cs">
+      <DependentUpon>frmModReservas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmModProveedores.resx">
       <DependentUpon>frmModProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModReservas.resx">
+      <DependentUpon>frmModReservas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

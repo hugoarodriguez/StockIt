@@ -13,6 +13,8 @@ namespace StockIt
 {
     public partial class frmReservas : Form
     {
+        Utils utils = new Utils();
+        ReservaCard[] reservas;
         public frmReservas()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace StockIt
 
         private void cargarReservas()
         {
-            ReservaCard[] reservas = new ReservaCard[10];
+            reservas = new ReservaCard[10];
             for (int i = 0; i < reservas.Length; i++)
             {
                 reservas[i] = new ReservaCard();
@@ -42,7 +44,9 @@ namespace StockIt
                 {
                     //Manejar evento
                     ReservaCard reservaCardItem = ((ReservaCard)sender);
-                    this.txtReservas.Text = reservaCardItem.Name + "Editar";
+
+                    Utils utils = new Utils();
+                    utils.setFormToPanelFormularioHijo(new frmModReservas());
                 }
 
                 //Creación de btnEliminar
@@ -53,13 +57,23 @@ namespace StockIt
                 {
                     //Manejar evento
                     ReservaCard reservaCardItem = ((ReservaCard)sender);
-                    this.txtReservas.Text = reservaCardItem.Name + "Eliminar";
-                    reservaCardItem.Dispose();
+
+                    DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas finalizar la reserva del cliente" +
+                        " \"" + reservaCardItem.NomClie + "\"?");
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        reservaCardItem.Dispose();
+                    }
                 }
 
                 //Agregamos el ProductoCard al FlowLAyoutPanel
                 flpListadoReservas.Controls.Add(reservas[i]);
             }
+        }
+
+        private void txtNomCliente_TextChanged(object sender, EventArgs e)
+        {
+            utils.filtrarCardsReservas(reservas, txtNomCliente);
         }
     }
 }

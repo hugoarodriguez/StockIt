@@ -42,12 +42,27 @@ namespace StockIt
                 {
                     try
                     {
-                        Form frmAggReserva = Application.OpenForms["frmAggReserva"];
-                        TextBox objTxtCliente = (TextBox)frmAggReserva.Controls.Find("txtCliente", true).SingleOrDefault();
-                        objTxtCliente.Text = row.Cells[1].Value.ToString() + " " + row.Cells[2].Value.ToString();
-                        //lblIdCliente
-                        Label objLblIdCliente = (Label)frmAggReserva.Controls.Find("lblIdCliente", true).SingleOrDefault();
-                        objLblIdCliente.Text = row.Cells[0].Value.ToString();
+                        if (lblFormularioLlamada.Text != "")
+                        {
+                            if (lblFormularioLlamada.Text == "frmAggReserva")
+                            {
+                                Form frmAggReserva = Application.OpenForms["frmAggReserva"];
+                                TextBox objTxtCliente = (TextBox)frmAggReserva.Controls.Find("txtCliente", true).SingleOrDefault();
+                                objTxtCliente.Text = row.Cells[1].Value.ToString() + " " + row.Cells[2].Value.ToString();
+                                //lblIdCliente
+                                Label objLblIdCliente = (Label)frmAggReserva.Controls.Find("lblIdCliente", true).SingleOrDefault();
+                                objLblIdCliente.Text = row.Cells[0].Value.ToString();
+                            }
+                            else if (lblFormularioLlamada.Text == "frmModReservas")
+                            {
+                                Form frmModReservas = Application.OpenForms["frmModReservas"];
+                                TextBox objTxtCliente = (TextBox)frmModReservas.Controls.Find("txtCliente", true).SingleOrDefault();
+                                objTxtCliente.Text = row.Cells[1].Value.ToString() + " " + row.Cells[2].Value.ToString();
+                                //lblIdCliente
+                                Label objLblIdCliente = (Label)frmModReservas.Controls.Find("lblIdCliente", true).SingleOrDefault();
+                                objLblIdCliente.Text = row.Cells[0].Value.ToString();
+                            }
+                        }
                     }
                     catch (Exception)
                     {

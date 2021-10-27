@@ -63,8 +63,13 @@ namespace StockIt
                 {
                     //Manejar evento
                     ProveedorCard proveedorCardItem = ((ProveedorCard)sender);
-                    this.txtNomProveedor.Text = proveedorCardItem.Name + "Eliminar";
-                    proveedorCardItem.Dispose();
+
+                    DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas eliminar el proveedor" +
+                        " \""+ proveedorCardItem.NomProveedor +"\"?");
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        proveedorCardItem.Dispose();
+                    }
                 }
 
                 //Agregamos el ProveedorCard al FlowLAyoutPanel

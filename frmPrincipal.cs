@@ -135,7 +135,10 @@ namespace StockIt
 
         private void btnReservas_Click(object sender, EventArgs e)
         {
-            //Redirigir a formulario de Reservas
+            frmReservas formularioHijo = new frmReservas();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
+            ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
         #region Reportes
