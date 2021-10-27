@@ -56,7 +56,61 @@ namespace StockIt
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            //Agregar validación de Fecha
+            if (totalReserva <= 0 || lblIdCliente.Text == "" || txtCliente.Text == "")
+            {
+                if (totalReserva <= 0)
+                {
+                    utils.messageBoxCampoRequerido("Debes agregar productos a la reserva.");
+                }
+                else if (lblIdCliente.Text == "" || txtCliente.Text == "")
+                {
+                    utils.messageBoxCampoRequerido("Debes seleccionar el cliente a quien\n le pertenece la reserva.");
+                    btnSelCliente.Focus();
+                }
+                /* //Validación de fecha con el WS
+                else if ()
+                {
 
+                }
+                */
+            }
+            else
+            {
+                //Guardar Reserva
+                EEncabezadoReservas eEncabezadoReservas = new EEncabezadoReservas();
+                eEncabezadoReservas.IdCliente = int.Parse(lblIdCliente.Text.Trim());
+                eEncabezadoReservas.FechaPromesaEntrega = dtpFecEntrega.Value;
+                eEncabezadoReservas.MontoEncabezadoReserva = totalReserva;
+                eEncabezadoReservas.EstadoReserva = "A";//Verificar con los estados determinados
+                eEncabezadoReservas.Comentarios = txtComentarios.Text.Trim();
+
+                int conteoProductos = 0;
+                for (int i = 0; i < productosVR.Length; i++)
+                {
+                    if (productosVR[i].SubTotal > 0.0)
+                    {
+                        conteoProductos++;
+                    }
+                }
+
+                EDetalleReservas[] eDetallesReservas = new EDetalleReservas[conteoProductos];
+                int indexProducto = 0;
+                for (int i = 0; i < productosVR.Length; i++)
+                {
+                    if (productosVR[i].SubTotal > 0.0)
+                    {
+                        eDetallesReservas[indexProducto] = new EDetalleReservas();
+                        eDetallesReservas[indexProducto].IdProducto = int.Parse(productosVR[i].Name);
+                        NumericUpDown objNUDCanReserva = (NumericUpDown)productosVR[i].Controls.Find("nudCanReserva", true).SingleOrDefault();
+                        eDetallesReservas[indexProducto].Cantidad = ((int)objNUDCanReserva.Value);
+                        eDetallesReservas[indexProducto].Monto = productosVR[i].SubTotal;
+                        indexProducto++;
+                    }
+                }
+
+                //Llamar método de capa lógica para guardar la reserva enviar como argumentos a eEncabezadoReservas y eDetallesReservas[]
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -83,13 +137,14 @@ namespace StockIt
             cambiarVista();
         }
 
+        #region Métodos creados
         private void cargarProductos()
         {
             productosVR = new ProductoVRCard[10];
             for (int i = 0; i < productosVR.Length; i++)
             {
                 productosVR[i] = new ProductoVRCard();
-                productosVR[i].Name = "ProductoVRCard" + i.ToString();
+                productosVR[i].Name = i.ToString();
                 productosVR[i].NomProd = "Camiseta Verde " + i.ToString();
                 productosVR[i].CatProd = "Camisetas";
                 productosVR[i].CanProd = 5;
@@ -237,5 +292,7 @@ namespace StockIt
                 }
             }
         }
+
+        #endregion
     }
 }
