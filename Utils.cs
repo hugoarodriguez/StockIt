@@ -249,6 +249,13 @@ namespace StockIt
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        //MessageBox de "Operación sin éxito"
+        public void messageBoxOperacionSinExito(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Operación finalizada sin éxito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
         #endregion
     }
 }

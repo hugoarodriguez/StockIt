@@ -109,7 +109,27 @@ namespace StockIt
                     }
                 }
 
-                //Llamar método de capa lógica para guardar la reserva enviar como argumentos a eEncabezadoReservas y eDetallesReservas[]
+                try
+                {
+                    //Llamar método de capa lógica para guardar la reserva enviar como argumentos a eEncabezadoReservas y eDetallesReservas[]
+                    utils.messageBoxOperacionExitosa("La reserva fue agregada satisfactoriamente.");
+                }
+                catch (Exception)
+                {
+                    utils.messageBoxOperacionSinExito("No se pudo agregar la reserva. Intente más tarde.");
+                }
+
+                //Limpiamos el formulario
+                limpiarDatosReserva();
+
+                //Limpiamos el control FlowLayoutPanel
+                flpListadoProductos.Controls.Clear();
+
+                //Limpiamos el arreglo que contiene los Cards
+                productosVR = null;
+
+                //Cargamos los productos nuevamente
+                cargarProductos();
             }
         }
 
@@ -235,8 +255,6 @@ namespace StockIt
         //Permite quitar de la reserva todos los productos que han sido agregados como reservados
         private void limpiarDatosReserva()
         {
-            //Agregar la limpieza al arreglo de la entidad de EReservaDetalle
-
             for (int i = 0; i < productosVR.Length; i++)
             {
                 if (productosVR[i].SubTotal > 0)
