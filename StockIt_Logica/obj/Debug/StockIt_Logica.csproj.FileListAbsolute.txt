@@ -1,0 +1,6 @@
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\StockIt_Logica\bin\Debug\StockIt_Logica.dll
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\StockIt_Logica\bin\Debug\StockIt_Logica.pdb
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\StockIt_Logica\obj\Debug\StockIt_Logica.csproj.AssemblyReference.cache
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\StockIt_Logica\obj\Debug\StockIt_Logica.csproj.CoreCompileInputs.cache
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\StockIt_Logica\obj\Debug\StockIt_Logica.dll
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\StockIt_Logica\obj\Debug\StockIt_Logica.pdb

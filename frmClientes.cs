@@ -13,6 +13,8 @@ namespace StockIt
 {
     public partial class frmClientes : Form
     {
+        Utils utils = new Utils();
+        ClienteCard[] clientes;
         public frmClientes()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace StockIt
 
         private void cargarClientes()
         {
-            ClienteCard[] clientes = new ClienteCard[10];
+            clientes = new ClienteCard[10];
             for (int i = 0; i < clientes.Length; i++)
             {
                 clientes[i] = new ClienteCard();
@@ -44,6 +46,12 @@ namespace StockIt
                     //Manejar evento
                     ClienteCard clienteCardItem = ((ClienteCard)sender);
                     this.txtClientes.Text = clienteCardItem.Name + "Editar";
+
+                    //Hacer consulta en la BD del registro seleccionado
+
+                    //Abrimos el formulario para modificar el cliente según el ID
+                    Utils utils = new Utils();
+                    utils.setFormToPanelFormularioHijo(new frmModClientes());
                 }
 
                 //Creación de btnEliminar
@@ -54,13 +62,26 @@ namespace StockIt
                 {
                     //Manejar evento
                     ClienteCard clienteCardItem = ((ClienteCard)sender);
-                    this.txtClientes.Text = clienteCardItem.Name + "Eliminar";
-                    clienteCardItem.Dispose();
+                    DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas eliminar el cliente" +
+                        " \"" + clienteCardItem.NomClie + "\"?");
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        /*
+                         * Validar si el cliente seleccionado para eliminar tiene alguna reserva relacionada en la BD.
+                         * Si NO tienen ninguno relacionada SI se debe permitir eliminar
+                         */
+                        clienteCardItem.Dispose();
+                    }
                 }
 
-                //Agregamos el ProductoCard al FlowLAyoutPanel
+                //Agregamos el ClienteCard al FlowLAyoutPanel
                 flpListadoClientes.Controls.Add(clientes[i]);
             }
+        }
+
+        private void txtClientes_TextChanged(object sender, EventArgs e)
+        {
+            utils.filtrarCardsClientes(clientes, txtClientes);
         }
     }
 }

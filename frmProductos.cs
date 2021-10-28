@@ -13,6 +13,9 @@ namespace StockIt
 {
     public partial class frmProductos : Form
     {
+        Utils utils = new Utils();
+        ProductoCard[] productos;
+
         public frmProductos()
         {
             InitializeComponent();
@@ -25,7 +28,7 @@ namespace StockIt
 
         private void cargarProductos()
         {
-            ProductoCard[] productos = new ProductoCard[10];
+            productos = new ProductoCard[10];
             for (int i = 0; i < productos.Length; i++)
             {
                 productos[i] = new ProductoCard();
@@ -61,13 +64,26 @@ namespace StockIt
                 {
                     //Manejar evento
                     ProductoCard productoCardItem = ((ProductoCard)sender);
-                    this.txtNomProd.Text = productoCardItem.Name + "Eliminar";
-                    productoCardItem.Dispose();
+                    DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas eliminar el producto" +
+                        " \"" + productoCardItem.NomProd + "\"?");
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        /*
+                         * Validar si el producto seleccionado para eliminar tiene alguna reserva SIN FINALIZAR relacionada en la BD.
+                         * Si NO tienen ninguno relacionada SI se debe permitir eliminar
+                         */
+                        productoCardItem.Dispose();
+                    }
                 }
 
                 //Agregamos el ProductoCard al FlowLAyoutPanel
                 flpListadoProductos.Controls.Add(productos[i]);
             }
+        }
+
+        private void txtNomProd_TextChanged(object sender, EventArgs e)
+        {
+            utils.filtrarCardsProductos(productos, txtNomProd);
         }
     }
 }

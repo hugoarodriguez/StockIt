@@ -53,9 +53,33 @@ namespace StockIt
             lblFormOpen.Text = formularioHijo.Name;
         }
 
+        private void lklCorreo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmCambiarClave formularioHijo = new frmCambiarClave();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
+            ocultarSubMenu();
+        }
+
         private void btnInicio_Click(object sender, EventArgs e)
         {
             frmInicio formularioHijo = new frmInicio();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
+            ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
+        }
+
+        private void btnAdmCategorias_Click(object sender, EventArgs e)
+        {
+            frmCategorias formularioHijo = new frmCategorias();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
+            ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
+        }
+
+        private void btnAggProveedores_Click(object sender, EventArgs e)
+        {
+            frmAggProveedores formularioHijo = new frmAggProveedores();
             utils.setFormToPanelFormularioHijo(formularioHijo);
             lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
@@ -69,18 +93,6 @@ namespace StockIt
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
-        private void btnAggReservas_Click(object sender, EventArgs e)
-        {
-            //Funcionalidades (llamar formulario correspondiente)
-            ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
-        }
-
-        private void btnAggCategorias_Click(object sender, EventArgs e)
-        {
-            //Funcionalidades (llamar formulario correspondiente)
-            ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
-        }
-
         private void btnAggClientes_Click(object sender, EventArgs e)
         {
             frmAggClientes formularioHijo = new frmAggClientes();
@@ -89,9 +101,19 @@ namespace StockIt
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
-        private void btnVentas_Click(object sender, EventArgs e)
+        private void btnAggReservas_Click(object sender, EventArgs e)
         {
-            //Funcionalidades (llamar formulario correspondiente)
+            frmAggReserva formularioHijo = new frmAggReserva();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
+            ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            frmProveedores formularioHijo = new frmProveedores();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
@@ -103,17 +125,17 @@ namespace StockIt
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
-        private void btnCategorias_Click(object sender, EventArgs e)
+        private void btnClientes_Click(object sender, EventArgs e)
         {
-            frmCategorias formularioHijo = new frmCategorias();
+            frmClientes formularioHijo = new frmClientes();
             utils.setFormToPanelFormularioHijo(formularioHijo);
             lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
-        private void btnClientes_Click(object sender, EventArgs e)
+        private void btnReservas_Click(object sender, EventArgs e)
         {
-            frmClientes formularioHijo = new frmClientes();
+            frmReservas formularioHijo = new frmReservas();
             utils.setFormToPanelFormularioHijo(formularioHijo);
             lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
@@ -162,14 +184,6 @@ namespace StockIt
         {
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
             this.Close();
-        }
-
-        private void lklCorreo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            frmCambiarClave formularioHijo = new frmCambiarClave();
-            utils.setFormToPanelFormularioHijo(formularioHijo);
-            lblFormOpen.Text = formularioHijo.Name;
-            ocultarSubMenu();
         }
     }
 }

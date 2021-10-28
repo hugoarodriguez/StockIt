@@ -13,6 +13,8 @@ namespace StockIt
 {
     public partial class frmRecuperarCuenta : Form
     {
+        Utils utils = new Utils();
+
         public frmRecuperarCuenta()
         {
             InitializeComponent();
@@ -23,25 +25,36 @@ namespace StockIt
             //Abrir ventana modal que muestra contraseña temporal (si el correo es válido y existe en la BD)
             try
             {
-                string email = txtCorreo.Text;
-                Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,5})+)$");
-                Match match = regex.Match(email);
-                if (match.Success)
+                if (txtCorreo.Text.Trim() == "")
                 {
-                    MessageBox.Show("Correo válido");
-                    this.Close();
-                    frmClaveTemporal frmClaveTemporal = new frmClaveTemporal();
-                    frmClaveTemporal.Show();
+                    utils.messageBoxCampoRequerido("Debes escribir tu correo electrónico.");
+                    txtCorreo.Focus();
                 }
                 else
                 {
-                    MessageBox.Show("Correo inválido");
+                    string email = txtCorreo.Text.Trim();
+                    if (utils.validarEmail(email))
+                    {
+                        //Validar la existencia del email en la BD
+
+
+                        //Si el correo existe mostrar la clave temporal
+                        this.Close();
+                        frmClaveTemporal frmClaveTemporal = new frmClaveTemporal();
+                        frmClaveTemporal.Show();
+                    }
+                    else
+                    {
+                        utils.messageBoxFormatoIncorrecto("El formato de correo ingresado no es válido.");
+                        txtCorreo.Focus();
+                    }
                 }
                     
             }
             catch (Exception)
             {
-                txtCorreo.Text = "Error";
+                utils.messageBoxFormatoIncorrecto("El formato de correo ingresado no es válido.");
+                txtCorreo.Focus();
             }
         }
 

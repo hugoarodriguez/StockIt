@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -64,11 +70,35 @@
     <Compile Include="CustomControls\ProductoCard.Designer.cs">
       <DependentUpon>ProductoCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\ProductoVRCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ProductoVRCard.Designer.cs">
+      <DependentUpon>ProductoVRCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ProveedorCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ProveedorCard.Designer.cs">
+      <DependentUpon>ProveedorCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\ReservaCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CustomControls\ReservaCard.Designer.cs">
       <DependentUpon>ReservaCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAggProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAggProveedores.Designer.cs">
+      <DependentUpon>frmAggProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAggReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAggReserva.Designer.cs">
+      <DependentUpon>frmAggReserva.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCambiarClave.cs">
       <SubType>Form</SubType>
@@ -124,6 +154,18 @@
     <Compile Include="frmModificarProductos.Designer.cs">
       <DependentUpon>frmModificarProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModProveedores.Designer.cs">
+      <DependentUpon>frmModProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModReservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModReservas.Designer.cs">
+      <DependentUpon>frmModReservas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +183,12 @@
     </Compile>
     <Compile Include="frmProductos.Designer.cs">
       <DependentUpon>frmProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProveedores.Designer.cs">
+      <DependentUpon>frmProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRecuperarCuenta.cs">
       <SubType>Form</SubType>
@@ -184,6 +232,12 @@
     <Compile Include="frmReservas.Designer.cs">
       <DependentUpon>frmReservas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSeleccionarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSeleccionarCliente.Designer.cs">
+      <DependentUpon>frmSeleccionarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -191,15 +245,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ReportClasses\CReporteCategorias.cs" />
     <Compile Include="Utils.cs" />
     <EmbeddedResource Include="CustomControls\CategoriaCard.resx">
       <DependentUpon>CategoriaCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ClienteCard.resx">
+      <DependentUpon>ClienteCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ProductoCard.resx">
       <DependentUpon>ProductoCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ProductoVRCard.resx">
+      <DependentUpon>ProductoVRCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ProveedorCard.resx">
+      <DependentUpon>ProveedorCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAggClientes.resx">
       <DependentUpon>frmAggClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAggProveedores.resx">
+      <DependentUpon>frmAggProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAggReserva.resx">
+      <DependentUpon>frmAggReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCambiarClave.resx">
       <DependentUpon>frmCambiarClave.cs</DependentUpon>
@@ -225,6 +295,12 @@
     <EmbeddedResource Include="frmModificarProductos.resx">
       <DependentUpon>frmModificarProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmModProveedores.resx">
+      <DependentUpon>frmModProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModReservas.resx">
+      <DependentUpon>frmModReservas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProveedores.resx">
+      <DependentUpon>frmProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRecuperarCuenta.resx">
       <DependentUpon>frmRecuperarCuenta.cs</DependentUpon>
@@ -255,11 +334,15 @@
     <EmbeddedResource Include="frmReservas.resx">
       <DependentUpon>frmReservas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSeleccionarCliente.resx">
+      <DependentUpon>frmSeleccionarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -276,11 +359,23 @@
   <ItemGroup>
     <None Include="Resources\noImage.png" />
     <None Include="Resources\backButton.png" />
-    <None Include="Resources\printingButton.png" />
+    <None Include="Resources\printingButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="src\images\no-image.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="StockIt_Entidades\StockIt_Entidades.csproj">
+      <Project>{93e84a13-6749-4922-a0d0-8e71cd5ad70c}</Project>
+      <Name>StockIt_Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="StockIt_Logica\StockIt_Logica.csproj">
+      <Project>{a191348d-40e8-415d-997b-e76ad8d94170}</Project>
+      <Name>StockIt_Logica</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

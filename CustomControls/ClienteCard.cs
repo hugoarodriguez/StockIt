@@ -42,7 +42,7 @@ namespace StockIt.CustomControls
         public string CorrClie
         {
             get { return corrClie; }
-            set { corrClie = value; this.lblCorrClie.Text = value.ToString() + " unidades"; }
+            set { corrClie = value; this.lblCorrClie.Text = value.ToString(); }
         }
 
         [Category("Custom Props")]
