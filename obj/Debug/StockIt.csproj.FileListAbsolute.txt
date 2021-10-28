@@ -129,3 +129,7 @@ C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internaci
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmSeleccionarCliente.resources
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.csproj.CopyComplete
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmModReservas.resources
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\bin\Debug\itextsharp.dll
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\bin\Debug\itextsharp.xml
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\bin\Debug\Resources\printingButton.png
