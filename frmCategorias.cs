@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StockIt_Entidades;
+using StockIt_Logica;
 
 namespace StockIt
 {
@@ -15,6 +17,7 @@ namespace StockIt
     {
         Utils utils = new Utils();
         string nombreActualCategoria;
+        int idCategoria;
 
         public frmCategorias()
         {
@@ -34,52 +37,71 @@ namespace StockIt
                 flpListadoCategorias.Controls.Clear();
             }
 
-            CategoriaCard[] categorias = new CategoriaCard[10];
-            for (int i = 0; i < categorias.Length; i++)
+            List<ECategoria> eCategoriasList = new LCategorias().SeleccionarCategoriasActivasByIdUsuario(utils.getIdUsuario());
+
+            if (eCategoriasList.Count > 0)
             {
-                categorias[i] = new CategoriaCard();
-                categorias[i].Name = "CategoriaCard" + i.ToString();//Colocar el id de la BD como nombre de la Card
-                categorias[i].Categ = "Categoría" + " " + i.ToString();
-
-                //Creación de btnEditar
-                categorias[i].BtnEditarProp = new Button();
-                categorias[i].ButtonClickEditar += new EventHandler(btnEditar_ButtonClick);
-
-                void btnEditar_ButtonClick(object sender, EventArgs e)
+                CategoriaCard[] categorias = new CategoriaCard[eCategoriasList.Count];
+                for (int i = 0; i < categorias.Length; i++)
                 {
-                    //Manejar evento
-                    CategoriaCard categoriaCardItem = ((CategoriaCard)sender);
-                    this.txtCategoria.Text = categoriaCardItem.Name + "Editar";
+                    categorias[i] = new CategoriaCard();
+                    categorias[i].Name = eCategoriasList[i].IdCategoria.ToString();
+                    categorias[i].Categ = eCategoriasList[i].Categoria;
 
-                    //Posteriormente se puede hacer consultando el nombre a la BD con el ID de la categoría
-                    nombreActualCategoria = this.txtCategoria.Text = categoriaCardItem.Name;//Obtenemos el nombre actual de la categoría
-                    btnAgregar.Text = "Editar";//Cambiamos el texto del btnAgregar
-                    btnCancelar.Show();//Mostramos el btnCancelar, que permitirá cancelar la edición de la categoría
-                    flpListadoCategorias.Hide();//Ocultamos el FlowLayoutPanel de Categorías
-                }
+                    //Creación de btnEditar
+                    categorias[i].BtnEditarProp = new Button();
+                    categorias[i].ButtonClickEditar += new EventHandler(btnEditar_ButtonClick);
 
-                //Creación de btnEliminar
-                categorias[i].BtnEliminarProp = new Button();
-                categorias[i].ButtonClickEliminar += new EventHandler(btnEliminar_ButtonClick);
-
-                void btnEliminar_ButtonClick(object sender, EventArgs e)
-                {
-                    //Manejar evento
-                    CategoriaCard categoriaCardItem = ((CategoriaCard)sender);
-                    DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas eliminar el cliente" +
-                        " \"" + categoriaCardItem.Categ + "\"?");
-                    if (dialogResult == DialogResult.Yes)
+                    void btnEditar_ButtonClick(object sender, EventArgs e)
                     {
-                        /*
-                         * Validar si la categoría seleccionada para eliminar tiene algún producto relacionado en la BD.
-                         * Si NO tienen ninguno relacionada SI se debe permitir eliminar
-                         */
-                        categoriaCardItem.Dispose();
-                    }
-                }
+                        //Manejar evento
+                        CategoriaCard categoriaCardItem = ((CategoriaCard)sender);
+                        this.txtCategoria.Text = categoriaCardItem.Name + "Editar";
 
-                //Agregamos el CategoriaCard al FlowLAyoutPanel
-                flpListadoCategorias.Controls.Add(categorias[i]);
+                        //Posteriormente se puede hacer consultando el nombre a la BD con el ID de la categoría
+                        idCategoria = int.Parse(categoriaCardItem.Name);
+                        nombreActualCategoria = this.txtCategoria.Text = categoriaCardItem.Categ.ToUpper();//Obtenemos el nombre actual de la categoría
+                        btnAgregar.Text = "Editar";//Cambiamos el texto del btnAgregar
+                        txtCategoria.Focus();
+                        btnCancelar.Show();//Mostramos el btnCancelar, que permitirá cancelar la edición de la categoría
+                        flpListadoCategorias.Hide();//Ocultamos el FlowLayoutPanel de Categorías
+                    }
+
+                    //Creación de btnEliminar
+                    categorias[i].BtnEliminarProp = new Button();
+                    categorias[i].ButtonClickEliminar += new EventHandler(btnEliminar_ButtonClick);
+
+                    void btnEliminar_ButtonClick(object sender, EventArgs e)
+                    {
+                        //Manejar evento
+                        CategoriaCard categoriaCardItem = ((CategoriaCard)sender);
+                        DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas eliminar el cliente" +
+                            " \"" + categoriaCardItem.Categ + "\"?");
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            ECategoria eCategoria = new ECategoria();
+                            eCategoria.IdCategoria = int.Parse(categoriaCardItem.Name);
+                            int r = new LCategorias().EliminarCategoria(eCategoria);
+
+                            if (r > 0)
+                            {
+                                categoriaCardItem.Dispose();
+                            }
+                            else if (r == -1)
+                            {
+                                utils.messageBoxAlerta("No se puede eliminar esta categoría, " +
+                                    "\nse encuentra relacionada con productos activos.");
+                            }
+                            else
+                            {
+                                utils.messageBoxOperacionSinExito("Hubo un error. Intente más tarde.");
+                            }
+                        }
+                    }
+
+                    //Agregamos el CategoriaCard al FlowLAyoutPanel
+                    flpListadoCategorias.Controls.Add(categorias[i]);
+                }
             }
         }
 
@@ -90,16 +112,33 @@ namespace StockIt
             {
                 if (txtCategoria.Text.Trim() != "")
                 {
-                    string nuevoNombreCategoria = txtCategoria.Text.Trim();
+                    string nombreCategoria = txtCategoria.Text.Trim().ToUpper();
 
-                    //Agregar categoría
-                    utils.messageBoxOperacionExitosa("Se agregó la categoría \""+ nuevoNombreCategoria +"\"");
+                    ECategoria eCategoria = new ECategoria();
+                    eCategoria.Categoria = nombreCategoria;
 
-                    //Cargamos las categorías nuevamente
-                    cargarCategorias();
+                    int r = new LCategorias().InsertarCategoria(utils.getIdUsuario(), eCategoria);
 
-                    //Limpiamos los controles
-                    limpiarControles();
+                    if(r > 0)
+                    {
+                        utils.messageBoxOperacionExitosa("Se agregó la categoría \"" + nombreCategoria + "\"");
+
+                        //Cargamos las categorías nuevamente
+                        cargarCategorias();
+
+                        //Limpiamos los controles
+                        limpiarControles();
+                    }
+                    else if (r == -1)
+                    {
+                        utils.messageBoxAlerta("No se pude agregar la categoría \"" + nombreCategoria + "\"." +
+                            "\nHay una existente con idéntico nombre.");
+                    }
+                    else
+                    {
+                        utils.messageBoxOperacionSinExito("Hubo un error. Intente más tarde.");
+                    }
+                    txtCategoria.Focus();
                 }
                 else
                 {
@@ -111,17 +150,44 @@ namespace StockIt
             {
                 if (txtCategoria.Text.Trim() != "")
                 {
-                    string nuevoNombreCategoria = txtCategoria.Text.Trim();
+                    string nuevoNombreCategoria = txtCategoria.Text.Trim().ToUpper();
 
-                    //Modificar categoría
-                    utils.messageBoxOperacionExitosa("La categoría \"" + nombreActualCategoria + "\"" +
-                        " paso a llamarse \""+ nuevoNombreCategoria + "\"");
+                    if (nombreActualCategoria != nuevoNombreCategoria)
+                    {
+                        ECategoria eCategoria = new ECategoria();
+                        eCategoria.IdCategoria = idCategoria;
+                        eCategoria.Categoria = nuevoNombreCategoria;
 
-                    //Cargamos las categorías nuevamente
-                    cargarCategorias();
+                        int r = new LCategorias().ActualizarCategoria(utils.getIdUsuario(), eCategoria);
 
-                    //Limpiamos los controles
-                    limpiarControles();
+                        if (r > 0)
+                        {
+                            utils.messageBoxOperacionExitosa("La categoría \"" + nombreActualCategoria + "\"" +
+                                " pasó a llamarse \"" + nuevoNombreCategoria + "\"");
+
+                            //Cargamos las categorías nuevamente
+                            cargarCategorias();
+
+                            //Limpiamos los controles
+                            limpiarControles();
+
+                            txtCategoria.Focus();
+                        }
+                        else if (r == -1)
+                        {
+                            utils.messageBoxAlerta("No se pude asignar el nombre \"" + nuevoNombreCategoria + "\" a la categoría." +
+                                "\nHay una existente con idéntico nombre.");
+                        }
+                        else
+                        {
+                            utils.messageBoxOperacionSinExito("Hubo un error. Intente más tarde.");
+                        }
+                    }
+                    else
+                    {
+                        utils.messageBoxAlerta("El nombre \"" + nuevoNombreCategoria + "\" es el actual de la categoría." +
+                                "\nEscribe uno distinto.");
+                    }
                 }
                 else
                 {
@@ -139,6 +205,7 @@ namespace StockIt
         //Permite reestablecer el estado inicial de los controles antes de presionar la opción "Editar" en la Categoría
         private void limpiarControles()
         {
+            idCategoria = 0;
             if (btnAgregar.Text == "Agregar")
             {
                 txtCategoria.Text = null;
