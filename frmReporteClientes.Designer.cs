@@ -32,14 +32,24 @@ namespace StockIt
             this.gridClientes = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.PictureBox();
+            this.nombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImprimir)).BeginInit();
             this.SuspendLayout();
             // 
             // gridClientes
             // 
+            this.gridClientes.AllowUserToAddRows = false;
             this.gridClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
             this.gridClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nombreCliente,
+            this.telefonoCliente,
+            this.correoCliente,
+            this.sexoCliente});
             this.gridClientes.Location = new System.Drawing.Point(76, 150);
             this.gridClientes.Name = "gridClientes";
             this.gridClientes.Size = new System.Drawing.Size(700, 433);
@@ -71,6 +81,32 @@ namespace StockIt
             this.btnImprimir.MouseLeave += new System.EventHandler(this.btnImprimir_MouseLeave);
             this.btnImprimir.MouseHover += new System.EventHandler(this.btnImprimir_MouseHover);
             // 
+            // nombreCliente
+            // 
+            this.nombreCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreCliente.HeaderText = "Nombre";
+            this.nombreCliente.Name = "nombreCliente";
+            // 
+            // telefonoCliente
+            // 
+            this.telefonoCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.telefonoCliente.FillWeight = 50F;
+            this.telefonoCliente.HeaderText = "Telefono";
+            this.telefonoCliente.Name = "telefonoCliente";
+            // 
+            // correoCliente
+            // 
+            this.correoCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.correoCliente.HeaderText = "Correo";
+            this.correoCliente.Name = "correoCliente";
+            // 
+            // sexoCliente
+            // 
+            this.sexoCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.sexoCliente.FillWeight = 25F;
+            this.sexoCliente.HeaderText = "Sexo";
+            this.sexoCliente.Name = "sexoCliente";
+            // 
             // frmReporteClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -94,5 +130,9 @@ namespace StockIt
         private System.Windows.Forms.DataGridView gridClientes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox btnImprimir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefonoCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn correoCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sexoCliente;
     }
 }

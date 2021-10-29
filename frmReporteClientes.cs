@@ -20,8 +20,8 @@ namespace StockIt
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            CReporteCategorias cReporteCategorias = new CReporteCategorias();
-            cReporteCategorias.generarReporteCategorias();
+            CReporteClientes cReporteClientes = new CReporteClientes();
+            cReporteClientes.generarReporteClientes();
         }
 
         private void btnImprimir_MouseHover(object sender, EventArgs e)

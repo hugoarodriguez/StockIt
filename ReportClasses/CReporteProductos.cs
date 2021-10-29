@@ -1,18 +1,18 @@
-﻿using iTextSharp.text;
-using iTextSharp.text.pdf;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System.IO;
 using System.Windows.Forms;
 
 namespace StockIt.ReportClasses
 {
-    public class CReporteCategorias
+    class CReporteProductos
     {
-        public void generarReporteCategorias()
+        public void generarReporteProductos()
         {
             try
             {
@@ -51,18 +51,19 @@ namespace StockIt.ReportClasses
 
                     /*Agregar otra imagen (puede ser un texto que diga StockIt) a la carpeta "Resources" 
                      * y establecer la propiedad "Copy to Output Directory" de esta imagen como "Copy always" */
-                    string nombreImagen = "logoStockIt.png";//Cambiar nombre por el de la nueva imagen
+                    string nombreImagen = "logoStockIt.jpg";//Cambiar nombre por el de la nueva imagen
 
                     string PathImage = System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, "Resources\\" + nombreImagen);
 
                     //Cambiar propiedades de tamaño y posición de la imagen según sea necesario
                     //Begin image
                     iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(PathImage);
-                    logo.SetAbsolutePosition(200f, 680f);
+                    logo.SetAbsolutePosition(400f, 700f);
                     logo.ScaleAbsolute(110f, 80f);
                     float percentage = 0.0f;
                     percentage = 200 / logo.Width;
                     logo.ScalePercent(percentage * 100);
+
                     document.Add(logo);
                     //End image;
 
@@ -73,7 +74,7 @@ namespace StockIt.ReportClasses
                     tbHeader.DefaultCell.Border = 0;
                     tbHeader.AddCell(new Paragraph());
 
-                    PdfPCell _cell = new PdfPCell(new Paragraph("REPORTE DE USUARIOS", title));
+                    PdfPCell _cell = new PdfPCell(new Paragraph("REPORTE DE PRODUCTOS", title));
                     _cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     _cell.Border = 0;
                     tbHeader.AddCell(_cell);
@@ -112,38 +113,47 @@ namespace StockIt.ReportClasses
                     document.Add(new Paragraph("                       "));
 
                     //Encabezado de la tabla
-                    PdfPTable table = new PdfPTable(4);
-                    float[] widths = new float[] { 40f, 20f, 20f, 20f };
+                    PdfPTable table = new PdfPTable(6);
+                    float[] widths = new float[] { 8f, 30f, 25f, 17f, 10f, 10f};
                     table.SetWidths(widths);
 
-                    _cell = new PdfPCell(new Paragraph("NOMBRE", negrita));
+                    _cell = new PdfPCell(new Paragraph("#", negrita));
                     _cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     table.AddCell(_cell);
 
-                    _cell = new PdfPCell(new Paragraph("USUARIO", negrita));
+                    _cell = new PdfPCell(new Paragraph("PRODUCTO", negrita));
                     _cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     table.AddCell(_cell);
 
-                    _cell = new PdfPCell(new Paragraph("ESTADO", negrita));
+                    _cell = new PdfPCell(new Paragraph("PROVEEDOR", negrita));
                     _cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     table.AddCell(_cell);
 
-                    _cell = new PdfPCell(new Paragraph("TIPO DE USUARIO", negrita));
+                    _cell = new PdfPCell(new Paragraph("EXISTENCIAS", negrita));
                     _cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     table.AddCell(_cell);
+
+                    _cell = new PdfPCell(new Paragraph("PRECIO UNIDAD", negrita));
+                    _cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    table.AddCell(_cell);
+
+                    _cell = new PdfPCell(new Paragraph("PRECIO VENTA", negrita));
+                    _cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    table.AddCell(_cell);
+
 
                     table.WidthPercentage = 100f;
 
                     /********* Esto será cambiado dinámicamente con la BD *********/
                     //La lista de los empleados
-                    List<String> usuarios = new List<String>();
-                    usuarios.Add("Nombre 1");
-                    usuarios.Add("Nombre 2");
-                    usuarios.Add("Nombre 3");
-                    usuarios.Add("Nombre 4");
-                    usuarios.Add("Nombre 5");
+                    List<String> productos = new List<String>();
+                    productos.Add("ITEM 1");
+                    productos.Add("ITEM 2");
+                    productos.Add("ITEM 3");
+                    productos.Add("ITEM 4");
+                    productos.Add("ITEM 5");
 
-                    foreach (var item in usuarios)
+                    foreach (var item in productos)
                     {
                         _cell = new PdfPCell(new Paragraph(item, fuente));
                         _cell.HorizontalAlignment = Element.ALIGN_CENTER;
@@ -175,49 +185,6 @@ namespace StockIt.ReportClasses
                 Utils utils = new Utils();
                 utils.messageBoxOperacionSinExito("No se pudo generar el reporte. Intente más tarde.");
             }
-        }
-    }
-
-    //Esta clase y sus métodos permiten agregar el número de página
-    public class PageEventHelperRU : PdfPageEventHelper
-    {
-        PdfContentByte cb;
-        PdfTemplate template;
-
-
-        public override void OnOpenDocument(PdfWriter writer, Document document)
-        {
-            cb = writer.DirectContent;
-            template = cb.CreateTemplate(50, 50);
-        }
-
-        public override void OnEndPage(PdfWriter writer, Document doc)
-        {
-
-            BaseColor grey = new BaseColor(128, 128, 128);
-            iTextSharp.text.Font font = FontFactory.GetFont("Arial", 9, iTextSharp.text.Font.NORMAL, grey);
-
-            //tbl footer
-            PdfPTable footerTbl = new PdfPTable(1);
-            //footerTbl.TotalWidth = doc.PageSize.Width;
-            footerTbl.TotalWidth = doc.PageSize.Width - doc.LeftMargin - doc.RightMargin;
-            footerTbl.DefaultCell.Border = 0;
-
-            //numero de la page
-            Chunk myFooter = new Chunk("Página " + (doc.PageNumber));
-            PdfPCell footer = new PdfPCell(new Phrase(myFooter));
-            footer.Border = iTextSharp.text.Rectangle.NO_BORDER;
-            footer.HorizontalAlignment = Element.ALIGN_RIGHT;
-            footerTbl.AddCell(footer);
-
-
-            footerTbl.WriteSelectedRows(0, -1, doc.LeftMargin, writer.PageSize.GetBottom(doc.BottomMargin) - 5, writer.DirectContent);
-        }
-
-        public override void OnCloseDocument(PdfWriter writer, Document document)
-        {
-            base.OnCloseDocument(writer, document);
-
         }
     }
 }

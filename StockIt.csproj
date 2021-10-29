@@ -246,6 +246,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ReportClasses\CReporteCategorias.cs" />
+    <Compile Include="ReportClasses\CReporteClientes.cs" />
+    <Compile Include="ReportClasses\CReporteProductos.cs" />
+    <Compile Include="ReportClasses\CReporteReservas.cs" />
+    <Compile Include="ReportClasses\CReporteVentas.cs" />
     <Compile Include="Utils.cs" />
     <EmbeddedResource Include="CustomControls\CategoriaCard.resx">
       <DependentUpon>CategoriaCard.cs</DependentUpon>
@@ -362,6 +366,7 @@
     <None Include="Resources\printingButton.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Content Include="Resources\logoStockIt.jpg" />
     <Content Include="src\images\no-image.png" />
   </ItemGroup>
   <ItemGroup>

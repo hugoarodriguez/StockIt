@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockIt.ReportClasses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,7 +30,8 @@ namespace StockIt
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-
+            CReporteReservas cReporteReservas = new CReporteReservas();
+            cReporteReservas.generarReporteReservas();
         }
 
         private void btnImprimir_MouseHover(object sender, EventArgs e)
