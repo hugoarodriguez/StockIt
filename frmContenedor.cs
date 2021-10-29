@@ -37,7 +37,7 @@ namespace StockIt
                 }
                 else if(txtPassword.Text.Trim() == "")
                 {
-                    utils.messageBoxCampoRequerido("Debes escribir tu correo contraseña.");
+                    utils.messageBoxCampoRequerido("Debes escribir tu contraseña.");
                     txtPassword.Focus();
                 }
             }
@@ -49,7 +49,7 @@ namespace StockIt
 
                 int r = new LUsuarios().Login(eUsuario);
 
-                if (r > 1)
+                if (r > 0)
                 {
                     //Validar inicio de sesión
                     frmPrincipal frmPrincipal = new frmPrincipal();
@@ -65,7 +65,7 @@ namespace StockIt
                 }
                 else if(r == -2)
                 {
-                    utils.messageBoxAlerta("No existe ningún usuario registrado con ese corre electrónico.");
+                    utils.messageBoxAlerta("No existe ningún usuario registrado con ese correo electrónico.");
                     txtCorreo.Focus();
                 }
                 else

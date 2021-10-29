@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StockIt_Entidades;
+using StockIt_Logica;
 
 namespace StockIt
 {
@@ -53,23 +55,40 @@ namespace StockIt
                     if (pwdNueva == pwdNuevaC)
                     {
                         //Validar existencia de pwdActual en la BD
-                        string pwdBD = "password1";//Obtener de la BD
-                        if (pwdActual == pwdBD)
+                        EUsuario eUsuario = new EUsuario();
+                        eUsuario.Correo = utils.getCorreoUsuario();
+                        eUsuario.Password = pwdActual;
+
+                        int r = new LUsuarios().ActualizarPassword(eUsuario, pwdNueva);
+
+                        if (r > 0)
                         {
                             utils.messageBoxOperacionExitosa("Contraseña cambiada con éxito.");
-                            //Cambiar contraseña
-
+                            
+                            //Habilitamos los controles del formulario
+                            utils.habilitarOpcionesDeMenu();
 
                             //Ocultamos las contraseñas
                             chkbMostrarPwd.Checked = false;
 
                             //Limpiar campos
                             limpiarControles();
+                        }
+                        else if(r == -1)
+                        {
+                            utils.messageBoxAlerta("La contraseña actual no coincide con la registrada.");
                             txtClaveA.Focus();
+                        }
+                        else if (r == -2)
+                        {
+                            utils.messageBoxAlerta("No se pudo actualizar la contraseña." +
+                                "\nIntente más tarde.");
+                            limpiarControles();
                         }
                         else
                         {
-                            utils.messageBoxAlerta("La contraseña actual no coincide con la registrada.");
+                            utils.messageBoxAlerta("Hubo un error. Intente más tarde.");
+                            limpiarControles();
                             txtClaveA.Focus();
                         }
                     }

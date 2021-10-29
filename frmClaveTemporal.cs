@@ -19,8 +19,6 @@ namespace StockIt
 
         private void frmClaveTemporal_Load(object sender, EventArgs e)
         {
-            //Cargar contraseña temporal traída desde la BD al txtConTemp
-            txtConTemp.Text = "clave12345$!";
         }
 
         private void btnEntendido_Click(object sender, EventArgs e)

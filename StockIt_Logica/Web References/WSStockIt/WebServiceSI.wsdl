@@ -76,6 +76,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="getEstadoPasswordTemporalUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEstadoPasswordTemporalUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getEstadoPasswordTemporalUsuarioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="seleccionarUsuarioByCorreo">
         <s:complexType>
           <s:sequence>
@@ -404,6 +418,12 @@
   <wsdl:message name="asignarPasswordTemporalSoapOut">
     <wsdl:part name="parameters" element="tns:asignarPasswordTemporalResponse" />
   </wsdl:message>
+  <wsdl:message name="getEstadoPasswordTemporalUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:getEstadoPasswordTemporalUsuario" />
+  </wsdl:message>
+  <wsdl:message name="getEstadoPasswordTemporalUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:getEstadoPasswordTemporalUsuarioResponse" />
+  </wsdl:message>
   <wsdl:message name="seleccionarUsuarioByCorreoSoapIn">
     <wsdl:part name="parameters" element="tns:seleccionarUsuarioByCorreo" />
   </wsdl:message>
@@ -521,6 +541,10 @@
       <wsdl:input message="tns:asignarPasswordTemporalSoapIn" />
       <wsdl:output message="tns:asignarPasswordTemporalSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="getEstadoPasswordTemporalUsuario">
+      <wsdl:input message="tns:getEstadoPasswordTemporalUsuarioSoapIn" />
+      <wsdl:output message="tns:getEstadoPasswordTemporalUsuarioSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="seleccionarUsuarioByCorreo">
       <wsdl:input message="tns:seleccionarUsuarioByCorreoSoapIn" />
       <wsdl:output message="tns:seleccionarUsuarioByCorreoSoapOut" />
@@ -626,6 +650,15 @@
     </wsdl:operation>
     <wsdl:operation name="asignarPasswordTemporal">
       <soap:operation soapAction="http://tempuri.org/asignarPasswordTemporal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEstadoPasswordTemporalUsuario">
+      <soap:operation soapAction="http://tempuri.org/getEstadoPasswordTemporalUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -818,6 +851,15 @@
     </wsdl:operation>
     <wsdl:operation name="asignarPasswordTemporal">
       <soap12:operation soapAction="http://tempuri.org/asignarPasswordTemporal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEstadoPasswordTemporalUsuario">
+      <soap12:operation soapAction="http://tempuri.org/getEstadoPasswordTemporalUsuario" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

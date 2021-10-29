@@ -114,7 +114,7 @@ namespace StockIt
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEntendido;
-        private System.Windows.Forms.TextBox txtConTemp;
         private System.Windows.Forms.Button btnCopiar;
+        public System.Windows.Forms.TextBox txtConTemp;
     }
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StockIt_Entidades;
+using StockIt_Logica;
 
 namespace StockIt
 {
@@ -47,10 +49,52 @@ namespace StockIt
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            //Abrimos el formulario principal
-            frmInicio formularioHijo = new frmInicio();
-            utils.setFormToPanelFormularioHijo(formularioHijo);
-            lblFormOpen.Text = formularioHijo.Name;
+            if (lklCorreo.Text.Trim() != "")
+            {
+                EUsuario eUsuario = new EUsuario();
+                eUsuario.Correo = lklCorreo.Text.Trim();
+                bool r = new LUsuarios().GetEstadoPasswordTemporal(eUsuario);
+                if (r)
+                {
+                    //Abrimos el formulario para actualizar la contraseña
+                    frmCambiarClave formularioHijo = new frmCambiarClave();
+                    utils.setFormToPanelFormularioHijo(formularioHijo);
+                    lblFormOpen.Text = formularioHijo.Name;
+
+                    //Deshabilitar todos los botones excepto acerca de y cerrar sesión
+                    btnInicio.Enabled = false;
+                    btnCategorias.Enabled = false;
+                    btnAggProveedores.Enabled = false;
+                    btnAggProductos.Enabled = false;
+                    btnAggClientes.Enabled = false;
+                    btnAggReservas.Enabled = false;
+                    btnProveedores.Enabled = false;
+                    btnProductos.Enabled = false;
+                    btnClientes.Enabled = false;
+                    btnReservas.Enabled = false;
+                    btnReportes.Enabled = false;
+                }
+                else
+                {
+                    //Abrimos el formulario principal
+                    frmInicio formularioHijo = new frmInicio();
+                    utils.setFormToPanelFormularioHijo(formularioHijo);
+                    lblFormOpen.Text = formularioHijo.Name;
+
+                    //Habilitar todos los botones excepto acerca de y cerrar sesión
+                    btnInicio.Enabled = true;
+                    btnCategorias.Enabled = true;
+                    btnAggProveedores.Enabled = true;
+                    btnAggProductos.Enabled = true;
+                    btnAggClientes.Enabled = true;
+                    btnAggReservas.Enabled = true;
+                    btnProveedores.Enabled = true;
+                    btnProductos.Enabled = true;
+                    btnClientes.Enabled = true;
+                    btnReservas.Enabled = true;
+                    btnReportes.Enabled = true;
+                }
+            }
         }
 
         private void lklCorreo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

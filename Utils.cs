@@ -25,6 +25,60 @@ namespace StockIt
             return r;
         }
 
+        public string getCorreoUsuario()
+        {
+            string r = "";
+            Form objFrmPrincipal = Application.OpenForms["frmPrincipal"];
+
+            if (objFrmPrincipal != null)
+            {
+                LinkLabel objLklCorreo = (LinkLabel)objFrmPrincipal.Controls.Find("lklCorreo", true).SingleOrDefault();
+                r = objLklCorreo.Text.Trim();
+            }
+
+            return r;
+        }
+
+        public void habilitarOpcionesDeMenu()
+        {
+            try
+            {
+                Form objFrmPrincipal = Application.OpenForms["frmPrincipal"];
+
+                if (objFrmPrincipal != null)
+                {
+                    Button btnInicio = (Button)objFrmPrincipal.Controls.Find("btnInicio", true).SingleOrDefault();
+                    Button btnCategorias = (Button)objFrmPrincipal.Controls.Find("btnCategorias", true).SingleOrDefault();
+                    Button btnAggProveedores = (Button)objFrmPrincipal.Controls.Find("btnAggProveedores", true).SingleOrDefault();
+                    Button btnAggProductos = (Button)objFrmPrincipal.Controls.Find("btnAggProductos", true).SingleOrDefault();
+                    Button btnAggClientes = (Button)objFrmPrincipal.Controls.Find("btnAggClientes", true).SingleOrDefault();
+                    Button btnAggReservas = (Button)objFrmPrincipal.Controls.Find("btnAggReservas", true).SingleOrDefault();
+                    Button btnProveedores = (Button)objFrmPrincipal.Controls.Find("btnProveedores", true).SingleOrDefault();
+                    Button btnProductos = (Button)objFrmPrincipal.Controls.Find("btnProductos", true).SingleOrDefault();
+                    Button btnClientes = (Button)objFrmPrincipal.Controls.Find("btnClientes", true).SingleOrDefault();
+                    Button btnReservas = (Button)objFrmPrincipal.Controls.Find("btnReservas", true).SingleOrDefault();
+                    Button btnReportes = (Button)objFrmPrincipal.Controls.Find("btnReportes", true).SingleOrDefault();
+
+                    //Habilitar todos los botones excepto acerca de y cerrar sesión
+                    btnInicio.Enabled = true;
+                    btnCategorias.Enabled = true;
+                    btnAggProveedores.Enabled = true;
+                    btnAggProductos.Enabled = true;
+                    btnAggClientes.Enabled = true;
+                    btnAggReservas.Enabled = true;
+                    btnProveedores.Enabled = true;
+                    btnProductos.Enabled = true;
+                    btnClientes.Enabled = true;
+                    btnReservas.Enabled = true;
+                    btnReportes.Enabled = true;
+
+                }
+            }
+            catch (Exception)
+            {
+            }
+        }
+
         //Abre un formulario en el Panel "panelFormularioHijo" del Form "frmPrincipal"
         public void setFormToPanelFormularioHijo(Form form)
         {

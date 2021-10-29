@@ -8,6 +8,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StockIt_Entidades;
+using StockIt_Logica;
 
 namespace StockIt
 {
@@ -36,12 +38,35 @@ namespace StockIt
                     if (utils.validarEmail(email))
                     {
                         //Validar la existencia del email en la BD
+                        EUsuario eUsuario = new EUsuario();
+                        eUsuario.Correo = email;
 
+                        string r = new LUsuarios().AsignarPasswordTemporal(eUsuario);
 
-                        //Si el correo existe mostrar la clave temporal
-                        this.Close();
-                        frmClaveTemporal frmClaveTemporal = new frmClaveTemporal();
-                        frmClaveTemporal.Show();
+                        if (r.Length > 2)
+                        {
+                            //Si el correo existe mostrar la clave temporal
+                            this.Close();
+                            frmClaveTemporal frmClaveTemporal = new frmClaveTemporal();
+                            frmClaveTemporal.txtConTemp.Text = r;
+                            frmClaveTemporal.Show();
+                        }
+                        else if (r == "-1")
+                        {
+                            utils.messageBoxAlerta("No existe ningún usuario registrado con ese correo electrónico.");
+                            txtCorreo.Focus();
+                        }
+                        else if (r == "-2")
+                        {
+                            utils.messageBoxAlerta("No se pudo asignar una password temporal." +
+                                "\nIntente más tarde.");
+                            txtCorreo.Focus();
+                        }
+                        else
+                        {
+                            utils.messageBoxAlerta("Hubo un error. Intente más tarde.");
+                            this.Close();
+                        }
                     }
                     else
                     {

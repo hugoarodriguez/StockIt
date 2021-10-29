@@ -40,6 +40,8 @@ namespace StockIt_Logica.WSStockIt {
         
         private System.Threading.SendOrPostCallback asignarPasswordTemporalOperationCompleted;
         
+        private System.Threading.SendOrPostCallback getEstadoPasswordTemporalUsuarioOperationCompleted;
+        
         private System.Threading.SendOrPostCallback seleccionarUsuarioByCorreoOperationCompleted;
         
         private System.Threading.SendOrPostCallback insertarCategoriaOperationCompleted;
@@ -124,6 +126,9 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         public event asignarPasswordTemporalCompletedEventHandler asignarPasswordTemporalCompleted;
+        
+        /// <remarks/>
+        public event getEstadoPasswordTemporalUsuarioCompletedEventHandler getEstadoPasswordTemporalUsuarioCompleted;
         
         /// <remarks/>
         public event seleccionarUsuarioByCorreoCompletedEventHandler seleccionarUsuarioByCorreoCompleted;
@@ -329,6 +334,35 @@ namespace StockIt_Logica.WSStockIt {
             if ((this.asignarPasswordTemporalCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.asignarPasswordTemporalCompleted(this, new asignarPasswordTemporalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getEstadoPasswordTemporalUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool getEstadoPasswordTemporalUsuario(string correo) {
+            object[] results = this.Invoke("getEstadoPasswordTemporalUsuario", new object[] {
+                        correo});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getEstadoPasswordTemporalUsuarioAsync(string correo) {
+            this.getEstadoPasswordTemporalUsuarioAsync(correo, null);
+        }
+        
+        /// <remarks/>
+        public void getEstadoPasswordTemporalUsuarioAsync(string correo, object userState) {
+            if ((this.getEstadoPasswordTemporalUsuarioOperationCompleted == null)) {
+                this.getEstadoPasswordTemporalUsuarioOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetEstadoPasswordTemporalUsuarioOperationCompleted);
+            }
+            this.InvokeAsync("getEstadoPasswordTemporalUsuario", new object[] {
+                        correo}, this.getEstadoPasswordTemporalUsuarioOperationCompleted, userState);
+        }
+        
+        private void OngetEstadoPasswordTemporalUsuarioOperationCompleted(object arg) {
+            if ((this.getEstadoPasswordTemporalUsuarioCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getEstadoPasswordTemporalUsuarioCompleted(this, new getEstadoPasswordTemporalUsuarioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -987,6 +1021,32 @@ namespace StockIt_Logica.WSStockIt {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void getEstadoPasswordTemporalUsuarioCompletedEventHandler(object sender, getEstadoPasswordTemporalUsuarioCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getEstadoPasswordTemporalUsuarioCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getEstadoPasswordTemporalUsuarioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
             }
         }
     }

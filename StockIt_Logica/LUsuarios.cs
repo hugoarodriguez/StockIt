@@ -60,5 +60,17 @@ namespace StockIt_Logica
             }
         }
 
+        public bool GetEstadoPasswordTemporal(EUsuario eUsuario)
+        {
+            try
+            {
+                return WS.getEstadoPasswordTemporalUsuario(eUsuario.Correo);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
     }
 }
