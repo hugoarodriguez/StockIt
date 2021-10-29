@@ -246,6 +246,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ReportClasses\CReporteCategorias.cs" />
+    <Compile Include="ReportClasses\CReporteClientes.cs" />
     <Compile Include="Utils.cs" />
     <EmbeddedResource Include="CustomControls\CategoriaCard.resx">
       <DependentUpon>CategoriaCard.cs</DependentUpon>
