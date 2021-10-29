@@ -11,6 +11,20 @@ namespace StockIt
 {
     class Utils
     {
+        public int getIdUsuario()
+        {
+            int r = 0;
+            Form objFrmPrincipal = Application.OpenForms["frmPrincipal"];
+
+            if (objFrmPrincipal != null)
+            {
+                Label objLblIdUsuario = (Label)objFrmPrincipal.Controls.Find("lblIdUsuario", true).SingleOrDefault();
+                r = int.Parse(objLblIdUsuario.Text.Trim());
+            }
+
+            return r;
+        }
+
         //Abre un formulario en el Panel "panelFormularioHijo" del Form "frmPrincipal"
         public void setFormToPanelFormularioHijo(Form form)
         {

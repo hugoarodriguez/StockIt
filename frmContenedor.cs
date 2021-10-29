@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StockIt_Entidades;
+using StockIt_Logica;
 
 namespace StockIt
 {
@@ -24,15 +26,59 @@ namespace StockIt
         
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            //Validar inicio de sesión
-            abrirFormularioHijo(new frmPrincipal());
-            limpiarControles();
+            Utils utils = new Utils();
+
+            if (txtCorreo.Text.Trim() == "" || txtPassword.Text.Trim() == "")
+            {
+                if (txtCorreo.Text.Trim() == "")
+                {
+                    utils.messageBoxCampoRequerido("Debes escribir tu correo electrónico.");
+                    txtCorreo.Focus();
+                }
+                else if(txtPassword.Text.Trim() == "")
+                {
+                    utils.messageBoxCampoRequerido("Debes escribir tu correo contraseña.");
+                    txtPassword.Focus();
+                }
+            }
+            else
+            {
+                EUsuario eUsuario = new EUsuario();
+                eUsuario.Correo = txtCorreo.Text.Trim();
+                eUsuario.Password = txtPassword.Text.Trim();
+
+                int r = new LUsuarios().Login(eUsuario);
+
+                if (r > 1)
+                {
+                    //Validar inicio de sesión
+                    frmPrincipal frmPrincipal = new frmPrincipal();
+                    frmPrincipal.lblIdUsuario.Text = r.ToString();
+                    frmPrincipal.lklCorreo.Text = eUsuario.Correo;
+                    abrirFormularioHijo(frmPrincipal);
+                    limpiarControles();
+                }
+                else if(r == -1)
+                {
+                    utils.messageBoxAlerta("Contraseña incorrecta. Intenta nuevamente");
+                    txtPassword.Focus();
+                }
+                else if(r == -2)
+                {
+                    utils.messageBoxAlerta("No existe ningún usuario registrado con ese corre electrónico.");
+                    txtCorreo.Focus();
+                }
+                else
+                {
+                    utils.messageBoxAlerta("Hubo un error. Intente más tarde.");
+                }
+            }
         }
 
         //Limpiar controles del formulario
         private void limpiarControles()
         {
-            txtUsuario.Text = null;
+            txtCorreo.Text = null;
             txtPassword.Text = null;
         }
 

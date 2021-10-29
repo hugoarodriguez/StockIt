@@ -52,6 +52,7 @@ namespace StockIt
             this.lklCorreo = new System.Windows.Forms.LinkLabel();
             this.lblNombre = new System.Windows.Forms.Label();
             this.panelFormularioHijo = new System.Windows.Forms.Panel();
+            this.lblIdUsuario = new System.Windows.Forms.Label();
             this.panelSideMenu.SuspendLayout();
             this.panelSubMenuReportes.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -61,6 +62,7 @@ namespace StockIt
             // 
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(117)))), ((int)(((byte)(169)))));
+            this.panelSideMenu.Controls.Add(this.lblIdUsuario);
             this.panelSideMenu.Controls.Add(this.btnCerrarSesion);
             this.panelSideMenu.Controls.Add(this.panelSubMenuReportes);
             this.panelSideMenu.Controls.Add(this.btnReportes);
@@ -444,6 +446,16 @@ namespace StockIt
             this.panelFormularioHijo.Size = new System.Drawing.Size(1231, 1102);
             this.panelFormularioHijo.TabIndex = 1;
             // 
+            // lblIdUsuario
+            // 
+            this.lblIdUsuario.AutoSize = true;
+            this.lblIdUsuario.Location = new System.Drawing.Point(52, 973);
+            this.lblIdUsuario.Name = "lblIdUsuario";
+            this.lblIdUsuario.Size = new System.Drawing.Size(82, 17);
+            this.lblIdUsuario.TabIndex = 25;
+            this.lblIdUsuario.Text = "lblIdUsuario";
+            this.lblIdUsuario.Visible = false;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -471,7 +483,6 @@ namespace StockIt
         private System.Windows.Forms.Panel panelSideMenu;
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.LinkLabel lklCorreo;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Panel panelFormularioHijo;
         private System.Windows.Forms.Label lblFormOpen;
@@ -491,6 +502,8 @@ namespace StockIt
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnReservas;
         private System.Windows.Forms.Button btnClientes;
+        public System.Windows.Forms.Label lblIdUsuario;
+        public System.Windows.Forms.LinkLabel lklCorreo;
     }
 }
 

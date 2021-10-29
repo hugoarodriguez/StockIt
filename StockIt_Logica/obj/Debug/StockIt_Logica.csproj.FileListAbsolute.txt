@@ -10,3 +10,7 @@ C:\Users\Admin\Source\Repos\StockIt\StockIt_Logica\obj\Debug\StockIt_Logica.cspr
 C:\Users\Admin\Source\Repos\StockIt\StockIt_Logica\obj\Debug\StockIt_Logica.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Source\Repos\StockIt\StockIt_Logica\obj\Debug\StockIt_Logica.dll
 C:\Users\Admin\Source\Repos\StockIt\StockIt_Logica\obj\Debug\StockIt_Logica.pdb
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\StockIt_Logica\bin\Debug\StockIt_Logica.dll.config
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\StockIt_Logica\bin\Debug\StockIt_Entidades.dll
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\StockIt_Logica\bin\Debug\StockIt_Entidades.pdb
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\StockIt_Logica\obj\Debug\StockIt_Logica.csproj.CopyComplete
