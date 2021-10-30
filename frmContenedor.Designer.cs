@@ -39,12 +39,14 @@ namespace StockIt
             this.label2 = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.chkbMostrarPwd = new System.Windows.Forms.CheckBox();
             this.panelFormularioHijoC.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelFormularioHijoC
             // 
             this.panelFormularioHijoC.BackColor = System.Drawing.Color.White;
+            this.panelFormularioHijoC.Controls.Add(this.chkbMostrarPwd);
             this.panelFormularioHijoC.Controls.Add(this.lklRegistrate);
             this.panelFormularioHijoC.Controls.Add(this.label4);
             this.panelFormularioHijoC.Controls.Add(this.lklPasOlv);
@@ -66,7 +68,7 @@ namespace StockIt
             this.lklRegistrate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lklRegistrate.AutoSize = true;
             this.lklRegistrate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lklRegistrate.Location = new System.Drawing.Point(756, 476);
+            this.lklRegistrate.Location = new System.Drawing.Point(756, 507);
             this.lklRegistrate.Name = "lklRegistrate";
             this.lklRegistrate.Size = new System.Drawing.Size(86, 20);
             this.lklRegistrate.TabIndex = 13;
@@ -79,7 +81,7 @@ namespace StockIt
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(535, 476);
+            this.label4.Location = new System.Drawing.Point(535, 507);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(186, 20);
             this.label4.TabIndex = 12;
@@ -90,7 +92,7 @@ namespace StockIt
             this.lklPasOlv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lklPasOlv.AutoSize = true;
             this.lklPasOlv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lklPasOlv.Location = new System.Drawing.Point(555, 341);
+            this.lklPasOlv.Location = new System.Drawing.Point(555, 372);
             this.lklPasOlv.Name = "lklPasOlv";
             this.lklPasOlv.Size = new System.Drawing.Size(232, 20);
             this.lklPasOlv.TabIndex = 11;
@@ -105,7 +107,7 @@ namespace StockIt
             this.btnIniciarSesion.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciarSesion.ForeColor = System.Drawing.Color.White;
-            this.btnIniciarSesion.Location = new System.Drawing.Point(620, 399);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(620, 430);
             this.btnIniciarSesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Size = new System.Drawing.Size(131, 39);
@@ -133,6 +135,7 @@ namespace StockIt
             this.txtPassword.Location = new System.Drawing.Point(435, 286);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(500, 30);
             this.txtPassword.TabIndex = 8;
             // 
@@ -170,6 +173,18 @@ namespace StockIt
             this.label1.Text = "Iniciar Sesión";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // chkbMostrarPwd
+            // 
+            this.chkbMostrarPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chkbMostrarPwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkbMostrarPwd.Location = new System.Drawing.Point(439, 330);
+            this.chkbMostrarPwd.Name = "chkbMostrarPwd";
+            this.chkbMostrarPwd.Size = new System.Drawing.Size(215, 24);
+            this.chkbMostrarPwd.TabIndex = 17;
+            this.chkbMostrarPwd.Text = "Mostrar Contraseña";
+            this.chkbMostrarPwd.UseVisualStyleBackColor = true;
+            this.chkbMostrarPwd.CheckedChanged += new System.EventHandler(this.chkbMostrarPwd_CheckedChanged);
+            // 
             // frmContenedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -202,5 +217,6 @@ namespace StockIt
         private System.Windows.Forms.LinkLabel lklPasOlv;
         private System.Windows.Forms.LinkLabel lklRegistrate;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox chkbMostrarPwd;
     }
 }

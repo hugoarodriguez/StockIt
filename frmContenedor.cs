@@ -80,6 +80,7 @@ namespace StockIt
         {
             txtCorreo.Text = null;
             txtPassword.Text = null;
+            chkbMostrarPwd.Checked = false;
         }
 
         private Form formularioActivo = null;
@@ -110,6 +111,19 @@ namespace StockIt
         private void lklRegistrate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             abrirFormularioHijo(new frmRegistro());
+            limpiarControles();
+        }
+
+        private void chkbMostrarPwd_CheckedChanged(object sender, EventArgs e)
+        {
+            if (txtPassword.PasswordChar == '*')
+            {
+                txtPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                txtPassword.PasswordChar = '*';
+            }
         }
     }
 }

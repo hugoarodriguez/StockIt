@@ -448,12 +448,14 @@ namespace StockIt
             // 
             // lblIdProveedor
             // 
+            this.lblIdProveedor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblIdProveedor.AutoSize = true;
             this.lblIdProveedor.Location = new System.Drawing.Point(268, 340);
             this.lblIdProveedor.Name = "lblIdProveedor";
             this.lblIdProveedor.Size = new System.Drawing.Size(99, 17);
             this.lblIdProveedor.TabIndex = 26;
             this.lblIdProveedor.Text = "lblIdProveedor";
+            this.lblIdProveedor.Visible = false;
             // 
             // pbxImgProd
             // 

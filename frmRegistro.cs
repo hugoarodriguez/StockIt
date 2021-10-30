@@ -152,6 +152,28 @@ namespace StockIt
             txtMail.Text = null;
             txtPassword.Text = null;
             txtPassword2.Text = null;
+            chkbMostrarPwd.Checked = false;
+        }
+
+        private void chkbMostrarPwd_CheckedChanged(object sender, EventArgs e)
+        {
+            if (txtPassword.PasswordChar == '*')
+            {
+                txtPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                txtPassword.PasswordChar = '*';
+            }
+
+            if (txtPassword2.PasswordChar == '*')
+            {
+                txtPassword2.PasswordChar = '\0';
+            }
+            else
+            {
+                txtPassword2.PasswordChar = '*';
+            }
         }
     }
 }

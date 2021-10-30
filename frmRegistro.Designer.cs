@@ -44,6 +44,7 @@ namespace StockIt
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
+            this.chkbMostrarPwd = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,6 +78,7 @@ namespace StockIt
             this.txtPassword.Location = new System.Drawing.Point(467, 471);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(500, 30);
             this.txtPassword.TabIndex = 12;
             // 
@@ -88,6 +90,7 @@ namespace StockIt
             this.txtPassword2.Location = new System.Drawing.Point(467, 558);
             this.txtPassword2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword2.Name = "txtPassword2";
+            this.txtPassword2.PasswordChar = '*';
             this.txtPassword2.Size = new System.Drawing.Size(500, 30);
             this.txtPassword2.TabIndex = 13;
             // 
@@ -212,7 +215,7 @@ namespace StockIt
             this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.ForeColor = System.Drawing.Color.White;
-            this.btnRegistrar.Location = new System.Drawing.Point(641, 630);
+            this.btnRegistrar.Location = new System.Drawing.Point(641, 640);
             this.btnRegistrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(131, 39);
@@ -221,12 +224,25 @@ namespace StockIt
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
+            // chkbMostrarPwd
+            // 
+            this.chkbMostrarPwd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chkbMostrarPwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkbMostrarPwd.Location = new System.Drawing.Point(467, 602);
+            this.chkbMostrarPwd.Name = "chkbMostrarPwd";
+            this.chkbMostrarPwd.Size = new System.Drawing.Size(215, 24);
+            this.chkbMostrarPwd.TabIndex = 26;
+            this.chkbMostrarPwd.Text = "Mostrar Contraseñas";
+            this.chkbMostrarPwd.UseVisualStyleBackColor = true;
+            this.chkbMostrarPwd.CheckedChanged += new System.EventHandler(this.chkbMostrarPwd_CheckedChanged);
+            // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1387, 788);
+            this.Controls.Add(this.chkbMostrarPwd);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -243,7 +259,7 @@ namespace StockIt
             this.Controls.Add(this.txtMail);
             this.Controls.Add(this.txtNegocio);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmRegistro";
             this.Text = "frmRegistro";
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
@@ -269,5 +285,6 @@ namespace StockIt
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.CheckBox chkbMostrarPwd;
     }
 }
