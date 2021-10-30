@@ -151,3 +151,4 @@ C:\Users\Admin\Source\Repos\StockIt\obj\Debug\StockIt.frmModReservas.resources
 C:\Users\Admin\Source\Repos\StockIt\obj\Debug\StockIt.frmProveedores.resources
 C:\Users\Admin\Source\Repos\StockIt\obj\Debug\StockIt.frmSeleccionarCliente.resources
 C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\bin\Debug\StockIt_Logica.dll.config
+C:\Users\Alejandro R\Documents\UTEC\Ciclo 02-2021\Normas y Estándares Internacionales\StockIt\obj\Debug\StockIt.frmAcercaDe.resources

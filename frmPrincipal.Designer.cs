@@ -30,6 +30,7 @@ namespace StockIt
         private void InitializeComponent()
         {
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.lblIdUsuario = new System.Windows.Forms.Label();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.panelSubMenuReportes = new System.Windows.Forms.Panel();
             this.btnReporteVentas = new System.Windows.Forms.Button();
@@ -52,7 +53,7 @@ namespace StockIt
             this.lklCorreo = new System.Windows.Forms.LinkLabel();
             this.lblNombre = new System.Windows.Forms.Label();
             this.panelFormularioHijo = new System.Windows.Forms.Panel();
-            this.lblIdUsuario = new System.Windows.Forms.Label();
+            this.btnAcercaDe = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panelSubMenuReportes.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -62,6 +63,7 @@ namespace StockIt
             // 
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(117)))), ((int)(((byte)(169)))));
+            this.panelSideMenu.Controls.Add(this.btnAcercaDe);
             this.panelSideMenu.Controls.Add(this.lblIdUsuario);
             this.panelSideMenu.Controls.Add(this.btnCerrarSesion);
             this.panelSideMenu.Controls.Add(this.panelSubMenuReportes);
@@ -84,6 +86,16 @@ namespace StockIt
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(251, 1102);
             this.panelSideMenu.TabIndex = 0;
+            // 
+            // lblIdUsuario
+            // 
+            this.lblIdUsuario.AutoSize = true;
+            this.lblIdUsuario.Location = new System.Drawing.Point(52, 973);
+            this.lblIdUsuario.Name = "lblIdUsuario";
+            this.lblIdUsuario.Size = new System.Drawing.Size(82, 17);
+            this.lblIdUsuario.TabIndex = 25;
+            this.lblIdUsuario.Text = "lblIdUsuario";
+            this.lblIdUsuario.Visible = false;
             // 
             // btnCerrarSesion
             // 
@@ -446,15 +458,23 @@ namespace StockIt
             this.panelFormularioHijo.Size = new System.Drawing.Size(1231, 1102);
             this.panelFormularioHijo.TabIndex = 1;
             // 
-            // lblIdUsuario
+            // btnAcercaDe
             // 
-            this.lblIdUsuario.AutoSize = true;
-            this.lblIdUsuario.Location = new System.Drawing.Point(52, 973);
-            this.lblIdUsuario.Name = "lblIdUsuario";
-            this.lblIdUsuario.Size = new System.Drawing.Size(82, 17);
-            this.lblIdUsuario.TabIndex = 25;
-            this.lblIdUsuario.Text = "lblIdUsuario";
-            this.lblIdUsuario.Visible = false;
+            this.btnAcercaDe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAcercaDe.FlatAppearance.BorderSize = 0;
+            this.btnAcercaDe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAcercaDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcercaDe.ForeColor = System.Drawing.Color.White;
+            this.btnAcercaDe.Location = new System.Drawing.Point(0, 817);
+            this.btnAcercaDe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAcercaDe.Name = "btnAcercaDe";
+            this.btnAcercaDe.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnAcercaDe.Size = new System.Drawing.Size(251, 46);
+            this.btnAcercaDe.TabIndex = 26;
+            this.btnAcercaDe.Text = "Acerca De";
+            this.btnAcercaDe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAcercaDe.UseVisualStyleBackColor = true;
+            this.btnAcercaDe.Click += new System.EventHandler(this.btnAcercaDe_Click);
             // 
             // frmPrincipal
             // 
@@ -504,6 +524,7 @@ namespace StockIt
         private System.Windows.Forms.Button btnClientes;
         public System.Windows.Forms.Label lblIdUsuario;
         public System.Windows.Forms.LinkLabel lklCorreo;
+        private System.Windows.Forms.Button btnAcercaDe;
     }
 }
 

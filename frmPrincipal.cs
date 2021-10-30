@@ -229,5 +229,13 @@ namespace StockIt
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
             this.Close();
         }
+
+        private void btnAcercaDe_Click(object sender, EventArgs e)
+        {
+            frmAcercaDe formularioHijo = new frmAcercaDe();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
+            ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
+        }
     }
 }
