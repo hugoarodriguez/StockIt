@@ -386,6 +386,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="seleccionarProveedorById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idProveedor" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarProveedorByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="seleccionarProveedorByIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -520,6 +541,12 @@
   <wsdl:message name="seleccionarProveedoresActivosByIdUsuarioSoapOut">
     <wsdl:part name="parameters" element="tns:seleccionarProveedoresActivosByIdUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="seleccionarProveedorByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:seleccionarProveedorById" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarProveedorByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:seleccionarProveedorByIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServiceSISoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -608,6 +635,10 @@
     <wsdl:operation name="seleccionarProveedoresActivosByIdUsuario">
       <wsdl:input message="tns:seleccionarProveedoresActivosByIdUsuarioSoapIn" />
       <wsdl:output message="tns:seleccionarProveedoresActivosByIdUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarProveedorById">
+      <wsdl:input message="tns:seleccionarProveedorByIdSoapIn" />
+      <wsdl:output message="tns:seleccionarProveedorByIdSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceSISoap" type="tns:WebServiceSISoap">
@@ -810,6 +841,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="seleccionarProveedorById">
+      <soap:operation soapAction="http://tempuri.org/seleccionarProveedorById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebServiceSISoap12" type="tns:WebServiceSISoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1004,6 +1044,15 @@
     </wsdl:operation>
     <wsdl:operation name="seleccionarProveedoresActivosByIdUsuario">
       <soap12:operation soapAction="http://tempuri.org/seleccionarProveedoresActivosByIdUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarProveedorById">
+      <soap12:operation soapAction="http://tempuri.org/seleccionarProveedorById" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

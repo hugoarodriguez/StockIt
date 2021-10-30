@@ -61,7 +61,7 @@ namespace StockIt_Logica
                     eCategoria.IdCategoria = int.Parse(row["ID_CATEGORIA"].ToString());
                     eCategoria.IdUsuario = int.Parse(row["ID_USUARIO"].ToString());
                     eCategoria.Categoria = row["CATEGORIA"].ToString();
-                    eCategoria.EstadoCategoria = row["CATEGORIA"].ToString() == "A" ? "ACTIVA" : "INACTIVA";
+                    eCategoria.EstadoCategoria = row["ESTADO_CATEGORIA"].ToString() == "A" ? "ACTIVA" : "INACTIVA";
                     lista.Add(eCategoria);
                 }
 

@@ -216,6 +216,7 @@ namespace StockIt
             this.MinimizeBox = false;
             this.Name = "frmModProveedores";
             this.Text = "frmModProveedores";
+            this.Load += new System.EventHandler(this.frmModProveedores_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -45,6 +45,7 @@
     <Compile Include="ECliente.cs" />
     <Compile Include="EDetalleReservas.cs" />
     <Compile Include="EEncabezadoReservas.cs" />
+    <Compile Include="EProveedor.cs" />
     <Compile Include="EUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

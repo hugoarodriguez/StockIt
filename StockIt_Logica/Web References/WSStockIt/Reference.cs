@@ -74,6 +74,8 @@ namespace StockIt_Logica.WSStockIt {
         
         private System.Threading.SendOrPostCallback seleccionarProveedoresActivosByIdUsuarioOperationCompleted;
         
+        private System.Threading.SendOrPostCallback seleccionarProveedorByIdOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -177,6 +179,9 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         public event seleccionarProveedoresActivosByIdUsuarioCompletedEventHandler seleccionarProveedoresActivosByIdUsuarioCompleted;
+        
+        /// <remarks/>
+        public event seleccionarProveedorByIdCompletedEventHandler seleccionarProveedorByIdCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -877,6 +882,35 @@ namespace StockIt_Logica.WSStockIt {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/seleccionarProveedorById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet seleccionarProveedorById(int idProveedor) {
+            object[] results = this.Invoke("seleccionarProveedorById", new object[] {
+                        idProveedor});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void seleccionarProveedorByIdAsync(int idProveedor) {
+            this.seleccionarProveedorByIdAsync(idProveedor, null);
+        }
+        
+        /// <remarks/>
+        public void seleccionarProveedorByIdAsync(int idProveedor, object userState) {
+            if ((this.seleccionarProveedorByIdOperationCompleted == null)) {
+                this.seleccionarProveedorByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnseleccionarProveedorByIdOperationCompleted);
+            }
+            this.InvokeAsync("seleccionarProveedorById", new object[] {
+                        idProveedor}, this.seleccionarProveedorByIdOperationCompleted, userState);
+        }
+        
+        private void OnseleccionarProveedorByIdOperationCompleted(object arg) {
+            if ((this.seleccionarProveedorByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.seleccionarProveedorByIdCompleted(this, new seleccionarProveedorByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -1454,6 +1488,32 @@ namespace StockIt_Logica.WSStockIt {
         private object[] results;
         
         internal seleccionarProveedoresActivosByIdUsuarioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void seleccionarProveedorByIdCompletedEventHandler(object sender, seleccionarProveedorByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class seleccionarProveedorByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal seleccionarProveedorByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

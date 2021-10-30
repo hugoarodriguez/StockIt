@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StockIt_Entidades;
+using StockIt_Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,12 +55,39 @@ namespace StockIt
                     string email = txtCorreoProveedor.Text.Trim();
                     if (utils.validarEmail(email))
                     {
-                        //Registramos el proveedor
+                        //Actualizamos el proveedor
+                        EProveedor eProveedor = new EProveedor();
+                        eProveedor.NombreProveedor = txtNomProveedor.Text.Trim().ToUpper();
+                        eProveedor.TelefonoProveedor = mskNumProveedor.Text.Trim();
+                        eProveedor.DireccionProveedor = txtDirProveedor.Text.Trim().ToUpper();
+                        eProveedor.CorreoProveedor = txtCorreoProveedor.Text.Trim();
 
+                        int r = new LProveedores().InsertarProveedor(utils.getIdUsuario(), eProveedor);
 
-                        //Mensaje de registro exitoso
-                        utils.messageBoxOperacionExitosa("El proveedor se ha registrado satisfactoriamente.");
-                        limpiarCampos();
+                        if (r > 0)
+                        {
+                            //Mensaje de registro exitoso
+                            utils.messageBoxOperacionExitosa("El proveedor se ha registrado satisfactoriamente.");
+                            limpiarCampos();
+                        }
+                        else if (r == -1)
+                        {
+                            utils.messageBoxAlerta("No se puede asignar el telefono \"" + eProveedor.TelefonoProveedor + "\" al proveedor." +
+                                "\nHay uno existente con idéntico telefono.");
+                        }
+                        else if (r == -2)
+                        {
+                            utils.messageBoxAlerta("No se puede asignar el correo \"" + eProveedor.CorreoProveedor + "\" al proveedor." +
+                                "\nHay uno existente con idéntico correo.");
+                        }
+                        else if (r == -3)
+                        {
+                            utils.messageBoxAlerta("No se pudo insertar el proveedor. Intente más tarde.");
+                        }
+                        else
+                        {
+                            utils.messageBoxOperacionSinExito("Hubo un error. Intente más tarde.");
+                        }
                     }
                     else
                     {

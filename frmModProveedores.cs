@@ -7,16 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StockIt_Entidades;
+using StockIt_Logica;
 
 namespace StockIt
 {
     public partial class frmModProveedores : Form
     {
         Utils utils = new Utils();
+        public int ID_PROVEEDOR;
+        EProveedor eProveedorInicial;
 
         public frmModProveedores()
         {
             InitializeComponent();
+        }
+
+        private void frmModProveedores_Load(object sender, EventArgs e)
+        {
+            datosIniciales();
+        }
+
+        private void datosIniciales()
+        {
+            eProveedorInicial = new LProveedores().SeleccionarProveedorById(ID_PROVEEDOR);
+            txtNomProveedor.Text = eProveedorInicial.NombreProveedor;
+            mskNumProveedor.Text = eProveedorInicial.TelefonoProveedor;
+            txtDirProveedor.Text = eProveedorInicial.DireccionProveedor;
+            txtCorreoProveedor.Text = eProveedorInicial.CorreoProveedor;
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -54,14 +72,54 @@ namespace StockIt
                     string email = txtCorreoProveedor.Text.Trim();
                     if (utils.validarEmail(email))
                     {
-                        //Actualizamos el proveedor
 
+                        if (eProveedorInicial.NombreProveedor != txtNomProveedor.Text.Trim() ||
+                            eProveedorInicial.TelefonoProveedor != mskNumProveedor.Text.Trim() ||
+                            eProveedorInicial.DireccionProveedor != txtDirProveedor.Text.Trim() ||
+                            eProveedorInicial.CorreoProveedor != txtCorreoProveedor.Text.Trim())
+                        {
+                            //Actualizamos el proveedor
+                            EProveedor eProveedor = new EProveedor();
+                            eProveedor.IdProveedor = ID_PROVEEDOR;
+                            eProveedor.NombreProveedor = txtNomProveedor.Text.Trim().ToUpper();
+                            eProveedor.TelefonoProveedor = mskNumProveedor.Text.Trim();
+                            eProveedor.DireccionProveedor = txtDirProveedor.Text.Trim().ToUpper();
+                            eProveedor.CorreoProveedor = txtCorreoProveedor.Text.Trim();
 
-                        //Mensaje de actualización exitosa
-                        utils.messageBoxOperacionExitosa("El proveedor se ha actualizado satisfactoriamente.");
-                        limpiarCampos();
+                            int r = new LProveedores().ActualizarProveedor(utils.getIdUsuario(), eProveedor);
 
-                        utils.setFormToPanelFormularioHijo(new frmProveedores());
+                            if (r > 0)
+                            {
+                                //Mensaje de actualización exitosa
+                                utils.messageBoxOperacionExitosa("El proveedor se ha actualizado satisfactoriamente.");
+                                limpiarCampos();
+                                utils.setFormToPanelFormularioHijo(new frmProveedores());
+                            }
+                            else if (r == -1)
+                            {
+                                utils.messageBoxAlerta("No se puede asignar el telefono \"" + eProveedor.TelefonoProveedor + "\" al proveedor." +
+                                    "\nHay uno existente con idéntico telefono.");
+                            }
+                            else if (r == -2)
+                            {
+                                utils.messageBoxAlerta("No se puede asignar el correo \"" + eProveedor.CorreoProveedor + "\" al proveedor." +
+                                    "\nHay uno existente con idéntico correo.");
+                            }
+                            else if (r == -3)
+                            {
+                                utils.messageBoxAlerta("No se pudo actualizar el proveedor. Intente más tarde.");
+                            }
+                            else
+                            {
+                                utils.messageBoxOperacionSinExito("Hubo un error. Intente más tarde.");
+                            }
+                        }
+                        else
+                        {
+                            utils.messageBoxAlerta("Debes modificar el menos uno de los datos para efectuar la actualización.");
+                            txtNomProveedor.Focus();
+                        }
+
                     }
                     else
                     {
@@ -90,7 +148,7 @@ namespace StockIt
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            limpiarCampos();
+            datosIniciales();
         }
 
         private void limpiarCampos()

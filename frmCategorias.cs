@@ -131,7 +131,7 @@ namespace StockIt
                     }
                     else if (r == -1)
                     {
-                        utils.messageBoxAlerta("No se pude agregar la categoría \"" + nombreCategoria + "\"." +
+                        utils.messageBoxAlerta("No se puede agregar la categoría \"" + nombreCategoria + "\"." +
                             "\nHay una existente con idéntico nombre.");
                     }
                     else
@@ -175,7 +175,7 @@ namespace StockIt
                         }
                         else if (r == -1)
                         {
-                            utils.messageBoxAlerta("No se pude asignar el nombre \"" + nuevoNombreCategoria + "\" a la categoría." +
+                            utils.messageBoxAlerta("No se puede asignar el nombre \"" + nuevoNombreCategoria + "\" a la categoría." +
                                 "\nHay una existente con idéntico nombre.");
                         }
                         else
