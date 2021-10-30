@@ -41,7 +41,6 @@ namespace StockIt
             this.label6 = new System.Windows.Forms.Label();
             this.cbxCatProd = new System.Windows.Forms.ComboBox();
             this.nudCanProd = new System.Windows.Forms.NumericUpDown();
-            this.pbxImgProd = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.mskPorGanancia = new System.Windows.Forms.MaskedTextBox();
             this.txtGanancia = new System.Windows.Forms.TextBox();
@@ -67,6 +66,8 @@ namespace StockIt
             this.ttFinalizar = new System.Windows.Forms.ToolTip(this.components);
             this.ttCancelar = new System.Windows.Forms.ToolTip(this.components);
             this.ttProductos = new System.Windows.Forms.ToolTip(this.components);
+            this.lblIdProveedor = new System.Windows.Forms.Label();
+            this.pbxImgProd = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudCanProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImgProd)).BeginInit();
             this.SuspendLayout();
@@ -205,19 +206,6 @@ namespace StockIt
             this.nudCanProd.TabIndex = 5;
             this.nudCanProd.ValueChanged += new System.EventHandler(this.nudCanProd_ValueChanged);
             // 
-            // pbxImgProd
-            // 
-            this.pbxImgProd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbxImgProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbxImgProd.Image = global::StockIt.Properties.Resources.noImage;
-            this.pbxImgProd.Location = new System.Drawing.Point(180, 150);
-            this.pbxImgProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbxImgProd.Name = "pbxImgProd";
-            this.pbxImgProd.Size = new System.Drawing.Size(160, 160);
-            this.pbxImgProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbxImgProd.TabIndex = 1;
-            this.pbxImgProd.TabStop = false;
-            // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -278,7 +266,6 @@ namespace StockIt
             this.txtProveedor.ReadOnly = true;
             this.txtProveedor.Size = new System.Drawing.Size(350, 30);
             this.txtProveedor.TabIndex = 17;
-            this.txtProveedor.Text = "Quitar cuando se use la BD";
             // 
             // btnSelProveedor
             // 
@@ -294,6 +281,7 @@ namespace StockIt
             this.btnSelProveedor.TabIndex = 2;
             this.btnSelProveedor.Text = "...";
             this.btnSelProveedor.UseVisualStyleBackColor = false;
+            this.btnSelProveedor.Click += new System.EventHandler(this.btnSelProveedor_Click);
             // 
             // label9
             // 
@@ -424,6 +412,7 @@ namespace StockIt
             this.btnFinalizar.TabIndex = 14;
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
             // btnLimpiar
             // 
@@ -457,12 +446,35 @@ namespace StockIt
             this.lklProductos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lklProductos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklProductos_LinkClicked);
             // 
+            // lblIdProveedor
+            // 
+            this.lblIdProveedor.AutoSize = true;
+            this.lblIdProveedor.Location = new System.Drawing.Point(268, 340);
+            this.lblIdProveedor.Name = "lblIdProveedor";
+            this.lblIdProveedor.Size = new System.Drawing.Size(99, 17);
+            this.lblIdProveedor.TabIndex = 26;
+            this.lblIdProveedor.Text = "lblIdProveedor";
+            // 
+            // pbxImgProd
+            // 
+            this.pbxImgProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbxImgProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbxImgProd.Image = global::StockIt.Properties.Resources.noImage;
+            this.pbxImgProd.Location = new System.Drawing.Point(180, 150);
+            this.pbxImgProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbxImgProd.Name = "pbxImgProd";
+            this.pbxImgProd.Size = new System.Drawing.Size(160, 160);
+            this.pbxImgProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxImgProd.TabIndex = 1;
+            this.pbxImgProd.TabStop = false;
+            // 
             // frmAggProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1231, 1102);
+            this.Controls.Add(this.lblIdProveedor);
             this.Controls.Add(this.lklProductos);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnFinalizar);
@@ -546,5 +558,6 @@ namespace StockIt
         private System.Windows.Forms.ToolTip ttFinalizar;
         private System.Windows.Forms.ToolTip ttCancelar;
         private System.Windows.Forms.ToolTip ttProductos;
+        private System.Windows.Forms.Label lblIdProveedor;
     }
 }

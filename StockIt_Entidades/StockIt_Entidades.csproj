@@ -43,8 +43,11 @@
   <ItemGroup>
     <Compile Include="ECategoria.cs" />
     <Compile Include="ECliente.cs" />
+    <Compile Include="EDetalleCompraProductos.cs" />
     <Compile Include="EDetalleReservas.cs" />
+    <Compile Include="EEncabezadoCompraProductos.cs" />
     <Compile Include="EEncabezadoReservas.cs" />
+    <Compile Include="EProducto.cs" />
     <Compile Include="EProveedor.cs" />
     <Compile Include="EReporteProductos.cs" />
     <Compile Include="EUsuario.cs" />

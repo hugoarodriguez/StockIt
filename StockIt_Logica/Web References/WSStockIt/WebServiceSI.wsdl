@@ -428,6 +428,123 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="obtenerNumeroReserva">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerNumeroReservaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="obtenerNumeroReservaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarEncabezadoReserva">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idCliente" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="monto" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="comentarios" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarEncabezadoReservaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertarEncabezadoReservaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarDetalleReserva">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEncabezado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idProducto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cantidad" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="precio" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="monto" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarDetalleReservaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertarDetalleReservaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verificarExistenciaCantidadesNuevas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idProducto" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verificarExistenciaCantidadesNuevasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="verificarExistenciaCantidadesNuevasResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarProductos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idCategoria" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombreProducto" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="precio" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="existencia" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="img" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="detalles" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarProductosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertarProductosResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarEncabezadoCompra">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idProveedor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="monto" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarEncabezadoCompraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertarEncabezadoCompraResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarDetalleCompra">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEncabezado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idProducto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cantidad" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="precioLote" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="precioUnitario" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="precioUnitarioReal" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="porcentajeGanancia" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarDetalleCompraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertarDetalleCompraResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="reporteProductos">
         <s:complexType>
           <s:sequence>
@@ -617,6 +734,48 @@
   <wsdl:message name="seleccionarProveedorByIdSoapOut">
     <wsdl:part name="parameters" element="tns:seleccionarProveedorByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="obtenerNumeroReservaSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerNumeroReserva" />
+  </wsdl:message>
+  <wsdl:message name="obtenerNumeroReservaSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerNumeroReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarEncabezadoReservaSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarEncabezadoReserva" />
+  </wsdl:message>
+  <wsdl:message name="insertarEncabezadoReservaSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarEncabezadoReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarDetalleReservaSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarDetalleReserva" />
+  </wsdl:message>
+  <wsdl:message name="insertarDetalleReservaSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarDetalleReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="verificarExistenciaCantidadesNuevasSoapIn">
+    <wsdl:part name="parameters" element="tns:verificarExistenciaCantidadesNuevas" />
+  </wsdl:message>
+  <wsdl:message name="verificarExistenciaCantidadesNuevasSoapOut">
+    <wsdl:part name="parameters" element="tns:verificarExistenciaCantidadesNuevasResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarProductosSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarProductos" />
+  </wsdl:message>
+  <wsdl:message name="insertarProductosSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarProductosResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarEncabezadoCompraSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarEncabezadoCompra" />
+  </wsdl:message>
+  <wsdl:message name="insertarEncabezadoCompraSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarEncabezadoCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarDetalleCompraSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarDetalleCompra" />
+  </wsdl:message>
+  <wsdl:message name="insertarDetalleCompraSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarDetalleCompraResponse" />
+  </wsdl:message>
   <wsdl:message name="reporteProductosSoapIn">
     <wsdl:part name="parameters" element="tns:reporteProductos" />
   </wsdl:message>
@@ -731,6 +890,34 @@
     <wsdl:operation name="seleccionarProveedorById">
       <wsdl:input message="tns:seleccionarProveedorByIdSoapIn" />
       <wsdl:output message="tns:seleccionarProveedorByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerNumeroReserva">
+      <wsdl:input message="tns:obtenerNumeroReservaSoapIn" />
+      <wsdl:output message="tns:obtenerNumeroReservaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarEncabezadoReserva">
+      <wsdl:input message="tns:insertarEncabezadoReservaSoapIn" />
+      <wsdl:output message="tns:insertarEncabezadoReservaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarDetalleReserva">
+      <wsdl:input message="tns:insertarDetalleReservaSoapIn" />
+      <wsdl:output message="tns:insertarDetalleReservaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verificarExistenciaCantidadesNuevas">
+      <wsdl:input message="tns:verificarExistenciaCantidadesNuevasSoapIn" />
+      <wsdl:output message="tns:verificarExistenciaCantidadesNuevasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarProductos">
+      <wsdl:input message="tns:insertarProductosSoapIn" />
+      <wsdl:output message="tns:insertarProductosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarEncabezadoCompra">
+      <wsdl:input message="tns:insertarEncabezadoCompraSoapIn" />
+      <wsdl:output message="tns:insertarEncabezadoCompraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarDetalleCompra">
+      <wsdl:input message="tns:insertarDetalleCompraSoapIn" />
+      <wsdl:output message="tns:insertarDetalleCompraSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="reporteProductos">
       <wsdl:input message="tns:reporteProductosSoapIn" />
@@ -956,6 +1143,69 @@
     </wsdl:operation>
     <wsdl:operation name="seleccionarProveedorById">
       <soap:operation soapAction="http://tempuri.org/seleccionarProveedorById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerNumeroReserva">
+      <soap:operation soapAction="http://tempuri.org/obtenerNumeroReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarEncabezadoReserva">
+      <soap:operation soapAction="http://tempuri.org/insertarEncabezadoReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarDetalleReserva">
+      <soap:operation soapAction="http://tempuri.org/insertarDetalleReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verificarExistenciaCantidadesNuevas">
+      <soap:operation soapAction="http://tempuri.org/verificarExistenciaCantidadesNuevas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarProductos">
+      <soap:operation soapAction="http://tempuri.org/insertarProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarEncabezadoCompra">
+      <soap:operation soapAction="http://tempuri.org/insertarEncabezadoCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarDetalleCompra">
+      <soap:operation soapAction="http://tempuri.org/insertarDetalleCompra" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1202,6 +1452,69 @@
     </wsdl:operation>
     <wsdl:operation name="seleccionarProveedorById">
       <soap12:operation soapAction="http://tempuri.org/seleccionarProveedorById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerNumeroReserva">
+      <soap12:operation soapAction="http://tempuri.org/obtenerNumeroReserva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarEncabezadoReserva">
+      <soap12:operation soapAction="http://tempuri.org/insertarEncabezadoReserva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarDetalleReserva">
+      <soap12:operation soapAction="http://tempuri.org/insertarDetalleReserva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verificarExistenciaCantidadesNuevas">
+      <soap12:operation soapAction="http://tempuri.org/verificarExistenciaCantidadesNuevas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarProductos">
+      <soap12:operation soapAction="http://tempuri.org/insertarProductos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarEncabezadoCompra">
+      <soap12:operation soapAction="http://tempuri.org/insertarEncabezadoCompra" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarDetalleCompra">
+      <soap12:operation soapAction="http://tempuri.org/insertarDetalleCompra" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

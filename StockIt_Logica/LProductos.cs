@@ -13,6 +13,78 @@ namespace StockIt_Logica
         WSStockIt.WebServiceSI WS = new WSStockIt.WebServiceSI();
 
 
+        //Solamente cuando sea una nueva compra
+        public int insertarProductos(List<EProducto> eProductoList)
+        {
+            try
+            {
+                int r = 1;
+
+                foreach (EProducto item in eProductoList)
+                {
+                    r = WS.insertarProductos(item.IdCategoria, item.IdUsuario, item.NombreProducto,
+                    item.Precio, item.Existencia, item.Img, item.Detalles);
+                }
+
+                return r;
+            }
+            catch (Exception)
+            {
+                return -2;
+            }
+        }
+
+        //Solo cuando se vaya a actualizar
+        public int verificarExistenciaCantidadesNuevas(EProducto eProducto)
+        {
+            try
+            {
+                return WS.verificarExistenciaCantidadesNuevas(eProducto.IdProducto);
+            }
+            catch (Exception)
+            {
+                return -2;
+            }
+        }
+
+        //Ejecutar en acutalización o inserción
+        public int insertarEncabezadoCompra(EEncabezadoCompraProductos eEncabezadoCompraProductos)
+        {
+            try
+            {
+                return WS.insertarEncabezadoCompra(eEncabezadoCompraProductos.IdProveedor, eEncabezadoCompraProductos.Monto);
+            }
+            catch (Exception)
+            {
+                return -2;
+            }
+        }
+
+        public int insertarDetalleCompra(List<EDetalleCompraProductos> eDetalleCompraProductosList, EEncabezadoCompraProductos eEncabezadoCompraProductos)
+        {
+            try
+            {
+                int idEncabezado = insertarEncabezadoCompra(eEncabezadoCompraProductos);
+
+                int r = 1;
+
+                foreach (EDetalleCompraProductos eDetalleCompraProductos in eDetalleCompraProductosList)
+                {
+                    eDetalleCompraProductos.IdEncCompraProductos = idEncabezado;
+                    r = WS.insertarDetalleCompra(eDetalleCompraProductos.IdEncCompraProductos, eDetalleCompraProductos.IdProducto,
+                        eDetalleCompraProductos.Cantidad, eDetalleCompraProductos.PrecioLote,
+                        eDetalleCompraProductos.PrecioUnitario, eDetalleCompraProductos.PrecioVenta,
+                        eDetalleCompraProductos.PorcentajeGanancia);
+                }
+
+                return r;
+            }
+            catch (Exception)
+            {
+                return -2;
+            }
+        }
+
         //Método para generar Reporte de Productos
         public List<EReporteProductos> ReporteProductos(int idUsuario, int idCategoria, string estadoProducto)
         {

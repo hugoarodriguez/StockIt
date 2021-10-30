@@ -78,6 +78,20 @@ namespace StockIt_Logica.WSStockIt {
         
         private System.Threading.SendOrPostCallback seleccionarProveedorByIdOperationCompleted;
         
+        private System.Threading.SendOrPostCallback obtenerNumeroReservaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback insertarEncabezadoReservaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback insertarDetalleReservaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback verificarExistenciaCantidadesNuevasOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback insertarProductosOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback insertarEncabezadoCompraOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback insertarDetalleCompraOperationCompleted;
+        
         private System.Threading.SendOrPostCallback reporteProductosOperationCompleted;
         
         private System.Threading.SendOrPostCallback fechaAAAAMMDDOperationCompleted;
@@ -193,6 +207,27 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         public event seleccionarProveedorByIdCompletedEventHandler seleccionarProveedorByIdCompleted;
+        
+        /// <remarks/>
+        public event obtenerNumeroReservaCompletedEventHandler obtenerNumeroReservaCompleted;
+        
+        /// <remarks/>
+        public event insertarEncabezadoReservaCompletedEventHandler insertarEncabezadoReservaCompleted;
+        
+        /// <remarks/>
+        public event insertarDetalleReservaCompletedEventHandler insertarDetalleReservaCompleted;
+        
+        /// <remarks/>
+        public event verificarExistenciaCantidadesNuevasCompletedEventHandler verificarExistenciaCantidadesNuevasCompleted;
+        
+        /// <remarks/>
+        public event insertarProductosCompletedEventHandler insertarProductosCompleted;
+        
+        /// <remarks/>
+        public event insertarEncabezadoCompraCompletedEventHandler insertarEncabezadoCompraCompleted;
+        
+        /// <remarks/>
+        public event insertarDetalleCompraCompletedEventHandler insertarDetalleCompraCompleted;
         
         /// <remarks/>
         public event reporteProductosCompletedEventHandler reporteProductosCompleted;
@@ -960,6 +995,247 @@ namespace StockIt_Logica.WSStockIt {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/obtenerNumeroReserva", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int obtenerNumeroReserva(int idUsuario) {
+            object[] results = this.Invoke("obtenerNumeroReserva", new object[] {
+                        idUsuario});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void obtenerNumeroReservaAsync(int idUsuario) {
+            this.obtenerNumeroReservaAsync(idUsuario, null);
+        }
+        
+        /// <remarks/>
+        public void obtenerNumeroReservaAsync(int idUsuario, object userState) {
+            if ((this.obtenerNumeroReservaOperationCompleted == null)) {
+                this.obtenerNumeroReservaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnobtenerNumeroReservaOperationCompleted);
+            }
+            this.InvokeAsync("obtenerNumeroReserva", new object[] {
+                        idUsuario}, this.obtenerNumeroReservaOperationCompleted, userState);
+        }
+        
+        private void OnobtenerNumeroReservaOperationCompleted(object arg) {
+            if ((this.obtenerNumeroReservaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.obtenerNumeroReservaCompleted(this, new obtenerNumeroReservaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/insertarEncabezadoReserva", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int insertarEncabezadoReserva(int idCliente, double monto, string comentarios) {
+            object[] results = this.Invoke("insertarEncabezadoReserva", new object[] {
+                        idCliente,
+                        monto,
+                        comentarios});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void insertarEncabezadoReservaAsync(int idCliente, double monto, string comentarios) {
+            this.insertarEncabezadoReservaAsync(idCliente, monto, comentarios, null);
+        }
+        
+        /// <remarks/>
+        public void insertarEncabezadoReservaAsync(int idCliente, double monto, string comentarios, object userState) {
+            if ((this.insertarEncabezadoReservaOperationCompleted == null)) {
+                this.insertarEncabezadoReservaOperationCompleted = new System.Threading.SendOrPostCallback(this.OninsertarEncabezadoReservaOperationCompleted);
+            }
+            this.InvokeAsync("insertarEncabezadoReserva", new object[] {
+                        idCliente,
+                        monto,
+                        comentarios}, this.insertarEncabezadoReservaOperationCompleted, userState);
+        }
+        
+        private void OninsertarEncabezadoReservaOperationCompleted(object arg) {
+            if ((this.insertarEncabezadoReservaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.insertarEncabezadoReservaCompleted(this, new insertarEncabezadoReservaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/insertarDetalleReserva", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int insertarDetalleReserva(int idEncabezado, int idProducto, int cantidad, double precio, double monto) {
+            object[] results = this.Invoke("insertarDetalleReserva", new object[] {
+                        idEncabezado,
+                        idProducto,
+                        cantidad,
+                        precio,
+                        monto});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void insertarDetalleReservaAsync(int idEncabezado, int idProducto, int cantidad, double precio, double monto) {
+            this.insertarDetalleReservaAsync(idEncabezado, idProducto, cantidad, precio, monto, null);
+        }
+        
+        /// <remarks/>
+        public void insertarDetalleReservaAsync(int idEncabezado, int idProducto, int cantidad, double precio, double monto, object userState) {
+            if ((this.insertarDetalleReservaOperationCompleted == null)) {
+                this.insertarDetalleReservaOperationCompleted = new System.Threading.SendOrPostCallback(this.OninsertarDetalleReservaOperationCompleted);
+            }
+            this.InvokeAsync("insertarDetalleReserva", new object[] {
+                        idEncabezado,
+                        idProducto,
+                        cantidad,
+                        precio,
+                        monto}, this.insertarDetalleReservaOperationCompleted, userState);
+        }
+        
+        private void OninsertarDetalleReservaOperationCompleted(object arg) {
+            if ((this.insertarDetalleReservaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.insertarDetalleReservaCompleted(this, new insertarDetalleReservaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/verificarExistenciaCantidadesNuevas", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int verificarExistenciaCantidadesNuevas(int idProducto) {
+            object[] results = this.Invoke("verificarExistenciaCantidadesNuevas", new object[] {
+                        idProducto});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void verificarExistenciaCantidadesNuevasAsync(int idProducto) {
+            this.verificarExistenciaCantidadesNuevasAsync(idProducto, null);
+        }
+        
+        /// <remarks/>
+        public void verificarExistenciaCantidadesNuevasAsync(int idProducto, object userState) {
+            if ((this.verificarExistenciaCantidadesNuevasOperationCompleted == null)) {
+                this.verificarExistenciaCantidadesNuevasOperationCompleted = new System.Threading.SendOrPostCallback(this.OnverificarExistenciaCantidadesNuevasOperationCompleted);
+            }
+            this.InvokeAsync("verificarExistenciaCantidadesNuevas", new object[] {
+                        idProducto}, this.verificarExistenciaCantidadesNuevasOperationCompleted, userState);
+        }
+        
+        private void OnverificarExistenciaCantidadesNuevasOperationCompleted(object arg) {
+            if ((this.verificarExistenciaCantidadesNuevasCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.verificarExistenciaCantidadesNuevasCompleted(this, new verificarExistenciaCantidadesNuevasCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/insertarProductos", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int insertarProductos(int idCategoria, int idUsuario, string nombreProducto, double precio, int existencia, [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] img, string detalles) {
+            object[] results = this.Invoke("insertarProductos", new object[] {
+                        idCategoria,
+                        idUsuario,
+                        nombreProducto,
+                        precio,
+                        existencia,
+                        img,
+                        detalles});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void insertarProductosAsync(int idCategoria, int idUsuario, string nombreProducto, double precio, int existencia, byte[] img, string detalles) {
+            this.insertarProductosAsync(idCategoria, idUsuario, nombreProducto, precio, existencia, img, detalles, null);
+        }
+        
+        /// <remarks/>
+        public void insertarProductosAsync(int idCategoria, int idUsuario, string nombreProducto, double precio, int existencia, byte[] img, string detalles, object userState) {
+            if ((this.insertarProductosOperationCompleted == null)) {
+                this.insertarProductosOperationCompleted = new System.Threading.SendOrPostCallback(this.OninsertarProductosOperationCompleted);
+            }
+            this.InvokeAsync("insertarProductos", new object[] {
+                        idCategoria,
+                        idUsuario,
+                        nombreProducto,
+                        precio,
+                        existencia,
+                        img,
+                        detalles}, this.insertarProductosOperationCompleted, userState);
+        }
+        
+        private void OninsertarProductosOperationCompleted(object arg) {
+            if ((this.insertarProductosCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.insertarProductosCompleted(this, new insertarProductosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/insertarEncabezadoCompra", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int insertarEncabezadoCompra(int idProveedor, double monto) {
+            object[] results = this.Invoke("insertarEncabezadoCompra", new object[] {
+                        idProveedor,
+                        monto});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void insertarEncabezadoCompraAsync(int idProveedor, double monto) {
+            this.insertarEncabezadoCompraAsync(idProveedor, monto, null);
+        }
+        
+        /// <remarks/>
+        public void insertarEncabezadoCompraAsync(int idProveedor, double monto, object userState) {
+            if ((this.insertarEncabezadoCompraOperationCompleted == null)) {
+                this.insertarEncabezadoCompraOperationCompleted = new System.Threading.SendOrPostCallback(this.OninsertarEncabezadoCompraOperationCompleted);
+            }
+            this.InvokeAsync("insertarEncabezadoCompra", new object[] {
+                        idProveedor,
+                        monto}, this.insertarEncabezadoCompraOperationCompleted, userState);
+        }
+        
+        private void OninsertarEncabezadoCompraOperationCompleted(object arg) {
+            if ((this.insertarEncabezadoCompraCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.insertarEncabezadoCompraCompleted(this, new insertarEncabezadoCompraCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/insertarDetalleCompra", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int insertarDetalleCompra(int idEncabezado, int idProducto, int cantidad, double precioLote, double precioUnitario, double precioUnitarioReal, double porcentajeGanancia) {
+            object[] results = this.Invoke("insertarDetalleCompra", new object[] {
+                        idEncabezado,
+                        idProducto,
+                        cantidad,
+                        precioLote,
+                        precioUnitario,
+                        precioUnitarioReal,
+                        porcentajeGanancia});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void insertarDetalleCompraAsync(int idEncabezado, int idProducto, int cantidad, double precioLote, double precioUnitario, double precioUnitarioReal, double porcentajeGanancia) {
+            this.insertarDetalleCompraAsync(idEncabezado, idProducto, cantidad, precioLote, precioUnitario, precioUnitarioReal, porcentajeGanancia, null);
+        }
+        
+        /// <remarks/>
+        public void insertarDetalleCompraAsync(int idEncabezado, int idProducto, int cantidad, double precioLote, double precioUnitario, double precioUnitarioReal, double porcentajeGanancia, object userState) {
+            if ((this.insertarDetalleCompraOperationCompleted == null)) {
+                this.insertarDetalleCompraOperationCompleted = new System.Threading.SendOrPostCallback(this.OninsertarDetalleCompraOperationCompleted);
+            }
+            this.InvokeAsync("insertarDetalleCompra", new object[] {
+                        idEncabezado,
+                        idProducto,
+                        cantidad,
+                        precioLote,
+                        precioUnitario,
+                        precioUnitarioReal,
+                        porcentajeGanancia}, this.insertarDetalleCompraOperationCompleted, userState);
+        }
+        
+        private void OninsertarDetalleCompraOperationCompleted(object arg) {
+            if ((this.insertarDetalleCompraCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.insertarDetalleCompraCompleted(this, new insertarDetalleCompraCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/reporteProductos", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataSet reporteProductos(int idUsuario, int idCategoria, string estadoProducto) {
             object[] results = this.Invoke("reporteProductos", new object[] {
@@ -1685,6 +1961,188 @@ namespace StockIt_Logica.WSStockIt {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void obtenerNumeroReservaCompletedEventHandler(object sender, obtenerNumeroReservaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class obtenerNumeroReservaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal obtenerNumeroReservaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void insertarEncabezadoReservaCompletedEventHandler(object sender, insertarEncabezadoReservaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class insertarEncabezadoReservaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal insertarEncabezadoReservaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void insertarDetalleReservaCompletedEventHandler(object sender, insertarDetalleReservaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class insertarDetalleReservaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal insertarDetalleReservaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void verificarExistenciaCantidadesNuevasCompletedEventHandler(object sender, verificarExistenciaCantidadesNuevasCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class verificarExistenciaCantidadesNuevasCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal verificarExistenciaCantidadesNuevasCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void insertarProductosCompletedEventHandler(object sender, insertarProductosCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class insertarProductosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal insertarProductosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void insertarEncabezadoCompraCompletedEventHandler(object sender, insertarEncabezadoCompraCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class insertarEncabezadoCompraCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal insertarEncabezadoCompraCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void insertarDetalleCompraCompletedEventHandler(object sender, insertarDetalleCompraCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class insertarDetalleCompraCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal insertarDetalleCompraCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
             }
         }
     }
