@@ -78,6 +78,10 @@ namespace StockIt_Logica.WSStockIt {
         
         private System.Threading.SendOrPostCallback seleccionarProveedorByIdOperationCompleted;
         
+        private System.Threading.SendOrPostCallback fechaAAAAMMDDOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback fechaDDMMAAAAOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -187,6 +191,12 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         public event seleccionarProveedorByIdCompletedEventHandler seleccionarProveedorByIdCompleted;
+        
+        /// <remarks/>
+        public event fechaAAAAMMDDCompletedEventHandler fechaAAAAMMDDCompleted;
+        
+        /// <remarks/>
+        public event fechaDDMMAAAACompletedEventHandler fechaDDMMAAAACompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -945,6 +955,60 @@ namespace StockIt_Logica.WSStockIt {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/fechaAAAAMMDD", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string fechaAAAAMMDD() {
+            object[] results = this.Invoke("fechaAAAAMMDD", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void fechaAAAAMMDDAsync() {
+            this.fechaAAAAMMDDAsync(null);
+        }
+        
+        /// <remarks/>
+        public void fechaAAAAMMDDAsync(object userState) {
+            if ((this.fechaAAAAMMDDOperationCompleted == null)) {
+                this.fechaAAAAMMDDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfechaAAAAMMDDOperationCompleted);
+            }
+            this.InvokeAsync("fechaAAAAMMDD", new object[0], this.fechaAAAAMMDDOperationCompleted, userState);
+        }
+        
+        private void OnfechaAAAAMMDDOperationCompleted(object arg) {
+            if ((this.fechaAAAAMMDDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.fechaAAAAMMDDCompleted(this, new fechaAAAAMMDDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/fechaDDMMAAAA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string fechaDDMMAAAA() {
+            object[] results = this.Invoke("fechaDDMMAAAA", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void fechaDDMMAAAAAsync() {
+            this.fechaDDMMAAAAAsync(null);
+        }
+        
+        /// <remarks/>
+        public void fechaDDMMAAAAAsync(object userState) {
+            if ((this.fechaDDMMAAAAOperationCompleted == null)) {
+                this.fechaDDMMAAAAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfechaDDMMAAAAOperationCompleted);
+            }
+            this.InvokeAsync("fechaDDMMAAAA", new object[0], this.fechaDDMMAAAAOperationCompleted, userState);
+        }
+        
+        private void OnfechaDDMMAAAAOperationCompleted(object arg) {
+            if ((this.fechaDDMMAAAACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.fechaDDMMAAAACompleted(this, new fechaDDMMAAAACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -1583,6 +1647,58 @@ namespace StockIt_Logica.WSStockIt {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void fechaAAAAMMDDCompletedEventHandler(object sender, fechaAAAAMMDDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class fechaAAAAMMDDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal fechaAAAAMMDDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void fechaDDMMAAAACompletedEventHandler(object sender, fechaDDMMAAAACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class fechaDDMMAAAACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal fechaDDMMAAAACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,6 +70,47 @@ namespace StockIt_Logica
             catch (Exception)
             {
                 return false;
+            }
+        }
+
+        public string getNombreUsuario(string correo)
+        {
+            try
+            {
+                EUsuario eUsuario = seleccionarUsuarioByCorreo(correo);
+
+                return eUsuario.Nombres + " " + eUsuario.Apellidos;
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
+
+        public EUsuario seleccionarUsuarioByCorreo(string correo)
+        {
+            EUsuario eUsuario = new EUsuario();
+
+            try
+            {
+                DataSet ds = WS.seleccionarUsuarioByCorreo(correo);
+
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    eUsuario.IdUsuario = int.Parse(row["ID_USUARIO"].ToString());
+                    eUsuario.Usuario = row["USUARIO"].ToString();
+                    eUsuario.Nombres = row["NOMBRE_USUARIO"].ToString();
+                    eUsuario.Apellidos = row["APELLIDO_USUARIO"].ToString();
+                    eUsuario.NombreEmpresa = row["NOMBRE_EMPRESA"].ToString();
+                    eUsuario.Correo = row["CORREO_USUARIO"].ToString();
+                    eUsuario.EstadoUsuario = row["ESTADO_USUARIO"].ToString();
+                }
+
+                return eUsuario;
+            }
+            catch (Exception)
+            {
+                return eUsuario;
             }
         }
 

@@ -428,6 +428,26 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="fechaAAAAMMDD">
+        <s:complexType />
+      </s:element>
+      <s:element name="fechaAAAAMMDDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fechaAAAAMMDDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="fechaDDMMAAAA">
+        <s:complexType />
+      </s:element>
+      <s:element name="fechaDDMMAAAAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fechaDDMMAAAAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -574,6 +594,18 @@
   <wsdl:message name="seleccionarProveedorByIdSoapOut">
     <wsdl:part name="parameters" element="tns:seleccionarProveedorByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="fechaAAAAMMDDSoapIn">
+    <wsdl:part name="parameters" element="tns:fechaAAAAMMDD" />
+  </wsdl:message>
+  <wsdl:message name="fechaAAAAMMDDSoapOut">
+    <wsdl:part name="parameters" element="tns:fechaAAAAMMDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="fechaDDMMAAAASoapIn">
+    <wsdl:part name="parameters" element="tns:fechaDDMMAAAA" />
+  </wsdl:message>
+  <wsdl:message name="fechaDDMMAAAASoapOut">
+    <wsdl:part name="parameters" element="tns:fechaDDMMAAAAResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServiceSISoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -670,6 +702,14 @@
     <wsdl:operation name="seleccionarProveedorById">
       <wsdl:input message="tns:seleccionarProveedorByIdSoapIn" />
       <wsdl:output message="tns:seleccionarProveedorByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="fechaAAAAMMDD">
+      <wsdl:input message="tns:fechaAAAAMMDDSoapIn" />
+      <wsdl:output message="tns:fechaAAAAMMDDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="fechaDDMMAAAA">
+      <wsdl:input message="tns:fechaDDMMAAAASoapIn" />
+      <wsdl:output message="tns:fechaDDMMAAAASoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceSISoap" type="tns:WebServiceSISoap">
@@ -890,6 +930,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="fechaAAAAMMDD">
+      <soap:operation soapAction="http://tempuri.org/fechaAAAAMMDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fechaDDMMAAAA">
+      <soap:operation soapAction="http://tempuri.org/fechaDDMMAAAA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebServiceSISoap12" type="tns:WebServiceSISoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1102,6 +1160,24 @@
     </wsdl:operation>
     <wsdl:operation name="seleccionarProveedorById">
       <soap12:operation soapAction="http://tempuri.org/seleccionarProveedorById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fechaAAAAMMDD">
+      <soap12:operation soapAction="http://tempuri.org/fechaAAAAMMDD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fechaDDMMAAAA">
+      <soap12:operation soapAction="http://tempuri.org/fechaDDMMAAAA" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

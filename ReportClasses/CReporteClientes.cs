@@ -7,12 +7,16 @@ using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.Windows.Forms;
 using System.IO;
+using StockIt_Entidades;
+using StockIt_Logica;
 
 namespace StockIt.ReportClasses
 {
     class CReporteClientes
     {
-        public void generarReporteClientes()
+        LUtils lUtils = new LUtils();
+        Utils utils = new Utils();
+        public void generarReporteClientes(int idUsuario)
         {
             try
             {
@@ -41,12 +45,8 @@ namespace StockIt.ReportClasses
                     Font negrita = FontFactory.GetFont("Arial", 10, Font.BOLD, BaseColor.BLACK);
                     Font title = FontFactory.GetFont("Arial", 12, Font.BOLD, BaseColor.BLACK);
 
-                    //Obtenemos la fecha actual
-                    DateTime fechaActual = DateTime.Now;
-                    //Fecha de creacion para poner en el nombre del PDF
-                    string envioNom = fechaActual.ToString("ddMMyyyy");
                     //Fecha de creacion para poner en el PDF
-                    string envio = fechaActual.ToString("dd/MM/yyyy");
+                    string fechaCreacion = lUtils.fechaDDMMAAAA();
                     document.AddCreationDate();
 
                     /*Agregar otra imagen (puede ser un texto que diga StockIt) a la carpeta "Resources" 
@@ -82,8 +82,7 @@ namespace StockIt.ReportClasses
                     tbHeader.AddCell(new Paragraph());
                     tbHeader.WriteSelectedRows(0, -1, document.LeftMargin, writer.PageSize.GetTop(document.TopMargin) + 2, writer.DirectContent);
 
-                    string nombreCompleto = "Hugo Alexander Rodríguez Cruz";
-                    string cargo = "Empleado";
+                    string nombreCompleto = new LUsuarios().getNombreUsuario(utils.getCorreoUsuario());
 
                     var emisorPhrase = new Phrase();
                     emisorPhrase.Add(new Chunk("Nombre del emisor: ", negrita));
@@ -91,15 +90,7 @@ namespace StockIt.ReportClasses
 
                     var fechaPhrase = new Phrase();
                     fechaPhrase.Add(new Chunk("Fecha y hora de emisión: ", negrita));
-                    fechaPhrase.Add(new Chunk(envio, fuenteEmision));
-
-                    var cargoPhrase = new Phrase();
-                    cargoPhrase.Add(new Chunk("Cargo: ", negrita));
-                    cargoPhrase.Add(new Chunk(cargo, fuenteEmision));
-
-                    var filtroPhrase = new Phrase();
-                    filtroPhrase.Add(new Chunk("Filtro: ", negrita));
-                    filtroPhrase.Add(new Chunk("Nombre Filtro", fuenteEmision));
+                    fechaPhrase.Add(new Chunk(fechaCreacion, fuenteEmision));
 
                     Chunk chunk = new Chunk();
                     document.Add(new Paragraph(chunk));
@@ -107,14 +98,12 @@ namespace StockIt.ReportClasses
                     document.Add(new Paragraph("------------------------------------------------------------------------------------------------------------------------------------------"));
                     document.Add(new Paragraph(emisorPhrase));
                     document.Add(new Paragraph(fechaPhrase));
-                    document.Add(new Paragraph(cargoPhrase));
-                    document.Add(new Paragraph(filtroPhrase));
                     document.Add(new Paragraph("------------------------------------------------------------------------------------------------------------------------------------------"));
                     document.Add(new Paragraph("                       "));
 
                     //Encabezado de la tabla
                     PdfPTable table = new PdfPTable(5);
-                    float[] widths = new float[] { 10f, 40f, 20f, 20f, 10f };
+                    float[] widths = new float[] { 10f, 35f, 20f, 20f, 15f };
                     table.SetWidths(widths);
 
                     _cell = new PdfPCell(new Paragraph("#", negrita));
@@ -141,43 +130,44 @@ namespace StockIt.ReportClasses
 
                     /********* Esto será cambiado dinámicamente con la BD *********/
                     //La lista de los empleados
-                    List<String> usuarios = new List<String>();
-                    usuarios.Add("ITEM 1");
-                    usuarios.Add("ITEM 2");
-                    usuarios.Add("ITEM 3");
-                    usuarios.Add("ITEM 4");
-                    usuarios.Add("ITEM 5");
+                    List<ECliente> eClientesList = new LClientes().SeleccionarClientesActivosByIdUsuario(idUsuario);
 
-                    foreach (var item in usuarios)
+                    int numRegistro = 1;
+                    foreach (var item in eClientesList)
                     {
-                        _cell = new PdfPCell(new Paragraph(item, fuente));
+                        _cell = new PdfPCell(new Paragraph(numRegistro.ToString(), fuente));
                         _cell.HorizontalAlignment = Element.ALIGN_CENTER;
                         table.AddCell(_cell);
 
-                        _cell = new PdfPCell(new Paragraph(item, fuente));
+                        _cell = new PdfPCell(new Paragraph(item.NombreCliente + " " + item.ApellidoCliente, fuente));
                         _cell.HorizontalAlignment = Element.ALIGN_CENTER;
                         table.AddCell(_cell);
 
-                        _cell = new PdfPCell(new Paragraph(item, fuente));
+                        _cell = new PdfPCell(new Paragraph(item.TelefonoCliente, fuente));
                         _cell.HorizontalAlignment = Element.ALIGN_CENTER;
                         table.AddCell(_cell);
 
-                        _cell = new PdfPCell(new Paragraph(item, fuente));
+                        _cell = new PdfPCell(new Paragraph(item.CorreoCliente, fuente));
                         _cell.HorizontalAlignment = Element.ALIGN_CENTER;
                         table.AddCell(_cell);
+
+                        _cell = new PdfPCell(new Paragraph(item.SexoCliente == "M" ? "MASCULINO" : "FEMENINO", fuente));
+                        _cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        table.AddCell(_cell);
+                        numRegistro++;
                     }
 
                     document.Add(table);
 
                     document.Close();
 
-                    Utils utils = new Utils();
+                    
                     utils.messageBoxOperacionExitosa("El reporte se guardó como " + Path.GetFileNameWithoutExtension(rutaArchivoFinal) + ".pdf");
                 }
             }
             catch (Exception)
             {
-                Utils utils = new Utils();
+                
                 utils.messageBoxOperacionSinExito("No se pudo generar el reporte. Intente más tarde.");
             }
         }

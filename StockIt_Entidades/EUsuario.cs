@@ -15,7 +15,7 @@ namespace StockIt_Entidades
         private string nombreEmpresa;
         private string correo;
         private string password;
-        private int estadoUsuario;
+        private string estadoUsuario;
         private int passwordTemporal;
 
         public int IdUsuario { get => idUsuario; set => idUsuario = value; }
@@ -25,7 +25,7 @@ namespace StockIt_Entidades
         public string NombreEmpresa { get => nombreEmpresa; set => nombreEmpresa = value; }
         public string Correo { get => correo; set => correo = value; }
         public string Password { get => password; set => password = value; }
-        public int EstadoUsuario { get => estadoUsuario; set => estadoUsuario = value; }
+        public string EstadoUsuario { get => estadoUsuario; set => estadoUsuario = value; }
         public int PasswordTemporal { get => passwordTemporal; set => passwordTemporal = value; }
     }
 }
