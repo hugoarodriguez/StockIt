@@ -97,5 +97,20 @@ namespace StockIt_Logica
                 return lista;
             }
         }
+
+        public DataTable SeleccionarCategoriasActivasByIdUsuarioDT(int idUsuario)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                DataSet ds = WS.seleccionarCategoriasActivasByIdUsuario(idUsuario);
+
+                return ds.Tables[0];
+            }
+            catch (Exception)
+            {
+                return dt;
+            }
+        }
     }
 }
