@@ -293,6 +293,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="seleccionarClienteById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idCliente" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarClienteByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="seleccionarClienteByIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="insertarProveedor">
         <s:complexType>
           <s:sequence>
@@ -511,6 +532,12 @@
   <wsdl:message name="seleccionarClientesActivosByIdUsuarioSoapOut">
     <wsdl:part name="parameters" element="tns:seleccionarClientesActivosByIdUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="seleccionarClienteByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:seleccionarClienteById" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarClienteByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:seleccionarClienteByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="insertarProveedorSoapIn">
     <wsdl:part name="parameters" element="tns:insertarProveedor" />
   </wsdl:message>
@@ -615,6 +642,10 @@
     <wsdl:operation name="seleccionarClientesActivosByIdUsuario">
       <wsdl:input message="tns:seleccionarClientesActivosByIdUsuarioSoapIn" />
       <wsdl:output message="tns:seleccionarClientesActivosByIdUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarClienteById">
+      <wsdl:input message="tns:seleccionarClienteByIdSoapIn" />
+      <wsdl:output message="tns:seleccionarClienteByIdSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="insertarProveedor">
       <wsdl:input message="tns:insertarProveedorSoapIn" />
@@ -789,6 +820,15 @@
     </wsdl:operation>
     <wsdl:operation name="seleccionarClientesActivosByIdUsuario">
       <soap:operation soapAction="http://tempuri.org/seleccionarClientesActivosByIdUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarClienteById">
+      <soap:operation soapAction="http://tempuri.org/seleccionarClienteById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -999,6 +1039,15 @@
     </wsdl:operation>
     <wsdl:operation name="seleccionarClientesActivosByIdUsuario">
       <soap12:operation soapAction="http://tempuri.org/seleccionarClientesActivosByIdUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarClienteById">
+      <soap12:operation soapAction="http://tempuri.org/seleccionarClienteById" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

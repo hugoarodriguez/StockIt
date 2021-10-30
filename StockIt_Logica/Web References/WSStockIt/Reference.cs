@@ -64,6 +64,8 @@ namespace StockIt_Logica.WSStockIt {
         
         private System.Threading.SendOrPostCallback seleccionarClientesActivosByIdUsuarioOperationCompleted;
         
+        private System.Threading.SendOrPostCallback seleccionarClienteByIdOperationCompleted;
+        
         private System.Threading.SendOrPostCallback insertarProveedorOperationCompleted;
         
         private System.Threading.SendOrPostCallback actualizarProveedorOperationCompleted;
@@ -164,6 +166,9 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         public event seleccionarClientesActivosByIdUsuarioCompletedEventHandler seleccionarClientesActivosByIdUsuarioCompleted;
+        
+        /// <remarks/>
+        public event seleccionarClienteByIdCompletedEventHandler seleccionarClienteByIdCompleted;
         
         /// <remarks/>
         public event insertarProveedorCompletedEventHandler insertarProveedorCompleted;
@@ -715,6 +720,35 @@ namespace StockIt_Logica.WSStockIt {
             if ((this.seleccionarClientesActivosByIdUsuarioCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.seleccionarClientesActivosByIdUsuarioCompleted(this, new seleccionarClientesActivosByIdUsuarioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/seleccionarClienteById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet seleccionarClienteById(int idCliente) {
+            object[] results = this.Invoke("seleccionarClienteById", new object[] {
+                        idCliente});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void seleccionarClienteByIdAsync(int idCliente) {
+            this.seleccionarClienteByIdAsync(idCliente, null);
+        }
+        
+        /// <remarks/>
+        public void seleccionarClienteByIdAsync(int idCliente, object userState) {
+            if ((this.seleccionarClienteByIdOperationCompleted == null)) {
+                this.seleccionarClienteByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnseleccionarClienteByIdOperationCompleted);
+            }
+            this.InvokeAsync("seleccionarClienteById", new object[] {
+                        idCliente}, this.seleccionarClienteByIdOperationCompleted, userState);
+        }
+        
+        private void OnseleccionarClienteByIdOperationCompleted(object arg) {
+            if ((this.seleccionarClienteByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.seleccionarClienteByIdCompleted(this, new seleccionarClienteByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1358,6 +1392,32 @@ namespace StockIt_Logica.WSStockIt {
         private object[] results;
         
         internal seleccionarClientesActivosByIdUsuarioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void seleccionarClienteByIdCompletedEventHandler(object sender, seleccionarClienteByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class seleccionarClienteByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal seleccionarClienteByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

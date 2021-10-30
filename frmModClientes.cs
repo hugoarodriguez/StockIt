@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StockIt_Entidades;
+using StockIt_Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,9 @@ namespace StockIt
     public partial class frmModClientes : Form
     {
         Utils utils = new Utils();
+        public int ID_CLIENTE;
+        ECliente eClienteInicial;
+
         public frmModClientes()
         {
             InitializeComponent();
@@ -20,7 +25,18 @@ namespace StockIt
 
         private void frmModClientes_Load(object sender, EventArgs e)
         {
-            //Llenar los datos del formulario
+            llenarCbxSexo();
+            datosIniciales();
+        }
+
+        private void datosIniciales()
+        {
+            eClienteInicial = new LClientes().SeleccionarClienteById(ID_CLIENTE);
+            txtNomClie.Text = eClienteInicial.NombreCliente;
+            txtApeClie.Text = eClienteInicial.ApellidoCliente;
+            cbxSexoClie.SelectedIndex = eClienteInicial.SexoCliente == "M" ? 1 : 2;
+            mskNumClie.Text = eClienteInicial.TelefonoCliente;
+            txtCorreoClie.Text = eClienteInicial.CorreoCliente;
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -64,13 +80,52 @@ namespace StockIt
                     string email = txtCorreoClie.Text.Trim();
                     if (utils.validarEmail(email))
                     {
+                        string sexoCliente = cbxSexoClie.SelectedIndex == 1 ? "M" : "F";
+
                         //Actualizamos el cliente
+                        if (eClienteInicial.NombreCliente != txtNomClie.Text.Trim().ToUpper() ||
+                            eClienteInicial.ApellidoCliente != txtApeClie.Text.Trim().ToUpper() ||
+                            eClienteInicial.SexoCliente != sexoCliente ||
+                            eClienteInicial.TelefonoCliente != mskNumClie.Text.Trim() ||
+                            eClienteInicial.CorreoCliente != txtCorreoClie.Text.Trim())
+                        {
+                            //Registramos el cliente
+                            ECliente eCliente = new ECliente();
+                            eCliente.IdCliente = ID_CLIENTE;
+                            eCliente.NombreCliente = txtNomClie.Text.Trim().ToUpper();
+                            eCliente.ApellidoCliente = txtApeClie.Text.Trim().ToUpper();
+                            eCliente.SexoCliente = sexoCliente;
+                            eCliente.TelefonoCliente = mskNumClie.Text.Trim();
+                            eCliente.CorreoCliente = txtCorreoClie.Text.Trim();
 
+                            int r = new LClientes().ActualizarCliente(utils.getIdUsuario(), eCliente);
 
-                        //Mensaje de registro exitoso
-                        utils.messageBoxOperacionExitosa("El cliente se ha actualizado satisfactoriamente.");
-                        reestablecerDatos();
-                        utils.setFormToPanelFormularioHijo(new frmClientes());
+                            if (r > 0)
+                            {
+                                //Mensaje de actualizción exitosa
+                                utils.messageBoxOperacionExitosa("El cliente se ha actualizado satisfactoriamente.");
+                                limpiarCampos();
+                                utils.setFormToPanelFormularioHijo(new frmClientes());
+                            }
+                            else if (r == -1)
+                            {
+                                utils.messageBoxAlerta("No se puede asignar el telefono \"" + eCliente.TelefonoCliente + "\" al cliente." +
+                                    "\nHay uno existente con idéntico telefono.");
+                            }
+                            else if (r == -2)
+                            {
+                                utils.messageBoxAlerta("No se puede asignar el correo \"" + eCliente.CorreoCliente + "\" al cliente." +
+                                    "\nHay uno existente con idéntico correo.");
+                            }
+                            else if (r == -3)
+                            {
+                                utils.messageBoxAlerta("No se pudo actualizar el cliente. Intente más tarde.");
+                            }
+                            else
+                            {
+                                utils.messageBoxOperacionSinExito("Hubo un error. Intente más tarde.");
+                            }
+                        }
                     }
                     else
                     {
@@ -89,7 +144,7 @@ namespace StockIt
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            reestablecerDatos();
+            datosIniciales();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -102,13 +157,20 @@ namespace StockIt
             }
         }
 
-        //Limpiar campos
-        private void reestablecerDatos()
+        private void llenarCbxSexo()
         {
-            //Cambiar esto por reestablecer los datos a los guardados actualmente en la BD
+            cbxSexoClie.Items.Add("SELECCIONAR");
+            cbxSexoClie.Items.Add("MASCULINO");
+            cbxSexoClie.Items.Add("FEMENINO");
+            cbxSexoClie.SelectedIndex = 0;
+        }
+
+        //Limpiar campos
+        private void limpiarCampos()
+        {
             txtNomClie.Text = null;
             txtApeClie.Text = null;
-            //cbxSexoClie.SelectedIndex = 0;
+            cbxSexoClie.SelectedIndex = 0;
             mskNumClie.Text = null;
             txtCorreoClie.Text = null;
         }

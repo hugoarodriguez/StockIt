@@ -1,4 +1,6 @@
 ﻿using StockIt.CustomControls;
+using StockIt_Entidades;
+using StockIt_Logica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,55 +29,73 @@ namespace StockIt
 
         private void cargarClientes()
         {
-            clientes = new ClienteCard[10];
-            for (int i = 0; i < clientes.Length; i++)
+            List<ECliente> eClientesList = new LClientes().SeleccionarClientesActivosByIdUsuario(utils.getIdUsuario());
+
+            if(eClientesList.Count > 0)
             {
-                clientes[i] = new ClienteCard();
-                clientes[i].Name = "ClienteCard" + i.ToString();
-                clientes[i].NomClie = "Cliente " + i.ToString();
-                clientes[i].TelClie = "7121-2321";
-                clientes[i].CorrClie = "correo@mail.com";
-                clientes[i].SexClie = "Masculino";
-
-                //Creación de btnEditar
-                clientes[i].BtnEditarProp = new Button();
-                clientes[i].ButtonClickEditar += new EventHandler(btnEditar_ButtonClick);
-
-                void btnEditar_ButtonClick(object sender, EventArgs e)
+                clientes = new ClienteCard[eClientesList.Count];
+                for (int i = 0; i < clientes.Length; i++)
                 {
-                    //Manejar evento
-                    ClienteCard clienteCardItem = ((ClienteCard)sender);
-                    this.txtClientes.Text = clienteCardItem.Name + "Editar";
+                    clientes[i] = new ClienteCard();
+                    clientes[i].Name = eClientesList[i].IdCliente.ToString();
+                    clientes[i].NomClie = eClientesList[i].NombreCliente + " " + eClientesList[i].ApellidoCliente;
+                    clientes[i].TelClie = eClientesList[i].TelefonoCliente;
+                    clientes[i].CorrClie = eClientesList[i].CorreoCliente;
+                    clientes[i].SexClie = eClientesList[i].SexoCliente == "M" ? "MASCULINO" : "FEMENINO";
 
-                    //Hacer consulta en la BD del registro seleccionado
+                    //Creación de btnEditar
+                    clientes[i].BtnEditarProp = new Button();
+                    clientes[i].ButtonClickEditar += new EventHandler(btnEditar_ButtonClick);
 
-                    //Abrimos el formulario para modificar el cliente según el ID
-                    Utils utils = new Utils();
-                    utils.setFormToPanelFormularioHijo(new frmModClientes());
-                }
-
-                //Creación de btnEliminar
-                clientes[i].BtnEliminarProp = new Button();
-                clientes[i].ButtonClickEliminar += new EventHandler(btnEliminar_ButtonClick);
-
-                void btnEliminar_ButtonClick(object sender, EventArgs e)
-                {
-                    //Manejar evento
-                    ClienteCard clienteCardItem = ((ClienteCard)sender);
-                    DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas eliminar el cliente" +
-                        " \"" + clienteCardItem.NomClie + "\"?");
-                    if (dialogResult == DialogResult.Yes)
+                    void btnEditar_ButtonClick(object sender, EventArgs e)
                     {
-                        /*
-                         * Validar si el cliente seleccionado para eliminar tiene alguna reserva relacionada en la BD.
-                         * Si NO tienen ninguno relacionada SI se debe permitir eliminar
-                         */
-                        clienteCardItem.Dispose();
-                    }
-                }
+                        //Manejar evento
+                        ClienteCard clienteCardItem = ((ClienteCard)sender);
+                        this.txtClientes.Text = clienteCardItem.Name + "Editar";
 
-                //Agregamos el ClienteCard al FlowLAyoutPanel
-                flpListadoClientes.Controls.Add(clientes[i]);
+                        //Abrimos el formulario para modificar el cliente según el ID
+                        Utils utils = new Utils();
+                        frmModClientes frmModClientes = new frmModClientes();
+                        frmModClientes.ID_CLIENTE = int.Parse(clienteCardItem.Name);
+                        utils.setFormToPanelFormularioHijo(frmModClientes);
+                    }
+
+                    //Creación de btnEliminar
+                    clientes[i].BtnEliminarProp = new Button();
+                    clientes[i].ButtonClickEliminar += new EventHandler(btnEliminar_ButtonClick);
+
+                    void btnEliminar_ButtonClick(object sender, EventArgs e)
+                    {
+                        //Manejar evento
+                        ClienteCard clienteCardItem = ((ClienteCard)sender);
+                        DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas eliminar el cliente" +
+                            " \"" + clienteCardItem.NomClie + "\"?");
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            ECliente eCliente = new ECliente();
+                            eCliente.IdCliente = int.Parse(clienteCardItem.Name);
+
+                            int r = new LClientes().EliminarCliente(eCliente);
+
+                            if (r > 0)
+                            {
+                                clienteCardItem.Dispose();
+                            }
+                            else if (r == -1)
+                            {
+                                utils.messageBoxAlerta("No se puede eliminar este cliente, " +
+                                    "\nse encuentra relacionado con reservas sin facturar.");
+                            }
+                            else
+                            {
+                                utils.messageBoxOperacionSinExito("Hubo un error. Intente más tarde.");
+                            }
+                        }
+                    }
+
+                    //Agregamos el ClienteCard al FlowLAyoutPanel
+                    flpListadoClientes.Controls.Add(clientes[i]);
+                }
             }
         }
 

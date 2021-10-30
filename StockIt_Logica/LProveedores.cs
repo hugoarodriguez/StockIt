@@ -66,7 +66,7 @@ namespace StockIt_Logica
                     eProveedor.TelefonoProveedor = row["TELEFONO_PROVEEDOR"].ToString();
                     eProveedor.DireccionProveedor = row["DIRECCION_PROVEEDOR"].ToString();
                     eProveedor.CorreoProveedor = row["CORREO_PROVEEDOR"].ToString();
-                    eProveedor.EstadoProveedor = row["ESTADO_PROVEEDOR"].ToString() == "A" ? "ACTIVA" : "INACTIVA";
+                    eProveedor.EstadoProveedor = row["ESTADO_PROVEEDOR"].ToString() == "A" ? "ACTIVO" : "INACTIVO";
                     lista.Add(eProveedor);
                 }
 

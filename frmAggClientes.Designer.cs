@@ -224,6 +224,7 @@ namespace StockIt
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAggClientes";
             this.Text = "frmAggClientes";
+            this.Load += new System.EventHandler(this.frmAggClientes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

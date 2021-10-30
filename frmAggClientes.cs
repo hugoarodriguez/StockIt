@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StockIt_Entidades;
+using StockIt_Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +19,11 @@ namespace StockIt
         public frmAggClientes()
         {
             InitializeComponent();
+        }
+
+        private void frmAggClientes_Load(object sender, EventArgs e)
+        {
+            llenarCbxSexo();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -61,12 +68,39 @@ namespace StockIt
                     if (utils.validarEmail(email))
                     {
                         //Registramos el cliente
+                        ECliente eCliente = new ECliente();
+                        eCliente.NombreCliente = txtNomClie.Text.Trim().ToUpper();
+                        eCliente.ApellidoCliente = txtApeClie.Text.Trim().ToUpper();
+                        eCliente.SexoCliente = cbxSexoClie.SelectedIndex == 1 ? "M" : "F";
+                        eCliente.TelefonoCliente = mskNumClie.Text.Trim();
+                        eCliente.CorreoCliente = txtCorreoClie.Text.Trim();
 
+                        int r = new LClientes().InsertarCliente(utils.getIdUsuario(), eCliente);
 
-                        //Mensaje de registro exitoso
-                        utils.messageBoxOperacionExitosa("El cliente se ha registrado satisfactoriamente.");
-                        limpiarCampos();
-                        txtNomClie.Focus();
+                        if (r > 0)
+                        {
+                            //Mensaje de registro exitoso
+                            utils.messageBoxOperacionExitosa("El cliente se ha registrado satisfactoriamente.");
+                            limpiarCampos();
+                        }
+                        else if (r == -1)
+                        {
+                            utils.messageBoxAlerta("No se puede asignar el telefono \"" + eCliente.TelefonoCliente + "\" al cliente." +
+                                "\nHay uno existente con idéntico telefono.");
+                        }
+                        else if (r == -2)
+                        {
+                            utils.messageBoxAlerta("No se puede asignar el correo \"" + eCliente.CorreoCliente + "\" al cliente." +
+                                "\nHay uno existente con idéntico correo.");
+                        }
+                        else if (r == -3)
+                        {
+                            utils.messageBoxAlerta("No se pudo insertar el cliente. Intente más tarde.");
+                        }
+                        else
+                        {
+                            utils.messageBoxOperacionSinExito("Hubo un error. Intente más tarde.");
+                        }
                     }
                     else
                     {
@@ -88,14 +122,23 @@ namespace StockIt
             limpiarCampos();
         }
 
+        private void llenarCbxSexo()
+        {
+            cbxSexoClie.Items.Add("SELECCIONAR");
+            cbxSexoClie.Items.Add("MASCULINO");
+            cbxSexoClie.Items.Add("FEMENINO");
+            cbxSexoClie.SelectedIndex = 0;
+        }
+
         //Limpiar campos
         private void limpiarCampos()
         {
             txtNomClie.Text = null;
             txtApeClie.Text = null;
-            //cbxSexoClie.SelectedIndex = 0;
+            cbxSexoClie.SelectedIndex = 0;
             mskNumClie.Text = null;
             txtCorreoClie.Text = null;
+            txtNomClie.Focus();
         }
     }
 }
