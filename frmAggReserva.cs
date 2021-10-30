@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StockIt_Entidades;
+using StockIt_Logica;
 
 namespace StockIt
 {
@@ -16,7 +17,6 @@ namespace StockIt
     {
         Utils utils = new Utils();
         ProductoVRCard[] productosVR;
-        ECliente[] eClientes;
         private double totalReserva = 0.0; //Variable que almacena el total de la reserva (se asigna a lblTotalReserva)
         private bool tipoVista = true; //Variable que permite evaluar el modo de vista actual
         private string textoTTCambiarVista1 = "Haz clic para mostrar únicamente los productos agregados a la reserva";
@@ -30,12 +30,14 @@ namespace StockIt
         private void frmAggReserva_Load(object sender, EventArgs e)
         {
             cargarProductos();
-            cargarClientes();
             ttCambiarVista.SetToolTip(lklCambiarVista, textoTTCambiarVista1);
         }
 
         private void btnSelCliente_Click(object sender, EventArgs e)
         {
+
+            List<ECliente> eClientesList = new LClientes().SeleccionarClientesActivosByIdUsuario(utils.getIdUsuario());
+
             frmSeleccionarCliente frmSeleccionarCliente = new frmSeleccionarCliente();
 
             DataTable dt = new DataTable();
@@ -45,7 +47,7 @@ namespace StockIt
             dt.Columns.Add("Teléfono");
             dt.Columns.Add("Correo");
 
-            foreach (var cliente in eClientes)
+            foreach (var cliente in eClientesList)
             {
                 DataRow dr = dt.NewRow();
                 dr.Table.Rows.Add(cliente.IdCliente, cliente.NombreCliente, cliente.ApellidoCliente, cliente.TelefonoCliente, cliente.CorreoCliente);
@@ -233,23 +235,6 @@ namespace StockIt
 
                 //Agregamos el ProductoCard al FlowLAyoutPanel
                 flpListadoProductos.Controls.Add(productosVR[i]);
-            }
-        }
-
-        private void cargarClientes()
-        {
-            eClientes = new ECliente[10];
-            for (int i = 0; i < eClientes.Length; i++)
-            {
-                eClientes[i] = new ECliente();
-                eClientes[i].IdCliente = i + 1;
-                eClientes[i].IdUsuario = 1;
-                eClientes[i].NombreCliente = "Nombre " + (i + 1).ToString();
-                eClientes[i].ApellidoCliente = "Apellido 1" + (i + 1).ToString();
-                eClientes[i].SexoCliente = "A";
-                eClientes[i].TelefonoCliente = "7022-8563";
-                eClientes[i].CorreoCliente = "correo" + (i + 1).ToString() + "@gmail.com";
-                eClientes[i].EstadoCliente = "A";
             }
         }
 
