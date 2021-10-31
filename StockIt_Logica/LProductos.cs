@@ -79,8 +79,9 @@ namespace StockIt_Logica
 
                 return r;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return -2;
             }
         }
