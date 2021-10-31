@@ -12,8 +12,6 @@ namespace StockIt_Logica
     {
         WSStockIt.WebServiceSI WS = new WSStockIt.WebServiceSI();
 
-
-        //Solamente cuando sea una nueva compra
         public int insertarProductos(List<EProducto> eProductoList)
         {
             try
@@ -24,6 +22,45 @@ namespace StockIt_Logica
                 {
                     r = WS.insertarProductos(item.IdCategoria, item.IdUsuario, item.NombreProducto,
                     item.Precio, item.Existencia, item.Img, item.Detalles);
+                }
+
+                return r;
+            }
+            catch (Exception)
+            {
+                return -2;
+            }
+        }
+
+        //Solamente cuando sea una nueva compra
+        public int compraProductosInexistentes(List<EProducto> eProductoList, EEncabezadoCompraProductos eEncabezadoCompraProductos,
+            List<EDetalleCompraProductos> eDetalleCompraProductosList)
+        {
+            try
+            {
+                int r = -1;
+                int idProducto = 0;
+                List<int> idProductos = new List<int>();
+
+                foreach (EProducto item in eProductoList)
+                {
+                    idProducto = WS.insertarProductos(item.IdCategoria, item.IdUsuario, item.NombreProducto,
+                    item.Precio, item.Existencia, item.Img, item.Detalles);
+                    idProductos.Add(idProducto);
+                }
+
+                if (idProductos.Count > 0)
+                {
+                    int idEncabezadoCompraProductos = insertarEncabezadoCompra(eEncabezadoCompraProductos);
+
+                    int contador = 0;
+                    foreach (EDetalleCompraProductos eDetalleCompraProductos in eDetalleCompraProductosList)
+                    {
+                        r = WS.insertarDetalleCompra(idEncabezadoCompraProductos, idProductos[contador],
+                            eDetalleCompraProductos.Cantidad, eDetalleCompraProductos.PrecioLote,
+                            eDetalleCompraProductos.PrecioUnitario, eDetalleCompraProductos.PrecioVenta,
+                            eDetalleCompraProductos.PorcentajeGanancia);
+                    }
                 }
 
                 return r;
@@ -70,8 +107,7 @@ namespace StockIt_Logica
 
                 foreach (EDetalleCompraProductos eDetalleCompraProductos in eDetalleCompraProductosList)
                 {
-                    eDetalleCompraProductos.IdEncCompraProductos = idEncabezado;
-                    r = WS.insertarDetalleCompra(eDetalleCompraProductos.IdEncCompraProductos, eDetalleCompraProductos.IdProducto,
+                    r = WS.insertarDetalleCompra(idEncabezado, eDetalleCompraProductos.IdProducto,
                         eDetalleCompraProductos.Cantidad, eDetalleCompraProductos.PrecioLote,
                         eDetalleCompraProductos.PrecioUnitario, eDetalleCompraProductos.PrecioVenta,
                         eDetalleCompraProductos.PorcentajeGanancia);

@@ -312,26 +312,19 @@ namespace StockIt
         {
             if (eProductosList.Count > 0)
             {
-                int r = new LProductos().insertarProductos(eProductosList);
+                double montoCompra = 0.0;
 
-                if (r > 0)
+                foreach (EDetalleCompraProductos item in eDetalleCompraProductosList)
                 {
-                    double montoCompra = 0.0;
-
-                    foreach (EDetalleCompraProductos item in eDetalleCompraProductosList)
-                    {
-                        montoCompra += item.PrecioLote;
-                    }
-
-                    EEncabezadoCompraProductos eEncabezadoCompraProductos = new EEncabezadoCompraProductos();
-                    eEncabezadoCompraProductos.IdProveedor = int.Parse(lblIdProveedor.Text.Trim());
-                    eEncabezadoCompraProductos.Monto = montoCompra;
-
-                    if(r > 0)
-                    {
-                        r = new LProductos().insertarDetalleCompra(eDetalleCompraProductosList, eEncabezadoCompraProductos);
-                    }
+                    montoCompra += item.PrecioLote;
                 }
+
+                EEncabezadoCompraProductos eEncabezadoCompraProductos = new EEncabezadoCompraProductos();
+                eEncabezadoCompraProductos.IdProveedor = int.Parse(lblIdProveedor.Text.Trim());
+                eEncabezadoCompraProductos.Monto = montoCompra;
+
+                int r = new LProductos().compraProductosInexistentes(eProductosList, eEncabezadoCompraProductos, 
+                    eDetalleCompraProductosList);
 
                 if(r > 0)
                 {
