@@ -1,7 +1,7 @@
 ﻿
 namespace StockIt
 {
-    partial class frmSeleccionarProveedor
+    partial class frmProductosAgregados
     {
         /// <summary>
         /// Required designer variable.
@@ -29,25 +29,13 @@ namespace StockIt
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblFormularioLlamada = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvProveedores = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
+            this.dgvProductosSeleccionados = new System.Windows.Forms.DataGridView();
+            this.btnConfirmar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosSeleccionados)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblFormularioLlamada
-            // 
-            this.lblFormularioLlamada.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblFormularioLlamada.AutoSize = true;
-            this.lblFormularioLlamada.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFormularioLlamada.Location = new System.Drawing.Point(237, 123);
-            this.lblFormularioLlamada.Name = "lblFormularioLlamada";
-            this.lblFormularioLlamada.Size = new System.Drawing.Size(170, 20);
-            this.lblFormularioLlamada.TabIndex = 19;
-            this.lblFormularioLlamada.Text = "lblFormularioLlamada";
-            this.lblFormularioLlamada.Visible = false;
             // 
             // label2
             // 
@@ -56,10 +44,10 @@ namespace StockIt
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(237, 175);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(683, 20);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Haz doble click en la columna vacía que aparece al principio del cliente para sel" +
-    "eccionarlo";
+            this.label2.Size = new System.Drawing.Size(672, 20);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Haz doble click en la columna vacía que aparece al principio del producto para el" +
+    "iminarlo";
             // 
             // btnCancelar
             // 
@@ -72,7 +60,7 @@ namespace StockIt
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(131, 39);
-            this.btnCancelar.TabIndex = 17;
+            this.btnCancelar.TabIndex = 21;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -85,47 +73,62 @@ namespace StockIt
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.label1.Size = new System.Drawing.Size(1482, 70);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Seleccionar Proveedor";
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Productos de esta Compra";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // dgvProveedores
+            // dgvProductosSeleccionados
             // 
-            this.dgvProveedores.AllowUserToAddRows = false;
-            this.dgvProveedores.AllowUserToDeleteRows = false;
-            this.dgvProveedores.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvProveedores.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProveedores.Location = new System.Drawing.Point(241, 224);
-            this.dgvProveedores.Name = "dgvProveedores";
-            this.dgvProveedores.ReadOnly = true;
-            this.dgvProveedores.RowHeadersWidth = 51;
-            this.dgvProveedores.RowTemplate.Height = 24;
-            this.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProveedores.Size = new System.Drawing.Size(1000, 580);
-            this.dgvProveedores.TabIndex = 15;
-            this.dgvProveedores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellDoubleClick);
+            this.dgvProductosSeleccionados.AllowUserToAddRows = false;
+            this.dgvProductosSeleccionados.AllowUserToDeleteRows = false;
+            this.dgvProductosSeleccionados.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvProductosSeleccionados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProductosSeleccionados.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            this.dgvProductosSeleccionados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductosSeleccionados.Location = new System.Drawing.Point(241, 224);
+            this.dgvProductosSeleccionados.Name = "dgvProductosSeleccionados";
+            this.dgvProductosSeleccionados.ReadOnly = true;
+            this.dgvProductosSeleccionados.RowHeadersWidth = 51;
+            this.dgvProductosSeleccionados.RowTemplate.Height = 24;
+            this.dgvProductosSeleccionados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProductosSeleccionados.Size = new System.Drawing.Size(1000, 580);
+            this.dgvProductosSeleccionados.TabIndex = 19;
+            this.dgvProductosSeleccionados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductosSeleccionados_CellDoubleClick);
             // 
-            // frmSeleccionarProveedor
+            // btnConfirmar
+            // 
+            this.btnConfirmar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnConfirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(117)))), ((int)(((byte)(169)))));
+            this.btnConfirmar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmar.ForeColor = System.Drawing.Color.White;
+            this.btnConfirmar.Location = new System.Drawing.Point(894, 104);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(131, 39);
+            this.btnConfirmar.TabIndex = 23;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.UseVisualStyleBackColor = false;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            // 
+            // frmProductosAgregados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1482, 1102);
-            this.Controls.Add(this.lblFormularioLlamada);
+            this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvProveedores);
+            this.Controls.Add(this.dgvProductosSeleccionados);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmSeleccionarProveedor";
+            this.Name = "frmProductosAgregados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmSeleccionarProveedor";
-            this.TopMost = true;
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).EndInit();
+            this.Text = "frmProductosAgregados";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosSeleccionados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,10 +136,10 @@ namespace StockIt
 
         #endregion
 
-        public System.Windows.Forms.Label lblFormularioLlamada;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.DataGridView dgvProveedores;
+        public System.Windows.Forms.DataGridView dgvProductosSeleccionados;
+        private System.Windows.Forms.Button btnConfirmar;
     }
 }

@@ -47,6 +47,8 @@
   <ItemGroup>
     <Compile Include="LCategorias.cs" />
     <Compile Include="LClientes.cs" />
+    <Compile Include="LDetalleCompras.cs" />
+    <Compile Include="LEncabezadoCompras.cs" />
     <Compile Include="LProductos.cs" />
     <Compile Include="LProveedores.cs" />
     <Compile Include="LUsuarios.cs" />

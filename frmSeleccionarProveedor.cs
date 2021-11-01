@@ -24,10 +24,10 @@ namespace StockIt
 
         private void dgvProveedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            seleccionarCliente();
+            seleccionarProveedor();
         }
 
-        private void seleccionarCliente()
+        private void seleccionarProveedor()
         {
             if (dgvProveedores.SelectedRows.Count > 0)
             {
@@ -37,7 +37,7 @@ namespace StockIt
                     {
                         Form frmAggProductos = Application.OpenForms["frmAggProductos"];
                         TextBox objTxtProveedor = (TextBox)frmAggProductos.Controls.Find("txtProveedor", true).SingleOrDefault();
-                        objTxtProveedor.Text = row.Cells[1].Value.ToString() + " " + row.Cells[2].Value.ToString();
+                        objTxtProveedor.Text = row.Cells[1].Value.ToString();
                         //lblIdCliente
                         Label objLblIdProveedor = (Label)frmAggProductos.Controls.Find("lblIdProveedor", true).SingleOrDefault();
                         objLblIdProveedor.Text = row.Cells[0].Value.ToString();

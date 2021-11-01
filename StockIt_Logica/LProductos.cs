@@ -51,7 +51,7 @@ namespace StockIt_Logica
 
                 if (idProductos.Count > 0)
                 {
-                    int idEncabezadoCompraProductos = insertarEncabezadoCompra(eEncabezadoCompraProductos);
+                    int idEncabezadoCompraProductos = new LEncabezadoCompras().insertarEncabezadoCompra(eEncabezadoCompraProductos);
 
                     int contador = 0;
                     foreach (EDetalleCompraProductos eDetalleCompraProductos in eDetalleCompraProductosList)
@@ -60,6 +60,7 @@ namespace StockIt_Logica
                             eDetalleCompraProductos.Cantidad, eDetalleCompraProductos.PrecioLote,
                             eDetalleCompraProductos.PrecioUnitario, eDetalleCompraProductos.PrecioVenta,
                             eDetalleCompraProductos.PorcentajeGanancia);
+                        contador++;
                     }
                 }
 
@@ -80,44 +81,6 @@ namespace StockIt_Logica
             }
             catch (Exception)
             {
-                return -2;
-            }
-        }
-
-        //Ejecutar en acutalización o inserción
-        public int insertarEncabezadoCompra(EEncabezadoCompraProductos eEncabezadoCompraProductos)
-        {
-            try
-            {
-                return WS.insertarEncabezadoCompra(eEncabezadoCompraProductos.IdProveedor, eEncabezadoCompraProductos.Monto);
-            }
-            catch (Exception)
-            {
-                return -2;
-            }
-        }
-
-        public int insertarDetalleCompra(List<EDetalleCompraProductos> eDetalleCompraProductosList, EEncabezadoCompraProductos eEncabezadoCompraProductos)
-        {
-            try
-            {
-                int idEncabezado = insertarEncabezadoCompra(eEncabezadoCompraProductos);
-
-                int r = 1;
-
-                foreach (EDetalleCompraProductos eDetalleCompraProductos in eDetalleCompraProductosList)
-                {
-                    r = WS.insertarDetalleCompra(idEncabezado, eDetalleCompraProductos.IdProducto,
-                        eDetalleCompraProductos.Cantidad, eDetalleCompraProductos.PrecioLote,
-                        eDetalleCompraProductos.PrecioUnitario, eDetalleCompraProductos.PrecioVenta,
-                        eDetalleCompraProductos.PorcentajeGanancia);
-                }
-
-                return r;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
                 return -2;
             }
         }

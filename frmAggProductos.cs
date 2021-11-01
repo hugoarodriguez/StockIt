@@ -17,8 +17,11 @@ namespace StockIt
     {
         Utils utils = new Utils();
         int idCategoria;
-        List<EProducto> eProductosList = new List<EProducto>();
-        List<EDetalleCompraProductos> eDetalleCompraProductosList = new List<EDetalleCompraProductos>();
+        public List<EProducto> eProductosList = new List<EProducto>();
+        public List<EDetalleCompraProductos> eDetalleCompraProductosList = new List<EDetalleCompraProductos>();
+        public List<int> productosEliminados = new List<int>();
+        List<EProveedor> eProveedoresList = new List<EProveedor>();
+        List<string> listadoNombreCategorías = new List<string>();
 
         public frmAggProductos()
         {
@@ -28,7 +31,8 @@ namespace StockIt
 
         private void frmAggProductos_Load(object sender, EventArgs e)
         {
-            llenarCbmCategorias();
+            llenarCbxCategorias();
+            eProveedoresList = new LProveedores().SeleccionarProveedoresActivosByIdUsuario(utils.getIdUsuario());
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -101,6 +105,14 @@ namespace StockIt
 
                 EProducto eProducto = new EProducto();
                 eProducto.IdCategoria = idCategoria;
+
+                //Agregamos el nombre de la categoría que se mostrará en el DataGridView de frmProductosAgregados
+                DataRowView rowView = cbxCatProd.SelectedItem as DataRowView;
+                if (rowView != null)
+                {
+                    listadoNombreCategorías.Add(rowView["CATEGORIA"].ToString());
+                }
+
                 eProducto.IdUsuario = utils.getIdUsuario();
                 eProducto.NombreProducto = nombreProducto;
                 eProducto.Precio = precVenta;
@@ -119,6 +131,8 @@ namespace StockIt
                 eDetalleCompraProductos.PorcentajeGanancia = porcentajeGananciaP;
                 eDetalleCompraProductosList.Add(eDetalleCompraProductos);
 
+                //Desactivamos el btnSelProveedor, ya que solo se puede seleccionar un proveedor por compra
+                btnSelProveedor.Enabled = false;
                 limpiarControlesMenosProveedor();
             }
         }
@@ -131,6 +145,8 @@ namespace StockIt
                 //Limpiamos arreglo que contenga nuestros productos
                 eDetalleCompraProductosList.Clear();
                 eProductosList.Clear();
+                //Habilitamos el btnSelProveedor
+                btnSelProveedor.Enabled = true;
                 limpiarControles();
             }
         }
@@ -155,11 +171,49 @@ namespace StockIt
         private void lklProductos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //Abrir ventana modal con DataGrid que contenga los productos agregados de la compra actual
+            
+            frmProductosAgregados frmProductosAgregados = new frmProductosAgregados();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("#");
+            dt.Columns.Add("Nombre");
+            dt.Columns.Add("Categoría");
+            dt.Columns.Add("Cantidad");
+            dt.Columns.Add("Precio Lote");
+            dt.Columns.Add("Precio Unitario");
+            dt.Columns.Add("% Ganancia");
+            dt.Columns.Add("Precio Venta");
+
+            int index = 0;
+            foreach (var producto in eProductosList)
+            {
+                DataRow dr = dt.NewRow();
+
+                dr.Table.Rows.Add(index, (index + 1), producto.NombreProducto, listadoNombreCategorías[index], 
+                    producto.Existencia, "$" + eDetalleCompraProductosList[index].PrecioLote.ToString("0.00"),
+                    "$" + eDetalleCompraProductosList[index].PrecioUnitario.ToString("0.00"),
+                    "$" + eDetalleCompraProductosList[index].PorcentajeGanancia.ToString("0.00"),
+                    "$" + eDetalleCompraProductosList[index].PrecioVenta.ToString("0.00"));
+                index++;
+            }
+            frmProductosAgregados.frmAggProductos = this;
+            frmProductosAgregados.dgvProductosSeleccionados.DataSource = dt;
+            frmProductosAgregados.dgvProductosSeleccionados.Columns[0].Visible = false;
+            frmProductosAgregados.Show();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            limpiarControles();
+            if (eProductosList.Count <= 0)
+            {
+                limpiarControles();
+                btnSelProveedor.Enabled = true;
+            }
+            else
+            {
+                limpiarControlesMenosProveedor();
+            }
         }
 
         private void mskPrecLote_TextChanged(object sender, EventArgs e)
@@ -177,9 +231,79 @@ namespace StockIt
             calcGananciaYPrecVenta();
         }
 
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            if (eProductosList.Count > 0)
+            {
+                double montoCompra = 0.0;
+
+                foreach (EDetalleCompraProductos item in eDetalleCompraProductosList)
+                {
+                    montoCompra += item.PrecioLote;
+                }
+
+                EEncabezadoCompraProductos eEncabezadoCompraProductos = new EEncabezadoCompraProductos();
+                eEncabezadoCompraProductos.IdProveedor = int.Parse(lblIdProveedor.Text.Trim());
+                eEncabezadoCompraProductos.Monto = montoCompra;
+
+                int r = new LProductos().compraProductosInexistentes(eProductosList, eEncabezadoCompraProductos, 
+                    eDetalleCompraProductosList);
+
+                if(r > 0)
+                {
+                    utils.messageBoxOperacionExitosa("La compra se agregó satisfactoriamente.");
+                    limpiarControles();
+                    eDetalleCompraProductosList.Clear();
+                    eProductosList.Clear();
+                }
+                else if(r == -1)
+                {
+                    utils.messageBoxAlerta("No se pudo agregar la compra.");
+                    limpiarControles();
+                    eDetalleCompraProductosList.Clear();
+                    eProductosList.Clear();
+                }
+                else
+                {
+                    utils.messageBoxAlerta("Hubo un error. Intente más tarde");
+                    limpiarControles();
+                    eDetalleCompraProductosList.Clear();
+                    eProductosList.Clear();
+                }
+                //Habilitamos el btnSelProveedor
+                btnSelProveedor.Enabled = true;
+            }
+            else
+            {
+                utils.messageBoxAlerta("Debes agregar un producto primero.");
+            }
+        }
+
+        private void btnSelProveedor_Click(object sender, EventArgs e)
+        {
+            frmSeleccionarProveedor frmSeleccionarProveedor = new frmSeleccionarProveedor();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Nombre");
+            dt.Columns.Add("Teléfono");
+            dt.Columns.Add("Dirección");
+            dt.Columns.Add("Correo");
+
+            foreach (var proveedor in eProveedoresList)
+            {
+                DataRow dr = dt.NewRow();
+                dr.Table.Rows.Add(proveedor.IdProveedor, proveedor.NombreProveedor, 
+                    proveedor.TelefonoProveedor, proveedor.DireccionProveedor, proveedor.CorreoProveedor);
+            }
+            frmSeleccionarProveedor.lblFormularioLlamada.Text = this.Name;
+            frmSeleccionarProveedor.dgvProveedores.DataSource = dt;
+            frmSeleccionarProveedor.Show();
+        }
+
         #region Métodos creados
 
-        private void llenarCbmCategorias()
+        private void llenarCbxCategorias()
         {
             DataTable dt = new LCategorias().SeleccionarCategoriasActivasByIdUsuarioDT(utils.getIdUsuario());
 
@@ -288,7 +412,7 @@ namespace StockIt
             txtGanancia.Text = "$0.00";
             txtPrecVenta.Text = "$0.00";
             txtDetProd.Text = null;
-            btnSelProveedor.Focus();
+            cbxCatProd.Focus();
         }
 
         private void limpiarControlesMenosProveedor()
@@ -304,79 +428,7 @@ namespace StockIt
             txtPrecVenta.Text = "$0.00";
             txtDetProd.Text = null;
             txtNomProd.Focus();
-        }
-
-        #endregion
-
-        private void btnFinalizar_Click(object sender, EventArgs e)
-        {
-            if (eProductosList.Count > 0)
-            {
-                double montoCompra = 0.0;
-
-                foreach (EDetalleCompraProductos item in eDetalleCompraProductosList)
-                {
-                    montoCompra += item.PrecioLote;
-                }
-
-                EEncabezadoCompraProductos eEncabezadoCompraProductos = new EEncabezadoCompraProductos();
-                eEncabezadoCompraProductos.IdProveedor = int.Parse(lblIdProveedor.Text.Trim());
-                eEncabezadoCompraProductos.Monto = montoCompra;
-
-                int r = new LProductos().compraProductosInexistentes(eProductosList, eEncabezadoCompraProductos, 
-                    eDetalleCompraProductosList);
-
-                if(r > 0)
-                {
-                    utils.messageBoxOperacionExitosa("La compra se agregó satisfactoriamente.");
-                    limpiarControles();
-                    eDetalleCompraProductosList.Clear();
-                    eProductosList.Clear();
-                }
-                else if(r == -1)
-                {
-                    utils.messageBoxAlerta("No se pudo agregar la compra.");
-                    limpiarControles();
-                    eDetalleCompraProductosList.Clear();
-                    eProductosList.Clear();
-                }
-                else
-                {
-                    utils.messageBoxAlerta("Hubo un error. Intente más tarde");
-                    limpiarControles();
-                    eDetalleCompraProductosList.Clear();
-                    eProductosList.Clear();
-                }
-            }
-            else
-            {
-                utils.messageBoxAlerta("Debes agregar un producto primero.");
-            }
-        }
-
-        private void btnSelProveedor_Click(object sender, EventArgs e)
-        {
-
-            List<EProveedor> eProveedoresList = new LProveedores().SeleccionarProveedoresActivosByIdUsuario(utils.getIdUsuario());
-
-            frmSeleccionarProveedor frmSeleccionarProveedor = new frmSeleccionarProveedor();
-
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Id");
-            dt.Columns.Add("Nombre");
-            dt.Columns.Add("Teléfono");
-            dt.Columns.Add("Dirección");
-            dt.Columns.Add("Correo");
-
-            foreach (var proveedor in eProveedoresList)
-            {
-                DataRow dr = dt.NewRow();
-                dr.Table.Rows.Add(proveedor.IdProveedor, proveedor.NombreProveedor, 
-                    proveedor.TelefonoProveedor, proveedor.DireccionProveedor, proveedor.CorreoProveedor);
-            }
-            frmSeleccionarProveedor.lblFormularioLlamada.Text = this.Name;
-            frmSeleccionarProveedor.dgvProveedores.DataSource = dt;
-            frmSeleccionarProveedor.Show();
+            cbxCatProd.Focus();
         }
 
         public byte[] imageToByteArray(System.Drawing.Image imageIn)
@@ -387,5 +439,7 @@ namespace StockIt
                 return ms.ToArray();
             }
         }
+
+        #endregion
     }
 }
