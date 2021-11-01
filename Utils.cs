@@ -328,6 +328,13 @@ namespace StockIt
                 MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
         }
 
+        //Get Messagebox "Alerta"
+        public DialogResult getMessageBoxConfirmacionOperacion(string mensaje)
+        {
+            return MessageBox.Show(mensaje, "Confirmar operación",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        }
+
         //MessageBox de "Dato Requerido"
         public void messageBoxCampoRequerido(string mensaje)
         {

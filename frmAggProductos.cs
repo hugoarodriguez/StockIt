@@ -31,6 +31,7 @@ namespace StockIt
 
         private void frmAggProductos_Load(object sender, EventArgs e)
         {
+            lblIDCompra.Text = "ID Compra: " +  new LEncabezadoCompras().obtenerNumeroCompra(utils.getIdUsuario()).ToString();
             llenarCbxCategorias();
             eProveedoresList = new LProveedores().SeleccionarProveedoresActivosByIdUsuario(utils.getIdUsuario());
         }
@@ -139,15 +140,20 @@ namespace StockIt
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = utils.getMessageBoxCancelarOperacion("¿Estás seguro que deseas cancelar la compra actual?");
-            if (dialogResult == DialogResult.Yes)
+            if (eProductosList.Count > 0)
             {
-                //Limpiamos arreglo que contenga nuestros productos
-                eDetalleCompraProductosList.Clear();
-                eProductosList.Clear();
-                //Habilitamos el btnSelProveedor
-                btnSelProveedor.Enabled = true;
-                limpiarControles();
+                DialogResult dialogResult = utils.getMessageBoxCancelarOperacion("¿Estás seguro que deseas cancelar la compra actual?");
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //Limpiamos arreglo que contenga nuestros productos
+                    eDetalleCompraProductosList.Clear();
+                    eProductosList.Clear();
+                    //Habilitamos el btnSelProveedor
+                    btnSelProveedor.Enabled = true;
+                    //Restauramos el conteo de productos
+                    lklProductos.Text = "Productos de esta compra: " + 0;
+                    limpiarControles();
+                }
             }
         }
 
@@ -235,43 +241,55 @@ namespace StockIt
         {
             if (eProductosList.Count > 0)
             {
-                double montoCompra = 0.0;
+                DialogResult dialogResult = utils.getMessageBoxConfirmacionOperacion("¿Estás seguro que deseas finalizar la compra?\n" +
+                    "Los datos de esta NO serán modificables ni revertibles.");
 
-                foreach (EDetalleCompraProductos item in eDetalleCompraProductosList)
+                if (dialogResult == DialogResult.Yes)
                 {
-                    montoCompra += item.PrecioLote;
-                }
+                    double montoCompra = 0.0;
 
-                EEncabezadoCompraProductos eEncabezadoCompraProductos = new EEncabezadoCompraProductos();
-                eEncabezadoCompraProductos.IdProveedor = int.Parse(lblIdProveedor.Text.Trim());
-                eEncabezadoCompraProductos.Monto = montoCompra;
+                    foreach (EDetalleCompraProductos item in eDetalleCompraProductosList)
+                    {
+                        montoCompra += item.PrecioLote;
+                    }
 
-                int r = new LProductos().compraProductosInexistentes(eProductosList, eEncabezadoCompraProductos, 
-                    eDetalleCompraProductosList);
+                    EEncabezadoCompraProductos eEncabezadoCompraProductos = new EEncabezadoCompraProductos();
+                    eEncabezadoCompraProductos.IdProveedor = int.Parse(lblIdProveedor.Text.Trim());
+                    eEncabezadoCompraProductos.Monto = montoCompra;
 
-                if(r > 0)
-                {
-                    utils.messageBoxOperacionExitosa("La compra se agregó satisfactoriamente.");
-                    limpiarControles();
-                    eDetalleCompraProductosList.Clear();
-                    eProductosList.Clear();
+                    int r = new LProductos().compraProductosInexistentes(eProductosList, eEncabezadoCompraProductos,
+                        eDetalleCompraProductosList);
+
+                    if (r > 0)
+                    {
+                        utils.messageBoxOperacionExitosa("La compra se agregó satisfactoriamente.");
+                        limpiarControles();
+                        eDetalleCompraProductosList.Clear();
+                        eProductosList.Clear();
+                    }
+                    else if (r == -1)
+                    {
+                        utils.messageBoxAlerta("No se pudo agregar la compra.");
+                        limpiarControles();
+                        eDetalleCompraProductosList.Clear();
+                        eProductosList.Clear();
+                    }
+                    else
+                    {
+                        utils.messageBoxAlerta("Hubo un error. Intente más tarde");
+                        limpiarControles();
+                        eDetalleCompraProductosList.Clear();
+                        eProductosList.Clear();
+                    }
+                    //Obtenemos el nuevo valor de encabezado compra
+                    lblIDCompra.Text = "ID Compra: " + new LEncabezadoCompras().obtenerNumeroCompra(utils.getIdUsuario()).ToString();
+
+                    //Restauramos el conteo de productos
+                    lklProductos.Text = "Productos de esta compra: " + 0;
+
+                    //Habilitamos el btnSelProveedor
+                    btnSelProveedor.Enabled = true;
                 }
-                else if(r == -1)
-                {
-                    utils.messageBoxAlerta("No se pudo agregar la compra.");
-                    limpiarControles();
-                    eDetalleCompraProductosList.Clear();
-                    eProductosList.Clear();
-                }
-                else
-                {
-                    utils.messageBoxAlerta("Hubo un error. Intente más tarde");
-                    limpiarControles();
-                    eDetalleCompraProductosList.Clear();
-                    eProductosList.Clear();
-                }
-                //Habilitamos el btnSelProveedor
-                btnSelProveedor.Enabled = true;
             }
             else
             {

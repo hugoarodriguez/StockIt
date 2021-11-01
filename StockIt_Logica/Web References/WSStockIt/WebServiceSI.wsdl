@@ -476,6 +476,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="obtenerNumeroCompra">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerNumeroCompraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="obtenerNumeroCompraResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="verificarExistenciaCantidadesNuevas">
         <s:complexType>
           <s:sequence>
@@ -752,6 +766,12 @@
   <wsdl:message name="insertarDetalleReservaSoapOut">
     <wsdl:part name="parameters" element="tns:insertarDetalleReservaResponse" />
   </wsdl:message>
+  <wsdl:message name="obtenerNumeroCompraSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerNumeroCompra" />
+  </wsdl:message>
+  <wsdl:message name="obtenerNumeroCompraSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerNumeroCompraResponse" />
+  </wsdl:message>
   <wsdl:message name="verificarExistenciaCantidadesNuevasSoapIn">
     <wsdl:part name="parameters" element="tns:verificarExistenciaCantidadesNuevas" />
   </wsdl:message>
@@ -902,6 +922,10 @@
     <wsdl:operation name="insertarDetalleReserva">
       <wsdl:input message="tns:insertarDetalleReservaSoapIn" />
       <wsdl:output message="tns:insertarDetalleReservaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerNumeroCompra">
+      <wsdl:input message="tns:obtenerNumeroCompraSoapIn" />
+      <wsdl:output message="tns:obtenerNumeroCompraSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="verificarExistenciaCantidadesNuevas">
       <wsdl:input message="tns:verificarExistenciaCantidadesNuevasSoapIn" />
@@ -1170,6 +1194,15 @@
     </wsdl:operation>
     <wsdl:operation name="insertarDetalleReserva">
       <soap:operation soapAction="http://tempuri.org/insertarDetalleReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerNumeroCompra">
+      <soap:operation soapAction="http://tempuri.org/obtenerNumeroCompra" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1479,6 +1512,15 @@
     </wsdl:operation>
     <wsdl:operation name="insertarDetalleReserva">
       <soap12:operation soapAction="http://tempuri.org/insertarDetalleReserva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerNumeroCompra">
+      <soap12:operation soapAction="http://tempuri.org/obtenerNumeroCompra" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

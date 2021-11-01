@@ -84,6 +84,8 @@ namespace StockIt_Logica.WSStockIt {
         
         private System.Threading.SendOrPostCallback insertarDetalleReservaOperationCompleted;
         
+        private System.Threading.SendOrPostCallback obtenerNumeroCompraOperationCompleted;
+        
         private System.Threading.SendOrPostCallback verificarExistenciaCantidadesNuevasOperationCompleted;
         
         private System.Threading.SendOrPostCallback insertarProductosOperationCompleted;
@@ -216,6 +218,9 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         public event insertarDetalleReservaCompletedEventHandler insertarDetalleReservaCompleted;
+        
+        /// <remarks/>
+        public event obtenerNumeroCompraCompletedEventHandler obtenerNumeroCompraCompleted;
         
         /// <remarks/>
         public event verificarExistenciaCantidadesNuevasCompletedEventHandler verificarExistenciaCantidadesNuevasCompleted;
@@ -1090,6 +1095,35 @@ namespace StockIt_Logica.WSStockIt {
             if ((this.insertarDetalleReservaCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.insertarDetalleReservaCompleted(this, new insertarDetalleReservaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/obtenerNumeroCompra", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int obtenerNumeroCompra(int idUsuario) {
+            object[] results = this.Invoke("obtenerNumeroCompra", new object[] {
+                        idUsuario});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void obtenerNumeroCompraAsync(int idUsuario) {
+            this.obtenerNumeroCompraAsync(idUsuario, null);
+        }
+        
+        /// <remarks/>
+        public void obtenerNumeroCompraAsync(int idUsuario, object userState) {
+            if ((this.obtenerNumeroCompraOperationCompleted == null)) {
+                this.obtenerNumeroCompraOperationCompleted = new System.Threading.SendOrPostCallback(this.OnobtenerNumeroCompraOperationCompleted);
+            }
+            this.InvokeAsync("obtenerNumeroCompra", new object[] {
+                        idUsuario}, this.obtenerNumeroCompraOperationCompleted, userState);
+        }
+        
+        private void OnobtenerNumeroCompraOperationCompleted(object arg) {
+            if ((this.obtenerNumeroCompraCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.obtenerNumeroCompraCompleted(this, new obtenerNumeroCompraCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2030,6 +2064,32 @@ namespace StockIt_Logica.WSStockIt {
         private object[] results;
         
         internal insertarDetalleReservaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void obtenerNumeroCompraCompletedEventHandler(object sender, obtenerNumeroCompraCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class obtenerNumeroCompraCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal obtenerNumeroCompraCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

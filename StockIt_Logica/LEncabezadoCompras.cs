@@ -11,6 +11,18 @@ namespace StockIt_Logica
     {
         WSStockIt.WebServiceSI WS = new WSStockIt.WebServiceSI();
 
+        public int obtenerNumeroCompra(int idUsuario)
+        {
+            try
+            {
+                return WS.obtenerNumeroCompra(idUsuario);
+            }
+            catch (Exception)
+            {
+                return -2;
+            }
+        }
+
         //Ejecutar en acutalización o inserción
         public int insertarEncabezadoCompra(EEncabezadoCompraProductos eEncabezadoCompraProductos)
         {
