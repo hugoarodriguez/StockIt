@@ -1,6 +1,8 @@
 ﻿using StockIt.CustomControls;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -126,6 +128,23 @@ namespace StockIt
             catch (Exception)
             {
 
+            }
+        }
+
+        public Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            Image returnImage = StockIt.Properties.Resources.noImage;
+            try
+            {
+                using (MemoryStream ms = new MemoryStream(byteArrayIn))
+                {
+                    returnImage = Image.FromStream(ms);
+                }
+                return returnImage;
+            }
+            catch (Exception)
+            {
+                return returnImage;
             }
         }
 

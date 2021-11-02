@@ -12,7 +12,7 @@ namespace StockIt_Logica
     {
         WSStockIt.WebServiceSI WS = new WSStockIt.WebServiceSI();
 
-        public int insertarProductos(List<EProducto> eProductoList)
+        public int InsertarProductos(List<EProducto> eProductoList)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace StockIt_Logica
         }
 
         //Solamente cuando sea una nueva compra
-        public int compraProductosInexistentes(List<EProducto> eProductoList, EEncabezadoCompraProductos eEncabezadoCompraProductos,
+        public int CompraProductosInexistentes(List<EProducto> eProductoList, EEncabezadoCompraProductos eEncabezadoCompraProductos,
             List<EDetalleCompraProductos> eDetalleCompraProductosList)
         {
             try
@@ -73,7 +73,7 @@ namespace StockIt_Logica
         }
 
         //Solo cuando se vaya a actualizar
-        public int verificarExistenciaCantidadesNuevas(EProducto eProducto)
+        public int VerificarExistenciaCantidadesNuevas(EProducto eProducto)
         {
             try
             {
@@ -82,6 +82,35 @@ namespace StockIt_Logica
             catch (Exception)
             {
                 return -2;
+            }
+        }
+
+        //Método para generar Reporte de Productos
+        public List<ECardProducto> SeleccionarProductosByIdUsuarioAndEstadoProducto(int idUsuario, string estadoProducto)
+        {
+            List<ECardProducto> lista = new List<ECardProducto>();
+            try
+            {
+                DataSet ds = WS.seleccionarProductosByIdUsuarioAndEstadoProducto(idUsuario, estadoProducto);
+
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    ECardProducto eCardProducto = new ECardProducto();
+                    eCardProducto.IdProducto = int.Parse(row["ID_PRODUCTO"].ToString());
+                    eCardProducto.Img = (byte[])row["IMG"];
+                    eCardProducto.NombreProducto = row["NOMBRE_PRODUCTO"].ToString();
+                    eCardProducto.NombreProveedor = row["NOMBRE_PROVEEDOR"].ToString();
+                    eCardProducto.Categoria = row["CATEGORIA"].ToString();
+                    eCardProducto.Existencia = int.Parse(row["EXISTENCIA"].ToString());
+                    eCardProducto.Precio = double.Parse(row["PRECIO"].ToString());
+                    lista.Add(eCardProducto);
+                }
+
+                return lista;
+            }
+            catch (Exception)
+            {
+                return lista;
             }
         }
 

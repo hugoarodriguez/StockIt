@@ -257,7 +257,7 @@ namespace StockIt
                     eEncabezadoCompraProductos.IdProveedor = int.Parse(lblIdProveedor.Text.Trim());
                     eEncabezadoCompraProductos.Monto = montoCompra;
 
-                    int r = new LProductos().compraProductosInexistentes(eProductosList, eEncabezadoCompraProductos,
+                    int r = new LProductos().CompraProductosInexistentes(eProductosList, eEncabezadoCompraProductos,
                         eDetalleCompraProductosList);
 
                     if (r > 0)
@@ -449,7 +449,7 @@ namespace StockIt
             cbxCatProd.Focus();
         }
 
-        public byte[] imageToByteArray(System.Drawing.Image imageIn)
+        private byte[] imageToByteArray(System.Drawing.Image imageIn)
         {
             using (var ms = new MemoryStream())
             {

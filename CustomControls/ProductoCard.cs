@@ -17,12 +17,21 @@ namespace StockIt.CustomControls
             InitializeComponent();
         }
 
+        private Image imgProd;
         private string nomProd;
         private String catProd;
         private int canProd;
         private double preProd;
-        private Button btnEditarProp;
+        private string nomProveedor;
+        private Button btnAggLoteProp;
         private Button btnEliminarProp;
+
+        [Category("Custom Props")]
+        public Image ImgProd
+        {
+            get { return imgProd; }
+            set { imgProd = value; this.pbxImgProd.Image = value; }
+        }
 
         [Category("Custom Props")]
         public string NomProd
@@ -53,10 +62,17 @@ namespace StockIt.CustomControls
         }
 
         [Category("Custom Props")]
-        public Button BtnEditarProp
+        public string NomProveedor
         {
-            get { return btnEditarProp; }
-            set { btnEditarProp = value; this.btnEditar = value; }
+            get { return nomProveedor; }
+            set { nomProveedor = value; this.lblProveedor.Text = value; }
+        }
+
+        [Category("Custom Props")]
+        public Button BtnAggLoteProp
+        {
+            get { return btnAggLoteProp; }
+            set { btnAggLoteProp = value; this.btnAggLote = value; }
         }
 
         [Category("Custom Props")]
@@ -69,12 +85,12 @@ namespace StockIt.CustomControls
 
         [Browsable(true)]
         [Category("Action")]
-        [Description("Invocado cuando el usuario hace clic en boton Editar")]
-        public event EventHandler ButtonClickEditar;
-        private void btnEditar_Click(object sender, EventArgs e)
+        [Description("Invocado cuando el usuario hace clic en boton Nuevo Lote")]
+        public event EventHandler ButtonClickAggLote;
+        private void btnAggLote_Click(object sender, EventArgs e)
         {
-            if (this.ButtonClickEditar != null)
-                this.ButtonClickEditar(this, e);
+            if (this.ButtonClickAggLote != null)
+                this.ButtonClickAggLote(this, e);
         }
 
         [Browsable(true)]

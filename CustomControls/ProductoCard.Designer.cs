@@ -38,8 +38,10 @@ namespace StockIt.CustomControls
             this.lblCatProd = new System.Windows.Forms.Label();
             this.lblCanProd = new System.Windows.Forms.Label();
             this.lblPreProd = new System.Windows.Forms.Label();
-            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnAggLote = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.lblProveedor = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImgProd)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,6 +52,7 @@ namespace StockIt.CustomControls
             this.pbxImgProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbxImgProd.Name = "pbxImgProd";
             this.pbxImgProd.Size = new System.Drawing.Size(150, 150);
+            this.pbxImgProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxImgProd.TabIndex = 0;
             this.pbxImgProd.TabStop = false;
             // 
@@ -92,9 +95,9 @@ namespace StockIt.CustomControls
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(189, 142);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 23);
+            this.label4.Size = new System.Drawing.Size(143, 23);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Precio:";
+            this.label4.Text = "Precio Venta:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblNomProd
@@ -102,9 +105,9 @@ namespace StockIt.CustomControls
             this.lblNomProd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNomProd.AutoEllipsis = true;
             this.lblNomProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomProd.Location = new System.Drawing.Point(288, 15);
+            this.lblNomProd.Location = new System.Drawing.Point(298, 15);
             this.lblNomProd.Name = "lblNomProd";
-            this.lblNomProd.Size = new System.Drawing.Size(500, 23);
+            this.lblNomProd.Size = new System.Drawing.Size(250, 23);
             this.lblNomProd.TabIndex = 5;
             this.lblNomProd.Text = "Producto";
             this.lblNomProd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -114,9 +117,9 @@ namespace StockIt.CustomControls
             this.lblCatProd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCatProd.AutoEllipsis = true;
             this.lblCatProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCatProd.Location = new System.Drawing.Point(288, 57);
+            this.lblCatProd.Location = new System.Drawing.Point(298, 57);
             this.lblCatProd.Name = "lblCatProd";
-            this.lblCatProd.Size = new System.Drawing.Size(500, 23);
+            this.lblCatProd.Size = new System.Drawing.Size(490, 23);
             this.lblCatProd.TabIndex = 6;
             this.lblCatProd.Text = "Categoría";
             this.lblCatProd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -126,9 +129,9 @@ namespace StockIt.CustomControls
             this.lblCanProd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCanProd.AutoEllipsis = true;
             this.lblCanProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCanProd.Location = new System.Drawing.Point(288, 98);
+            this.lblCanProd.Location = new System.Drawing.Point(298, 98);
             this.lblCanProd.Name = "lblCanProd";
-            this.lblCanProd.Size = new System.Drawing.Size(500, 23);
+            this.lblCanProd.Size = new System.Drawing.Size(490, 23);
             this.lblCanProd.TabIndex = 7;
             this.lblCanProd.Text = "Cantidad";
             this.lblCanProd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -138,28 +141,28 @@ namespace StockIt.CustomControls
             this.lblPreProd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPreProd.AutoEllipsis = true;
             this.lblPreProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPreProd.Location = new System.Drawing.Point(288, 142);
+            this.lblPreProd.Location = new System.Drawing.Point(338, 142);
             this.lblPreProd.Name = "lblPreProd";
-            this.lblPreProd.Size = new System.Drawing.Size(500, 23);
+            this.lblPreProd.Size = new System.Drawing.Size(450, 23);
             this.lblPreProd.TabIndex = 8;
             this.lblPreProd.Text = "Precio";
             this.lblPreProd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnEditar
+            // btnAggLote
             // 
-            this.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(120)))), ((int)(((byte)(217)))));
-            this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(813, 39);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(131, 39);
-            this.btnEditar.TabIndex = 9;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            this.btnAggLote.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAggLote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(120)))), ((int)(((byte)(217)))));
+            this.btnAggLote.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAggLote.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAggLote.ForeColor = System.Drawing.Color.White;
+            this.btnAggLote.Location = new System.Drawing.Point(813, 59);
+            this.btnAggLote.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAggLote.Name = "btnAggLote";
+            this.btnAggLote.Size = new System.Drawing.Size(131, 39);
+            this.btnAggLote.TabIndex = 9;
+            this.btnAggLote.Text = "Nuevo Lote";
+            this.btnAggLote.UseVisualStyleBackColor = false;
+            this.btnAggLote.Click += new System.EventHandler(this.btnAggLote_Click);
             // 
             // btnEliminar
             // 
@@ -168,7 +171,7 @@ namespace StockIt.CustomControls
             this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(813, 98);
+            this.btnEliminar.Location = new System.Drawing.Point(813, 119);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(131, 39);
@@ -177,14 +180,39 @@ namespace StockIt.CustomControls
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // lblProveedor
+            // 
+            this.lblProveedor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblProveedor.AutoEllipsis = true;
+            this.lblProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProveedor.Location = new System.Drawing.Point(694, 15);
+            this.lblProveedor.Name = "lblProveedor";
+            this.lblProveedor.Size = new System.Drawing.Size(250, 23);
+            this.lblProveedor.TabIndex = 17;
+            this.lblProveedor.Text = "Proveedor";
+            this.lblProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(575, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(120, 23);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Proveedor:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // ProductoCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblProveedor);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnAggLote);
             this.Controls.Add(this.lblPreProd);
             this.Controls.Add(this.lblCanProd);
             this.Controls.Add(this.lblCatProd);
@@ -213,7 +241,9 @@ namespace StockIt.CustomControls
         private System.Windows.Forms.Label lblCatProd;
         private System.Windows.Forms.Label lblCanProd;
         private System.Windows.Forms.Label lblPreProd;
-        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnAggLote;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Label lblProveedor;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -559,6 +559,28 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="seleccionarProductosByIdUsuarioAndEstadoProducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="estadoProducto" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarProductosByIdUsuarioAndEstadoProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="seleccionarProductosByIdUsuarioAndEstadoProductoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="reporteProductos">
         <s:complexType>
           <s:sequence>
@@ -796,6 +818,12 @@
   <wsdl:message name="insertarDetalleCompraSoapOut">
     <wsdl:part name="parameters" element="tns:insertarDetalleCompraResponse" />
   </wsdl:message>
+  <wsdl:message name="seleccionarProductosByIdUsuarioAndEstadoProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:seleccionarProductosByIdUsuarioAndEstadoProducto" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarProductosByIdUsuarioAndEstadoProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:seleccionarProductosByIdUsuarioAndEstadoProductoResponse" />
+  </wsdl:message>
   <wsdl:message name="reporteProductosSoapIn">
     <wsdl:part name="parameters" element="tns:reporteProductos" />
   </wsdl:message>
@@ -942,6 +970,10 @@
     <wsdl:operation name="insertarDetalleCompra">
       <wsdl:input message="tns:insertarDetalleCompraSoapIn" />
       <wsdl:output message="tns:insertarDetalleCompraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarProductosByIdUsuarioAndEstadoProducto">
+      <wsdl:input message="tns:seleccionarProductosByIdUsuarioAndEstadoProductoSoapIn" />
+      <wsdl:output message="tns:seleccionarProductosByIdUsuarioAndEstadoProductoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="reporteProductos">
       <wsdl:input message="tns:reporteProductosSoapIn" />
@@ -1239,6 +1271,15 @@
     </wsdl:operation>
     <wsdl:operation name="insertarDetalleCompra">
       <soap:operation soapAction="http://tempuri.org/insertarDetalleCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarProductosByIdUsuarioAndEstadoProducto">
+      <soap:operation soapAction="http://tempuri.org/seleccionarProductosByIdUsuarioAndEstadoProducto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1557,6 +1598,15 @@
     </wsdl:operation>
     <wsdl:operation name="insertarDetalleCompra">
       <soap12:operation soapAction="http://tempuri.org/insertarDetalleCompra" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarProductosByIdUsuarioAndEstadoProducto">
+      <soap12:operation soapAction="http://tempuri.org/seleccionarProductosByIdUsuarioAndEstadoProducto" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

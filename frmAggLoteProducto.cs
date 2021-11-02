@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace StockIt
 {
-    public partial class frmModificarProductos : Form
+    public partial class frmAggLoteProducto : Form
     {
+        public int ID_PRODUCTO;
         Utils utils = new Utils();
 
-        public frmModificarProductos()
+        public frmAggLoteProducto()
         {
             InitializeComponent();
             aggTooltips();
@@ -25,24 +26,7 @@ namespace StockIt
             
         }
 
-        private void btnSImagen_Click(object sender, EventArgs e)
-        {
-            //Abrimos un FileDialog
-            OpenFileDialog open = new OpenFileDialog();
-            //Establecemos los filtros de tupos de imágenes
-            open.Filter = "Archivos de Imagen(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-            if (open.ShowDialog() == DialogResult.OK)
-            {
-                //Mostramos la imagen en el PictureBox
-                pbxImgProd.Image = new Bitmap(open.FileName);
-                // image file path  
-                //txtNomProd.Text = open.FileName;
-
-                //Convertir Imagen a byte[] en la Capa Lógica
-            }
-        }
-
-        private void btnActualizar_Click(object sender, EventArgs e)
+        private void btnAgregarLote_Click(object sender, EventArgs e)
         {
             string precLote = mskPrecLote.Text.Replace("$", "");
             string precLoteFull = precLote.Replace(" ", "0");
@@ -217,8 +201,7 @@ namespace StockIt
         //Agregar Tooltip a los controles
         private void aggTooltips()
         {
-            ttSelImagen.SetToolTip(btnSImagen, "Haz clic para seleccionar una imagen");
-            ttActualizar.SetToolTip(btnActualizar, "Haz clic para actualizar el producto");
+            ttActualizar.SetToolTip(btnAgregarLote, "Haz clic para agregar un nuevo lote del producto");
             ttLimpiar.SetToolTip(btnLimpiar, "Haz clic para limpiar el formulario");
             ttCancelar.SetToolTip(btnCancelar, "Haz clic para cancelar la compra actual");
         }
