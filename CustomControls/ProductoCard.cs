@@ -58,7 +58,7 @@ namespace StockIt.CustomControls
         public double PreProd
         {
             get { return preProd; }
-            set { preProd = value; this.lblPreProd.Text = "$" + value.ToString(); }
+            set { preProd = value; this.lblPreProd.Text = "$" + value.ToString("0.00"); }
         }
 
         [Category("Custom Props")]

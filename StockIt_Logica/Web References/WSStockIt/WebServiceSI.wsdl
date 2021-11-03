@@ -602,6 +602,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="eliminarProducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idProducto" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eliminarProductoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="reporteProductos">
         <s:complexType>
           <s:sequence>
@@ -851,6 +865,12 @@
   <wsdl:message name="seleccionarProductoByIdSoapOut">
     <wsdl:part name="parameters" element="tns:seleccionarProductoByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="eliminarProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminarProducto" />
+  </wsdl:message>
+  <wsdl:message name="eliminarProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminarProductoResponse" />
+  </wsdl:message>
   <wsdl:message name="reporteProductosSoapIn">
     <wsdl:part name="parameters" element="tns:reporteProductos" />
   </wsdl:message>
@@ -1005,6 +1025,10 @@
     <wsdl:operation name="seleccionarProductoById">
       <wsdl:input message="tns:seleccionarProductoByIdSoapIn" />
       <wsdl:output message="tns:seleccionarProductoByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarProducto">
+      <wsdl:input message="tns:eliminarProductoSoapIn" />
+      <wsdl:output message="tns:eliminarProductoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="reporteProductos">
       <wsdl:input message="tns:reporteProductosSoapIn" />
@@ -1320,6 +1344,15 @@
     </wsdl:operation>
     <wsdl:operation name="seleccionarProductoById">
       <soap:operation soapAction="http://tempuri.org/seleccionarProductoById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarProducto">
+      <soap:operation soapAction="http://tempuri.org/eliminarProducto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1656,6 +1689,15 @@
     </wsdl:operation>
     <wsdl:operation name="seleccionarProductoById">
       <soap12:operation soapAction="http://tempuri.org/seleccionarProductoById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarProducto">
+      <soap12:operation soapAction="http://tempuri.org/eliminarProducto" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

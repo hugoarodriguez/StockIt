@@ -88,15 +88,57 @@ namespace StockIt
                     {
                         //Manejar evento
                         ProductoCard productoCardItem = ((ProductoCard)sender);
-                        DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas eliminar el producto" +
-                            " \"" + productoCardItem.NomProd + "\"?");
-                        if (dialogResult == DialogResult.Yes)
+
+                        if (productoCardItem.CanProd > 0)
                         {
-                            /*
-                             * Validar si el producto seleccionado para eliminar tiene alguna reserva SIN FINALIZAR relacionada en la BD.
-                             * Si NO tienen ninguno relacionada SI se debe permitir eliminar
-                             */
-                            productoCardItem.Dispose();
+                            DialogResult dialogResult = utils.getMessageBoxAlerta("Este producto posee existencias.\n" +
+                            "¿Estás seguro que deseas eliminar el producto" +
+                            " \"" + productoCardItem.NomProd + "\"?");
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                EProducto eProducto = new EProducto();
+                                eProducto.IdProducto = int.Parse(productoCardItem.Name);
+                                int r = new LProductos().eliminarProducto(eProducto);
+
+                                if (r > 0)
+                                {
+                                    productoCardItem.Dispose();
+                                }
+                                else if (r == -1)
+                                {
+                                    utils.messageBoxAlerta("No se puede eliminar este producto, " +
+                                        "\nse encuentra relacionado con reservas en espera.");
+                                }
+                                else
+                                {
+                                    utils.messageBoxOperacionSinExito("Hubo un error. Intente más tarde.");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas eliminar el producto" +
+                            " \"" + productoCardItem.NomProd + "\"?");
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                EProducto eProducto = new EProducto();
+                                eProducto.IdProducto = int.Parse(productoCardItem.Name);
+                                int r = new LProductos().eliminarProducto(eProducto);
+
+                                if (r > 0)
+                                {
+                                    productoCardItem.Dispose();
+                                }
+                                else if (r == -1)
+                                {
+                                    utils.messageBoxAlerta("No se puede eliminar este producto, " +
+                                        "\nse encuentra relacionado con reservas en espera.");
+                                }
+                                else
+                                {
+                                    utils.messageBoxOperacionSinExito("Hubo un error. Intente más tarde.");
+                                }
+                            }
                         }
                     }
 

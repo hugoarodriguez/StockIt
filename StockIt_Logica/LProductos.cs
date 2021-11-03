@@ -72,7 +72,7 @@ namespace StockIt_Logica
             }
         }
 
-        //Solo cuando se vaya a actualizar
+        //Solo cuando se vaya a agregar un nuevo lote
         public int VerificarExistenciaCantidadesNuevas(EProducto eProducto)
         {
             try
@@ -83,6 +83,21 @@ namespace StockIt_Logica
             {
                 return -2;
             }
+        }
+
+        public int eliminarProducto(EProducto eProducto)
+        {
+            int r;
+            try
+            {
+                return WS.eliminarProducto(eProducto.IdProducto);
+            }
+            catch (Exception)
+            {
+                r = -2;
+                return r;
+            }
+
         }
 
         //Obtener producto según su ID

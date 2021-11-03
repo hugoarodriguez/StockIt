@@ -98,6 +98,8 @@ namespace StockIt_Logica.WSStockIt {
         
         private System.Threading.SendOrPostCallback seleccionarProductoByIdOperationCompleted;
         
+        private System.Threading.SendOrPostCallback eliminarProductoOperationCompleted;
+        
         private System.Threading.SendOrPostCallback reporteProductosOperationCompleted;
         
         private System.Threading.SendOrPostCallback fechaAAAAMMDDOperationCompleted;
@@ -243,6 +245,9 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         public event seleccionarProductoByIdCompletedEventHandler seleccionarProductoByIdCompleted;
+        
+        /// <remarks/>
+        public event eliminarProductoCompletedEventHandler eliminarProductoCompleted;
         
         /// <remarks/>
         public event reporteProductosCompletedEventHandler reporteProductosCompleted;
@@ -1340,6 +1345,35 @@ namespace StockIt_Logica.WSStockIt {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/eliminarProducto", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int eliminarProducto(int idProducto) {
+            object[] results = this.Invoke("eliminarProducto", new object[] {
+                        idProducto});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void eliminarProductoAsync(int idProducto) {
+            this.eliminarProductoAsync(idProducto, null);
+        }
+        
+        /// <remarks/>
+        public void eliminarProductoAsync(int idProducto, object userState) {
+            if ((this.eliminarProductoOperationCompleted == null)) {
+                this.eliminarProductoOperationCompleted = new System.Threading.SendOrPostCallback(this.OneliminarProductoOperationCompleted);
+            }
+            this.InvokeAsync("eliminarProducto", new object[] {
+                        idProducto}, this.eliminarProductoOperationCompleted, userState);
+        }
+        
+        private void OneliminarProductoOperationCompleted(object arg) {
+            if ((this.eliminarProductoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.eliminarProductoCompleted(this, new eliminarProductoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/reporteProductos", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataSet reporteProductos(int idUsuario, int idCategoria, string estadoProducto) {
             object[] results = this.Invoke("reporteProductos", new object[] {
@@ -2325,6 +2359,32 @@ namespace StockIt_Logica.WSStockIt {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void eliminarProductoCompletedEventHandler(object sender, eliminarProductoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class eliminarProductoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal eliminarProductoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
             }
         }
     }
