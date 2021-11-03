@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StockIt_Entidades;
+using StockIt_Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +14,8 @@ namespace StockIt
 {
     public partial class frmAggLoteProducto : Form
     {
-        public int ID_PRODUCTO;
+        public int ID_PRODUCTO = 0;
+        private int idProveedor = 0;
         Utils utils = new Utils();
 
         public frmAggLoteProducto()
@@ -23,7 +26,7 @@ namespace StockIt
 
         private void frmModificarProductos_Load(object sender, EventArgs e)
         {
-            
+            datosIniciales();
         }
 
         private void btnAgregarLote_Click(object sender, EventArgs e)
@@ -32,7 +35,7 @@ namespace StockIt
             string precLoteFull = precLote.Replace(" ", "0");
 
             //Validar campos vacíos
-            if (txtProveedor.Text.Trim() == "" || /*cbxCatProd.SelectedIndex == 0  ||*/ txtNomProd.Text.Trim() == ""
+            if (txtProveedor.Text.Trim() == "" || txtCategoria.Text == "" || txtNomProd.Text.Trim() == ""
                 || ((int)nudCanProd.Value) <= 0 || double.Parse(precLoteFull) <= 0.0 || txtPrecUnitario.Text.Trim() == "$0.00"
                 || mskPorGanancia.Text.Trim() == "" || txtGanancia.Text.Trim() == "$0.00" || txtPrecVenta.Text.Trim() == "$0.00")
             {
@@ -85,24 +88,66 @@ namespace StockIt
             else
             {
                 //Actualizar el producto
-                /*
-                 * Únicamente actualizar los campos:
-                 * + Categoría
-                 * + Nombre
-                 * + Precio Lote
-                 * + Precio Unitario
-                 * + Ganancia
-                 * + Precio Venta
-                 * + Comentarios adicionales
-                 */
-                string nombreProducto = txtNomProd.Text.Trim();
+
                 int cantidad = ((int)nudCanProd.Value);
-                int idCategoria = (cbxCatProd.SelectedIndex + 1);
                 double precLoteD = double.Parse(precLoteFull);
+                string precUnitarioString = txtPrecUnitario.Text.Replace("$", "").Trim();
+                double precUnitarioP = double.Parse(precUnitarioString);
+                double precVenta = double.Parse(txtPrecVenta.Text.Replace("$", "").Trim());
+                double porcentajeGananciaP = int.Parse(mskPorGanancia.Text.Trim()) / 100.00;
 
-                utils.messageBoxOperacionExitosa("El producto se ha actualizado satisfactoriamente");
+                EEncabezadoCompraProductos eEncabezadoCompraProductos = new EEncabezadoCompraProductos();
+                eEncabezadoCompraProductos.IdProveedor = idProveedor;
+                eEncabezadoCompraProductos.Monto = precLoteD;
 
-                //Cargamos el frmClientes
+                List<EDetalleCompraProductos> eDetalleCompraProductosList = new List<EDetalleCompraProductos>();
+
+                EDetalleCompraProductos eDetalleCompraProductos = new EDetalleCompraProductos();
+                eDetalleCompraProductos.IdProducto = ID_PRODUCTO;
+                eDetalleCompraProductos.Cantidad = cantidad;
+                eDetalleCompraProductos.PrecioLote = precLoteD;
+                eDetalleCompraProductos.PrecioUnitario = precUnitarioP;
+                eDetalleCompraProductos.PrecioVenta = precVenta;
+                eDetalleCompraProductos.PorcentajeGanancia = porcentajeGananciaP;
+                eDetalleCompraProductosList.Add(eDetalleCompraProductos);
+
+                EProducto eProducto = new EProducto();
+                eProducto.IdProducto = ID_PRODUCTO;
+                int r = new LProductos().VerificarExistenciaCantidadesNuevas(eProducto);
+
+                if (r == 0)
+                {
+                    r = new LDetalleCompras().insertarDetalleCompra(eDetalleCompraProductosList, eEncabezadoCompraProductos);
+
+                    if (r > 0)
+                    {
+                        utils.messageBoxOperacionExitosa("La compra del lote se agregó satisfactoriamente.");
+                        limpiarControles();
+                    }
+                    else if (r == -1)
+                    {
+                        utils.messageBoxAlerta("No se pudo agregar la compra del lote.");
+                        limpiarControles();
+                    }
+                    else
+                    {
+                        utils.messageBoxAlerta("Hubo un error. Intente más tarde");
+                        limpiarControles();
+                    }
+                }
+                else if (r == -1)
+                {
+                    utils.messageBoxAlerta("No puedes agregar un nuevo lote, hay uno nuevo en existencia.");
+                    limpiarControles();
+                }
+                else
+                {
+                    utils.messageBoxAlerta("Hubo un error. Intente más tarde");
+                    limpiarControles();
+                }
+
+
+                //Cargamos el frmProductos
                 utils.setFormToPanelFormularioHijo(new frmProductos());
             }
         }
@@ -110,6 +155,7 @@ namespace StockIt
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             //Reestablecer los campos con sus datos iniciales
+            limpiarControlesMenosDatosIniciales();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -201,17 +247,42 @@ namespace StockIt
         //Agregar Tooltip a los controles
         private void aggTooltips()
         {
-            ttActualizar.SetToolTip(btnAgregarLote, "Haz clic para agregar un nuevo lote del producto");
+            ttActualizar.SetToolTip(btnAgregarLote, "Haz clic para agregar la compra de un nuevo lote del producto");
             ttLimpiar.SetToolTip(btnLimpiar, "Haz clic para limpiar el formulario");
             ttCancelar.SetToolTip(btnCancelar, "Haz clic para cancelar la compra actual");
         }
 
         //Reestablecer los controles del formulario con los datos de la BD
+        private void datosIniciales()
+        {
+            if (ID_PRODUCTO > 0)
+            {
+                ECardProducto eCardProducto = new LProductos().SeleccionarProductoById(ID_PRODUCTO);
+
+                txtProveedor.Text = eCardProducto.NombreProveedor;
+                txtCategoria.Text = eCardProducto.Categoria;
+                idProveedor = eCardProducto.IdProveedor;
+                txtNomProd.Text = eCardProducto.NombreProducto;
+                txtDetProd.Text = eCardProducto.Detalles;
+            }
+        }
+        private void limpiarControlesMenosDatosIniciales()
+        {
+            nudCanProd.Value = 0;
+            mskPrecLote.Text = null;
+            txtPrecUnitario.Text = "$0.00";
+            mskPorGanancia.Text = null;
+            txtGanancia.Text = "$0.00";
+            txtPrecVenta.Text = "$0.00";
+        }
+
+
+        //Reestablecer los controles a sus valores iniciales
         private void limpiarControles()
         {
             pbxImgProd.Image = StockIt.Properties.Resources.noImage;
             txtProveedor.Text = null;
-            //cbxCatProd.SelectedIndex = 0;
+            txtCategoria.Text = null;
             txtNomProd.Text = null;
             nudCanProd.Value = 0;
             mskPrecLote.Text = null;

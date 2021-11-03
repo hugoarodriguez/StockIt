@@ -56,13 +56,27 @@ namespace StockIt
                         //Manejar evento
                         ProductoCard productoCardItem = ((ProductoCard)sender);
 
-                        //Hacer consulta en la BD del registro seleccionado
-
-                        //Abrimos el formulario para modificar el producto
                         Utils utils = new Utils();
-                        frmAggLoteProducto frmAggLoteProducto = new frmAggLoteProducto();
-                        frmAggLoteProducto.ID_PRODUCTO = int.Parse(productoCardItem.Name);
-                        utils.setFormToPanelFormularioHijo(frmAggLoteProducto);
+
+                        EProducto eProducto = new EProducto();
+                        eProducto.IdProducto = int.Parse(productoCardItem.Name);
+                        int r = new LProductos().VerificarExistenciaCantidadesNuevas(eProducto);
+
+                        if (r == 0)
+                        {
+                            //Abrimos el formulario para modificar el producto
+                            frmAggLoteProducto frmAggLoteProducto = new frmAggLoteProducto();
+                            frmAggLoteProducto.ID_PRODUCTO = int.Parse(productoCardItem.Name);
+                            utils.setFormToPanelFormularioHijo(frmAggLoteProducto);
+                        }
+                        else if (r == -1)
+                        {
+                            utils.messageBoxAlerta("No puedes agregar un nuevo lote, hay uno nuevo en existencia.");
+                        }
+                        else
+                        {
+                            utils.messageBoxAlerta("Hubo un error. Intente más tarde");
+                        }
 
                     }
 

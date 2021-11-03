@@ -47,7 +47,6 @@ namespace StockIt
             this.mskPorGanancia = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.nudCanProd = new System.Windows.Forms.NumericUpDown();
-            this.cbxCatProd = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDetProd = new System.Windows.Forms.TextBox();
@@ -59,6 +58,7 @@ namespace StockIt
             this.ttActualizar = new System.Windows.Forms.ToolTip(this.components);
             this.ttLimpiar = new System.Windows.Forms.ToolTip(this.components);
             this.ttCancelar = new System.Windows.Forms.ToolTip(this.components);
+            this.txtCategoria = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImgProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCanProd)).BeginInit();
             this.SuspendLayout();
@@ -182,6 +182,7 @@ namespace StockIt
             this.mskPrecLote.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mskPrecLote.Mask = "$000000.00";
             this.mskPrecLote.Name = "mskPrecLote";
+            this.mskPrecLote.PromptChar = '0';
             this.mskPrecLote.Size = new System.Drawing.Size(200, 30);
             this.mskPrecLote.TabIndex = 54;
             this.mskPrecLote.TextChanged += new System.EventHandler(this.mskPrecLote_TextChanged);
@@ -282,23 +283,9 @@ namespace StockIt
             0,
             0});
             this.nudCanProd.Name = "nudCanProd";
-            this.nudCanProd.ReadOnly = true;
             this.nudCanProd.Size = new System.Drawing.Size(200, 30);
             this.nudCanProd.TabIndex = 51;
             this.nudCanProd.ValueChanged += new System.EventHandler(this.nudCanProd_ValueChanged);
-            // 
-            // cbxCatProd
-            // 
-            this.cbxCatProd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbxCatProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            this.cbxCatProd.Enabled = false;
-            this.cbxCatProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxCatProd.FormattingEnabled = true;
-            this.cbxCatProd.Location = new System.Drawing.Point(665, 369);
-            this.cbxCatProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxCatProd.Name = "cbxCatProd";
-            this.cbxCatProd.Size = new System.Drawing.Size(350, 33);
-            this.cbxCatProd.TabIndex = 49;
             // 
             // label6
             // 
@@ -379,12 +366,25 @@ namespace StockIt
             this.txtNomProd.Size = new System.Drawing.Size(800, 30);
             this.txtNomProd.TabIndex = 50;
             // 
+            // txtCategoria
+            // 
+            this.txtCategoria.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            this.txtCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCategoria.Location = new System.Drawing.Point(665, 370);
+            this.txtCategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.ReadOnly = true;
+            this.txtCategoria.Size = new System.Drawing.Size(350, 30);
+            this.txtCategoria.TabIndex = 69;
+            // 
             // frmAggLoteProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1231, 1102);
+            this.Controls.Add(this.txtCategoria);
             this.Controls.Add(this.txtPrecVenta);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtPrecUnitario);
@@ -397,7 +397,6 @@ namespace StockIt
             this.Controls.Add(this.mskPorGanancia);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.nudCanProd);
-            this.Controls.Add(this.cbxCatProd);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtDetProd);
@@ -441,7 +440,6 @@ namespace StockIt
         private System.Windows.Forms.MaskedTextBox mskPorGanancia;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown nudCanProd;
-        private System.Windows.Forms.ComboBox cbxCatProd;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDetProd;
@@ -453,5 +451,6 @@ namespace StockIt
         private System.Windows.Forms.ToolTip ttActualizar;
         private System.Windows.Forms.ToolTip ttLimpiar;
         private System.Windows.Forms.ToolTip ttCancelar;
+        private System.Windows.Forms.TextBox txtCategoria;
     }
 }

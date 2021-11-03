@@ -581,6 +581,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="seleccionarProductoById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idProducto" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarProductoByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="seleccionarProductoByIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="reporteProductos">
         <s:complexType>
           <s:sequence>
@@ -824,6 +845,12 @@
   <wsdl:message name="seleccionarProductosByIdUsuarioAndEstadoProductoSoapOut">
     <wsdl:part name="parameters" element="tns:seleccionarProductosByIdUsuarioAndEstadoProductoResponse" />
   </wsdl:message>
+  <wsdl:message name="seleccionarProductoByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:seleccionarProductoById" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarProductoByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:seleccionarProductoByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="reporteProductosSoapIn">
     <wsdl:part name="parameters" element="tns:reporteProductos" />
   </wsdl:message>
@@ -974,6 +1001,10 @@
     <wsdl:operation name="seleccionarProductosByIdUsuarioAndEstadoProducto">
       <wsdl:input message="tns:seleccionarProductosByIdUsuarioAndEstadoProductoSoapIn" />
       <wsdl:output message="tns:seleccionarProductosByIdUsuarioAndEstadoProductoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarProductoById">
+      <wsdl:input message="tns:seleccionarProductoByIdSoapIn" />
+      <wsdl:output message="tns:seleccionarProductoByIdSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="reporteProductos">
       <wsdl:input message="tns:reporteProductosSoapIn" />
@@ -1280,6 +1311,15 @@
     </wsdl:operation>
     <wsdl:operation name="seleccionarProductosByIdUsuarioAndEstadoProducto">
       <soap:operation soapAction="http://tempuri.org/seleccionarProductosByIdUsuarioAndEstadoProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarProductoById">
+      <soap:operation soapAction="http://tempuri.org/seleccionarProductoById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1607,6 +1647,15 @@
     </wsdl:operation>
     <wsdl:operation name="seleccionarProductosByIdUsuarioAndEstadoProducto">
       <soap12:operation soapAction="http://tempuri.org/seleccionarProductosByIdUsuarioAndEstadoProducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarProductoById">
+      <soap12:operation soapAction="http://tempuri.org/seleccionarProductoById" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

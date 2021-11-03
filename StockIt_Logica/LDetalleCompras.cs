@@ -17,7 +17,7 @@ namespace StockIt_Logica
             {
                 int idEncabezado = new LEncabezadoCompras().insertarEncabezadoCompra(eEncabezadoCompraProductos);
 
-                int r = 1;
+                int r = idEncabezado;
 
                 foreach (EDetalleCompraProductos eDetalleCompraProductos in eDetalleCompraProductosList)
                 {

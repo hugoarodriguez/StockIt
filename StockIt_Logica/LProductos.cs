@@ -85,7 +85,34 @@ namespace StockIt_Logica
             }
         }
 
-        //Método para generar Reporte de Productos
+        //Obtener producto según su ID
+        public ECardProducto SeleccionarProductoById(int idProducto)
+        {
+            ECardProducto eCardProducto = new ECardProducto();
+            try
+            {
+                DataSet ds = WS.seleccionarProductoById(idProducto);
+
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    eCardProducto.IdProducto = int.Parse(row["ID_PRODUCTO"].ToString());
+                    eCardProducto.Img = (byte[])row["IMG"];
+                    eCardProducto.NombreProducto = row["NOMBRE_PRODUCTO"].ToString();
+                    eCardProducto.IdProveedor = int.Parse(row["ID_PROVEEDOR"].ToString());
+                    eCardProducto.NombreProveedor = row["NOMBRE_PROVEEDOR"].ToString();
+                    eCardProducto.Categoria = row["CATEGORIA"].ToString();
+                    eCardProducto.Detalles = row["DETALLES"].ToString();
+                }
+
+                return eCardProducto;
+            }
+            catch (Exception)
+            {
+                return eCardProducto;
+            }
+        }
+
+        //Método para listar los productos según usuario y estado
         public List<ECardProducto> SeleccionarProductosByIdUsuarioAndEstadoProducto(int idUsuario, string estadoProducto)
         {
             List<ECardProducto> lista = new List<ECardProducto>();
