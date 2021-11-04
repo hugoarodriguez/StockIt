@@ -31,7 +31,7 @@ namespace StockIt
 
         private void frmAggProductos_Load(object sender, EventArgs e)
         {
-            lblIDCompra.Text = "ID Compra: " +  new LEncabezadoCompras().obtenerNumeroCompra(utils.getIdUsuario()).ToString();
+            lblIDCompra.Text = "ID Compra: " +  new LEncabezadoCompras().ObtenerNumeroCompra(utils.getIdUsuario()).ToString();
             llenarCbxCategorias();
             eProveedoresList = new LProveedores().SeleccionarProveedoresActivosByIdUsuario(utils.getIdUsuario());
         }
@@ -282,7 +282,7 @@ namespace StockIt
                         eProductosList.Clear();
                     }
                     //Obtenemos el nuevo valor de encabezado compra
-                    lblIDCompra.Text = "ID Compra: " + new LEncabezadoCompras().obtenerNumeroCompra(utils.getIdUsuario()).ToString();
+                    lblIDCompra.Text = "ID Compra: " + new LEncabezadoCompras().ObtenerNumeroCompra(utils.getIdUsuario()).ToString();
 
                     //Restauramos el conteo de productos
                     lklProductos.Text = "Productos de esta compra: " + 0;

@@ -51,7 +51,7 @@ namespace StockIt_Logica
 
                 if (idProductos.Count > 0)
                 {
-                    int idEncabezadoCompraProductos = new LEncabezadoCompras().insertarEncabezadoCompra(eEncabezadoCompraProductos);
+                    int idEncabezadoCompraProductos = new LEncabezadoCompras().InsertarEncabezadoCompra(eEncabezadoCompraProductos);
 
                     int contador = 0;
                     foreach (EDetalleCompraProductos eDetalleCompraProductos in eDetalleCompraProductosList)

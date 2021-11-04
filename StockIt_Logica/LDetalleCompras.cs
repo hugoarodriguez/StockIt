@@ -15,7 +15,7 @@ namespace StockIt_Logica
         {
             try
             {
-                int idEncabezado = new LEncabezadoCompras().insertarEncabezadoCompra(eEncabezadoCompraProductos);
+                int idEncabezado = new LEncabezadoCompras().InsertarEncabezadoCompra(eEncabezadoCompraProductos);
 
                 int r = idEncabezado;
 
