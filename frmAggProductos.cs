@@ -281,7 +281,7 @@ namespace StockIt
                         eDetalleCompraProductosList.Clear();
                         eProductosList.Clear();
                     }
-                    //Obtenemos el nuevo valor de encabezado compra
+                    //Obtenemos el nuevo valor de ID compra
                     lblIDCompra.Text = "ID Compra: " + new LEncabezadoCompras().ObtenerNumeroCompra(utils.getIdUsuario()).ToString();
 
                     //Restauramos el conteo de productos

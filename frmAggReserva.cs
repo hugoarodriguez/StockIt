@@ -93,32 +93,40 @@ namespace StockIt
                     }
                 }
 
-                EDetalleReservas[] eDetallesReservas = new EDetalleReservas[conteoProductos];
+                List<EDetalleReservas> eDetallesReservasList = new List<EDetalleReservas>();
                 int indexProducto = 0;
                 for (int i = 0; i < productosVR.Length; i++)
                 {
                     if (productosVR[i].SubTotal > 0.0)
                     {
-                        eDetallesReservas[indexProducto] = new EDetalleReservas();
-                        eDetallesReservas[indexProducto].IdProducto = int.Parse(productosVR[i].Name);
+                        EDetalleReservas eDetalleReservas = new EDetalleReservas();
+                        eDetalleReservas.IdProducto = int.Parse(productosVR[i].Name);
                         NumericUpDown objNUDCanReserva = (NumericUpDown)productosVR[i].Controls.Find("nudCanReserva", true).SingleOrDefault();
-                        eDetallesReservas[indexProducto].Cantidad = ((int)objNUDCanReserva.Value);
-                        eDetallesReservas[indexProducto].Monto = productosVR[i].SubTotal;
+                        eDetalleReservas.Cantidad = ((int)objNUDCanReserva.Value);
+                        eDetalleReservas.PrecioProducto = productosVR[i].PreProd;
+                        eDetalleReservas.Monto = productosVR[i].SubTotal;
                         indexProducto++;
+                        eDetallesReservasList.Add(eDetalleReservas);
                     }
                 }
 
-                lblIDReserva.Text = "ID Reserva: " + new LEncabezadoReservas().obtenerNumeroReserva(utils.getIdUsuario()).ToString();
+                int r = new LDetalleReservas().InsertarDetalleReserva(eDetallesReservasList, eEncabezadoReservas);
 
-                try
+                if (r > 0)
                 {
-                    //Llamar método de capa lógica para guardar la reserva enviar como argumentos a eEncabezadoReservas y eDetallesReservas[]
-                    utils.messageBoxOperacionExitosa("La reserva fue agregada satisfactoriamente.");
+                    utils.messageBoxOperacionExitosa("La reserva se agregó satisfactoriamente.");
                 }
-                catch (Exception)
+                else if (r == -1)
                 {
-                    utils.messageBoxOperacionSinExito("No se pudo agregar la reserva. Intente más tarde.");
+                    utils.messageBoxAlerta("No se pudo agregar la reserva.");
                 }
+                else
+                {
+                    utils.messageBoxAlerta("Hubo un error. Intente más tarde");
+                }
+
+                //Obtenemos el nuevo valor de ID reserva
+                lblIDReserva.Text = "ID Reserva: " + new LEncabezadoReservas().obtenerNumeroReserva(utils.getIdUsuario()).ToString();
 
                 //Limpiamos el formulario
                 limpiarDatosReserva();

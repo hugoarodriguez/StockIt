@@ -48,6 +48,7 @@
     <Compile Include="LCategorias.cs" />
     <Compile Include="LClientes.cs" />
     <Compile Include="LDetalleCompras.cs" />
+    <Compile Include="LDetalleReservas.cs" />
     <Compile Include="LEncabezadoCompras.cs" />
     <Compile Include="LEncabezadoReservas.cs" />
     <Compile Include="LProductos.cs" />
