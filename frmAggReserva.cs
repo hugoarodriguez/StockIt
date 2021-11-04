@@ -17,6 +17,7 @@ namespace StockIt
     {
         Utils utils = new Utils();
         ProductoVRCard[] productosVR;
+        List<ECardProducto> eCardProductosList;
         private double totalReserva = 0.0; //Variable que almacena el total de la reserva (se asigna a lblTotalReserva)
         private bool tipoVista = true; //Variable que permite evaluar el modo de vista actual
         private string textoTTCambiarVista1 = "Haz clic para mostrar únicamente los productos agregados a la reserva";
@@ -29,6 +30,8 @@ namespace StockIt
 
         private void frmAggReserva_Load(object sender, EventArgs e)
         {
+            lblIDReserva.Text = "ID Reserva: " + new LEncabezadoReservas().obtenerNumeroReserva(utils.getIdUsuario()).ToString();
+            lblFechaEntrega.Text = new LUtils().fechaEntregaDDMMAAAA();
             cargarProductos();
             ttCambiarVista.SetToolTip(lklCambiarVista, textoTTCambiarVista1);
         }
@@ -71,19 +74,12 @@ namespace StockIt
                     utils.messageBoxCampoRequerido("Debes seleccionar el cliente a quien\n le pertenece la reserva.");
                     btnSelCliente.Focus();
                 }
-                /* //Validación de fecha con el WS
-                else if ()
-                {
-
-                }
-                */
             }
             else
             {
                 //Guardar Reserva
                 EEncabezadoReservas eEncabezadoReservas = new EEncabezadoReservas();
                 eEncabezadoReservas.IdCliente = int.Parse(lblIdCliente.Text.Trim());
-                eEncabezadoReservas.FechaPromesaEntrega = dtpFecEntrega.Value;
                 eEncabezadoReservas.MontoEncabezadoReserva = totalReserva;
                 eEncabezadoReservas.EstadoReserva = "A";//Verificar con los estados determinados
                 eEncabezadoReservas.Comentarios = txtComentarios.Text.Trim();
@@ -111,6 +107,8 @@ namespace StockIt
                         indexProducto++;
                     }
                 }
+
+                lblIDReserva.Text = "ID Reserva: " + new LEncabezadoReservas().obtenerNumeroReserva(utils.getIdUsuario()).ToString();
 
                 try
                 {
@@ -163,78 +161,85 @@ namespace StockIt
         #region Métodos creados
         private void cargarProductos()
         {
-            productosVR = new ProductoVRCard[10];
-            for (int i = 0; i < productosVR.Length; i++)
+            eCardProductosList = new LProductos().SeleccionarProductosByIdUsuarioAndEstadoProducto(utils.getIdUsuario(), "A");
+
+            if (eCardProductosList.Count > 0)
             {
-                productosVR[i] = new ProductoVRCard();
-                productosVR[i].Name = i.ToString();
-                productosVR[i].NomProd = "Camiseta Verde " + i.ToString();
-                productosVR[i].CatProd = "Camisetas";
-                productosVR[i].CanProd = 5;
-                productosVR[i].PreProd = 8.50;
-                productosVR[i].SubTotal = 0.0;
-
-                //Creación de btnEditar
-                productosVR[i].NudCanReservaProp = new NumericUpDown();
-                productosVR[i].ValueChangedNUDCanReserva += new EventHandler(nudCanProd_ValueChanged);
-
-                void nudCanProd_ValueChanged(object sender, EventArgs e)
+                productosVR = new ProductoVRCard[eCardProductosList.Count];
+                for (int i = 0; i < productosVR.Length; i++)
                 {
-                    //Manejar evento
-                    ProductoVRCard productoVRCardItem = ((ProductoVRCard)sender);
-                    //Obtenemos el control nudCanReserva
-                    NumericUpDown objNUDCanReserva = (NumericUpDown)productoVRCardItem.Controls.Find("nudCanReserva", true).SingleOrDefault();
+                    productosVR[i] = new ProductoVRCard();
+                    productosVR[i].Name = eCardProductosList[i].IdProducto.ToString();
+                    productosVR[i].ImgProd = utils.byteArrayToImage(eCardProductosList[i].Img);
+                    productosVR[i].NomProd = eCardProductosList[i].NombreProducto;
+                    productosVR[i].CatProd = eCardProductosList[i].Categoria;
+                    productosVR[i].CanProd = eCardProductosList[i].Existencia;
+                    productosVR[i].PreProd = eCardProductosList[i].Precio;
+                    productosVR[i].SubTotal = 0.0;
 
-                    //Realizamos las operaciones necesarias para obtener el SubTotal y se actualiza el Total
-                    int canProdReservar = ((int)objNUDCanReserva.Value);
-                    double subTotalAntiguo = productoVRCardItem.SubTotal;
-                    double subTotalNuevo;
-                    if (canProdReservar <= productoVRCardItem.CanProd)
+                    //Creación de btnEditar
+                    productosVR[i].NudCanReservaProp = new NumericUpDown();
+                    productosVR[i].ValueChangedNUDCanReserva += new EventHandler(nudCanProd_ValueChanged);
+
+                    void nudCanProd_ValueChanged(object sender, EventArgs e)
                     {
-                        subTotalNuevo = canProdReservar * productoVRCardItem.PreProd;
+                        //Manejar evento
+                        ProductoVRCard productoVRCardItem = ((ProductoVRCard)sender);
+                        //Obtenemos el control nudCanReserva
+                        NumericUpDown objNUDCanReserva = (NumericUpDown)productoVRCardItem.Controls.Find("nudCanReserva", true).SingleOrDefault();
 
-                        //Detectamos la opción seleccionada del numericUpDown
-                        if (subTotalAntiguo <= subTotalNuevo)
+                        //Realizamos las operaciones necesarias para obtener el SubTotal y se actualiza el Total
+                        int canProdReservar = ((int)objNUDCanReserva.Value);
+                        double subTotalAntiguo = productoVRCardItem.SubTotal;
+                        double subTotalNuevo;
+                        if (canProdReservar <= productoVRCardItem.CanProd)
                         {
-                            //Opción de Incremento
-                            if (subTotalAntiguo < subTotalNuevo)
+                            subTotalNuevo = canProdReservar * productoVRCardItem.PreProd;
+
+                            //Detectamos la opción seleccionada del numericUpDown
+                            if (subTotalAntiguo <= subTotalNuevo)
                             {
-                                totalReserva += productoVRCardItem.PreProd;
+                                //Opción de Incremento
+                                if (subTotalAntiguo < subTotalNuevo)
+                                {
+                                    totalReserva += productoVRCardItem.PreProd;
+                                }
                             }
+                            else
+                            {
+                                //Opción de Decremento
+                                totalReserva -= productoVRCardItem.PreProd;
+                            }
+
+                            productoVRCardItem.SubTotal = subTotalNuevo;
+                            lblTotalReserva.Text = "$" + totalReserva.ToString("0.00");
                         }
                         else
                         {
-                            //Opción de Decremento
-                            totalReserva -=  productoVRCardItem.PreProd;
+                            objNUDCanReserva.Value = productoVRCardItem.CanProd;
+                            lblTotalReserva.Text = "$" + totalReserva.ToString("0.00");
                         }
 
-                        productoVRCardItem.SubTotal = subTotalNuevo;
-                        lblTotalReserva.Text = "$" + totalReserva.ToString("0.00");
-                    }
-                    else
-                    {
-                        objNUDCanReserva.Value = productoVRCardItem.CanProd;
-                        lblTotalReserva.Text = "$" + totalReserva.ToString("0.00");
-                    }
-
-                    //Evaluamos el subtotal para cambiar el color del Fondo y Letra del CustomControl
-                    if(((int)productoVRCardItem.SubTotal) > 0)
-                    {
-                        productoVRCardItem.BackColor = Color.FromArgb(95, 189, 89);
-                        productoVRCardItem.ForeColor = Color.White;
-                    } else
-                    {
-                        if (tipoVista == false)
+                        //Evaluamos el subtotal para cambiar el color del Fondo y Letra del CustomControl
+                        if (((int)productoVRCardItem.SubTotal) > 0)
                         {
-                            productoVRCardItem.Hide();
+                            productoVRCardItem.BackColor = Color.FromArgb(95, 189, 89);
+                            productoVRCardItem.ForeColor = Color.White;
                         }
-                        productoVRCardItem.BackColor = Color.White;
-                        productoVRCardItem.ForeColor = Color.Black;
+                        else
+                        {
+                            if (tipoVista == false)
+                            {
+                                productoVRCardItem.Hide();
+                            }
+                            productoVRCardItem.BackColor = Color.White;
+                            productoVRCardItem.ForeColor = Color.Black;
+                        }
                     }
-                }
 
-                //Agregamos el ProductoCard al FlowLAyoutPanel
-                flpListadoProductos.Controls.Add(productosVR[i]);
+                    //Agregamos el ProductoCard al FlowLAyoutPanel
+                    flpListadoProductos.Controls.Add(productosVR[i]);
+                }
             }
         }
 
@@ -259,8 +264,7 @@ namespace StockIt
             totalReserva = 0.0;
             lblTotalReserva.Text = "$" + totalReserva.ToString("0.00");
             txtNomProd.Text = null;
-            dtpFecEntrega.Value = DateTime.Now;//Cambiar Datetime.Now por la fecha traída del WS
-
+            lblFechaEntrega.Text = new LUtils().fechaEntregaDDMMAAAA();
             tipoVista = false;
             cambiarVista();
         }

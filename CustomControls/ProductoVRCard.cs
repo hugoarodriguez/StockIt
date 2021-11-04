@@ -17,12 +17,20 @@ namespace StockIt.CustomControls
             InitializeComponent();
         }
 
+        private Image imgProd;
         private string nomProd;
         private String catProd;
         private int canProd;
         private double preProd;
         private double subTotal;
         private NumericUpDown nudCanReservaProp;
+
+        [Category("Custom Props")]
+        public Image ImgProd
+        {
+            get { return imgProd; }
+            set { imgProd = value; this.pbxImgProd.Image = value; }
+        }
 
         [Category("Custom Props")]
         public string NomProd

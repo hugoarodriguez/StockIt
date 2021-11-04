@@ -33,5 +33,17 @@ namespace StockIt_Logica
                 return "";
             }
         }
+
+        public string fechaEntregaDDMMAAAA()
+        {
+            try
+            {
+                return WS.fechaEntregaDDMMAAAA();
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
     }
 }

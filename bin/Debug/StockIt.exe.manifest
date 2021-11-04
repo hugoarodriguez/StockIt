@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt.exe" size="245256">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt.exe" size="245768">
       <assemblyIdentity name="StockIt" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>H3sFlPxZ0i+k5th3BEVygFMVGmBhUP9f5AojjScl/Vk=</dsig:DigestValue>
+        <dsig:DigestValue>wIB0F2ywO3NutH5Bakyhk3IqOowycSB0XdjaACnXySM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -85,19 +85,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wF0fmk+bQQCw66lkCHQl9emfIGt84rl1/Wh8bcoABX8=</dsig:DigestValue>
+        <dsig:DigestValue>wA2+OAfN6Wc473hy6LcXP+FkDgjF9qI3S+RnDaQT89Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt_Logica.dll" size="83968">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt_Logica.dll" size="89600">
       <assemblyIdentity name="StockIt_Logica" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Iz9cNqZy/Xk7pon6C0tVWD3HsO6ZNgPnalCvCIAoIrA=</dsig:DigestValue>
+        <dsig:DigestValue>fBb3+ia2KmkqTbX64LSs0W8m/fdlqC47pG6ZUSt8m9Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

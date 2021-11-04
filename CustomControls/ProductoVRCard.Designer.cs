@@ -145,6 +145,7 @@ namespace StockIt.CustomControls
             this.pbxImgProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbxImgProd.Name = "pbxImgProd";
             this.pbxImgProd.Size = new System.Drawing.Size(150, 150);
+            this.pbxImgProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxImgProd.TabIndex = 16;
             this.pbxImgProd.TabStop = false;
             // 

@@ -84,6 +84,10 @@ namespace StockIt_Logica.WSStockIt {
         
         private System.Threading.SendOrPostCallback insertarDetalleReservaOperationCompleted;
         
+        private System.Threading.SendOrPostCallback actualizarDetalleReservaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback devolverAStockOperationCompleted;
+        
         private System.Threading.SendOrPostCallback obtenerNumeroCompraOperationCompleted;
         
         private System.Threading.SendOrPostCallback verificarExistenciaCantidadesNuevasOperationCompleted;
@@ -105,6 +109,8 @@ namespace StockIt_Logica.WSStockIt {
         private System.Threading.SendOrPostCallback fechaAAAAMMDDOperationCompleted;
         
         private System.Threading.SendOrPostCallback fechaDDMMAAAAOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback fechaEntregaDDMMAAAAOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -226,6 +232,12 @@ namespace StockIt_Logica.WSStockIt {
         public event insertarDetalleReservaCompletedEventHandler insertarDetalleReservaCompleted;
         
         /// <remarks/>
+        public event actualizarDetalleReservaCompletedEventHandler actualizarDetalleReservaCompleted;
+        
+        /// <remarks/>
+        public event devolverAStockCompletedEventHandler devolverAStockCompleted;
+        
+        /// <remarks/>
         public event obtenerNumeroCompraCompletedEventHandler obtenerNumeroCompraCompleted;
         
         /// <remarks/>
@@ -257,6 +269,9 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         public event fechaDDMMAAAACompletedEventHandler fechaDDMMAAAACompleted;
+        
+        /// <remarks/>
+        public event fechaEntregaDDMMAAAACompletedEventHandler fechaEntregaDDMMAAAACompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -1114,6 +1129,78 @@ namespace StockIt_Logica.WSStockIt {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/actualizarDetalleReserva", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int actualizarDetalleReserva(int idEncabezadoReserva, int idProducto, int cantidadActual, int cantidadNueva, double montoActual, int filtro) {
+            object[] results = this.Invoke("actualizarDetalleReserva", new object[] {
+                        idEncabezadoReserva,
+                        idProducto,
+                        cantidadActual,
+                        cantidadNueva,
+                        montoActual,
+                        filtro});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void actualizarDetalleReservaAsync(int idEncabezadoReserva, int idProducto, int cantidadActual, int cantidadNueva, double montoActual, int filtro) {
+            this.actualizarDetalleReservaAsync(idEncabezadoReserva, idProducto, cantidadActual, cantidadNueva, montoActual, filtro, null);
+        }
+        
+        /// <remarks/>
+        public void actualizarDetalleReservaAsync(int idEncabezadoReserva, int idProducto, int cantidadActual, int cantidadNueva, double montoActual, int filtro, object userState) {
+            if ((this.actualizarDetalleReservaOperationCompleted == null)) {
+                this.actualizarDetalleReservaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnactualizarDetalleReservaOperationCompleted);
+            }
+            this.InvokeAsync("actualizarDetalleReserva", new object[] {
+                        idEncabezadoReserva,
+                        idProducto,
+                        cantidadActual,
+                        cantidadNueva,
+                        montoActual,
+                        filtro}, this.actualizarDetalleReservaOperationCompleted, userState);
+        }
+        
+        private void OnactualizarDetalleReservaOperationCompleted(object arg) {
+            if ((this.actualizarDetalleReservaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.actualizarDetalleReservaCompleted(this, new actualizarDetalleReservaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/devolverAStock", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int devolverAStock(int idProducto, int cantidad, double precioRegistro) {
+            object[] results = this.Invoke("devolverAStock", new object[] {
+                        idProducto,
+                        cantidad,
+                        precioRegistro});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void devolverAStockAsync(int idProducto, int cantidad, double precioRegistro) {
+            this.devolverAStockAsync(idProducto, cantidad, precioRegistro, null);
+        }
+        
+        /// <remarks/>
+        public void devolverAStockAsync(int idProducto, int cantidad, double precioRegistro, object userState) {
+            if ((this.devolverAStockOperationCompleted == null)) {
+                this.devolverAStockOperationCompleted = new System.Threading.SendOrPostCallback(this.OndevolverAStockOperationCompleted);
+            }
+            this.InvokeAsync("devolverAStock", new object[] {
+                        idProducto,
+                        cantidad,
+                        precioRegistro}, this.devolverAStockOperationCompleted, userState);
+        }
+        
+        private void OndevolverAStockOperationCompleted(object arg) {
+            if ((this.devolverAStockCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.devolverAStockCompleted(this, new devolverAStockCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/obtenerNumeroCompra", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public int obtenerNumeroCompra(int idUsuario) {
             object[] results = this.Invoke("obtenerNumeroCompra", new object[] {
@@ -1457,6 +1544,33 @@ namespace StockIt_Logica.WSStockIt {
             if ((this.fechaDDMMAAAACompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.fechaDDMMAAAACompleted(this, new fechaDDMMAAAACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/fechaEntregaDDMMAAAA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string fechaEntregaDDMMAAAA() {
+            object[] results = this.Invoke("fechaEntregaDDMMAAAA", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void fechaEntregaDDMMAAAAAsync() {
+            this.fechaEntregaDDMMAAAAAsync(null);
+        }
+        
+        /// <remarks/>
+        public void fechaEntregaDDMMAAAAAsync(object userState) {
+            if ((this.fechaEntregaDDMMAAAAOperationCompleted == null)) {
+                this.fechaEntregaDDMMAAAAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfechaEntregaDDMMAAAAOperationCompleted);
+            }
+            this.InvokeAsync("fechaEntregaDDMMAAAA", new object[0], this.fechaEntregaDDMMAAAAOperationCompleted, userState);
+        }
+        
+        private void OnfechaEntregaDDMMAAAAOperationCompleted(object arg) {
+            if ((this.fechaEntregaDDMMAAAACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.fechaEntregaDDMMAAAACompleted(this, new fechaEntregaDDMMAAAACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2183,6 +2297,58 @@ namespace StockIt_Logica.WSStockIt {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void actualizarDetalleReservaCompletedEventHandler(object sender, actualizarDetalleReservaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class actualizarDetalleReservaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal actualizarDetalleReservaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void devolverAStockCompletedEventHandler(object sender, devolverAStockCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class devolverAStockCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal devolverAStockCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void obtenerNumeroCompraCompletedEventHandler(object sender, obtenerNumeroCompraCompletedEventArgs e);
     
     /// <remarks/>
@@ -2454,6 +2620,32 @@ namespace StockIt_Logica.WSStockIt {
         private object[] results;
         
         internal fechaDDMMAAAACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void fechaEntregaDDMMAAAACompletedEventHandler(object sender, fechaEntregaDDMMAAAACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class fechaEntregaDDMMAAAACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal fechaEntregaDDMMAAAACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

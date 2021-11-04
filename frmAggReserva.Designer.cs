@@ -40,7 +40,6 @@ namespace StockIt
             this.lblTotalReserva = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dtpFecEntrega = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.txtComentarios = new System.Windows.Forms.TextBox();
             this.lblIdCliente = new System.Windows.Forms.Label();
@@ -48,6 +47,8 @@ namespace StockIt
             this.txtNomProd = new System.Windows.Forms.TextBox();
             this.lklCambiarVista = new System.Windows.Forms.LinkLabel();
             this.ttCambiarVista = new System.Windows.Forms.ToolTip(this.components);
+            this.lblFechaEntrega = new System.Windows.Forms.Label();
+            this.lblIDReserva = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -176,17 +177,6 @@ namespace StockIt
             this.label3.Text = "Fecha Entrega:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dtpFecEntrega
-            // 
-            this.dtpFecEntrega.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpFecEntrega.CustomFormat = "yyyy-MM-dd";
-            this.dtpFecEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFecEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFecEntrega.Location = new System.Drawing.Point(900, 367);
-            this.dtpFecEntrega.Name = "dtpFecEntrega";
-            this.dtpFecEntrega.Size = new System.Drawing.Size(200, 30);
-            this.dtpFecEntrega.TabIndex = 34;
-            // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -262,19 +252,43 @@ namespace StockIt
             this.lklCambiarVista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lklCambiarVista.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklCambiarVista_LinkClicked);
             // 
+            // lblFechaEntrega
+            // 
+            this.lblFechaEntrega.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFechaEntrega.AutoEllipsis = true;
+            this.lblFechaEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaEntrega.Location = new System.Drawing.Point(900, 367);
+            this.lblFechaEntrega.Name = "lblFechaEntrega";
+            this.lblFechaEntrega.Size = new System.Drawing.Size(220, 23);
+            this.lblFechaEntrega.TabIndex = 41;
+            this.lblFechaEntrega.Text = "dd/MM/yyyy";
+            this.lblFechaEntrega.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblIDReserva
+            // 
+            this.lblIDReserva.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblIDReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIDReserva.Location = new System.Drawing.Point(660, 120);
+            this.lblIDReserva.Name = "lblIDReserva";
+            this.lblIDReserva.Size = new System.Drawing.Size(440, 20);
+            this.lblIDReserva.TabIndex = 42;
+            this.lblIDReserva.Text = "ID Reserva: 0";
+            this.lblIDReserva.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // frmAggReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1231, 1102);
+            this.Controls.Add(this.lblIDReserva);
+            this.Controls.Add(this.lblFechaEntrega);
             this.Controls.Add(this.lklCambiarVista);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtNomProd);
             this.Controls.Add(this.lblIdCliente);
             this.Controls.Add(this.txtComentarios);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dtpFecEntrega);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblTotalReserva);
             this.Controls.Add(this.label6);
@@ -308,7 +322,6 @@ namespace StockIt
         private System.Windows.Forms.Label lblTotalReserva;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtpFecEntrega;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtComentarios;
         private System.Windows.Forms.Label lblIdCliente;
@@ -316,5 +329,7 @@ namespace StockIt
         private System.Windows.Forms.TextBox txtNomProd;
         private System.Windows.Forms.LinkLabel lklCambiarVista;
         private System.Windows.Forms.ToolTip ttCambiarVista;
+        private System.Windows.Forms.Label lblFechaEntrega;
+        private System.Windows.Forms.Label lblIDReserva;
     }
 }
