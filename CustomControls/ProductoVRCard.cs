@@ -22,6 +22,8 @@ namespace StockIt.CustomControls
         private String catProd;
         private int canProd;
         private double preProd;
+        private int canProdN;
+        private double preProdN;
         private double subTotal;
         private NumericUpDown nudCanReservaProp;
 
@@ -50,7 +52,7 @@ namespace StockIt.CustomControls
         public int CanProd
         {
             get { return canProd; }
-            set { canProd = value; this.lblCanProd.Text = value.ToString() + " unidades"; }
+            set { canProd = value; this.lblCanProd.Text = value.ToString(); }
         }
 
         [Category("Custom Props")]
@@ -58,6 +60,20 @@ namespace StockIt.CustomControls
         {
             get { return preProd; }
             set { preProd = value; this.lblPreProd.Text = "$" + value.ToString("0.00"); }
+        }
+
+        [Category("Custom Props")]
+        public int CanProdN
+        {
+            get { return canProdN; }
+            set { canProdN = value; this.lblCanProdN.Text = value.ToString(); }
+        }
+
+        [Category("Custom Props")]
+        public double PreProdN
+        {
+            get { return preProdN; }
+            set { preProdN = value; this.lblPreProdN.Text = "$" + value.ToString("0.00"); }
         }
 
         [Category("Custom Props")]

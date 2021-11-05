@@ -183,6 +183,8 @@ namespace StockIt
                     productosVR[i].CatProd = eCardProductosList[i].Categoria;
                     productosVR[i].CanProd = eCardProductosList[i].Existencia;
                     productosVR[i].PreProd = eCardProductosList[i].Precio;
+                    productosVR[i].CanProdN = eCardProductosList[i].UnidadesNuevas;
+                    productosVR[i].PreProdN = eCardProductosList[i].PrecioNuevo;
                     productosVR[i].SubTotal = 0.0;
 
                     //Creación de btnEditar
@@ -200,9 +202,28 @@ namespace StockIt
                         int canProdReservar = ((int)objNUDCanReserva.Value);
                         double subTotalAntiguo = productoVRCardItem.SubTotal;
                         double subTotalNuevo;
-                        if (canProdReservar <= productoVRCardItem.CanProd)
+                        int existenciasActuales = productoVRCardItem.CanProd;
+                        double precioActual = productoVRCardItem.PreProd;
+                        int existenciasNuevas = productoVRCardItem.CanProdN;
+                        double precioNuevo = productoVRCardItem.PreProdN;
+                        int totalExistencias = (existenciasActuales + existenciasNuevas);
+                        double precioPromedio = 0.0;
+                        
+                        if (canProdReservar <= totalExistencias)
                         {
-                            subTotalNuevo = canProdReservar * productoVRCardItem.PreProd;
+                            int canProdReservarExtsNuevas = 1;
+                            if (canProdReservar <= existenciasActuales)
+                            {
+                                subTotalNuevo = canProdReservar * precioActual;
+                                precioPromedio = precioActual;
+                            }
+                            else
+                            {
+                                canProdReservarExtsNuevas = (canProdReservar - existenciasActuales);
+                                //Obtenemos el nuevo precio
+                                precioPromedio = ((existenciasActuales * precioActual) + (canProdReservarExtsNuevas * precioNuevo)) / canProdReservar;
+                                subTotalNuevo = canProdReservar * precioPromedio;
+                            }
 
                             //Detectamos la opción seleccionada del numericUpDown
                             if (subTotalAntiguo <= subTotalNuevo)
@@ -210,13 +231,53 @@ namespace StockIt
                                 //Opción de Incremento
                                 if (subTotalAntiguo < subTotalNuevo)
                                 {
-                                    totalReserva += productoVRCardItem.PreProd;
+                                    if (canProdReservar > existenciasActuales)
+                                    {
+                                        int cantProdReservarAntigua = (canProdReservar - 1);
+                                        double precioPromedioAntiguo = ((existenciasActuales * precioActual) + ((canProdReservarExtsNuevas - 1) * precioNuevo)) / cantProdReservarAntigua;
+
+                                        totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
+                                        totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                    }
+                                    else
+                                    {
+                                        totalReserva += precioPromedio;
+                                    }
                                 }
                             }
                             else
                             {
-                                //Opción de Decremento
-                                totalReserva -= productoVRCardItem.PreProd;
+                                /*
+                                 * Si la cantidad a reservar es igual a las existencias actual, asignamos el precio promedio
+                                 * haciendo un promedio tomando en cuenta 1 producto de las existencias nuevas
+                                 */
+                                
+                                if (canProdReservar >= existenciasActuales)
+                                {
+                                    if (canProdReservar ==  existenciasActuales)
+                                    {
+                                        int cantProdReservarAntigua = (canProdReservar + 1);
+                                        double precioPromedioAntiguo = ((existenciasActuales * precioActual) + ((canProdReservarExtsNuevas) * precioNuevo)) / cantProdReservarAntigua;
+
+                                        totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
+                                        totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                    }
+                                    else
+                                    {
+                                        int cantProdReservarAntigua = (canProdReservar + 1);
+                                        double precioPromedioAntiguo = ((existenciasActuales * precioActual) + ((canProdReservarExtsNuevas + 1) * precioNuevo)) / cantProdReservarAntigua;
+
+                                        totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
+                                        totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                    }
+                                }
+                                else
+                                {
+                                    //Opción de Decremento
+                                    totalReserva -= precioPromedio;
+                                }
+
+                                
                             }
 
                             productoVRCardItem.SubTotal = subTotalNuevo;
@@ -224,7 +285,7 @@ namespace StockIt
                         }
                         else
                         {
-                            objNUDCanReserva.Value = productoVRCardItem.CanProd;
+                            objNUDCanReserva.Value = totalExistencias;
                             lblTotalReserva.Text = "$" + totalReserva.ToString("0.00");
                         }
 

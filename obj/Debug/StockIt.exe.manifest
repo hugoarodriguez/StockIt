@@ -66,26 +66,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt.exe" size="246280">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt.exe" size="247816">
       <assemblyIdentity name="StockIt" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8kArZ9T9gNYZXpktEjQbq9ctkJFNKYGaWZMIhPg344E=</dsig:DigestValue>
+        <dsig:DigestValue>LE+/GAKKhWHWC/abG+LwEmRPz+tpSrHbwzd/pyEsF5I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt_Entidades.dll" size="12288">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt_Entidades.dll" size="12800">
       <assemblyIdentity name="StockIt_Entidades" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wA2+OAfN6Wc473hy6LcXP+FkDgjF9qI3S+RnDaQT89Q=</dsig:DigestValue>
+        <dsig:DigestValue>P1W1GSTgIRmN+jveA+aUDfF/M5HQJYach6AiPH029SQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -97,7 +97,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>prHiUzRfxFsllGyevd+2wrtHqy5RhMRG5ZgAG1lCSDg=</dsig:DigestValue>
+        <dsig:DigestValue>F8lj8imLdGdl/9tlB+XlQziJIRAiiG/ePUtvVwjg3G0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
