@@ -123,5 +123,15 @@ namespace StockIt.CustomControls
             if (this.ValueChangedNUDCanReserva != null)
                 this.ValueChangedNUDCanReserva(this, e);
         }
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invocado al cargar el control")]
+        public event EventHandler LoadProductoVRCard;
+        private void ProductoVRCard_Load(object sender, EventArgs e)
+        {
+            if (this.LoadProductoVRCard != null)
+                this.LoadProductoVRCard(this, e);
+        }
     }
 }

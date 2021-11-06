@@ -213,6 +213,7 @@ namespace StockIt
 
                     //Creación de btnEditar
                     productosVR[i].NudCanReservaProp = new NumericUpDown();
+                    productosVR[i].NudCanReservaProp.Value = productosVR[i].CanProdR;
                     productosVR[i].ValueChangedNUDCanReserva += new EventHandler(nudCanProd_ValueChanged);
 
                     void nudCanProd_ValueChanged(object sender, EventArgs e)
@@ -330,8 +331,20 @@ namespace StockIt
                         }
                     }
 
-                    //Evaluamos el subtotal para cambiar el color del Fondo y Letra del CustomControl
-                    if (((int)productosVR[i].SubTotal) > 0)
+                    //Asignamos el valor del NumericUpDown con la cantidad de producto que se ha reservado
+                    productosVR[i].LoadProductoVRCard += new EventHandler(productoVRCard_Load);
+
+                    void productoVRCard_Load(object sender, EventArgs e)
+                    {
+                        //Manejar evento
+                        ProductoVRCard productoVRCardItem = ((ProductoVRCard)sender);
+                        //Obtenemos el control nudCanReserva
+                        NumericUpDown objNUDCanReserva = (NumericUpDown)productoVRCardItem.Controls.Find("nudCanReserva", true).SingleOrDefault();
+                        objNUDCanReserva.Value = productoVRCardItem.CanProdR;
+                    }
+
+                        //Evaluamos el subtotal para cambiar el color del Fondo y Letra del CustomControl
+                        if (((int)productosVR[i].SubTotal) > 0)
                     {
                         productosVR[i].BackColor = Color.FromArgb(95, 189, 89);
                         productosVR[i].ForeColor = Color.White;

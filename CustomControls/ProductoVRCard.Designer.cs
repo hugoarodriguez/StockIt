@@ -275,6 +275,7 @@ namespace StockIt.CustomControls
             this.Controls.Add(this.pbxImgProd);
             this.Name = "ProductoVRCard";
             this.Size = new System.Drawing.Size(780, 178);
+            this.Load += new System.EventHandler(this.ProductoVRCard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxImgProd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCanReserva)).EndInit();
             this.ResumeLayout(false);
