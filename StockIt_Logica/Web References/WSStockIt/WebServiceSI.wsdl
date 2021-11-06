@@ -532,6 +532,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="seleccionarDetalleReservasByIdEncabezadoReserva">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEncabezadoReserva" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarDetalleReservasByIdEncabezadoReservaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="seleccionarDetalleReservasByIdEncabezadoReservaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="devolverAStock">
         <s:complexType>
           <s:sequence>
@@ -923,6 +944,12 @@
   <wsdl:message name="seleccionarReservasByIdUsuarioAndEstadoReservaSoapOut">
     <wsdl:part name="parameters" element="tns:seleccionarReservasByIdUsuarioAndEstadoReservaResponse" />
   </wsdl:message>
+  <wsdl:message name="seleccionarDetalleReservasByIdEncabezadoReservaSoapIn">
+    <wsdl:part name="parameters" element="tns:seleccionarDetalleReservasByIdEncabezadoReserva" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarDetalleReservasByIdEncabezadoReservaSoapOut">
+    <wsdl:part name="parameters" element="tns:seleccionarDetalleReservasByIdEncabezadoReservaResponse" />
+  </wsdl:message>
   <wsdl:message name="devolverAStockSoapIn">
     <wsdl:part name="parameters" element="tns:devolverAStock" />
   </wsdl:message>
@@ -1121,6 +1148,10 @@
     <wsdl:operation name="seleccionarReservasByIdUsuarioAndEstadoReserva">
       <wsdl:input message="tns:seleccionarReservasByIdUsuarioAndEstadoReservaSoapIn" />
       <wsdl:output message="tns:seleccionarReservasByIdUsuarioAndEstadoReservaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarDetalleReservasByIdEncabezadoReserva">
+      <wsdl:input message="tns:seleccionarDetalleReservasByIdEncabezadoReservaSoapIn" />
+      <wsdl:output message="tns:seleccionarDetalleReservasByIdEncabezadoReservaSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="devolverAStock">
       <wsdl:input message="tns:devolverAStockSoapIn" />
@@ -1440,6 +1471,15 @@
     </wsdl:operation>
     <wsdl:operation name="seleccionarReservasByIdUsuarioAndEstadoReserva">
       <soap:operation soapAction="http://tempuri.org/seleccionarReservasByIdUsuarioAndEstadoReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarDetalleReservasByIdEncabezadoReserva">
+      <soap:operation soapAction="http://tempuri.org/seleccionarDetalleReservasByIdEncabezadoReserva" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1830,6 +1870,15 @@
     </wsdl:operation>
     <wsdl:operation name="seleccionarReservasByIdUsuarioAndEstadoReserva">
       <soap12:operation soapAction="http://tempuri.org/seleccionarReservasByIdUsuarioAndEstadoReserva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarDetalleReservasByIdEncabezadoReserva">
+      <soap12:operation soapAction="http://tempuri.org/seleccionarDetalleReservasByIdEncabezadoReserva" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -54,7 +54,12 @@ namespace StockIt
                         //Manejar evento
                         ReservaCard reservaCardItem = ((ReservaCard)sender);
 
-                        utils.setFormToPanelFormularioHijo(new frmModReservas());
+                        frmModReservas frmModReservas = new frmModReservas();
+                        frmModReservas.ID_ENCABEZADO_RESERVA = int.Parse(reservaCardItem.Name);
+                        frmModReservas.TOTAL_RESERVA_GLOBAL = reservaCardItem.MontoReserva;
+                        frmModReservas.txtCliente.Text = reservaCardItem.NomClie;
+                        frmModReservas.lblFechaEntrega.Text = reservaCardItem.FechaPromesaEntrega.ToString("dd-MM-yyyy");
+                        utils.setFormToPanelFormularioHijo(frmModReservas);
                     }
 
                     //Creación de btnFacturar

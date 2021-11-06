@@ -25,6 +25,9 @@ namespace StockIt.CustomControls
         private int canProdN;
         private double preProdN;
         private double subTotal;
+        private int canProdR;//Cantidad de producto Reservado
+        private double preProdR;//Precio del producto Reservado
+        private double subTotalR;//Sub Total del producto reservado
         private NumericUpDown nudCanReservaProp;
 
         [Category("Custom Props")]
@@ -81,6 +84,27 @@ namespace StockIt.CustomControls
         {
             get { return subTotal; }
             set { subTotal = value; this.lblSubTotal.Text = "$" + value.ToString("0.00"); }
+        }
+
+        [Category("Custom Props")]
+        public int CanProdR
+        {
+            get { return canProdR; }
+            set { canProdR = value;}
+        }
+
+        [Category("Custom Props")]
+        public double PreProdR
+        {
+            get { return preProdR; }
+            set { preProdR = value;}
+        }
+
+        [Category("Custom Props")]
+        public double SubTotalR
+        {
+            get { return subTotalR; }
+            set { subTotalR = value;}
         }
 
         [Category("Custom Props")]

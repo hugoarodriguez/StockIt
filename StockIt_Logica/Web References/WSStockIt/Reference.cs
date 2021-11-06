@@ -90,6 +90,8 @@ namespace StockIt_Logica.WSStockIt {
         
         private System.Threading.SendOrPostCallback seleccionarReservasByIdUsuarioAndEstadoReservaOperationCompleted;
         
+        private System.Threading.SendOrPostCallback seleccionarDetalleReservasByIdEncabezadoReservaOperationCompleted;
+        
         private System.Threading.SendOrPostCallback devolverAStockOperationCompleted;
         
         private System.Threading.SendOrPostCallback obtenerNumeroCompraOperationCompleted;
@@ -243,6 +245,9 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         public event seleccionarReservasByIdUsuarioAndEstadoReservaCompletedEventHandler seleccionarReservasByIdUsuarioAndEstadoReservaCompleted;
+        
+        /// <remarks/>
+        public event seleccionarDetalleReservasByIdEncabezadoReservaCompletedEventHandler seleccionarDetalleReservasByIdEncabezadoReservaCompleted;
         
         /// <remarks/>
         public event devolverAStockCompletedEventHandler devolverAStockCompleted;
@@ -1236,6 +1241,35 @@ namespace StockIt_Logica.WSStockIt {
             if ((this.seleccionarReservasByIdUsuarioAndEstadoReservaCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.seleccionarReservasByIdUsuarioAndEstadoReservaCompleted(this, new seleccionarReservasByIdUsuarioAndEstadoReservaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/seleccionarDetalleReservasByIdEncabezadoReserva", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet seleccionarDetalleReservasByIdEncabezadoReserva(int idEncabezadoReserva) {
+            object[] results = this.Invoke("seleccionarDetalleReservasByIdEncabezadoReserva", new object[] {
+                        idEncabezadoReserva});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void seleccionarDetalleReservasByIdEncabezadoReservaAsync(int idEncabezadoReserva) {
+            this.seleccionarDetalleReservasByIdEncabezadoReservaAsync(idEncabezadoReserva, null);
+        }
+        
+        /// <remarks/>
+        public void seleccionarDetalleReservasByIdEncabezadoReservaAsync(int idEncabezadoReserva, object userState) {
+            if ((this.seleccionarDetalleReservasByIdEncabezadoReservaOperationCompleted == null)) {
+                this.seleccionarDetalleReservasByIdEncabezadoReservaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnseleccionarDetalleReservasByIdEncabezadoReservaOperationCompleted);
+            }
+            this.InvokeAsync("seleccionarDetalleReservasByIdEncabezadoReserva", new object[] {
+                        idEncabezadoReserva}, this.seleccionarDetalleReservasByIdEncabezadoReservaOperationCompleted, userState);
+        }
+        
+        private void OnseleccionarDetalleReservasByIdEncabezadoReservaOperationCompleted(object arg) {
+            if ((this.seleccionarDetalleReservasByIdEncabezadoReservaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.seleccionarDetalleReservasByIdEncabezadoReservaCompleted(this, new seleccionarDetalleReservasByIdEncabezadoReservaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2432,6 +2466,32 @@ namespace StockIt_Logica.WSStockIt {
         private object[] results;
         
         internal seleccionarReservasByIdUsuarioAndEstadoReservaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void seleccionarDetalleReservasByIdEncabezadoReservaCompletedEventHandler(object sender, seleccionarDetalleReservasByIdEncabezadoReservaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class seleccionarDetalleReservasByIdEncabezadoReservaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal seleccionarDetalleReservasByIdEncabezadoReservaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

@@ -36,7 +36,6 @@ namespace StockIt
             this.lblIdCliente = new System.Windows.Forms.Label();
             this.txtComentarios = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dtpFecEntrega = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTotalReserva = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -46,12 +45,13 @@ namespace StockIt
             this.label2 = new System.Windows.Forms.Label();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.ttCambiarVista = new System.Windows.Forms.ToolTip(this.components);
             this.ttLimpiar = new System.Windows.Forms.ToolTip(this.components);
             this.ttCancelar = new System.Windows.Forms.ToolTip(this.components);
             this.ttActualizar = new System.Windows.Forms.ToolTip(this.components);
+            this.lblFechaEntrega = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lklCambiarVista
@@ -129,17 +129,6 @@ namespace StockIt
             this.label4.Text = "Comentarios:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dtpFecEntrega
-            // 
-            this.dtpFecEntrega.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpFecEntrega.CustomFormat = "yyyy-MM-dd";
-            this.dtpFecEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFecEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFecEntrega.Location = new System.Drawing.Point(900, 367);
-            this.dtpFecEntrega.Name = "dtpFecEntrega";
-            this.dtpFecEntrega.Size = new System.Drawing.Size(200, 30);
-            this.dtpFecEntrega.TabIndex = 51;
-            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -214,6 +203,7 @@ namespace StockIt
             this.btnSelCliente.TabIndex = 44;
             this.btnSelCliente.Text = "...";
             this.btnSelCliente.UseVisualStyleBackColor = false;
+            this.btnSelCliente.Visible = false;
             this.btnSelCliente.Click += new System.EventHandler(this.btnSelCliente_Click);
             // 
             // label2
@@ -251,21 +241,21 @@ namespace StockIt
             this.label1.Text = "Modificar Reserva";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btnLimpiar
+            // btnVolver
             // 
-            this.btnLimpiar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLimpiar.BackColor = System.Drawing.Color.Gray;
-            this.btnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(935, 716);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(131, 39);
-            this.btnLimpiar.TabIndex = 59;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            this.btnVolver.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnVolver.BackColor = System.Drawing.Color.Gray;
+            this.btnVolver.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.ForeColor = System.Drawing.Color.White;
+            this.btnVolver.Location = new System.Drawing.Point(935, 716);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(131, 39);
+            this.btnVolver.TabIndex = 59;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnActualizar
             // 
@@ -284,13 +274,26 @@ namespace StockIt
             this.btnActualizar.TextChanged += new System.EventHandler(this.btnActualizar_Click);
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
+            // lblFechaEntrega
+            // 
+            this.lblFechaEntrega.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFechaEntrega.AutoEllipsis = true;
+            this.lblFechaEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaEntrega.Location = new System.Drawing.Point(900, 367);
+            this.lblFechaEntrega.Name = "lblFechaEntrega";
+            this.lblFechaEntrega.Size = new System.Drawing.Size(220, 23);
+            this.lblFechaEntrega.TabIndex = 60;
+            this.lblFechaEntrega.Text = "dd/MM/yyyy";
+            this.lblFechaEntrega.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // frmModReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1231, 1102);
-            this.Controls.Add(this.btnLimpiar);
+            this.Controls.Add(this.lblFechaEntrega);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.lklCambiarVista);
             this.Controls.Add(this.label5);
@@ -298,7 +301,6 @@ namespace StockIt
             this.Controls.Add(this.lblIdCliente);
             this.Controls.Add(this.txtComentarios);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dtpFecEntrega);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblTotalReserva);
             this.Controls.Add(this.label6);
@@ -327,7 +329,6 @@ namespace StockIt
         private System.Windows.Forms.Label lblIdCliente;
         private System.Windows.Forms.TextBox txtComentarios;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtpFecEntrega;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTotalReserva;
         private System.Windows.Forms.Label label6;
@@ -335,13 +336,14 @@ namespace StockIt
         private System.Windows.Forms.FlowLayoutPanel flpListadoProductos;
         private System.Windows.Forms.Button btnSelCliente;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.ToolTip ttCambiarVista;
         private System.Windows.Forms.ToolTip ttLimpiar;
         private System.Windows.Forms.ToolTip ttCancelar;
         private System.Windows.Forms.ToolTip ttActualizar;
+        public System.Windows.Forms.Label lblFechaEntrega;
+        public System.Windows.Forms.TextBox txtCliente;
     }
 }
