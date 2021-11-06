@@ -17,18 +17,14 @@ namespace StockIt.CustomControls
             InitializeComponent();
         }
 
-        private string nomProd;
         private string nomClie;
-        private double preProd;
+        private string telClie;
+        private DateTime fechaReserva;
+        private DateTime fechaPromesaEntrega;
+        private double montoReserva;
+        private Button btnFacturarProp;
         private Button btnEditarProp;
-        private Button btnEliminarProp;
-
-        [Category("Custom Props")]
-        public string NomProd
-        {
-            get { return nomProd; }
-            set { nomProd = value; this.lblNomProd.Text = value; }
-        }
+        private Button btnCancelarProp;
 
         [Category("Custom Props")]
         public string NomClie
@@ -38,10 +34,38 @@ namespace StockIt.CustomControls
         }
 
         [Category("Custom Props")]
-        public double PreProd
+        public string TelClie
         {
-            get { return preProd; }
-            set { preProd = value; this.lblPreProd.Text = "$" + value.ToString(); }
+            get { return telClie; }
+            set { telClie = value; this.lblTelClie.Text = value; }
+        }
+
+        [Category("Custom Props")]
+        public DateTime FechaReserva
+        {
+            get { return fechaReserva; }
+            set { fechaReserva = value; this.lblFReserva.Text = value.ToString("dd-MM-yyyy"); }
+        }
+
+        [Category("Custom Props")]
+        public DateTime FechaPromesaEntrega
+        {
+            get { return fechaPromesaEntrega; }
+            set { fechaPromesaEntrega = value; this.lblFPromesaEntrega.Text = value.ToString("dd-MM-yyyy"); }
+        }
+
+        [Category("Custom Props")]
+        public double MontoReserva
+        {
+            get { return montoReserva; }
+            set { montoReserva = value; this.lblMontoReserva.Text = "$" + value.ToString("0.00"); }
+        }
+
+        [Category("Custom Props")]
+        public Button BtnFacturarProp
+        {
+            get { return btnFacturarProp; }
+            set { btnFacturarProp = value; this.btnFacturar = value; }
         }
 
         [Category("Custom Props")]
@@ -52,12 +76,22 @@ namespace StockIt.CustomControls
         }
 
         [Category("Custom Props")]
-        public Button BtnEliminarProp
+        public Button BtnCancelarProp
         {
-            get { return btnEliminarProp; }
-            set { btnEliminarProp = value; this.btnEliminar = value; }
+            get { return btnCancelarProp; }
+            set { btnCancelarProp = value; this.btnCancelar = value; }
         }
 
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invocado cuando el usuario hace clic en boton Facturar")]
+        public event EventHandler ButtonClickFacturar;
+        private void btnFacturar_Click(object sender, EventArgs e)
+        {
+            if (this.ButtonClickFacturar != null)
+                this.ButtonClickFacturar(this, e);
+        }
 
         [Browsable(true)]
         [Category("Action")]
@@ -71,12 +105,12 @@ namespace StockIt.CustomControls
 
         [Browsable(true)]
         [Category("Action")]
-        [Description("Invocado cuando el usuario hace clic en boton Eliminar")]
-        public event EventHandler ButtonClickEliminar;
-        private void btnEliminar_Click(object sender, EventArgs e)
+        [Description("Invocado cuando el usuario hace clic en boton Cancelar")]
+        public event EventHandler ButtonClickCancelar;
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (this.ButtonClickEliminar != null)
-                this.ButtonClickEliminar(this, e);
+            if (this.ButtonClickCancelar != null)
+                this.ButtonClickCancelar(this, e);
         }
     }
 }

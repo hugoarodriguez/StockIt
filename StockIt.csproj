@@ -314,6 +314,9 @@
     <EmbeddedResource Include="CustomControls\ProveedorCard.resx">
       <DependentUpon>ProveedorCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ReservaCard.resx">
+      <DependentUpon>ReservaCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAcercaDe.resx">
       <DependentUpon>frmAcercaDe.cs</DependentUpon>
     </EmbeddedResource>

@@ -86,6 +86,10 @@ namespace StockIt_Logica.WSStockIt {
         
         private System.Threading.SendOrPostCallback actualizarDetalleReservaOperationCompleted;
         
+        private System.Threading.SendOrPostCallback cancelarReservaPorTiempoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback seleccionarReservasByIdUsuarioAndEstadoReservaOperationCompleted;
+        
         private System.Threading.SendOrPostCallback devolverAStockOperationCompleted;
         
         private System.Threading.SendOrPostCallback obtenerNumeroCompraOperationCompleted;
@@ -233,6 +237,12 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         public event actualizarDetalleReservaCompletedEventHandler actualizarDetalleReservaCompleted;
+        
+        /// <remarks/>
+        public event cancelarReservaPorTiempoCompletedEventHandler cancelarReservaPorTiempoCompleted;
+        
+        /// <remarks/>
+        public event seleccionarReservasByIdUsuarioAndEstadoReservaCompletedEventHandler seleccionarReservasByIdUsuarioAndEstadoReservaCompleted;
         
         /// <remarks/>
         public event devolverAStockCompletedEventHandler devolverAStockCompleted;
@@ -1164,6 +1174,68 @@ namespace StockIt_Logica.WSStockIt {
             if ((this.actualizarDetalleReservaCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.actualizarDetalleReservaCompleted(this, new actualizarDetalleReservaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/cancelarReservaPorTiempo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int cancelarReservaPorTiempo(int idUsuario, string estadoReservaConsulta) {
+            object[] results = this.Invoke("cancelarReservaPorTiempo", new object[] {
+                        idUsuario,
+                        estadoReservaConsulta});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void cancelarReservaPorTiempoAsync(int idUsuario, string estadoReservaConsulta) {
+            this.cancelarReservaPorTiempoAsync(idUsuario, estadoReservaConsulta, null);
+        }
+        
+        /// <remarks/>
+        public void cancelarReservaPorTiempoAsync(int idUsuario, string estadoReservaConsulta, object userState) {
+            if ((this.cancelarReservaPorTiempoOperationCompleted == null)) {
+                this.cancelarReservaPorTiempoOperationCompleted = new System.Threading.SendOrPostCallback(this.OncancelarReservaPorTiempoOperationCompleted);
+            }
+            this.InvokeAsync("cancelarReservaPorTiempo", new object[] {
+                        idUsuario,
+                        estadoReservaConsulta}, this.cancelarReservaPorTiempoOperationCompleted, userState);
+        }
+        
+        private void OncancelarReservaPorTiempoOperationCompleted(object arg) {
+            if ((this.cancelarReservaPorTiempoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.cancelarReservaPorTiempoCompleted(this, new cancelarReservaPorTiempoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/seleccionarReservasByIdUsuarioAndEstadoReserva", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet seleccionarReservasByIdUsuarioAndEstadoReserva(int idUsuario, string estadoReserva) {
+            object[] results = this.Invoke("seleccionarReservasByIdUsuarioAndEstadoReserva", new object[] {
+                        idUsuario,
+                        estadoReserva});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void seleccionarReservasByIdUsuarioAndEstadoReservaAsync(int idUsuario, string estadoReserva) {
+            this.seleccionarReservasByIdUsuarioAndEstadoReservaAsync(idUsuario, estadoReserva, null);
+        }
+        
+        /// <remarks/>
+        public void seleccionarReservasByIdUsuarioAndEstadoReservaAsync(int idUsuario, string estadoReserva, object userState) {
+            if ((this.seleccionarReservasByIdUsuarioAndEstadoReservaOperationCompleted == null)) {
+                this.seleccionarReservasByIdUsuarioAndEstadoReservaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnseleccionarReservasByIdUsuarioAndEstadoReservaOperationCompleted);
+            }
+            this.InvokeAsync("seleccionarReservasByIdUsuarioAndEstadoReserva", new object[] {
+                        idUsuario,
+                        estadoReserva}, this.seleccionarReservasByIdUsuarioAndEstadoReservaOperationCompleted, userState);
+        }
+        
+        private void OnseleccionarReservasByIdUsuarioAndEstadoReservaOperationCompleted(object arg) {
+            if ((this.seleccionarReservasByIdUsuarioAndEstadoReservaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.seleccionarReservasByIdUsuarioAndEstadoReservaCompleted(this, new seleccionarReservasByIdUsuarioAndEstadoReservaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2317,6 +2389,58 @@ namespace StockIt_Logica.WSStockIt {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void cancelarReservaPorTiempoCompletedEventHandler(object sender, cancelarReservaPorTiempoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class cancelarReservaPorTiempoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal cancelarReservaPorTiempoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void seleccionarReservasByIdUsuarioAndEstadoReservaCompletedEventHandler(object sender, seleccionarReservasByIdUsuarioAndEstadoReservaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class seleccionarReservasByIdUsuarioAndEstadoReservaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal seleccionarReservasByIdUsuarioAndEstadoReservaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
             }
         }
     }

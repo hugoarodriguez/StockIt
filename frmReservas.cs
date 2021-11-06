@@ -1,4 +1,6 @@
 ﻿using StockIt.CustomControls;
+using StockIt_Entidades;
+using StockIt_Logica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +17,7 @@ namespace StockIt
     {
         Utils utils = new Utils();
         ReservaCard[] reservas;
+        List<ECardReserva> eCardReservasList;
         public frmReservas()
         {
             InitializeComponent();
@@ -27,47 +30,65 @@ namespace StockIt
 
         private void cargarReservas()
         {
-            reservas = new ReservaCard[10];
-            for (int i = 0; i < reservas.Length; i++)
+            eCardReservasList = new LEncabezadoReservas().SeleccionarReservasActivas(utils.getIdUsuario());
+
+            if (eCardReservasList.Count > 0)
             {
-                reservas[i] = new ReservaCard();
-                reservas[i].Name = "ReservaCard" + i.ToString();
-                reservas[i].NomProd = "Producto " + i.ToString();
-                reservas[i].NomClie = "Cliente " + i.ToString();
-                reservas[i].PreProd = 8.50;
-
-                //Creación de btnEditar
-                reservas[i].BtnEditarProp = new Button();
-                reservas[i].ButtonClickEditar += new EventHandler(btnEditar_ButtonClick);
-
-                void btnEditar_ButtonClick(object sender, EventArgs e)
+                reservas = new ReservaCard[eCardReservasList.Count];
+                for (int i = 0; i < reservas.Length; i++)
                 {
-                    //Manejar evento
-                    ReservaCard reservaCardItem = ((ReservaCard)sender);
+                    reservas[i] = new ReservaCard();
+                    reservas[i].Name = eCardReservasList[i].IdEncabezadoReserva.ToString();
+                    reservas[i].NomClie = eCardReservasList[i].NombreCliente + " " + eCardReservasList[i].ApellidoCliente;
+                    reservas[i].TelClie = eCardReservasList[i].TelefonoCliente;
+                    reservas[i].FechaReserva = eCardReservasList[i].FechaReserva;
+                    reservas[i].FechaPromesaEntrega = eCardReservasList[i].FechaPromesaEntrega;
+                    reservas[i].MontoReserva = eCardReservasList[i].MontoEncabezadoReserva;
 
-                    Utils utils = new Utils();
-                    utils.setFormToPanelFormularioHijo(new frmModReservas());
-                }
+                    //Creación de btnEditar
+                    reservas[i].BtnEditarProp = new Button();
+                    reservas[i].ButtonClickEditar += new EventHandler(btnEditar_ButtonClick);
 
-                //Creación de btnEliminar
-                reservas[i].BtnEliminarProp = new Button();
-                reservas[i].ButtonClickEliminar += new EventHandler(btnEliminar_ButtonClick);
-
-                void btnEliminar_ButtonClick(object sender, EventArgs e)
-                {
-                    //Manejar evento
-                    ReservaCard reservaCardItem = ((ReservaCard)sender);
-
-                    DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas finalizar la reserva del cliente" +
-                        " \"" + reservaCardItem.NomClie + "\"?");
-                    if (dialogResult == DialogResult.Yes)
+                    void btnEditar_ButtonClick(object sender, EventArgs e)
                     {
-                        reservaCardItem.Dispose();
-                    }
-                }
+                        //Manejar evento
+                        ReservaCard reservaCardItem = ((ReservaCard)sender);
 
-                //Agregamos el ProductoCard al FlowLAyoutPanel
-                flpListadoReservas.Controls.Add(reservas[i]);
+                        utils.setFormToPanelFormularioHijo(new frmModReservas());
+                    }
+
+                    //Creación de btnFacturar
+                    reservas[i].BtnFacturarProp = new Button();
+                    reservas[i].ButtonClickFacturar += new EventHandler(btnFacturar_ButtonClick);
+
+                    void btnFacturar_ButtonClick(object sender, EventArgs e)
+                    {
+                        //Manejar evento
+                        ReservaCard reservaCardItem = ((ReservaCard)sender);
+
+                        utils.messageBoxOperacionExitosa("Facturando reserva " + reservaCardItem.Name);
+                    }
+
+                    //Creación de btnCancelar
+                    reservas[i].BtnCancelarProp = new Button();
+                    reservas[i].ButtonClickCancelar += new EventHandler(btnCancelar_ButtonClick);
+
+                    void btnCancelar_ButtonClick(object sender, EventArgs e)
+                    {
+                        //Manejar evento
+                        ReservaCard reservaCardItem = ((ReservaCard)sender);
+
+                        DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas finalizar la reserva del cliente" +
+                            " \"" + reservaCardItem.NomClie + "\"?");
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            reservaCardItem.Dispose();
+                        }
+                    }
+
+                    //Agregamos el ProductoCard al FlowLAyoutPanel
+                    flpListadoReservas.Controls.Add(reservas[i]);
+                }
             }
         }
 
