@@ -231,24 +231,58 @@ namespace StockIt
                         double precioActual = productoVRCardItem.PreProd;
                         int existenciasNuevas = productoVRCardItem.CanProdN;
                         double precioNuevo = productoVRCardItem.PreProdN;
-                        int totalExistencias = (existenciasActuales + existenciasNuevas);
+                        int existenciasReserva = productoVRCardItem.CanProdR;
+                        double precioReserva = productoVRCardItem.PreProdR;
+                        int totalExistencias = (existenciasActuales + existenciasNuevas + existenciasReserva);
                         double precioPromedio = 0.0;
 
                         if (canProdReservar <= totalExistencias)
                         {
+                            #region Calculo de precio promedio
                             int canProdReservarExtsNuevas = 1;
-                            if (canProdReservar <= existenciasActuales)
+
+                            if (existenciasReserva > 0)
                             {
-                                subTotalNuevo = canProdReservar * precioActual;
-                                precioPromedio = precioActual;
+                                if (canProdReservar <= existenciasReserva)
+                                {
+                                    //Cálculo si solo se están utilizando las existenciasReserva
+                                    subTotalNuevo = canProdReservar * precioReserva;
+                                    precioPromedio = precioReserva;
+                                }
+                                else if (canProdReservar > existenciasReserva && canProdReservar <= (existenciasReserva + existenciasActuales))
+                                {
+                                    //Cálculo si solo se están utilizando las existenciasReserva + existenciasActuales
+                                    canProdReservarExtsNuevas = (canProdReservar - existenciasReserva);
+                                    precioPromedio = ((existenciasReserva * precioReserva) + (canProdReservarExtsNuevas * precioActual)) / canProdReservar;
+                                    subTotalNuevo = canProdReservar * precioPromedio;
+                                }
+                                else
+                                {
+                                    //Cálculo si se están utilizando las existenciasReserva + existenciasActuales + existenciasNuevas
+                                    canProdReservarExtsNuevas = (canProdReservar - existenciasReserva - existenciasActuales);
+                                    //Obtenemos el nuevo precio
+                                    precioPromedio = ((existenciasReserva * precioReserva) + (existenciasActuales * precioActual) + (canProdReservarExtsNuevas * precioNuevo)) / canProdReservar;
+                                    subTotalNuevo = canProdReservar * precioPromedio;
+                                }
                             }
                             else
                             {
-                                canProdReservarExtsNuevas = (canProdReservar - existenciasActuales);
-                                //Obtenemos el nuevo precio
-                                precioPromedio = ((existenciasActuales * precioActual) + (canProdReservarExtsNuevas * precioNuevo)) / canProdReservar;
-                                subTotalNuevo = canProdReservar * precioPromedio;
+                                if (canProdReservar <= existenciasActuales)
+                                {
+                                    //Cálculo si solo se están utilizando las existenciasActuales
+                                    subTotalNuevo = canProdReservar * precioActual;
+                                    precioPromedio = precioActual;
+                                }
+                                else
+                                {
+                                    //Cálculo si solo se están utilizando las existenciasActuales + existenciasNuevas
+                                    canProdReservarExtsNuevas = (canProdReservar - existenciasActuales);
+                                    //Obtenemos el nuevo precio
+                                    precioPromedio = ((existenciasActuales * precioActual) + (canProdReservarExtsNuevas * precioNuevo)) / canProdReservar;
+                                    subTotalNuevo = canProdReservar * precioPromedio;
+                                }
                             }
+                            #endregion
 
                             //Detectamos la opción seleccionada del numericUpDown
                             if (subTotalAntiguo <= subTotalNuevo)
@@ -256,50 +290,143 @@ namespace StockIt
                                 //Opción de Incremento
                                 if (subTotalAntiguo < subTotalNuevo)
                                 {
-                                    if (canProdReservar > existenciasActuales)
+                                    if (existenciasReserva > 0)
                                     {
-                                        int cantProdReservarAntigua = (canProdReservar - 1);
-                                        double precioPromedioAntiguo = ((existenciasActuales * precioActual) + ((canProdReservarExtsNuevas - 1) * precioNuevo)) / cantProdReservarAntigua;
+                                        //Si la cantidad a reservar es mayor que las existencias reservadas
+                                        if (canProdReservar > existenciasReserva)
+                                        {
+                                            if (canProdReservar < (existenciasReserva + existenciasActuales))
+                                            {
+                                                int cantProdReservarAntigua = (canProdReservar - 1);
+                                                double precioPromedioAntiguo = ((existenciasReserva * precioReserva) + ((canProdReservarExtsNuevas - 1) * precioActual)) / cantProdReservarAntigua;
 
-                                        totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
-                                        totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                                totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
+                                                totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                            }
+                                            else
+                                            {
+                                                if (canProdReservar > (existenciasReserva + existenciasActuales))
+                                                {
+                                                    int cantProdReservarAntigua = (canProdReservar - 1);
+                                                    double precioPromedioAntiguo = ((existenciasReserva * precioReserva) + (existenciasActuales * precioActual) + ((canProdReservarExtsNuevas - 1) * precioNuevo)) / cantProdReservarAntigua;
+
+                                                    totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
+                                                    totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                                }
+                                                else
+                                                {
+                                                    totalReserva += precioPromedio;
+                                                }
+                                            }
+
+                                            
+                                        }
+                                        else
+                                        {
+                                            totalReserva += precioPromedio;
+                                        }
                                     }
                                     else
                                     {
-                                        totalReserva += precioPromedio;
+                                        if (canProdReservar > existenciasActuales)
+                                        {
+                                            int cantProdReservarAntigua = (canProdReservar - 1);
+                                            double precioPromedioAntiguo = ((existenciasActuales * precioActual) + ((canProdReservarExtsNuevas - 1) * precioNuevo)) / cantProdReservarAntigua;
+
+                                            totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
+                                            totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                        }
+                                        else
+                                        {
+                                            totalReserva += precioPromedio;
+                                        }
                                     }
                                 }
                             }
                             else
                             {
-                                /*
-                                 * Si la cantidad a reservar es igual a las existencias actual, asignamos el precio promedio
-                                 * haciendo un promedio tomando en cuenta 1 producto de las existencias nuevas
-                                 */
-
-                                if (canProdReservar >= existenciasActuales)
+                                //Opción de decremento
+                                if (canProdReservar >= existenciasReserva && existenciasReserva > 0)
                                 {
-                                    if (canProdReservar == existenciasActuales)
-                                    {
-                                        int cantProdReservarAntigua = (canProdReservar + 1);
-                                        double precioPromedioAntiguo = ((existenciasActuales * precioActual) + ((canProdReservarExtsNuevas) * precioNuevo)) / cantProdReservarAntigua;
+                                    //Si HAY existencias reservadas
 
+                                    //Disminución del subtotal y total si la cantidad a reservar es igual a la que estaba definida en la Reserva original
+                                    if (canProdReservar == existenciasReserva && existenciasReserva > 0)
+                                    {
+                                        /*Para obtener el precioPromedioAntiguo sumamos los productos de existenciaReserva con precioReserva, y,
+                                         * existenciasActuales con precioActual, el resultado lo dividimos entra la cantidad a reservar + 1
+                                         */
+                                        int cantProdReservarAntigua = (canProdReservar + 1);
+                                        double precioPromedioAntiguo = ((existenciasReserva * precioReserva) + (canProdReservarExtsNuevas * precioActual)) / cantProdReservarAntigua;
+
+                                        //Restamos el subtotal antiguo al totalReserva
                                         totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
+                                        //Adicionamos el subtotal nuevo al totalReserva (utilizando el precioPromedio obtenido al principio)
                                         totalReserva = totalReserva + (canProdReservar * precioPromedio);
                                     }
                                     else
                                     {
-                                        int cantProdReservarAntigua = (canProdReservar + 1);
-                                        double precioPromedioAntiguo = ((existenciasActuales * precioActual) + ((canProdReservarExtsNuevas + 1) * precioNuevo)) / cantProdReservarAntigua;
+                                        //Hacer cálculo con 3 precios
 
-                                        totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
-                                        totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                        /*
+                                        * Si la cantidad a reservar es igual a las existencias actual, asignamos el precio promedio
+                                        * haciendo un promedio tomando en cuenta 1 producto de las existencias nuevas
+                                        */
+                                        if (canProdReservar >= (existenciasReserva + existenciasActuales))
+                                        {
+                                            if (canProdReservar == (existenciasReserva + existenciasActuales))
+                                            {
+                                                int cantProdReservarAntigua = (canProdReservar + 1);
+                                                double precioPromedioAntiguo = ((existenciasReserva * precioReserva) + (existenciasActuales * precioActual) + (1 * precioNuevo)) / cantProdReservarAntigua;
+
+                                                totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
+                                                totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                            }
+                                            else
+                                            {
+                                                int cantProdReservarAntigua = (canProdReservar + 1);
+                                                double precioPromedioAntiguo = ((existenciasReserva * precioReserva) + (existenciasActuales * precioActual) + ((canProdReservarExtsNuevas + 1) * precioNuevo)) / cantProdReservarAntigua;
+
+                                                totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
+                                                totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            totalReserva -= precioPromedio;
+                                        }
                                     }
                                 }
                                 else
                                 {
-                                    //Opción de Decremento
-                                    totalReserva -= precioPromedio;
+                                    //Si NO hay existencias reservadas
+                                    /*
+                                    * Si la cantidad a reservar es igual a las existencias actual, asignamos el precio promedio
+                                    * haciendo un promedio tomando en cuenta 1 producto de las existencias nuevas
+                                    */
+                                    if (canProdReservar >= existenciasActuales)
+                                    {
+                                        if (canProdReservar == existenciasActuales)
+                                        {
+                                            int cantProdReservarAntigua = (canProdReservar + 1);
+                                            double precioPromedioAntiguo = ((existenciasActuales * precioActual) + ((canProdReservarExtsNuevas) * precioNuevo)) / cantProdReservarAntigua;
+
+                                            totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
+                                            totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                        }
+                                        else
+                                        {
+                                            int cantProdReservarAntigua = (canProdReservar + 1);
+                                            double precioPromedioAntiguo = ((existenciasActuales * precioActual) + ((canProdReservarExtsNuevas + 1) * precioNuevo)) / cantProdReservarAntigua;
+
+                                            totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
+                                            totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        totalReserva -= precioPromedio;
+                                    }
                                 }
 
 

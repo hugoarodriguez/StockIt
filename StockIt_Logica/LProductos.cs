@@ -143,8 +143,8 @@ namespace StockIt_Logica
                     eCardProducto.NombreProducto = row["NOMBRE_PRODUCTO"].ToString();
                     eCardProducto.NombreProveedor = row["NOMBRE_PROVEEDOR"].ToString();
                     eCardProducto.Categoria = row["CATEGORIA"].ToString();
-                    eCardProducto.Existencia = int.Parse(row["EXISTENCIA"].ToString());
-                    eCardProducto.Precio = double.Parse(row["PRECIO"].ToString());
+                    eCardProducto.Existencia = int.Parse(row["UNIDADES_ACTUALES"].ToString());
+                    eCardProducto.Precio = double.Parse(row["PRECIO_ACTUAL"].ToString());
                     eCardProducto.UnidadesNuevas = int.Parse(row["UNIDADES_NUEVAS"].ToString());
                     eCardProducto.PrecioNuevo = double.Parse(row["PRECIO_NUEVO"].ToString());
                     lista.Add(eCardProducto);
