@@ -67,6 +67,7 @@ namespace StockIt
                             //Abrimos el formulario para modificar el producto
                             frmAggLoteProducto frmAggLoteProducto = new frmAggLoteProducto();
                             frmAggLoteProducto.ID_PRODUCTO = int.Parse(productoCardItem.Name);
+                            frmAggLoteProducto.pbxImgProd.Image = productoCardItem.ImgProd;
                             utils.setFormToPanelFormularioHijo(frmAggLoteProducto);
                         }
                         else if (r == -1)

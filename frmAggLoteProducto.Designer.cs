@@ -423,7 +423,6 @@ namespace StockIt
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pbxImgProd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnCancelar;
@@ -452,5 +451,6 @@ namespace StockIt
         private System.Windows.Forms.ToolTip ttLimpiar;
         private System.Windows.Forms.ToolTip ttCancelar;
         private System.Windows.Forms.TextBox txtCategoria;
+        public System.Windows.Forms.PictureBox pbxImgProd;
     }
 }
