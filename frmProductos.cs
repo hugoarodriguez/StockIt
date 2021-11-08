@@ -104,6 +104,7 @@ namespace StockIt
                                 if (r > 0)
                                 {
                                     productoCardItem.Dispose();
+                                    utils.messageBoxOperacionExitosa("Se eliminó el producto \"" + productoCardItem.NomProd + "\"");
                                 }
                                 else if (r == -1)
                                 {

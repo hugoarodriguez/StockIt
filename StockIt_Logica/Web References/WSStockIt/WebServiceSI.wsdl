@@ -510,6 +510,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="cancelarReservaPorIndicacionCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEncabezadoReserva" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cancelarReservaPorIndicacionClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cancelarReservaPorIndicacionClienteResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="seleccionarReservasByIdUsuarioAndEstadoReserva">
         <s:complexType>
           <s:sequence>
@@ -938,6 +952,12 @@
   <wsdl:message name="cancelarReservaPorTiempoSoapOut">
     <wsdl:part name="parameters" element="tns:cancelarReservaPorTiempoResponse" />
   </wsdl:message>
+  <wsdl:message name="cancelarReservaPorIndicacionClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:cancelarReservaPorIndicacionCliente" />
+  </wsdl:message>
+  <wsdl:message name="cancelarReservaPorIndicacionClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:cancelarReservaPorIndicacionClienteResponse" />
+  </wsdl:message>
   <wsdl:message name="seleccionarReservasByIdUsuarioAndEstadoReservaSoapIn">
     <wsdl:part name="parameters" element="tns:seleccionarReservasByIdUsuarioAndEstadoReserva" />
   </wsdl:message>
@@ -1144,6 +1164,10 @@
     <wsdl:operation name="cancelarReservaPorTiempo">
       <wsdl:input message="tns:cancelarReservaPorTiempoSoapIn" />
       <wsdl:output message="tns:cancelarReservaPorTiempoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelarReservaPorIndicacionCliente">
+      <wsdl:input message="tns:cancelarReservaPorIndicacionClienteSoapIn" />
+      <wsdl:output message="tns:cancelarReservaPorIndicacionClienteSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="seleccionarReservasByIdUsuarioAndEstadoReserva">
       <wsdl:input message="tns:seleccionarReservasByIdUsuarioAndEstadoReservaSoapIn" />
@@ -1462,6 +1486,15 @@
     </wsdl:operation>
     <wsdl:operation name="cancelarReservaPorTiempo">
       <soap:operation soapAction="http://tempuri.org/cancelarReservaPorTiempo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelarReservaPorIndicacionCliente">
+      <soap:operation soapAction="http://tempuri.org/cancelarReservaPorIndicacionCliente" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1861,6 +1894,15 @@
     </wsdl:operation>
     <wsdl:operation name="cancelarReservaPorTiempo">
       <soap12:operation soapAction="http://tempuri.org/cancelarReservaPorTiempo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelarReservaPorIndicacionCliente">
+      <soap12:operation soapAction="http://tempuri.org/cancelarReservaPorIndicacionCliente" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

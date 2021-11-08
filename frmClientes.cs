@@ -80,6 +80,8 @@ namespace StockIt
                             if (r > 0)
                             {
                                 clienteCardItem.Dispose();
+                                utils.messageBoxOperacionExitosa("Se eliminó el cliente \"" + clienteCardItem.NomClie + "\" " +
+                                    "con número de teléfono " + clienteCardItem.TelClie + ".");
                             }
                             else if (r == -1)
                             {

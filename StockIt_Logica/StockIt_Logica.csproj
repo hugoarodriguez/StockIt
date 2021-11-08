@@ -53,6 +53,7 @@
     <Compile Include="LEncabezadoReservas.cs" />
     <Compile Include="LProductos.cs" />
     <Compile Include="LProveedores.cs" />
+    <Compile Include="LReservas.cs" />
     <Compile Include="LUsuarios.cs" />
     <Compile Include="LUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

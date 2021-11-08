@@ -81,6 +81,7 @@ namespace StockIt
                             if (r > 0)
                             {
                                 proveedorCardItem.Dispose();
+                                utils.messageBoxOperacionExitosa("Se eliminó el proveedor \"" + proveedorCardItem.NomProveedor + "\"");
                             }
                             else if (r == -1)
                             {

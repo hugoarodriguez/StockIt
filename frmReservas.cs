@@ -83,11 +83,30 @@ namespace StockIt
                         //Manejar evento
                         ReservaCard reservaCardItem = ((ReservaCard)sender);
 
-                        DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas finalizar la reserva del cliente" +
+                        DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas cancelar la reserva del cliente" +
                             " \"" + reservaCardItem.NomClie + "\"?");
                         if (dialogResult == DialogResult.Yes)
                         {
-                            reservaCardItem.Dispose();
+                            EEncabezadoReservas eEncabezadoReservas = new EEncabezadoReservas();
+                            eEncabezadoReservas.IdEncabezadoReserva = int.Parse(reservaCardItem.Name);
+
+                            int r = new LReservas().CancelarReservaPorIndicacionCliente(eEncabezadoReservas);
+
+                            if (r > 0)
+                            {
+                                reservaCardItem.Dispose();
+                                utils.messageBoxOperacionExitosa("Se canceló la reserva del cliente \"" + reservaCardItem.NomClie + "\" " +
+                                    "con número de teléfono " + reservaCardItem.TelClie + ".");
+                            }
+                            else if (r == -1)
+                            {
+                                utils.messageBoxAlerta("No se pudo cancelar la reserva." +
+                                    "\nIntenté más tarde.");
+                            }
+                            else
+                            {
+                                utils.messageBoxOperacionSinExito("Hubo un error. Intente más tarde.");
+                            }
                         }
                     }
 

@@ -13,7 +13,7 @@ namespace StockIt_Logica
         private string ESTADO_EN_ESPERA = "E";
         private string ESTADO_FINALIZADA = "F";
         private string ESTADO_CANCELADA_CLIENTE = "C";
-        private string ESTADO_CANCELADA_TIEMPO = "A";
+        private string ESTADO_CANCELADA_TIEMPO = "T";
 
         WSStockIt.WebServiceSI WS = new WSStockIt.WebServiceSI();
 

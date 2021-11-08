@@ -88,6 +88,8 @@ namespace StockIt_Logica.WSStockIt {
         
         private System.Threading.SendOrPostCallback cancelarReservaPorTiempoOperationCompleted;
         
+        private System.Threading.SendOrPostCallback cancelarReservaPorIndicacionClienteOperationCompleted;
+        
         private System.Threading.SendOrPostCallback seleccionarReservasByIdUsuarioAndEstadoReservaOperationCompleted;
         
         private System.Threading.SendOrPostCallback seleccionarDetalleReservasByIdEncabezadoReservaOperationCompleted;
@@ -242,6 +244,9 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         public event cancelarReservaPorTiempoCompletedEventHandler cancelarReservaPorTiempoCompleted;
+        
+        /// <remarks/>
+        public event cancelarReservaPorIndicacionClienteCompletedEventHandler cancelarReservaPorIndicacionClienteCompleted;
         
         /// <remarks/>
         public event seleccionarReservasByIdUsuarioAndEstadoReservaCompletedEventHandler seleccionarReservasByIdUsuarioAndEstadoReservaCompleted;
@@ -1210,6 +1215,35 @@ namespace StockIt_Logica.WSStockIt {
             if ((this.cancelarReservaPorTiempoCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.cancelarReservaPorTiempoCompleted(this, new cancelarReservaPorTiempoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/cancelarReservaPorIndicacionCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int cancelarReservaPorIndicacionCliente(int idEncabezadoReserva) {
+            object[] results = this.Invoke("cancelarReservaPorIndicacionCliente", new object[] {
+                        idEncabezadoReserva});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void cancelarReservaPorIndicacionClienteAsync(int idEncabezadoReserva) {
+            this.cancelarReservaPorIndicacionClienteAsync(idEncabezadoReserva, null);
+        }
+        
+        /// <remarks/>
+        public void cancelarReservaPorIndicacionClienteAsync(int idEncabezadoReserva, object userState) {
+            if ((this.cancelarReservaPorIndicacionClienteOperationCompleted == null)) {
+                this.cancelarReservaPorIndicacionClienteOperationCompleted = new System.Threading.SendOrPostCallback(this.OncancelarReservaPorIndicacionClienteOperationCompleted);
+            }
+            this.InvokeAsync("cancelarReservaPorIndicacionCliente", new object[] {
+                        idEncabezadoReserva}, this.cancelarReservaPorIndicacionClienteOperationCompleted, userState);
+        }
+        
+        private void OncancelarReservaPorIndicacionClienteOperationCompleted(object arg) {
+            if ((this.cancelarReservaPorIndicacionClienteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.cancelarReservaPorIndicacionClienteCompleted(this, new cancelarReservaPorIndicacionClienteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2440,6 +2474,32 @@ namespace StockIt_Logica.WSStockIt {
         private object[] results;
         
         internal cancelarReservaPorTiempoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void cancelarReservaPorIndicacionClienteCompletedEventHandler(object sender, cancelarReservaPorIndicacionClienteCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class cancelarReservaPorIndicacionClienteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal cancelarReservaPorIndicacionClienteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

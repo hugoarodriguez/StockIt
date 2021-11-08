@@ -86,6 +86,7 @@ namespace StockIt
                             if (r > 0)
                             {
                                 categoriaCardItem.Dispose();
+                                utils.messageBoxOperacionExitosa("Se eliminó la categoría \"" + categoriaCardItem.Categ + "\"");
                             }
                             else if (r == -1)
                             {
