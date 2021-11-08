@@ -86,6 +86,8 @@ namespace StockIt_Logica.WSStockIt {
         
         private System.Threading.SendOrPostCallback actualizarDetalleReservaOperationCompleted;
         
+        private System.Threading.SendOrPostCallback verificarProductoEnReservaOperationCompleted;
+        
         private System.Threading.SendOrPostCallback cancelarReservaPorTiempoOperationCompleted;
         
         private System.Threading.SendOrPostCallback cancelarReservaPorIndicacionClienteOperationCompleted;
@@ -241,6 +243,9 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         public event actualizarDetalleReservaCompletedEventHandler actualizarDetalleReservaCompleted;
+        
+        /// <remarks/>
+        public event verificarProductoEnReservaCompletedEventHandler verificarProductoEnReservaCompleted;
         
         /// <remarks/>
         public event cancelarReservaPorTiempoCompletedEventHandler cancelarReservaPorTiempoCompleted;
@@ -1113,23 +1118,24 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/insertarDetalleReserva", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int insertarDetalleReserva(int idEncabezado, int idProducto, int cantidad, double precio, double monto) {
+        public int insertarDetalleReserva(int idEncabezado, int idProducto, int cantidad, double precio, double monto, int reservaExistente) {
             object[] results = this.Invoke("insertarDetalleReserva", new object[] {
                         idEncabezado,
                         idProducto,
                         cantidad,
                         precio,
-                        monto});
+                        monto,
+                        reservaExistente});
             return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void insertarDetalleReservaAsync(int idEncabezado, int idProducto, int cantidad, double precio, double monto) {
-            this.insertarDetalleReservaAsync(idEncabezado, idProducto, cantidad, precio, monto, null);
+        public void insertarDetalleReservaAsync(int idEncabezado, int idProducto, int cantidad, double precio, double monto, int reservaExistente) {
+            this.insertarDetalleReservaAsync(idEncabezado, idProducto, cantidad, precio, monto, reservaExistente, null);
         }
         
         /// <remarks/>
-        public void insertarDetalleReservaAsync(int idEncabezado, int idProducto, int cantidad, double precio, double monto, object userState) {
+        public void insertarDetalleReservaAsync(int idEncabezado, int idProducto, int cantidad, double precio, double monto, int reservaExistente, object userState) {
             if ((this.insertarDetalleReservaOperationCompleted == null)) {
                 this.insertarDetalleReservaOperationCompleted = new System.Threading.SendOrPostCallback(this.OninsertarDetalleReservaOperationCompleted);
             }
@@ -1138,7 +1144,8 @@ namespace StockIt_Logica.WSStockIt {
                         idProducto,
                         cantidad,
                         precio,
-                        monto}, this.insertarDetalleReservaOperationCompleted, userState);
+                        monto,
+                        reservaExistente}, this.insertarDetalleReservaOperationCompleted, userState);
         }
         
         private void OninsertarDetalleReservaOperationCompleted(object arg) {
@@ -1184,6 +1191,37 @@ namespace StockIt_Logica.WSStockIt {
             if ((this.actualizarDetalleReservaCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.actualizarDetalleReservaCompleted(this, new actualizarDetalleReservaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/verificarProductoEnReserva", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int verificarProductoEnReserva(int idEncabezadoReserva, int idProducto) {
+            object[] results = this.Invoke("verificarProductoEnReserva", new object[] {
+                        idEncabezadoReserva,
+                        idProducto});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void verificarProductoEnReservaAsync(int idEncabezadoReserva, int idProducto) {
+            this.verificarProductoEnReservaAsync(idEncabezadoReserva, idProducto, null);
+        }
+        
+        /// <remarks/>
+        public void verificarProductoEnReservaAsync(int idEncabezadoReserva, int idProducto, object userState) {
+            if ((this.verificarProductoEnReservaOperationCompleted == null)) {
+                this.verificarProductoEnReservaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnverificarProductoEnReservaOperationCompleted);
+            }
+            this.InvokeAsync("verificarProductoEnReserva", new object[] {
+                        idEncabezadoReserva,
+                        idProducto}, this.verificarProductoEnReservaOperationCompleted, userState);
+        }
+        
+        private void OnverificarProductoEnReservaOperationCompleted(object arg) {
+            if ((this.verificarProductoEnReservaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.verificarProductoEnReservaCompleted(this, new verificarProductoEnReservaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2448,6 +2486,32 @@ namespace StockIt_Logica.WSStockIt {
         private object[] results;
         
         internal actualizarDetalleReservaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void verificarProductoEnReservaCompletedEventHandler(object sender, verificarProductoEnReservaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class verificarProductoEnReservaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal verificarProductoEnReservaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

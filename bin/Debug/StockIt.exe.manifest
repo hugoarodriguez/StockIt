@@ -73,7 +73,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Z50EdapaMBGWpSi6RJYHADXEkh8whuZVPm7UuaCH2l8=</dsig:DigestValue>
+        <dsig:DigestValue>k62W9Dwlw/YTIloc+vgRctlok6aptcZ4STytNqxeKBs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -90,14 +90,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt_Logica.dll" size="99328">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt_Logica.dll" size="101888">
       <assemblyIdentity name="StockIt_Logica" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3ZO1/M91EEF8T4H6rIGkFBQVT4ARGGOZ8VlUUlYX4CY=</dsig:DigestValue>
+        <dsig:DigestValue>HCL+jD8Y16XHLTVuZQ0/JRwdWE1AZlzFnbjq2KYQw28=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

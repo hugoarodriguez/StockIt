@@ -24,7 +24,81 @@ namespace StockIt_Logica
                 {
                     r = WS.insertarDetalleReserva(idEncabezado, eDetalleReservas.IdProducto,
                         eDetalleReservas.Cantidad, eDetalleReservas.PrecioProducto,
-                        eDetalleReservas.Monto);
+                        eDetalleReservas.Monto, 0);
+                }
+
+                return r;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return -2;
+            }
+        }
+
+        //Método para agregar un producto a una reserva existente
+        public int InsertarDetalleReservaExistente(int idEncabezadoReserva, EDetalleReservas eDetalleReservas)
+        {
+            try
+            {
+                
+                int r = 0;
+
+                r = WS.insertarDetalleReserva(idEncabezadoReserva, eDetalleReservas.IdProducto,
+                        eDetalleReservas.Cantidad, eDetalleReservas.PrecioProducto,
+                        eDetalleReservas.Monto, 1);
+
+                return r;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return -2;
+            }
+        }
+
+        public int ActualizarDetalleReserva(List<EDetalleReservas> eDetalleReservasListActual, List<EDetalleReservas> eDetalleReservasListNuevo, 
+            EEncabezadoReservas eEncabezadoReservas)
+        {
+            try
+            {
+                int r = 0;
+
+                //Actualizamos los productos existentes en la reserva
+                foreach (EDetalleReservas eDetalleReservasActual in eDetalleReservasListActual)
+                {
+                    foreach (EDetalleReservas eDetalleReservasNuevo in eDetalleReservasListNuevo)
+                    {
+                        if (eDetalleReservasActual.IdProducto == eDetalleReservasNuevo.IdProducto && 
+                            eDetalleReservasActual.Cantidad > eDetalleReservasNuevo.Cantidad)
+                        {
+                            //Si vamos a quitar unidades
+                            r = WS.actualizarDetalleReserva(eEncabezadoReservas.IdEncabezadoReserva, eDetalleReservasActual.IdProducto,
+                            eDetalleReservasActual.Cantidad, (eDetalleReservasActual.Cantidad - eDetalleReservasNuevo.Cantidad), 
+                            eDetalleReservasActual.Monto, 0);
+                        }
+                        else if (eDetalleReservasActual.IdProducto == eDetalleReservasNuevo.IdProducto &&
+                            eDetalleReservasNuevo.Cantidad > eDetalleReservasActual.Cantidad)
+                        {
+                            //Si vamos a agregar unidades
+                            r = WS.actualizarDetalleReserva(eEncabezadoReservas.IdEncabezadoReserva, eDetalleReservasActual.IdProducto,
+                            eDetalleReservasActual.Cantidad, (eDetalleReservasNuevo.Cantidad - eDetalleReservasActual.Cantidad),
+                            eDetalleReservasActual.Monto, 1);
+                        }
+                    }
+                }
+
+                //Insertamos los productos inexistentes en la reserva
+                foreach (EDetalleReservas eDetalleReservasNuevo in eDetalleReservasListNuevo)
+                {
+                    //Verificamos si el producto existe o no en la reserva
+                    int verificarExistenciaEnReserva = new LReservas().VerificarProductoEnReserva(eEncabezadoReservas.IdEncabezadoReserva, eDetalleReservasNuevo.IdProducto);
+
+                    if (verificarExistenciaEnReserva == -1)
+                    {
+                        //Si no existe (-1), lo insertamos
+                        r = new LDetalleReservas().InsertarDetalleReservaExistente(eEncabezadoReservas.IdEncabezadoReserva, eDetalleReservasNuevo);
+                    }
                 }
 
                 return r;

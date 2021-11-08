@@ -20,6 +20,7 @@ namespace StockIt
         Utils utils = new Utils();
         ProductoVRCard[] productosVR;
         List<ECardProducto> eCardProductosList;
+        List<EDetalleReservas> eDetalleReservasListActual = new List<EDetalleReservas>();
         ECliente[] eClientes;
         private double totalReserva; //Variable que almacena el total de la reserva (se asigna a lblTotalReserva)
         private bool tipoVista = true; //Variable que permite evaluar el modo de vista actual
@@ -33,6 +34,7 @@ namespace StockIt
 
         private void frmModReserva_Load(object sender, EventArgs e)
         {
+            totalReserva = TOTAL_RESERVA_GLOBAL;
             ttCambiarVista.SetToolTip(lklCambiarVista, textoTTCambiarVista1);
             cargarProductos();
             cargarClientes();
@@ -86,12 +88,9 @@ namespace StockIt
             }
             else
             {
-                //Guardar Reserva
+                //Actualizar Reserva
                 EEncabezadoReservas eEncabezadoReservas = new EEncabezadoReservas();
-                eEncabezadoReservas.IdCliente = int.Parse(lblIdCliente.Text.Trim());
-                eEncabezadoReservas.MontoEncabezadoReserva = totalReserva;
-                eEncabezadoReservas.EstadoReserva = "A";//Verificar con los estados determinados
-                eEncabezadoReservas.Comentarios = txtComentarios.Text.Trim();
+                eEncabezadoReservas.IdEncabezadoReserva = ID_ENCABEZADO_RESERVA;
 
                 int conteoProductos = 0;
                 for (int i = 0; i < productosVR.Length; i++)
@@ -102,36 +101,47 @@ namespace StockIt
                     }
                 }
 
-                EDetalleReservas[] eDetallesReservas = new EDetalleReservas[conteoProductos];
+                //Obtenemos los productos que tienen un sub total
+                List<EDetalleReservas> eDetallesReservasListNuevo = new List<EDetalleReservas>();
                 int indexProducto = 0;
                 for (int i = 0; i < productosVR.Length; i++)
                 {
                     if (productosVR[i].SubTotal > 0.0)
                     {
-                        eDetallesReservas[indexProducto] = new EDetalleReservas();
-                        eDetallesReservas[indexProducto].IdProducto = int.Parse(productosVR[i].Name);
+                        EDetalleReservas eDetalleReservas = new EDetalleReservas();
+                        eDetalleReservas.IdProducto = int.Parse(productosVR[i].Name);
                         NumericUpDown objNUDCanReserva = (NumericUpDown)productosVR[i].Controls.Find("nudCanReserva", true).SingleOrDefault();
-                        eDetallesReservas[indexProducto].Cantidad = ((int)objNUDCanReserva.Value);
-                        eDetallesReservas[indexProducto].Monto = productosVR[i].SubTotal;
+                        eDetalleReservas.Cantidad = ((int)objNUDCanReserva.Value);
+                        eDetalleReservas.PrecioProducto = productosVR[i].PreProd;
+                        eDetalleReservas.Monto = productosVR[i].SubTotal;
                         indexProducto++;
+                        eDetallesReservasListNuevo.Add(eDetalleReservas);
                     }
                 }
 
-                try
-                {
-                    //Llamar método de capa lógica para guardar la reserva enviar como argumentos a eEncabezadoReservas y eDetallesReservas[]
-                    utils.messageBoxOperacionExitosa("La reserva fue actualizada satisfactoriamente.");
+                int r = new LDetalleReservas().ActualizarDetalleReserva(eDetalleReservasListActual, eDetallesReservasListNuevo, eEncabezadoReservas);
 
-                    //Volvemos al formulario Reservas
-                    utils.setFormToPanelFormularioHijo(new frmReservas());
-
-                }
-                catch (Exception)
+                if (r > 0)
                 {
-                    utils.messageBoxOperacionSinExito("No se pudo actualizr la reserva. Intente más tarde.");
-                    //Volvemos al formulario Reservas
-                    utils.setFormToPanelFormularioHijo(new frmReservas());
+                    utils.messageBoxOperacionExitosa("La reserva se actualizó satisfactoriamente.");
                 }
+                else if (r == -1)
+                {
+                    utils.messageBoxAlerta("No se pudo actualizar la reserva.");
+                }
+                else
+                {
+                    utils.messageBoxAlerta("Hubo un error. Intente más tarde");
+                }
+
+                //Limpiamos el control FlowLayoutPanel
+                flpListadoProductos.Controls.Clear();
+
+                //Limpiamos el arreglo que contiene los Cards
+                eCardProductosList.Clear();
+
+                //Cargamos los productos nuevamente
+                cargarProductos();
             }
         }
         private void btnVolver_Click(object sender, EventArgs e)
@@ -156,6 +166,7 @@ namespace StockIt
                 //limpiarDatosReserva();
                 eCardProductosList.Clear();
                 flpListadoProductos.Controls.Clear();
+                totalReserva = TOTAL_RESERVA_GLOBAL;
                 cargarProductos();
             }
         }
@@ -175,11 +186,10 @@ namespace StockIt
         #region Métodos creados
         private void cargarProductos()
         {
-            totalReserva = TOTAL_RESERVA_GLOBAL;
             lblTotalReserva.Text = "$" + totalReserva.ToString("0.00");
 
             eCardProductosList = new LProductos().SeleccionarProductosByIdUsuarioAndEstadoProducto(utils.getIdUsuario(), "A");
-            List<EDetalleReservas> eDetalleReservasList = new LDetalleReservas().SeleccionarDetalleReserva(ID_ENCABEZADO_RESERVA);
+            eDetalleReservasListActual = new LDetalleReservas().SeleccionarDetalleReserva(ID_ENCABEZADO_RESERVA);
 
             if (eCardProductosList.Count > 0)
             {
@@ -199,14 +209,14 @@ namespace StockIt
                     productosVR[i].CanProdR = 0;
                     productosVR[i].SubTotalR = 0.0;
                     //Asignamos los valores del producto reservado
-                    for (int j = 0; j < eDetalleReservasList.Count; j++)
+                    for (int j = 0; j < eDetalleReservasListActual.Count; j++)
                     {
-                        if (eCardProductosList[i].IdProducto == eDetalleReservasList[j].IdProducto)
+                        if (eCardProductosList[i].IdProducto == eDetalleReservasListActual[j].IdProducto)
                         {
-                            productosVR[i].PreProdR = eDetalleReservasList[j].PrecioProducto;
-                            productosVR[i].CanProdR = eDetalleReservasList[j].Cantidad;
-                            productosVR[i].SubTotalR = eDetalleReservasList[j].Monto;
-                            j = eDetalleReservasList.Count;//Si encontró un ID de producto igual, hacemos que finalice el bucle
+                            productosVR[i].PreProdR = eDetalleReservasListActual[j].PrecioProducto;
+                            productosVR[i].CanProdR = eDetalleReservasListActual[j].Cantidad;
+                            productosVR[i].SubTotalR = eDetalleReservasListActual[j].Monto;
+                            j = eDetalleReservasListActual.Count;//Si encontró un ID de producto igual, hacemos que finalice el bucle
                         }
                     }
                     productosVR[i].SubTotal = productosVR[i].SubTotalR;
@@ -399,33 +409,57 @@ namespace StockIt
                                 }
                                 else
                                 {
-                                    //Si NO hay existencias reservadas
-                                    /*
-                                    * Si la cantidad a reservar es igual a las existencias actual, asignamos el precio promedio
-                                    * haciendo un promedio tomando en cuenta 1 producto de las existencias nuevas
-                                    */
-                                    if (canProdReservar >= existenciasActuales)
+                                    if (existenciasReserva > 0)
                                     {
-                                        if (canProdReservar == existenciasActuales)
+                                        //Si hay existencias reservadas
+                                        if (canProdReservar == existenciasReserva)
                                         {
+                                            /*Para obtener el precioPromedioAntiguo sumamos los productos de existenciaReserva con precioReserva, y,
+                                            * existenciasActuales con precioActual, el resultado lo dividimos entra la cantidad a reservar + 1
+                                            */
                                             int cantProdReservarAntigua = (canProdReservar + 1);
-                                            double precioPromedioAntiguo = ((existenciasActuales * precioActual) + ((canProdReservarExtsNuevas) * precioNuevo)) / cantProdReservarAntigua;
+                                            double precioPromedioAntiguo = (existenciasReserva * precioReserva) / cantProdReservarAntigua;
 
+                                            //Restamos el subtotal antiguo al totalReserva
                                             totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
+                                            //Adicionamos el subtotal nuevo al totalReserva (utilizando el precioPromedio obtenido al principio)
                                             totalReserva = totalReserva + (canProdReservar * precioPromedio);
                                         }
                                         else
                                         {
-                                            int cantProdReservarAntigua = (canProdReservar + 1);
-                                            double precioPromedioAntiguo = ((existenciasActuales * precioActual) + ((canProdReservarExtsNuevas + 1) * precioNuevo)) / cantProdReservarAntigua;
-
-                                            totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
-                                            totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                            totalReserva -= precioPromedio;
                                         }
                                     }
                                     else
                                     {
-                                        totalReserva -= precioPromedio;
+                                        //Si NO hay existencias reservadas
+                                        /*
+                                        * Si la cantidad a reservar es igual a las existencias actual, asignamos el precio promedio
+                                        * haciendo un promedio tomando en cuenta 1 producto de las existencias nuevas
+                                        */
+                                        if (canProdReservar >= existenciasActuales)
+                                        {
+                                            if (canProdReservar == existenciasActuales)
+                                            {
+                                                int cantProdReservarAntigua = (canProdReservar + 1);
+                                                double precioPromedioAntiguo = ((existenciasActuales * precioActual) + ((canProdReservarExtsNuevas) * precioNuevo)) / cantProdReservarAntigua;
+
+                                                totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
+                                                totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                            }
+                                            else
+                                            {
+                                                int cantProdReservarAntigua = (canProdReservar + 1);
+                                                double precioPromedioAntiguo = ((existenciasActuales * precioActual) + ((canProdReservarExtsNuevas + 1) * precioNuevo)) / cantProdReservarAntigua;
+
+                                                totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
+                                                totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            totalReserva -= precioPromedio;
+                                        }
                                     }
                                 }
 

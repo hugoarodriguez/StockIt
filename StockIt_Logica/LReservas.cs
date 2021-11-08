@@ -22,5 +22,17 @@ namespace StockIt_Logica
                 return -2;
             }
         }
+
+        public int VerificarProductoEnReserva(int idEncabezadoReserva, int idProducto)
+        {
+            try
+            {
+                return WS.verificarProductoEnReserva(idEncabezadoReserva, idProducto);
+            }
+            catch (Exception)
+            {
+                return -2;
+            }
+        }
     }
 }
