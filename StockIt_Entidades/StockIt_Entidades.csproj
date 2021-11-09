@@ -46,8 +46,10 @@
     <Compile Include="ECategoria.cs" />
     <Compile Include="ECliente.cs" />
     <Compile Include="EDetalleCompraProductos.cs" />
+    <Compile Include="EDetalleFacturacion.cs" />
     <Compile Include="EDetalleReservas.cs" />
     <Compile Include="EEncabezadoCompraProductos.cs" />
+    <Compile Include="EEncabezadoFacturacion.cs" />
     <Compile Include="EEncabezadoReservas.cs" />
     <Compile Include="EProducto.cs" />
     <Compile Include="EProveedor.cs" />

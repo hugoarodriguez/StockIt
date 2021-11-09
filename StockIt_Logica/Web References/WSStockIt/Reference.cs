@@ -98,6 +98,8 @@ namespace StockIt_Logica.WSStockIt {
         
         private System.Threading.SendOrPostCallback devolverAStockOperationCompleted;
         
+        private System.Threading.SendOrPostCallback insertarFacturaOperationCompleted;
+        
         private System.Threading.SendOrPostCallback obtenerNumeroCompraOperationCompleted;
         
         private System.Threading.SendOrPostCallback verificarExistenciaCantidadesNuevasOperationCompleted;
@@ -261,6 +263,9 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         public event devolverAStockCompletedEventHandler devolverAStockCompleted;
+        
+        /// <remarks/>
+        public event insertarFacturaCompletedEventHandler insertarFacturaCompleted;
         
         /// <remarks/>
         public event obtenerNumeroCompraCompletedEventHandler obtenerNumeroCompraCompleted;
@@ -1375,6 +1380,35 @@ namespace StockIt_Logica.WSStockIt {
             if ((this.devolverAStockCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.devolverAStockCompleted(this, new devolverAStockCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/insertarFactura", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int insertarFactura(int idEncabezadoReserva) {
+            object[] results = this.Invoke("insertarFactura", new object[] {
+                        idEncabezadoReserva});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void insertarFacturaAsync(int idEncabezadoReserva) {
+            this.insertarFacturaAsync(idEncabezadoReserva, null);
+        }
+        
+        /// <remarks/>
+        public void insertarFacturaAsync(int idEncabezadoReserva, object userState) {
+            if ((this.insertarFacturaOperationCompleted == null)) {
+                this.insertarFacturaOperationCompleted = new System.Threading.SendOrPostCallback(this.OninsertarFacturaOperationCompleted);
+            }
+            this.InvokeAsync("insertarFactura", new object[] {
+                        idEncabezadoReserva}, this.insertarFacturaOperationCompleted, userState);
+        }
+        
+        private void OninsertarFacturaOperationCompleted(object arg) {
+            if ((this.insertarFacturaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.insertarFacturaCompleted(this, new insertarFacturaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2642,6 +2676,32 @@ namespace StockIt_Logica.WSStockIt {
         private object[] results;
         
         internal devolverAStockCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void insertarFacturaCompletedEventHandler(object sender, insertarFacturaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class insertarFacturaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal insertarFacturaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

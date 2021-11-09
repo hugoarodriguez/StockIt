@@ -51,6 +51,7 @@
     <Compile Include="LDetalleReservas.cs" />
     <Compile Include="LEncabezadoCompras.cs" />
     <Compile Include="LEncabezadoReservas.cs" />
+    <Compile Include="LFacturacion.cs" />
     <Compile Include="LProductos.cs" />
     <Compile Include="LProveedores.cs" />
     <Compile Include="LReservas.cs" />

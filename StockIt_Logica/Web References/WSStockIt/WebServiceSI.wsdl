@@ -599,6 +599,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="insertarFactura">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEncabezadoReserva" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarFacturaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertarFacturaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="obtenerNumeroCompra">
         <s:complexType>
           <s:sequence>
@@ -998,6 +1012,12 @@
   <wsdl:message name="devolverAStockSoapOut">
     <wsdl:part name="parameters" element="tns:devolverAStockResponse" />
   </wsdl:message>
+  <wsdl:message name="insertarFacturaSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarFactura" />
+  </wsdl:message>
+  <wsdl:message name="insertarFacturaSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarFacturaResponse" />
+  </wsdl:message>
   <wsdl:message name="obtenerNumeroCompraSoapIn">
     <wsdl:part name="parameters" element="tns:obtenerNumeroCompra" />
   </wsdl:message>
@@ -1206,6 +1226,10 @@
     <wsdl:operation name="devolverAStock">
       <wsdl:input message="tns:devolverAStockSoapIn" />
       <wsdl:output message="tns:devolverAStockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarFactura">
+      <wsdl:input message="tns:insertarFacturaSoapIn" />
+      <wsdl:output message="tns:insertarFacturaSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="obtenerNumeroCompra">
       <wsdl:input message="tns:obtenerNumeroCompraSoapIn" />
@@ -1557,6 +1581,15 @@
     </wsdl:operation>
     <wsdl:operation name="devolverAStock">
       <soap:operation soapAction="http://tempuri.org/devolverAStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarFactura">
+      <soap:operation soapAction="http://tempuri.org/insertarFactura" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1974,6 +2007,15 @@
     </wsdl:operation>
     <wsdl:operation name="devolverAStock">
       <soap12:operation soapAction="http://tempuri.org/devolverAStock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarFactura">
+      <soap12:operation soapAction="http://tempuri.org/insertarFactura" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

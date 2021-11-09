@@ -71,7 +71,32 @@ namespace StockIt
                         //Manejar evento
                         ReservaCard reservaCardItem = ((ReservaCard)sender);
 
-                        utils.messageBoxOperacionExitosa("Facturando reserva " + reservaCardItem.Name);
+                        DialogResult dialogResult = utils.getMessageBoxAlerta("¿Estás seguro que deseas facturar la reserva del cliente" +
+                           " " + reservaCardItem.NomClie + "?");
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            EEncabezadoReservas eEncabezadoReservas = new EEncabezadoReservas();
+                            eEncabezadoReservas.IdEncabezadoReserva = int.Parse(reservaCardItem.Name);
+
+                            int r = new LFacturacion().InsertarDetalleReserva(eEncabezadoReservas);
+
+                            if (r > 0)
+                            {
+                                reservaCardItem.Dispose();
+                                utils.messageBoxOperacionExitosa("Se facturó la reserva del cliente " + reservaCardItem.NomClie + " " +
+                                    "con número de teléfono " + reservaCardItem.TelClie + ".");
+                                //TODO: Agregar generación de la factura
+                            }
+                            else if (r == -1)
+                            {
+                                utils.messageBoxAlerta("No se pudo facturar la reserva." +
+                                    "\nIntenté más tarde.");
+                            }
+                            else
+                            {
+                                utils.messageBoxOperacionSinExito("Hubo un error. Intente más tarde.");
+                            }
+                        }
                     }
 
                     //Creación de btnCancelar
