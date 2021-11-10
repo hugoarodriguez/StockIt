@@ -1,4 +1,5 @@
-﻿using StockIt_Entidades;
+﻿using StockIt.ReportClasses;
+using StockIt_Entidades;
 using StockIt_Logica;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,9 @@ namespace StockIt
     public partial class frmReporteCompraProductos : Form
     {
         Utils utils = new Utils();
+        List<EReporteProductosEncabezado> eReporteProductosEncabezadoList = new List<EReporteProductosEncabezado>();
+        List<EReporteProductosDetalle> eReporteProductosDetalleList = new List<EReporteProductosDetalle>();
+        int idEncabezadoCompraProductos = 0;
 
         public frmReporteCompraProductos()
         {
@@ -40,8 +44,16 @@ namespace StockIt
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            llenarDataGridView();
-            btnImprimir.Enabled = true;
+            if (dtpFechaInicio.Value > dtpFechaFinal.Value)
+            {
+                utils.messageBoxFormatoIncorrecto("La Fecha Inicio debe ser inferior a la Fecha Final");
+                dtpFechaInicio.Focus();
+            }
+            else
+            {
+                llenarDataGridView();
+                btnImprimir.Enabled = true;
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -54,6 +66,9 @@ namespace StockIt
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             //Llamar método de clase para imprimir este reporte
+            CReporteCompraProductos cReporteCompraProductos = new CReporteCompraProductos();
+            cReporteCompraProductos.generarReporte(idEncabezadoCompraProductos, eReporteProductosEncabezadoList, eReporteProductosDetalleList,
+                dtpFechaInicio.Value.Date.ToString("dd-MM-yyyy"), dtpFechaFinal.Value.Date.ToString("dd-MM-yyyy"));
         }
 
         private void btnImprimir_MouseHover(object sender, EventArgs e)
@@ -74,7 +89,7 @@ namespace StockIt
             DateTime fechaInicio = dtpFechaInicio.Value.Date;
             DateTime fechaFinal = dtpFechaFinal.Value.Date;
 
-            List <EReporteProductosEncabezado> eReporteProductosEncabezadoList = new LProductos().EncabezadosReporteCompraProductos(fechaInicio, fechaFinal, utils.getIdUsuario());
+            eReporteProductosEncabezadoList = new LProductos().EncabezadosReporteCompraProductos(fechaInicio, fechaFinal, utils.getIdUsuario());
 
             frmSeleccionarCliente frmSeleccionarCliente = new frmSeleccionarCliente();
 

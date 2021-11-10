@@ -302,6 +302,7 @@
     <Compile Include="ReportClasses\CFacturaReserva.cs" />
     <Compile Include="ReportClasses\CReporteCategorias.cs" />
     <Compile Include="ReportClasses\CReporteClientes.cs" />
+    <Compile Include="ReportClasses\CReporteCompraProductos.cs" />
     <Compile Include="ReportClasses\CReporteProductos.cs" />
     <Compile Include="ReportClasses\CReporteReservas.cs" />
     <Compile Include="ReportClasses\CReporteVentas.cs" />
