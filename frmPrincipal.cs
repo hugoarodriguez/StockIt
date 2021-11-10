@@ -191,6 +191,14 @@ namespace StockIt
             mostrarSubMenu(panelSubMenuReportes);
         }
 
+        private void btnReporteCompraProductos_Click(object sender, EventArgs e)
+        {
+            frmReporteCompraProductos formularioHijo = new frmReporteCompraProductos();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
+            ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
+        }
+
         private void btnReporteProductos_Click(object sender, EventArgs e)
         {
             frmReporteProductos formularioHijo = new frmReporteProductos();
@@ -207,14 +215,6 @@ namespace StockIt
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
-        private void btnReporteClientes_Click(object sender, EventArgs e)
-        {
-            frmReporteClientes formularioHijo = new frmReporteClientes();
-            utils.setFormToPanelFormularioHijo(formularioHijo);
-            lblFormOpen.Text = formularioHijo.Name;
-            ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
-        }
-
         private void btnReporteVentas_Click(object sender, EventArgs e)
         {
             frmReporteVentas formularioHijo = new frmReporteVentas();
@@ -222,13 +222,15 @@ namespace StockIt
             lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
-        #endregion
 
-        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        private void btnReporteClientes_Click(object sender, EventArgs e)
         {
+            frmReporteClientes formularioHijo = new frmReporteClientes();
+            utils.setFormToPanelFormularioHijo(formularioHijo);
+            lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
-            this.Close();
         }
+        #endregion
 
         private void btnAcercaDe_Click(object sender, EventArgs e)
         {
@@ -236,6 +238,12 @@ namespace StockIt
             utils.setFormToPanelFormularioHijo(formularioHijo);
             lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
+            this.Close();
         }
     }
 }

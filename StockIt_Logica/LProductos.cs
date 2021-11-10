@@ -158,13 +158,71 @@ namespace StockIt_Logica
             }
         }
 
+        //Método para generar Encabezados Compra de Productos
+        public List<EReporteProductosEncabezado> EncabezadosReporteCompraProductos(DateTime fechaInicio, DateTime fechaFinal, int idUsuario)
+        {
+            List<EReporteProductosEncabezado> lista = new List<EReporteProductosEncabezado>();
+            try
+            {
+                DataSet ds = WS.encabezadosReporteCompraProductos(fechaInicio, fechaFinal, idUsuario);
+
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    EReporteProductosEncabezado eReportePRoductosEncabezado = new EReporteProductosEncabezado();
+                    eReportePRoductosEncabezado.IdEncCompraProductos = int.Parse(row["ID_ENC_COMPRA_PRODUCTOS"].ToString());
+                    eReportePRoductosEncabezado.NombreProveedor = row["NOMBRE_PROVEEDOR"].ToString();
+                    eReportePRoductosEncabezado.FechaIngreso = DateTime.Parse(row["FECHA_INGRESO"].ToString());
+                    eReportePRoductosEncabezado.Monto = double.Parse(row["MONTO"].ToString());
+                    lista.Add(eReportePRoductosEncabezado);
+                }
+
+                return lista;
+            }
+            catch (Exception)
+            {
+                return lista;
+            }
+        }
+
+        //Método para generar Detalle Compra de Productos de una compra en específico
+        public List<EReporteProductosDetalle> DetalleReporteCompraProductos(int idEncabezadoCompra)
+        {
+            List<EReporteProductosDetalle> lista = new List<EReporteProductosDetalle>();
+            try
+            {
+                DataSet ds = WS.detalleReporteCompraProductos(idEncabezadoCompra);
+
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    EReporteProductosDetalle eReporteProductosDetalle = new EReporteProductosDetalle();
+                    eReporteProductosDetalle.IdEncCompraProductos = int.Parse(row["ID_ENC_COMPRA_PRODUCTOS"].ToString());
+                    eReporteProductosDetalle.IdProducto = int.Parse(row["ID_PRODUCTO"].ToString());
+                    eReporteProductosDetalle.NombreProducto = row["NOMBRE_PRODUCTO"].ToString();
+                    eReporteProductosDetalle.Cantidad = int.Parse(row["CANTIDAD"].ToString());
+                    eReporteProductosDetalle.PrecioLote = double.Parse(row["PRECIO_LOTE"].ToString());
+                    eReporteProductosDetalle.PrecioUnitario = double.Parse(row["PRECIO_UNITARIO"].ToString());
+                    eReporteProductosDetalle.PrecioVenta = double.Parse(row["PRECIO_REAL"].ToString());
+                    eReporteProductosDetalle.Categoria = row["CATEGORIA"].ToString();
+                    lista.Add(eReporteProductosDetalle);
+                }
+
+                return lista;
+            }
+            catch (Exception)
+            {
+                return lista;
+            }
+        }
+
         //Método para generar Reporte de Productos
+        /* Modificar cuando se agrege el método necesario en el WebService */
         public List<EReporteProductos> ReporteProductos(int idUsuario, int idCategoria, string estadoProducto)
         {
             List<EReporteProductos> lista = new List<EReporteProductos>();
             try
             {
-                DataSet ds = WS.reporteProductos(idUsuario, idCategoria, estadoProducto);
+                //DataSet ds = WS.reporteProductos(idUsuario, idCategoria, estadoProducto);
+                DataSet ds = new DataSet();
 
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {

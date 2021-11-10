@@ -30,13 +30,15 @@ namespace StockIt
         private void InitializeComponent()
         {
             this.panelSideMenu = new System.Windows.Forms.Panel();
-            this.lblIdUsuario = new System.Windows.Forms.Label();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.btnAcercaDe = new System.Windows.Forms.Button();
+            this.lblIdUsuario = new System.Windows.Forms.Label();
             this.panelSubMenuReportes = new System.Windows.Forms.Panel();
+            this.btnReporteClientes = new System.Windows.Forms.Button();
             this.btnReporteVentas = new System.Windows.Forms.Button();
             this.btnReporteReservas = new System.Windows.Forms.Button();
-            this.btnReporteClientes = new System.Windows.Forms.Button();
             this.btnReporteProductos = new System.Windows.Forms.Button();
+            this.btnReporteCompraProductos = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnReservas = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
@@ -53,7 +55,6 @@ namespace StockIt
             this.lklCorreo = new System.Windows.Forms.LinkLabel();
             this.lblNombre = new System.Windows.Forms.Label();
             this.panelFormularioHijo = new System.Windows.Forms.Panel();
-            this.btnAcercaDe = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panelSubMenuReportes.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -63,9 +64,9 @@ namespace StockIt
             // 
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(117)))), ((int)(((byte)(169)))));
+            this.panelSideMenu.Controls.Add(this.btnCerrarSesion);
             this.panelSideMenu.Controls.Add(this.btnAcercaDe);
             this.panelSideMenu.Controls.Add(this.lblIdUsuario);
-            this.panelSideMenu.Controls.Add(this.btnCerrarSesion);
             this.panelSideMenu.Controls.Add(this.panelSubMenuReportes);
             this.panelSideMenu.Controls.Add(this.btnReportes);
             this.panelSideMenu.Controls.Add(this.btnReservas);
@@ -87,6 +88,42 @@ namespace StockIt
             this.panelSideMenu.Size = new System.Drawing.Size(251, 1102);
             this.panelSideMenu.TabIndex = 0;
             // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 852);
+            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(251, 46);
+            this.btnCerrarSesion.TabIndex = 27;
+            this.btnCerrarSesion.Text = "Cerrar Sesión";
+            this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrarSesion.UseVisualStyleBackColor = true;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            // 
+            // btnAcercaDe
+            // 
+            this.btnAcercaDe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAcercaDe.FlatAppearance.BorderSize = 0;
+            this.btnAcercaDe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAcercaDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcercaDe.ForeColor = System.Drawing.Color.White;
+            this.btnAcercaDe.Location = new System.Drawing.Point(0, 806);
+            this.btnAcercaDe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAcercaDe.Name = "btnAcercaDe";
+            this.btnAcercaDe.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnAcercaDe.Size = new System.Drawing.Size(251, 46);
+            this.btnAcercaDe.TabIndex = 26;
+            this.btnAcercaDe.Text = "Acerca De";
+            this.btnAcercaDe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAcercaDe.UseVisualStyleBackColor = true;
+            this.btnAcercaDe.Click += new System.EventHandler(this.btnAcercaDe_Click);
+            // 
             // lblIdUsuario
             // 
             this.lblIdUsuario.AutoSize = true;
@@ -97,38 +134,39 @@ namespace StockIt
             this.lblIdUsuario.Text = "lblIdUsuario";
             this.lblIdUsuario.Visible = false;
             // 
-            // btnCerrarSesion
-            // 
-            this.btnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
-            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 771);
-            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btnCerrarSesion.Size = new System.Drawing.Size(251, 46);
-            this.btnCerrarSesion.TabIndex = 24;
-            this.btnCerrarSesion.Text = "Cerrar Sesión";
-            this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarSesion.UseVisualStyleBackColor = true;
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
-            // 
             // panelSubMenuReportes
             // 
             this.panelSubMenuReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(163)))), ((int)(((byte)(203)))));
+            this.panelSubMenuReportes.Controls.Add(this.btnReporteClientes);
             this.panelSubMenuReportes.Controls.Add(this.btnReporteVentas);
             this.panelSubMenuReportes.Controls.Add(this.btnReporteReservas);
-            this.panelSubMenuReportes.Controls.Add(this.btnReporteClientes);
             this.panelSubMenuReportes.Controls.Add(this.btnReporteProductos);
+            this.panelSubMenuReportes.Controls.Add(this.btnReporteCompraProductos);
             this.panelSubMenuReportes.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMenuReportes.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.panelSubMenuReportes.Location = new System.Drawing.Point(0, 606);
             this.panelSubMenuReportes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSubMenuReportes.Name = "panelSubMenuReportes";
-            this.panelSubMenuReportes.Size = new System.Drawing.Size(251, 165);
+            this.panelSubMenuReportes.Size = new System.Drawing.Size(251, 200);
             this.panelSubMenuReportes.TabIndex = 12;
+            // 
+            // btnReporteClientes
+            // 
+            this.btnReporteClientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReporteClientes.FlatAppearance.BorderSize = 0;
+            this.btnReporteClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporteClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteClientes.ForeColor = System.Drawing.Color.White;
+            this.btnReporteClientes.Location = new System.Drawing.Point(0, 156);
+            this.btnReporteClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReporteClientes.Name = "btnReporteClientes";
+            this.btnReporteClientes.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnReporteClientes.Size = new System.Drawing.Size(251, 39);
+            this.btnReporteClientes.TabIndex = 4;
+            this.btnReporteClientes.Text = "Clientes";
+            this.btnReporteClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporteClientes.UseVisualStyleBackColor = true;
+            this.btnReporteClientes.Click += new System.EventHandler(this.btnReporteClientes_Click);
             // 
             // btnReporteVentas
             // 
@@ -166,24 +204,6 @@ namespace StockIt
             this.btnReporteReservas.UseVisualStyleBackColor = true;
             this.btnReporteReservas.Click += new System.EventHandler(this.btnReporteReservas_Click);
             // 
-            // btnReporteClientes
-            // 
-            this.btnReporteClientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReporteClientes.FlatAppearance.BorderSize = 0;
-            this.btnReporteClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporteClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporteClientes.ForeColor = System.Drawing.Color.White;
-            this.btnReporteClientes.Location = new System.Drawing.Point(0, 39);
-            this.btnReporteClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReporteClientes.Name = "btnReporteClientes";
-            this.btnReporteClientes.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnReporteClientes.Size = new System.Drawing.Size(251, 39);
-            this.btnReporteClientes.TabIndex = 1;
-            this.btnReporteClientes.Text = "Clientes";
-            this.btnReporteClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporteClientes.UseVisualStyleBackColor = true;
-            this.btnReporteClientes.Click += new System.EventHandler(this.btnReporteClientes_Click);
-            // 
             // btnReporteProductos
             // 
             this.btnReporteProductos.Dock = System.Windows.Forms.DockStyle.Top;
@@ -191,16 +211,34 @@ namespace StockIt
             this.btnReporteProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReporteProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporteProductos.ForeColor = System.Drawing.Color.White;
-            this.btnReporteProductos.Location = new System.Drawing.Point(0, 0);
+            this.btnReporteProductos.Location = new System.Drawing.Point(0, 39);
             this.btnReporteProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReporteProductos.Name = "btnReporteProductos";
             this.btnReporteProductos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnReporteProductos.Size = new System.Drawing.Size(251, 39);
-            this.btnReporteProductos.TabIndex = 0;
+            this.btnReporteProductos.TabIndex = 1;
             this.btnReporteProductos.Text = "Productos";
             this.btnReporteProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReporteProductos.UseVisualStyleBackColor = true;
             this.btnReporteProductos.Click += new System.EventHandler(this.btnReporteProductos_Click);
+            // 
+            // btnReporteCompraProductos
+            // 
+            this.btnReporteCompraProductos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReporteCompraProductos.FlatAppearance.BorderSize = 0;
+            this.btnReporteCompraProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporteCompraProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteCompraProductos.ForeColor = System.Drawing.Color.White;
+            this.btnReporteCompraProductos.Location = new System.Drawing.Point(0, 0);
+            this.btnReporteCompraProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReporteCompraProductos.Name = "btnReporteCompraProductos";
+            this.btnReporteCompraProductos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnReporteCompraProductos.Size = new System.Drawing.Size(251, 39);
+            this.btnReporteCompraProductos.TabIndex = 0;
+            this.btnReporteCompraProductos.Text = "Compras";
+            this.btnReporteCompraProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporteCompraProductos.UseVisualStyleBackColor = true;
+            this.btnReporteCompraProductos.Click += new System.EventHandler(this.btnReporteCompraProductos_Click);
             // 
             // btnReportes
             // 
@@ -458,24 +496,6 @@ namespace StockIt
             this.panelFormularioHijo.Size = new System.Drawing.Size(1231, 1102);
             this.panelFormularioHijo.TabIndex = 1;
             // 
-            // btnAcercaDe
-            // 
-            this.btnAcercaDe.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAcercaDe.FlatAppearance.BorderSize = 0;
-            this.btnAcercaDe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcercaDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAcercaDe.ForeColor = System.Drawing.Color.White;
-            this.btnAcercaDe.Location = new System.Drawing.Point(0, 817);
-            this.btnAcercaDe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAcercaDe.Name = "btnAcercaDe";
-            this.btnAcercaDe.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btnAcercaDe.Size = new System.Drawing.Size(251, 46);
-            this.btnAcercaDe.TabIndex = 26;
-            this.btnAcercaDe.Text = "Acerca De";
-            this.btnAcercaDe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAcercaDe.UseVisualStyleBackColor = true;
-            this.btnAcercaDe.Click += new System.EventHandler(this.btnAcercaDe_Click);
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -513,18 +533,19 @@ namespace StockIt
         private System.Windows.Forms.Button btnAggProductos;
         private System.Windows.Forms.Button btnAggProveedores;
         private System.Windows.Forms.Button btnCategorias;
-        private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Panel panelSubMenuReportes;
         private System.Windows.Forms.Button btnReporteVentas;
         private System.Windows.Forms.Button btnReporteReservas;
-        private System.Windows.Forms.Button btnReporteClientes;
         private System.Windows.Forms.Button btnReporteProductos;
+        private System.Windows.Forms.Button btnReporteCompraProductos;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnReservas;
         private System.Windows.Forms.Button btnClientes;
         public System.Windows.Forms.Label lblIdUsuario;
         public System.Windows.Forms.LinkLabel lklCorreo;
+        private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Button btnAcercaDe;
+        private System.Windows.Forms.Button btnReporteClientes;
     }
 }
 

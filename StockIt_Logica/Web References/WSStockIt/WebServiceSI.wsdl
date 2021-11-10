@@ -795,19 +795,40 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="reporteProductos">
+      <s:element name="encabezadosReporteCompraProductos">
         <s:complexType>
           <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fechaInicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaFinal" type="s:dateTime" />
             <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
-            <s:element minOccurs="1" maxOccurs="1" name="idCategoria" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="estadoProducto" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="reporteProductosResponse">
+      <s:element name="encabezadosReporteCompraProductosResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="reporteProductosResult">
+            <s:element minOccurs="0" maxOccurs="1" name="encabezadosReporteCompraProductosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="detalleReporteCompraProductos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEncabezadoCompra" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="detalleReporteCompraProductosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="detalleReporteCompraProductosResult">
               <s:complexType>
                 <s:sequence>
                   <s:element ref="s:schema" />
@@ -1130,11 +1151,17 @@
   <wsdl:message name="eliminarProductoSoapOut">
     <wsdl:part name="parameters" element="tns:eliminarProductoResponse" />
   </wsdl:message>
-  <wsdl:message name="reporteProductosSoapIn">
-    <wsdl:part name="parameters" element="tns:reporteProductos" />
+  <wsdl:message name="encabezadosReporteCompraProductosSoapIn">
+    <wsdl:part name="parameters" element="tns:encabezadosReporteCompraProductos" />
   </wsdl:message>
-  <wsdl:message name="reporteProductosSoapOut">
-    <wsdl:part name="parameters" element="tns:reporteProductosResponse" />
+  <wsdl:message name="encabezadosReporteCompraProductosSoapOut">
+    <wsdl:part name="parameters" element="tns:encabezadosReporteCompraProductosResponse" />
+  </wsdl:message>
+  <wsdl:message name="detalleReporteCompraProductosSoapIn">
+    <wsdl:part name="parameters" element="tns:detalleReporteCompraProductos" />
+  </wsdl:message>
+  <wsdl:message name="detalleReporteCompraProductosSoapOut">
+    <wsdl:part name="parameters" element="tns:detalleReporteCompraProductosResponse" />
   </wsdl:message>
   <wsdl:message name="fechaAAAAMMDDSoapIn">
     <wsdl:part name="parameters" element="tns:fechaAAAAMMDD" />
@@ -1341,9 +1368,13 @@
       <wsdl:input message="tns:eliminarProductoSoapIn" />
       <wsdl:output message="tns:eliminarProductoSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="reporteProductos">
-      <wsdl:input message="tns:reporteProductosSoapIn" />
-      <wsdl:output message="tns:reporteProductosSoapOut" />
+    <wsdl:operation name="encabezadosReporteCompraProductos">
+      <wsdl:input message="tns:encabezadosReporteCompraProductosSoapIn" />
+      <wsdl:output message="tns:encabezadosReporteCompraProductosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="detalleReporteCompraProductos">
+      <wsdl:input message="tns:detalleReporteCompraProductosSoapIn" />
+      <wsdl:output message="tns:detalleReporteCompraProductosSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="fechaAAAAMMDD">
       <wsdl:input message="tns:fechaAAAAMMDDSoapIn" />
@@ -1769,8 +1800,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="reporteProductos">
-      <soap:operation soapAction="http://tempuri.org/reporteProductos" style="document" />
+    <wsdl:operation name="encabezadosReporteCompraProductos">
+      <soap:operation soapAction="http://tempuri.org/encabezadosReporteCompraProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="detalleReporteCompraProductos">
+      <soap:operation soapAction="http://tempuri.org/detalleReporteCompraProductos" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2222,8 +2262,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="reporteProductos">
-      <soap12:operation soapAction="http://tempuri.org/reporteProductos" style="document" />
+    <wsdl:operation name="encabezadosReporteCompraProductos">
+      <soap12:operation soapAction="http://tempuri.org/encabezadosReporteCompraProductos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="detalleReporteCompraProductos">
+      <soap12:operation soapAction="http://tempuri.org/detalleReporteCompraProductos" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
