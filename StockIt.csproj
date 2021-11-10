@@ -293,11 +293,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ReportClasses\CFacturaReserva.cs" />
     <Compile Include="ReportClasses\CReporteCategorias.cs" />
     <Compile Include="ReportClasses\CReporteClientes.cs" />
     <Compile Include="ReportClasses\CReporteProductos.cs" />
     <Compile Include="ReportClasses\CReporteReservas.cs" />
     <Compile Include="ReportClasses\CReporteVentas.cs" />
+    <Compile Include="ReportClasses\PageEventHelperRU.cs" />
     <Compile Include="Utils.cs" />
     <EmbeddedResource Include="CustomControls\CategoriaCard.resx">
       <DependentUpon>CategoriaCard.cs</DependentUpon>
@@ -422,12 +424,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\noImage.png" />
-    <None Include="Resources\backButton.png" />
+    <None Include="Resources\noImage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\backButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\printingButton.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Content Include="Resources\logoStockIt.jpg" />
+    <None Include="Resources\logoStockIt.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="src\images\no-image.png" />
   </ItemGroup>
   <ItemGroup>

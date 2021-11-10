@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt.exe" size="255496">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt.exe" size="258568">
       <assemblyIdentity name="StockIt" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>9/WBptavH0UwCTSF+1KuhrwhDZRoePaG0e+vASyhsK0=</dsig:DigestValue>
+        <dsig:DigestValue>JJ8evztEqjzx2cRum0aFQenyyPpptxgTOGv/5fVeuLM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -85,31 +85,22 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jcGjF7swUB2wVjOSB2x5VjRLcc16kix7e6T0b3ybVmA=</dsig:DigestValue>
+        <dsig:DigestValue>NTafJHkU1n42h592r9ZxU8bcGPEZmqUX04ncqtXNR3U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt_Logica.dll" size="103424">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt_Logica.dll" size="110592">
       <assemblyIdentity name="StockIt_Logica" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LrzhB2AonSNSHL5sYME/r6F0Mr11Kza8Ez1UX1/TJ40=</dsig:DigestValue>
+        <dsig:DigestValue>pqRSpVV3ddHjtwZ3t191n0g7HIrJV7+F+T7RsmvjiRs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Resources\logoStockIt.jpg" size="177252">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>xYnO6lBpLsMLKobSReRax/p20dW5U57UWgj5EHrOKws=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="src\images\no-image.png" size="69223">
     <hash>
       <dsig:Transforms>

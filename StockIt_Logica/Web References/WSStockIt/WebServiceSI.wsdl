@@ -613,6 +613,48 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="seleccionarEncabezadoFacturacionByIdEncabezadoFacturacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEncabezadoFacturacion" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarDetalleFacturacionByIdEncabezadoFacturacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEncabezadoFacturacion" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarDetalleFacturacionByIdEncabezadoFacturacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="seleccionarDetalleFacturacionByIdEncabezadoFacturacionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="obtenerNumeroCompra">
         <s:complexType>
           <s:sequence>
@@ -803,6 +845,16 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="fechaEntregaDDMMAAAAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="fechaHoraActual">
+        <s:complexType />
+      </s:element>
+      <s:element name="fechaHoraActualResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fechaHoraActualResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1018,6 +1070,18 @@
   <wsdl:message name="insertarFacturaSoapOut">
     <wsdl:part name="parameters" element="tns:insertarFacturaResponse" />
   </wsdl:message>
+  <wsdl:message name="seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionSoapIn">
+    <wsdl:part name="parameters" element="tns:seleccionarEncabezadoFacturacionByIdEncabezadoFacturacion" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionSoapOut">
+    <wsdl:part name="parameters" element="tns:seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarDetalleFacturacionByIdEncabezadoFacturacionSoapIn">
+    <wsdl:part name="parameters" element="tns:seleccionarDetalleFacturacionByIdEncabezadoFacturacion" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarDetalleFacturacionByIdEncabezadoFacturacionSoapOut">
+    <wsdl:part name="parameters" element="tns:seleccionarDetalleFacturacionByIdEncabezadoFacturacionResponse" />
+  </wsdl:message>
   <wsdl:message name="obtenerNumeroCompraSoapIn">
     <wsdl:part name="parameters" element="tns:obtenerNumeroCompra" />
   </wsdl:message>
@@ -1089,6 +1153,12 @@
   </wsdl:message>
   <wsdl:message name="fechaEntregaDDMMAAAASoapOut">
     <wsdl:part name="parameters" element="tns:fechaEntregaDDMMAAAAResponse" />
+  </wsdl:message>
+  <wsdl:message name="fechaHoraActualSoapIn">
+    <wsdl:part name="parameters" element="tns:fechaHoraActual" />
+  </wsdl:message>
+  <wsdl:message name="fechaHoraActualSoapOut">
+    <wsdl:part name="parameters" element="tns:fechaHoraActualResponse" />
   </wsdl:message>
   <wsdl:portType name="WebServiceSISoap">
     <wsdl:operation name="HelloWorld">
@@ -1231,6 +1301,14 @@
       <wsdl:input message="tns:insertarFacturaSoapIn" />
       <wsdl:output message="tns:insertarFacturaSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="seleccionarEncabezadoFacturacionByIdEncabezadoFacturacion">
+      <wsdl:input message="tns:seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionSoapIn" />
+      <wsdl:output message="tns:seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarDetalleFacturacionByIdEncabezadoFacturacion">
+      <wsdl:input message="tns:seleccionarDetalleFacturacionByIdEncabezadoFacturacionSoapIn" />
+      <wsdl:output message="tns:seleccionarDetalleFacturacionByIdEncabezadoFacturacionSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="obtenerNumeroCompra">
       <wsdl:input message="tns:obtenerNumeroCompraSoapIn" />
       <wsdl:output message="tns:obtenerNumeroCompraSoapOut" />
@@ -1278,6 +1356,10 @@
     <wsdl:operation name="fechaEntregaDDMMAAAA">
       <wsdl:input message="tns:fechaEntregaDDMMAAAASoapIn" />
       <wsdl:output message="tns:fechaEntregaDDMMAAAASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="fechaHoraActual">
+      <wsdl:input message="tns:fechaHoraActualSoapIn" />
+      <wsdl:output message="tns:fechaHoraActualSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceSISoap" type="tns:WebServiceSISoap">
@@ -1597,6 +1679,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="seleccionarEncabezadoFacturacionByIdEncabezadoFacturacion">
+      <soap:operation soapAction="http://tempuri.org/seleccionarEncabezadoFacturacionByIdEncabezadoFacturacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarDetalleFacturacionByIdEncabezadoFacturacion">
+      <soap:operation soapAction="http://tempuri.org/seleccionarDetalleFacturacionByIdEncabezadoFacturacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="obtenerNumeroCompra">
       <soap:operation soapAction="http://tempuri.org/obtenerNumeroCompra" style="document" />
       <wsdl:input>
@@ -1698,6 +1798,15 @@
     </wsdl:operation>
     <wsdl:operation name="fechaEntregaDDMMAAAA">
       <soap:operation soapAction="http://tempuri.org/fechaEntregaDDMMAAAA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fechaHoraActual">
+      <soap:operation soapAction="http://tempuri.org/fechaHoraActual" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2023,6 +2132,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="seleccionarEncabezadoFacturacionByIdEncabezadoFacturacion">
+      <soap12:operation soapAction="http://tempuri.org/seleccionarEncabezadoFacturacionByIdEncabezadoFacturacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarDetalleFacturacionByIdEncabezadoFacturacion">
+      <soap12:operation soapAction="http://tempuri.org/seleccionarDetalleFacturacionByIdEncabezadoFacturacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="obtenerNumeroCompra">
       <soap12:operation soapAction="http://tempuri.org/obtenerNumeroCompra" style="document" />
       <wsdl:input>
@@ -2124,6 +2251,15 @@
     </wsdl:operation>
     <wsdl:operation name="fechaEntregaDDMMAAAA">
       <soap12:operation soapAction="http://tempuri.org/fechaEntregaDDMMAAAA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fechaHoraActual">
+      <soap12:operation soapAction="http://tempuri.org/fechaHoraActual" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

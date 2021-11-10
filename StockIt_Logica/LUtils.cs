@@ -45,5 +45,17 @@ namespace StockIt_Logica
                 return "";
             }
         }
+
+        public string fechaHoraActual()
+        {
+            try
+            {
+                return WS.fechaHoraActual();
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
     }
 }

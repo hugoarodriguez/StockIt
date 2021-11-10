@@ -100,6 +100,10 @@ namespace StockIt_Logica.WSStockIt {
         
         private System.Threading.SendOrPostCallback insertarFacturaOperationCompleted;
         
+        private System.Threading.SendOrPostCallback seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback seleccionarDetalleFacturacionByIdEncabezadoFacturacionOperationCompleted;
+        
         private System.Threading.SendOrPostCallback obtenerNumeroCompraOperationCompleted;
         
         private System.Threading.SendOrPostCallback verificarExistenciaCantidadesNuevasOperationCompleted;
@@ -123,6 +127,8 @@ namespace StockIt_Logica.WSStockIt {
         private System.Threading.SendOrPostCallback fechaDDMMAAAAOperationCompleted;
         
         private System.Threading.SendOrPostCallback fechaEntregaDDMMAAAAOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback fechaHoraActualOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -268,6 +274,12 @@ namespace StockIt_Logica.WSStockIt {
         public event insertarFacturaCompletedEventHandler insertarFacturaCompleted;
         
         /// <remarks/>
+        public event seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionCompletedEventHandler seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionCompleted;
+        
+        /// <remarks/>
+        public event seleccionarDetalleFacturacionByIdEncabezadoFacturacionCompletedEventHandler seleccionarDetalleFacturacionByIdEncabezadoFacturacionCompleted;
+        
+        /// <remarks/>
         public event obtenerNumeroCompraCompletedEventHandler obtenerNumeroCompraCompleted;
         
         /// <remarks/>
@@ -302,6 +314,9 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         public event fechaEntregaDDMMAAAACompletedEventHandler fechaEntregaDDMMAAAACompleted;
+        
+        /// <remarks/>
+        public event fechaHoraActualCompletedEventHandler fechaHoraActualCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -1413,6 +1428,64 @@ namespace StockIt_Logica.WSStockIt {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/seleccionarEncabezadoFacturacionByIdEncabezadoFacturacion", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet seleccionarEncabezadoFacturacionByIdEncabezadoFacturacion(int idEncabezadoFacturacion) {
+            object[] results = this.Invoke("seleccionarEncabezadoFacturacionByIdEncabezadoFacturacion", new object[] {
+                        idEncabezadoFacturacion});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionAsync(int idEncabezadoFacturacion) {
+            this.seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionAsync(idEncabezadoFacturacion, null);
+        }
+        
+        /// <remarks/>
+        public void seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionAsync(int idEncabezadoFacturacion, object userState) {
+            if ((this.seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionOperationCompleted == null)) {
+                this.seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnseleccionarEncabezadoFacturacionByIdEncabezadoFacturacionOperationCompleted);
+            }
+            this.InvokeAsync("seleccionarEncabezadoFacturacionByIdEncabezadoFacturacion", new object[] {
+                        idEncabezadoFacturacion}, this.seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionOperationCompleted, userState);
+        }
+        
+        private void OnseleccionarEncabezadoFacturacionByIdEncabezadoFacturacionOperationCompleted(object arg) {
+            if ((this.seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionCompleted(this, new seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/seleccionarDetalleFacturacionByIdEncabezadoFacturacion", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet seleccionarDetalleFacturacionByIdEncabezadoFacturacion(int idEncabezadoFacturacion) {
+            object[] results = this.Invoke("seleccionarDetalleFacturacionByIdEncabezadoFacturacion", new object[] {
+                        idEncabezadoFacturacion});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void seleccionarDetalleFacturacionByIdEncabezadoFacturacionAsync(int idEncabezadoFacturacion) {
+            this.seleccionarDetalleFacturacionByIdEncabezadoFacturacionAsync(idEncabezadoFacturacion, null);
+        }
+        
+        /// <remarks/>
+        public void seleccionarDetalleFacturacionByIdEncabezadoFacturacionAsync(int idEncabezadoFacturacion, object userState) {
+            if ((this.seleccionarDetalleFacturacionByIdEncabezadoFacturacionOperationCompleted == null)) {
+                this.seleccionarDetalleFacturacionByIdEncabezadoFacturacionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnseleccionarDetalleFacturacionByIdEncabezadoFacturacionOperationCompleted);
+            }
+            this.InvokeAsync("seleccionarDetalleFacturacionByIdEncabezadoFacturacion", new object[] {
+                        idEncabezadoFacturacion}, this.seleccionarDetalleFacturacionByIdEncabezadoFacturacionOperationCompleted, userState);
+        }
+        
+        private void OnseleccionarDetalleFacturacionByIdEncabezadoFacturacionOperationCompleted(object arg) {
+            if ((this.seleccionarDetalleFacturacionByIdEncabezadoFacturacionCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.seleccionarDetalleFacturacionByIdEncabezadoFacturacionCompleted(this, new seleccionarDetalleFacturacionByIdEncabezadoFacturacionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/obtenerNumeroCompra", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public int obtenerNumeroCompra(int idUsuario) {
             object[] results = this.Invoke("obtenerNumeroCompra", new object[] {
@@ -1783,6 +1856,33 @@ namespace StockIt_Logica.WSStockIt {
             if ((this.fechaEntregaDDMMAAAACompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.fechaEntregaDDMMAAAACompleted(this, new fechaEntregaDDMMAAAACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/fechaHoraActual", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string fechaHoraActual() {
+            object[] results = this.Invoke("fechaHoraActual", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void fechaHoraActualAsync() {
+            this.fechaHoraActualAsync(null);
+        }
+        
+        /// <remarks/>
+        public void fechaHoraActualAsync(object userState) {
+            if ((this.fechaHoraActualOperationCompleted == null)) {
+                this.fechaHoraActualOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfechaHoraActualOperationCompleted);
+            }
+            this.InvokeAsync("fechaHoraActual", new object[0], this.fechaHoraActualOperationCompleted, userState);
+        }
+        
+        private void OnfechaHoraActualOperationCompleted(object arg) {
+            if ((this.fechaHoraActualCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.fechaHoraActualCompleted(this, new fechaHoraActualCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2717,6 +2817,58 @@ namespace StockIt_Logica.WSStockIt {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionCompletedEventHandler(object sender, seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal seleccionarEncabezadoFacturacionByIdEncabezadoFacturacionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void seleccionarDetalleFacturacionByIdEncabezadoFacturacionCompletedEventHandler(object sender, seleccionarDetalleFacturacionByIdEncabezadoFacturacionCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class seleccionarDetalleFacturacionByIdEncabezadoFacturacionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal seleccionarDetalleFacturacionByIdEncabezadoFacturacionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void obtenerNumeroCompraCompletedEventHandler(object sender, obtenerNumeroCompraCompletedEventArgs e);
     
     /// <remarks/>
@@ -3014,6 +3166,32 @@ namespace StockIt_Logica.WSStockIt {
         private object[] results;
         
         internal fechaEntregaDDMMAAAACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void fechaHoraActualCompletedEventHandler(object sender, fechaHoraActualCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class fechaHoraActualCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal fechaHoraActualCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

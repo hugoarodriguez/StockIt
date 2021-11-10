@@ -1,4 +1,5 @@
 ﻿using StockIt.CustomControls;
+using StockIt.ReportClasses;
 using StockIt_Entidades;
 using StockIt_Logica;
 using System;
@@ -78,16 +79,17 @@ namespace StockIt
                             EEncabezadoReservas eEncabezadoReservas = new EEncabezadoReservas();
                             eEncabezadoReservas.IdEncabezadoReserva = int.Parse(reservaCardItem.Name);
 
-                            int r = new LFacturacion().InsertarDetalleReserva(eEncabezadoReservas);
+                            int idEncabezadoFacturacion = new LDetalleFacturacion().InsertarDetalleFacturacion(eEncabezadoReservas);
 
-                            if (r > 0)
+                            if (idEncabezadoFacturacion > 0)
                             {
                                 reservaCardItem.Dispose();
-                                utils.messageBoxOperacionExitosa("Se facturó la reserva del cliente " + reservaCardItem.NomClie + " " +
-                                    "con número de teléfono " + reservaCardItem.TelClie + ".");
-                                //TODO: Agregar generación de la factura
+
+                                //Generamos la factura
+                                CFacturaReserva cFacturaReserva = new CFacturaReserva();
+                                cFacturaReserva.generarFacturaVenta(idEncabezadoFacturacion);
                             }
-                            else if (r == -1)
+                            else if (idEncabezadoFacturacion == -1)
                             {
                                 utils.messageBoxAlerta("No se pudo facturar la reserva." +
                                     "\nIntenté más tarde.");
