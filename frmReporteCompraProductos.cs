@@ -18,6 +18,7 @@ namespace StockIt
         Utils utils = new Utils();
         List<EReporteProductosEncabezado> eReporteProductosEncabezadoList = new List<EReporteProductosEncabezado>();
         List<EReporteProductosDetalle> eReporteProductosDetalleList = new List<EReporteProductosDetalle>();
+        EReporteProductosEncabezado eReporteProductosEncabezado;
         int idEncabezadoCompraProductos = 0;
 
         public frmReporteCompraProductos()
@@ -81,7 +82,7 @@ namespace StockIt
             //Llamar método de clase para imprimir este reporte
             CReporteCompraProductos cReporteCompraProductos = new CReporteCompraProductos();
             cReporteCompraProductos.generarReporte(idEncabezadoCompraProductos, eReporteProductosEncabezadoList, eReporteProductosDetalleList,
-                dtpFechaInicio.Value.Date.ToString("dd-MM-yyyy"), dtpFechaFinal.Value.Date.ToString("dd-MM-yyyy"));
+                eReporteProductosEncabezado, dtpFechaInicio.Value.Date.ToString("dd-MM-yyyy"), dtpFechaFinal.Value.Date.ToString("dd-MM-yyyy"));
         }
 
         private void btnImprimir_MouseHover(object sender, EventArgs e)
@@ -169,6 +170,12 @@ namespace StockIt
                         dtpFechaFinal.Enabled = false;
                         btnFiltrar.Enabled = false;
                         btnLimpiar.Text = "Volver";
+
+                        //Obtenemos los datos para el encabezado de la compra
+                        eReporteProductosEncabezado = new EReporteProductosEncabezado();
+                        eReporteProductosEncabezado.NombreProveedor = row.Cells[2].Value.ToString();
+                        eReporteProductosEncabezado.FechaIngreso = DateTime.Parse(row.Cells[3].Value.ToString());
+                        eReporteProductosEncabezado.Monto = Double.Parse(row.Cells[4].Value.ToString().Replace("$", ""));
 
                         idEncabezadoCompraProductos = int.Parse(row.Cells[0].Value.ToString());
                         //Llenar dgvProductos con el detalle de la compra seleccionada
