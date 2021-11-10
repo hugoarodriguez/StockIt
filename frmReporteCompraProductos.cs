@@ -29,7 +29,7 @@ namespace StockIt
         {
             dtpFechaInicio.Value = DateTime.Parse(new LUtils().fechaHoraActual()).Date;
             dtpFechaFinal.Value = DateTime.Parse(new LUtils().fechaHoraActual()).Date;
-            llenarDataGridView();
+            llenarDataGridViewConEncabezados();
         }
 
         private void dtpFechaInicio_ValueChanged(object sender, EventArgs e)
@@ -51,16 +51,29 @@ namespace StockIt
             }
             else
             {
-                llenarDataGridView();
+                llenarDataGridViewConEncabezados();
                 btnImprimir.Enabled = true;
             }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            dtpFechaInicio.Value = DateTime.Parse(new LUtils().fechaHoraActual()).Date;
-            dtpFechaFinal.Value = DateTime.Parse(new LUtils().fechaHoraActual()).Date;
-            llenarDataGridView();
+            if (idEncabezadoCompraProductos > 0)
+            {
+                idEncabezadoCompraProductos = 0;
+                dtpFechaInicio.Enabled = true;
+                dtpFechaFinal.Enabled = true;
+                btnFiltrar.Enabled = true;
+                btnLimpiar.Text = "Limpiar";
+                llenarDataGridViewConEncabezados();
+            }
+            else
+            {
+                dtpFechaInicio.Value = DateTime.Parse(new LUtils().fechaHoraActual()).Date;
+                dtpFechaFinal.Value = DateTime.Parse(new LUtils().fechaHoraActual()).Date;
+                llenarDataGridViewConEncabezados();
+            }
+            
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -81,19 +94,22 @@ namespace StockIt
             btnImprimir.BorderStyle = BorderStyle.None;
         }
 
+        private void gridProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            seleccionarCompra();
+        }
 
         #region Métodos Creados
 
-        private void llenarDataGridView()
+        private void llenarDataGridViewConEncabezados()
         {
             DateTime fechaInicio = dtpFechaInicio.Value.Date;
             DateTime fechaFinal = dtpFechaFinal.Value.Date;
 
             eReporteProductosEncabezadoList = new LProductos().EncabezadosReporteCompraProductos(fechaInicio, fechaFinal, utils.getIdUsuario());
 
-            frmSeleccionarCliente frmSeleccionarCliente = new frmSeleccionarCliente();
-
             DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
             dt.Columns.Add("#");
             dt.Columns.Add("PROVEEDOR");
             dt.Columns.Add("FECHA COMPRA");
@@ -103,17 +119,72 @@ namespace StockIt
             foreach (EReporteProductosEncabezado encabezadoCompra in eReporteProductosEncabezadoList)
             {
                 DataRow dr = dt.NewRow();
-                dr.Table.Rows.Add(numRegistro, encabezadoCompra.NombreProveedor, encabezadoCompra.FechaIngreso.ToString("dd-MM-yyyy"), 
-                    String.Concat("$", encabezadoCompra.Monto.ToString("0.00")));
+                dr.Table.Rows.Add(encabezadoCompra.IdEncCompraProductos, numRegistro, encabezadoCompra.NombreProveedor, 
+                    encabezadoCompra.FechaIngreso.ToString("dd-MM-yyyy"), String.Concat("$", encabezadoCompra.Monto.ToString("0.00")));
                 numRegistro++;
             }
-            gridProductos.DataSource = dt;
+            dgvProductos.DataSource = dt;
+            dgvProductos.Columns[0].Visible = false;//Ocultamos la columa del ID
             deshabilitarOrdenamientoDGV();
+        }
+
+        private void llenarDataGridViewConDetalle()
+        {
+            eReporteProductosDetalleList = new LProductos().DetalleReporteCompraProductos(idEncabezadoCompraProductos);
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("#");
+            dt.Columns.Add("PRODUCTO");
+            dt.Columns.Add("CANTIDAD");
+            dt.Columns.Add("PRECIO LOTE");
+            dt.Columns.Add("PRECIO UNITARIO\n (COMPRA)");
+            dt.Columns.Add("PRECIO UNITARIO\n (VENTA)");
+
+            int numRegistro = 1;
+            foreach (EReporteProductosDetalle detalleCompra in eReporteProductosDetalleList)
+            {
+                DataRow dr = dt.NewRow();
+                dr.Table.Rows.Add(detalleCompra.IdEncCompraProductos, numRegistro, detalleCompra.NombreProducto, detalleCompra.Cantidad.ToString(), 
+                    String.Concat("$", detalleCompra.PrecioLote.ToString("0.00")),
+                    String.Concat("$", detalleCompra.PrecioUnitario.ToString("0.00")),
+                    String.Concat("$", detalleCompra.PrecioVenta.ToString("0.00")));
+                numRegistro++;
+            }
+            dgvProductos.DataSource = dt;
+            dgvProductos.Columns[0].Visible = false;//Ocultamos la columa del ID
+            deshabilitarOrdenamientoDGV();
+        }
+
+        private void seleccionarCompra()
+        {
+            if (dgvProductos.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvProductos.SelectedRows)
+                {
+                    try
+                    {
+                        //Deshabilitamos las opciones para cambiar el filtro
+                        dtpFechaInicio.Enabled = false;
+                        dtpFechaFinal.Enabled = false;
+                        btnFiltrar.Enabled = false;
+                        btnLimpiar.Text = "Volver";
+
+                        idEncabezadoCompraProductos = int.Parse(row.Cells[0].Value.ToString());
+                        //Llenar dgvProductos con el detalle de la compra seleccionada
+                        llenarDataGridViewConDetalle();
+                    }
+                    catch (Exception)
+                    {
+                        idEncabezadoCompraProductos = 0;
+                    }
+                }
+            }
         }
 
         private void deshabilitarOrdenamientoDGV()
         {
-            foreach (DataGridViewColumn column in gridProductos.Columns)
+            foreach (DataGridViewColumn column in dgvProductos.Columns)
             {
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }

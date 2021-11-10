@@ -32,14 +32,14 @@ namespace StockIt
             this.btnImprimir = new System.Windows.Forms.PictureBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
-            this.gridProductos = new System.Windows.Forms.DataGridView();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnImprimir)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnImprimir
@@ -89,24 +89,25 @@ namespace StockIt
             this.btnFiltrar.UseVisualStyleBackColor = false;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
-            // gridProductos
+            // dgvProductos
             // 
-            this.gridProductos.AllowUserToAddRows = false;
-            this.gridProductos.AllowUserToDeleteRows = false;
-            this.gridProductos.AllowUserToResizeColumns = false;
-            this.gridProductos.AllowUserToResizeRows = false;
-            this.gridProductos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gridProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            this.gridProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridProductos.Location = new System.Drawing.Point(101, 300);
-            this.gridProductos.Margin = new System.Windows.Forms.Padding(4);
-            this.gridProductos.Name = "gridProductos";
-            this.gridProductos.ReadOnly = true;
-            this.gridProductos.RowHeadersWidth = 51;
-            this.gridProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridProductos.Size = new System.Drawing.Size(933, 400);
-            this.gridProductos.TabIndex = 30;
+            this.dgvProductos.AllowUserToAddRows = false;
+            this.dgvProductos.AllowUserToDeleteRows = false;
+            this.dgvProductos.AllowUserToResizeColumns = false;
+            this.dgvProductos.AllowUserToResizeRows = false;
+            this.dgvProductos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Location = new System.Drawing.Point(101, 300);
+            this.dgvProductos.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.ReadOnly = true;
+            this.dgvProductos.RowHeadersWidth = 51;
+            this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProductos.Size = new System.Drawing.Size(933, 400);
+            this.dgvProductos.TabIndex = 30;
+            this.dgvProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellDoubleClick);
             // 
             // label1
             // 
@@ -175,7 +176,7 @@ namespace StockIt
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnFiltrar);
-            this.Controls.Add(this.gridProductos);
+            this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -184,7 +185,7 @@ namespace StockIt
             this.Text = "frmReporteCompraProductos";
             this.Load += new System.EventHandler(this.frmReporteCompraProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnImprimir)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,7 +196,7 @@ namespace StockIt
         private System.Windows.Forms.PictureBox btnImprimir;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnFiltrar;
-        private System.Windows.Forms.DataGridView gridProductos;
+        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpFechaFinal;
         private System.Windows.Forms.DateTimePicker dtpFechaInicio;
