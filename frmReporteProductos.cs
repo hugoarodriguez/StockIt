@@ -20,6 +20,7 @@ namespace StockIt
         int idProducto = 0;
         string nombreCategoria;
         string nombreProducto;
+        List<EReporteProductosDetalle> eReporteProductosDetalleList;
         public frmReporteProductos()
         {
             InitializeComponent();
@@ -37,9 +38,9 @@ namespace StockIt
         {
             getValoresSeleccionados();
             
-            /*CReporteProductos cReporteProductos = new CReporteProductos();
-            cReporteProductos.generarReporteProductos(utils.getIdUsuario(), idCategoria, nombreCategoria, 
-              estadoProducto, nombreProducto);*/
+            CReporteProductos cReporteProductos = new CReporteProductos();
+            cReporteProductos.generarReporte(idCategoria, idProducto, dtpFechaInicio.Value.Date.ToString("dd-MM-yyyy"),
+                dtpFechaFinal.Value.Date.ToString("dd-MM-yyyy"), eReporteProductosDetalleList, nombreCategoria, nombreProducto);
         }
 
         private void btnImprimir_MouseHover(object sender, EventArgs e)
@@ -156,7 +157,7 @@ namespace StockIt
             DateTime fechaInicio = dtpFechaInicio.Value.Date;
             DateTime fechaFinal = dtpFechaFinal.Value.Date;
 
-            List<EReporteProductosDetalle> eReporteProductosDetalleList = new LProductos().ReporteProductos(idProducto, fechaInicio, fechaFinal, idCategoria, 
+            eReporteProductosDetalleList = new LProductos().ReporteProductos(idProducto, fechaInicio, fechaFinal, idCategoria, 
                 utils.getIdUsuario());
 
             DataTable dt = new DataTable();
