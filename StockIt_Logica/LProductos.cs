@@ -216,23 +216,25 @@ namespace StockIt_Logica
 
         //Método para generar Reporte de Productos
         /* Modificar cuando se agrege el método necesario en el WebService */
-        public List<EReporteProductos> ReporteProductos(int idUsuario, int idCategoria, string estadoProducto)
+        public List<EReporteProductosDetalle> ReporteProductos(int idProducto, DateTime fechaInicio, DateTime fechaFinal, int idCategoria, int idUsuario)
         {
-            List<EReporteProductos> lista = new List<EReporteProductos>();
+            List<EReporteProductosDetalle> lista = new List<EReporteProductosDetalle>();
             try
             {
-                //DataSet ds = WS.reporteProductos(idUsuario, idCategoria, estadoProducto);
-                DataSet ds = new DataSet();
+                DataSet ds = WS.detalleReporteCompraProductosFiltros(idProducto, fechaInicio, fechaFinal, idCategoria, idUsuario);
 
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
-                    EReporteProductos eReporteProductos = new EReporteProductos();
-                    eReporteProductos.NombreProducto = row["NOMBRE_PRODUCTO"].ToString();
-                    eReporteProductos.NombreProveedor = row["NOMBRE_PROVEEDOR"].ToString();
-                    eReporteProductos.Existencia = int.Parse(row["EXISTENCIA"].ToString());
-                    eReporteProductos.PrecioUnitario = double.Parse(row["PRECIO_UNITARIO"].ToString());
-                    eReporteProductos.PrecioVenta = double.Parse(row["PRECIO_REAL"].ToString());
-                    lista.Add(eReporteProductos);
+                    EReporteProductosDetalle eReporteProductosDetalle = new EReporteProductosDetalle();
+                    eReporteProductosDetalle.IdProducto = int.Parse(row["ID_PRODUCTO"].ToString());
+                    eReporteProductosDetalle.NombreProducto = row["NOMBRE_PRODUCTO"].ToString();
+                    eReporteProductosDetalle.Cantidad = int.Parse(row["CANTIDAD"].ToString());
+                    eReporteProductosDetalle.PrecioLote = double.Parse(row["PRECIO_LOTE"].ToString());
+                    eReporteProductosDetalle.PrecioUnitario = double.Parse(row["PRECIO_UNITARIO"].ToString());
+                    eReporteProductosDetalle.PrecioVenta = double.Parse(row["PRECIO_REAL"].ToString());
+                    eReporteProductosDetalle.NombreProveedor = row["NOMBRE_PROVEEDOR"].ToString();
+                    eReporteProductosDetalle.FechaIngreso = DateTime.Parse(row["FECHA_INGRESO"].ToString());
+                    lista.Add(eReporteProductosDetalle);
                 }
 
                 return lista;
@@ -240,6 +242,22 @@ namespace StockIt_Logica
             catch (Exception)
             {
                 return lista;
+            }
+        }
+
+        //Método para llenar DropDownList de Productos en frmReporteProductos
+        /* Modificar cuando se agrege el método necesario en el WebService */
+        public DataTable seleccionarProductosByIdCategoria(int idCategoria)
+        {
+            try
+            {
+                DataSet ds = WS.seleccionarProductosByIdCategoria(idCategoria);
+
+                return ds.Tables[0];
+            }
+            catch (Exception)
+            {
+                return new DataTable();
             }
         }
     }

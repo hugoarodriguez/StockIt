@@ -17,9 +17,9 @@ namespace StockIt
     {
         Utils utils = new Utils();
         int idCategoria = 0;
+        int idProducto = 0;
         string nombreCategoria;
-        string estadoProducto = "";
-        string nombreEstado;
+        string nombreProducto;
         public frmReporteProductos()
         {
             InitializeComponent();
@@ -29,16 +29,17 @@ namespace StockIt
         {
             llenarDataGridView();
             llenarCbmCategorias();
-            llenarCmbEstadoProc();
+            llenarCmbProductos();
+            cmbProductos.Enabled = false;
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             getValoresSeleccionados();
             
-            CReporteProductos cReporteProductos = new CReporteProductos();
+            /*CReporteProductos cReporteProductos = new CReporteProductos();
             cReporteProductos.generarReporteProductos(utils.getIdUsuario(), idCategoria, nombreCategoria, 
-              estadoProducto, nombreEstado);
+              estadoProducto, nombreProducto);*/
         }
 
         private void btnImprimir_MouseHover(object sender, EventArgs e)
@@ -54,18 +55,35 @@ namespace StockIt
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             getValoresSeleccionados();
-
             llenarDataGridView();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            dtpFechaInicio.Value = DateTime.Parse(new LUtils().fechaHoraActual()).Date;
+            dtpFechaFinal.Value = DateTime.Parse(new LUtils().fechaHoraActual()).Date;
             cmbCateProc.SelectedIndex = 0;
-            cmbEstadoProc.SelectedIndex = 0;
+            cmbProductos.SelectedIndex = 0;
             getValoresSeleccionados();
             llenarDataGridView();
         }
 
+        private void cmbCateProc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            getValoresSeleccionados();
+            if (cmbCateProc.SelectedIndex > 0)
+            {
+                llenarCmbProductos();
+                cmbProductos.Enabled = true;
+            }
+            else
+            {
+                llenarCmbProductos();
+                cmbProductos.Enabled = false;
+            }
+        }
+
+        #region Métodos Creados
         private void getValoresSeleccionados()
         {
             if (cmbCateProc.SelectedIndex > 0)
@@ -84,20 +102,20 @@ namespace StockIt
                 nombreCategoria = "";
             }
 
-            if (cmbEstadoProc.SelectedIndex == 1)
+            if (cmbProductos.SelectedIndex > 0)
             {
-                estadoProducto = "A";
-                nombreEstado = "ACTIVO";
-            }
-            else if (cmbEstadoProc.SelectedIndex == 2)
-            {
-                estadoProducto = "I";
-                nombreEstado = "INACTIVO";
+                idProducto = int.Parse(cmbProductos.SelectedValue.ToString());
+
+                DataRowView rowView = cmbProductos.SelectedItem as DataRowView;
+                if (rowView != null)
+                {
+                    nombreProducto = rowView["NOMBRE_PRODUCTO"].ToString();
+                }
             }
             else
             {
-                estadoProducto = "";
-                nombreEstado = "";
+                idProducto = 0;
+                nombreProducto = "";
             }
         }
 
@@ -117,38 +135,62 @@ namespace StockIt
             cmbCateProc.SelectedIndex = 0;
         }
 
-        private void llenarCmbEstadoProc()
+        private void llenarCmbProductos()
         {
-            cmbEstadoProc.Items.Add("TODOS");
-            cmbEstadoProc.Items.Add("ACTIVO");
-            cmbEstadoProc.Items.Add("INACTIVO");
+            DataTable dt = new LProductos().seleccionarProductosByIdCategoria(idCategoria);
 
-            cmbEstadoProc.SelectedIndex = 0;
+            DataRow dr = dt.NewRow();
+            dr["ID_PRODUCTO"] = "0";
+            dr["NOMBRE_PRODUCTO"] = "TODOS";
+            dt.Rows.InsertAt(dr, 0);
+
+            cmbProductos.DisplayMember = "NOMBRE_PRODUCTO";
+            cmbProductos.ValueMember = "ID_PRODUCTO";
+            cmbProductos.DataSource = dt;
+
+            cmbProductos.SelectedIndex = 0;
         }
 
         private void llenarDataGridView()
         {
-            List<EReporteProductos> eReporteProductosList = new LProductos().ReporteProductos(utils.getIdUsuario(), idCategoria, estadoProducto);
+            DateTime fechaInicio = dtpFechaInicio.Value.Date;
+            DateTime fechaFinal = dtpFechaFinal.Value.Date;
 
-            frmSeleccionarCliente frmSeleccionarCliente = new frmSeleccionarCliente();
+            List<EReporteProductosDetalle> eReporteProductosDetalleList = new LProductos().ReporteProductos(idProducto, fechaInicio, fechaFinal, idCategoria, 
+                utils.getIdUsuario());
 
             DataTable dt = new DataTable();
             dt.Columns.Add("#");
             dt.Columns.Add("PRODUCTO");
-            dt.Columns.Add("PROVEEDOR");
-            dt.Columns.Add("EXISTENCIAS");
-            dt.Columns.Add("PRECIO UNIDAD (COMPRA)");
-            dt.Columns.Add("PRECIO VENTA");
+            dt.Columns.Add("CANTIDAD");
+            dt.Columns.Add("PRECIO LOTE");
+            dt.Columns.Add("PRECIO UNITARIO\n (COMPRA)");
+            dt.Columns.Add("PRECIO UNITARIO\n (VENTA)");
+            dt.Columns.Add("FECHA\n COMPRA");
+
 
             int numRegistro = 1;
-            foreach (var producto in eReporteProductosList)
+            foreach (EReporteProductosDetalle detalleCompra in eReporteProductosDetalleList)
             {
                 DataRow dr = dt.NewRow();
-                dr.Table.Rows.Add(numRegistro, producto.NombreProducto, producto.NombreProveedor,
-                    producto.Existencia.ToString(), producto.PrecioUnitario, producto.PrecioVenta);
+                dr.Table.Rows.Add(numRegistro, detalleCompra.NombreProducto, detalleCompra.Cantidad.ToString(),
+                    String.Concat("$", detalleCompra.PrecioLote.ToString("0.00")),
+                    String.Concat("$", detalleCompra.PrecioUnitario.ToString("0.00")),
+                    String.Concat("$", detalleCompra.PrecioVenta.ToString("0.00")), 
+                    detalleCompra.FechaIngreso.ToString("dd-MM-yyyy"));
                 numRegistro++;
             }
-            gridProductos.DataSource = dt;
+            dgvProductos.DataSource = dt;
+            deshabilitarOrdenamientoDGV();
         }
+
+        private void deshabilitarOrdenamientoDGV()
+        {
+            foreach (DataGridViewColumn column in dgvProductos.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+        }
+        #endregion
     }
 }

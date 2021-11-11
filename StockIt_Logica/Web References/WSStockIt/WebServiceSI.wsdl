@@ -795,6 +795,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="seleccionarProductosByIdCategoria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idCategoria" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarProductosByIdCategoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="seleccionarProductosByIdCategoriaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="encabezadosReporteCompraProductos">
         <s:complexType>
           <s:sequence>
@@ -829,6 +850,31 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="detalleReporteCompraProductosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="detalleReporteCompraProductosFiltros">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idProducto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaInicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaFinal" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="idCategoria" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="detalleReporteCompraProductosFiltrosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="detalleReporteCompraProductosFiltrosResult">
               <s:complexType>
                 <s:sequence>
                   <s:element ref="s:schema" />
@@ -1151,6 +1197,12 @@
   <wsdl:message name="eliminarProductoSoapOut">
     <wsdl:part name="parameters" element="tns:eliminarProductoResponse" />
   </wsdl:message>
+  <wsdl:message name="seleccionarProductosByIdCategoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:seleccionarProductosByIdCategoria" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarProductosByIdCategoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:seleccionarProductosByIdCategoriaResponse" />
+  </wsdl:message>
   <wsdl:message name="encabezadosReporteCompraProductosSoapIn">
     <wsdl:part name="parameters" element="tns:encabezadosReporteCompraProductos" />
   </wsdl:message>
@@ -1162,6 +1214,12 @@
   </wsdl:message>
   <wsdl:message name="detalleReporteCompraProductosSoapOut">
     <wsdl:part name="parameters" element="tns:detalleReporteCompraProductosResponse" />
+  </wsdl:message>
+  <wsdl:message name="detalleReporteCompraProductosFiltrosSoapIn">
+    <wsdl:part name="parameters" element="tns:detalleReporteCompraProductosFiltros" />
+  </wsdl:message>
+  <wsdl:message name="detalleReporteCompraProductosFiltrosSoapOut">
+    <wsdl:part name="parameters" element="tns:detalleReporteCompraProductosFiltrosResponse" />
   </wsdl:message>
   <wsdl:message name="fechaAAAAMMDDSoapIn">
     <wsdl:part name="parameters" element="tns:fechaAAAAMMDD" />
@@ -1368,6 +1426,10 @@
       <wsdl:input message="tns:eliminarProductoSoapIn" />
       <wsdl:output message="tns:eliminarProductoSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="seleccionarProductosByIdCategoria">
+      <wsdl:input message="tns:seleccionarProductosByIdCategoriaSoapIn" />
+      <wsdl:output message="tns:seleccionarProductosByIdCategoriaSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="encabezadosReporteCompraProductos">
       <wsdl:input message="tns:encabezadosReporteCompraProductosSoapIn" />
       <wsdl:output message="tns:encabezadosReporteCompraProductosSoapOut" />
@@ -1375,6 +1437,10 @@
     <wsdl:operation name="detalleReporteCompraProductos">
       <wsdl:input message="tns:detalleReporteCompraProductosSoapIn" />
       <wsdl:output message="tns:detalleReporteCompraProductosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="detalleReporteCompraProductosFiltros">
+      <wsdl:input message="tns:detalleReporteCompraProductosFiltrosSoapIn" />
+      <wsdl:output message="tns:detalleReporteCompraProductosFiltrosSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="fechaAAAAMMDD">
       <wsdl:input message="tns:fechaAAAAMMDDSoapIn" />
@@ -1800,6 +1866,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="seleccionarProductosByIdCategoria">
+      <soap:operation soapAction="http://tempuri.org/seleccionarProductosByIdCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="encabezadosReporteCompraProductos">
       <soap:operation soapAction="http://tempuri.org/encabezadosReporteCompraProductos" style="document" />
       <wsdl:input>
@@ -1811,6 +1886,15 @@
     </wsdl:operation>
     <wsdl:operation name="detalleReporteCompraProductos">
       <soap:operation soapAction="http://tempuri.org/detalleReporteCompraProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="detalleReporteCompraProductosFiltros">
+      <soap:operation soapAction="http://tempuri.org/detalleReporteCompraProductosFiltros" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2262,6 +2346,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="seleccionarProductosByIdCategoria">
+      <soap12:operation soapAction="http://tempuri.org/seleccionarProductosByIdCategoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="encabezadosReporteCompraProductos">
       <soap12:operation soapAction="http://tempuri.org/encabezadosReporteCompraProductos" style="document" />
       <wsdl:input>
@@ -2273,6 +2366,15 @@
     </wsdl:operation>
     <wsdl:operation name="detalleReporteCompraProductos">
       <soap12:operation soapAction="http://tempuri.org/detalleReporteCompraProductos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="detalleReporteCompraProductosFiltros">
+      <soap12:operation soapAction="http://tempuri.org/detalleReporteCompraProductosFiltros" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

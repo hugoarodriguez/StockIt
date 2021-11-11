@@ -120,9 +120,13 @@ namespace StockIt_Logica.WSStockIt {
         
         private System.Threading.SendOrPostCallback eliminarProductoOperationCompleted;
         
+        private System.Threading.SendOrPostCallback seleccionarProductosByIdCategoriaOperationCompleted;
+        
         private System.Threading.SendOrPostCallback encabezadosReporteCompraProductosOperationCompleted;
         
         private System.Threading.SendOrPostCallback detalleReporteCompraProductosOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback detalleReporteCompraProductosFiltrosOperationCompleted;
         
         private System.Threading.SendOrPostCallback fechaAAAAMMDDOperationCompleted;
         
@@ -306,10 +310,16 @@ namespace StockIt_Logica.WSStockIt {
         public event eliminarProductoCompletedEventHandler eliminarProductoCompleted;
         
         /// <remarks/>
+        public event seleccionarProductosByIdCategoriaCompletedEventHandler seleccionarProductosByIdCategoriaCompleted;
+        
+        /// <remarks/>
         public event encabezadosReporteCompraProductosCompletedEventHandler encabezadosReporteCompraProductosCompleted;
         
         /// <remarks/>
         public event detalleReporteCompraProductosCompletedEventHandler detalleReporteCompraProductosCompleted;
+        
+        /// <remarks/>
+        public event detalleReporteCompraProductosFiltrosCompletedEventHandler detalleReporteCompraProductosFiltrosCompleted;
         
         /// <remarks/>
         public event fechaAAAAMMDDCompletedEventHandler fechaAAAAMMDDCompleted;
@@ -1751,6 +1761,35 @@ namespace StockIt_Logica.WSStockIt {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/seleccionarProductosByIdCategoria", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet seleccionarProductosByIdCategoria(int idCategoria) {
+            object[] results = this.Invoke("seleccionarProductosByIdCategoria", new object[] {
+                        idCategoria});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void seleccionarProductosByIdCategoriaAsync(int idCategoria) {
+            this.seleccionarProductosByIdCategoriaAsync(idCategoria, null);
+        }
+        
+        /// <remarks/>
+        public void seleccionarProductosByIdCategoriaAsync(int idCategoria, object userState) {
+            if ((this.seleccionarProductosByIdCategoriaOperationCompleted == null)) {
+                this.seleccionarProductosByIdCategoriaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnseleccionarProductosByIdCategoriaOperationCompleted);
+            }
+            this.InvokeAsync("seleccionarProductosByIdCategoria", new object[] {
+                        idCategoria}, this.seleccionarProductosByIdCategoriaOperationCompleted, userState);
+        }
+        
+        private void OnseleccionarProductosByIdCategoriaOperationCompleted(object arg) {
+            if ((this.seleccionarProductosByIdCategoriaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.seleccionarProductosByIdCategoriaCompleted(this, new seleccionarProductosByIdCategoriaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/encabezadosReporteCompraProductos", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataSet encabezadosReporteCompraProductos(System.DateTime fechaInicio, System.DateTime fechaFinal, int idUsuario) {
             object[] results = this.Invoke("encabezadosReporteCompraProductos", new object[] {
@@ -1809,6 +1848,43 @@ namespace StockIt_Logica.WSStockIt {
             if ((this.detalleReporteCompraProductosCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.detalleReporteCompraProductosCompleted(this, new detalleReporteCompraProductosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/detalleReporteCompraProductosFiltros", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet detalleReporteCompraProductosFiltros(int idProducto, System.DateTime fechaInicio, System.DateTime fechaFinal, int idCategoria, int idUsuario) {
+            object[] results = this.Invoke("detalleReporteCompraProductosFiltros", new object[] {
+                        idProducto,
+                        fechaInicio,
+                        fechaFinal,
+                        idCategoria,
+                        idUsuario});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void detalleReporteCompraProductosFiltrosAsync(int idProducto, System.DateTime fechaInicio, System.DateTime fechaFinal, int idCategoria, int idUsuario) {
+            this.detalleReporteCompraProductosFiltrosAsync(idProducto, fechaInicio, fechaFinal, idCategoria, idUsuario, null);
+        }
+        
+        /// <remarks/>
+        public void detalleReporteCompraProductosFiltrosAsync(int idProducto, System.DateTime fechaInicio, System.DateTime fechaFinal, int idCategoria, int idUsuario, object userState) {
+            if ((this.detalleReporteCompraProductosFiltrosOperationCompleted == null)) {
+                this.detalleReporteCompraProductosFiltrosOperationCompleted = new System.Threading.SendOrPostCallback(this.OndetalleReporteCompraProductosFiltrosOperationCompleted);
+            }
+            this.InvokeAsync("detalleReporteCompraProductosFiltros", new object[] {
+                        idProducto,
+                        fechaInicio,
+                        fechaFinal,
+                        idCategoria,
+                        idUsuario}, this.detalleReporteCompraProductosFiltrosOperationCompleted, userState);
+        }
+        
+        private void OndetalleReporteCompraProductosFiltrosOperationCompleted(object arg) {
+            if ((this.detalleReporteCompraProductosFiltrosCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.detalleReporteCompraProductosFiltrosCompleted(this, new detalleReporteCompraProductosFiltrosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -3111,6 +3187,32 @@ namespace StockIt_Logica.WSStockIt {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void seleccionarProductosByIdCategoriaCompletedEventHandler(object sender, seleccionarProductosByIdCategoriaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class seleccionarProductosByIdCategoriaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal seleccionarProductosByIdCategoriaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void encabezadosReporteCompraProductosCompletedEventHandler(object sender, encabezadosReporteCompraProductosCompletedEventArgs e);
     
     /// <remarks/>
@@ -3148,6 +3250,32 @@ namespace StockIt_Logica.WSStockIt {
         private object[] results;
         
         internal detalleReporteCompraProductosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void detalleReporteCompraProductosFiltrosCompletedEventHandler(object sender, detalleReporteCompraProductosFiltrosCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class detalleReporteCompraProductosFiltrosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal detalleReporteCompraProductosFiltrosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt.exe" size="270856">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt.exe" size="271368">
       <assemblyIdentity name="StockIt" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>oLFmyn7lShoyPfroRALa7jMawllA/f9YloEnn4zcQy8=</dsig:DigestValue>
+        <dsig:DigestValue>jujQIFfEigTLSXo3YzsEf0BJGRIA69Lfbuwd11m5S2s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -85,19 +85,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5ByU9goqE0EsBg4X+MD7kh3oKyltCGADH2Gof4DAWs0=</dsig:DigestValue>
+        <dsig:DigestValue>bh4Fw09O5ntEPAJO0waE5GG6r6Nuvv5nb4vhir9BWKg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt_Logica.dll" size="113664">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt_Logica.dll" size="117760">
       <assemblyIdentity name="StockIt_Logica" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>N+RdNEcheH88k3e3nmBhQnVm+3OfWC3BCyv3VrdaYIA=</dsig:DigestValue>
+        <dsig:DigestValue>XFO6k15kGYGlKPK+dHuxvLuS8h5lxhAd7sli4uRVs4U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

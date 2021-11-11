@@ -155,6 +155,7 @@ namespace StockIt.ReportClasses
 
                     /********* Esto será cambiado dinámicamente con la BD *********/
                     //La lista de los empleados
+                    /*
                     List<EReporteProductos> productos = new LProductos().ReporteProductos(idUsuario, idCategoria, estadoProducto);
 
                     int numReg = 1;
@@ -186,7 +187,7 @@ namespace StockIt.ReportClasses
 
                         numReg++;
                     }
-
+                    */
                     document.Add(table);
 
                     document.Close();
