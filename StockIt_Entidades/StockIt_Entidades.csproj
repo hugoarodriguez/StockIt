@@ -53,6 +53,7 @@
     <Compile Include="EEncabezadoReservas.cs" />
     <Compile Include="EProducto.cs" />
     <Compile Include="EProveedor.cs" />
+    <Compile Include="EReporteFacturacionEncabezado.cs" />
     <Compile Include="EReporteProductos.cs" />
     <Compile Include="EReporteProductosDetalle.cs" />
     <Compile Include="EReporteProductosEncabezado.cs" />

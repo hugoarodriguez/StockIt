@@ -108,6 +108,20 @@ namespace StockIt_Logica
             }
         }
 
+        public DataTable SeleccionarClientesActivosByIdUsuarioForReporteDT(int idUsuario)
+        {
+            try
+            {
+                DataSet ds = WS.seleccionarClientesActivosByIdUsuarioForReporte(idUsuario);
+
+                return ds.Tables[0];
+            }
+            catch (Exception)
+            {
+                return new DataTable();
+            }
+        }
+
         public ECliente SeleccionarClienteById(int idCliente)
         {
             ECliente eCliente = new ECliente();

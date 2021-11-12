@@ -41,5 +41,32 @@ namespace StockIt_Logica
                 return eEncabezadoFacturacion;
             }
         }
+
+        public List<EReporteFacturacionEncabezado> EncabezadosReporteFacturacion(DateTime fechaInicio, DateTime fechaFin, int idUsuario)
+        {
+            List<EReporteFacturacionEncabezado> lista = new List<EReporteFacturacionEncabezado>();
+            try
+            {
+                DataSet ds = WS.encabezadosReporteFacturacion(fechaInicio, fechaFin, idUsuario);
+
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    EReporteFacturacionEncabezado eReporteFacturacionEncabezado = new EReporteFacturacionEncabezado();
+                    eReporteFacturacionEncabezado.IdEncabezadoFacturacion = int.Parse(row["ID_ENCABEZADO_FACTURACION"].ToString());
+                    eReporteFacturacionEncabezado.NombreCliente = row["NOMBRE_CLIENTE"].ToString();
+                    eReporteFacturacionEncabezado.ApellidoCliente = row["APELLIDO_CLIENTE"].ToString();
+                    eReporteFacturacionEncabezado.TelefonoCliente = row["TELEFONO_CLIENTE"].ToString();
+                    eReporteFacturacionEncabezado.FechaFacturacion = DateTime.Parse(row["FECHA_FACTURACION"].ToString());
+                    eReporteFacturacionEncabezado.MontoEncabezadoFacturacion = double.Parse(row["MONTO_ENCABEZADO_FACTURACION"].ToString());
+                    lista.Add(eReporteFacturacionEncabezado);
+                }
+
+                return lista;
+            }
+            catch (Exception)
+            {
+                return lista;
+            }
+        }
     }
 }

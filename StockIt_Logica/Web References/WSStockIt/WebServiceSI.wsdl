@@ -885,6 +885,50 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="encabezadosReporteFacturacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fechaInicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaFinal" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="encabezadosReporteFacturacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="encabezadosReporteFacturacionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarClientesActivosByIdUsuarioForReporte">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarClientesActivosByIdUsuarioForReporteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="seleccionarClientesActivosByIdUsuarioForReporteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="fechaAAAAMMDD">
         <s:complexType />
       </s:element>
@@ -1221,6 +1265,18 @@
   <wsdl:message name="detalleReporteCompraProductosFiltrosSoapOut">
     <wsdl:part name="parameters" element="tns:detalleReporteCompraProductosFiltrosResponse" />
   </wsdl:message>
+  <wsdl:message name="encabezadosReporteFacturacionSoapIn">
+    <wsdl:part name="parameters" element="tns:encabezadosReporteFacturacion" />
+  </wsdl:message>
+  <wsdl:message name="encabezadosReporteFacturacionSoapOut">
+    <wsdl:part name="parameters" element="tns:encabezadosReporteFacturacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarClientesActivosByIdUsuarioForReporteSoapIn">
+    <wsdl:part name="parameters" element="tns:seleccionarClientesActivosByIdUsuarioForReporte" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarClientesActivosByIdUsuarioForReporteSoapOut">
+    <wsdl:part name="parameters" element="tns:seleccionarClientesActivosByIdUsuarioForReporteResponse" />
+  </wsdl:message>
   <wsdl:message name="fechaAAAAMMDDSoapIn">
     <wsdl:part name="parameters" element="tns:fechaAAAAMMDD" />
   </wsdl:message>
@@ -1441,6 +1497,14 @@
     <wsdl:operation name="detalleReporteCompraProductosFiltros">
       <wsdl:input message="tns:detalleReporteCompraProductosFiltrosSoapIn" />
       <wsdl:output message="tns:detalleReporteCompraProductosFiltrosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="encabezadosReporteFacturacion">
+      <wsdl:input message="tns:encabezadosReporteFacturacionSoapIn" />
+      <wsdl:output message="tns:encabezadosReporteFacturacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarClientesActivosByIdUsuarioForReporte">
+      <wsdl:input message="tns:seleccionarClientesActivosByIdUsuarioForReporteSoapIn" />
+      <wsdl:output message="tns:seleccionarClientesActivosByIdUsuarioForReporteSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="fechaAAAAMMDD">
       <wsdl:input message="tns:fechaAAAAMMDDSoapIn" />
@@ -1895,6 +1959,24 @@
     </wsdl:operation>
     <wsdl:operation name="detalleReporteCompraProductosFiltros">
       <soap:operation soapAction="http://tempuri.org/detalleReporteCompraProductosFiltros" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="encabezadosReporteFacturacion">
+      <soap:operation soapAction="http://tempuri.org/encabezadosReporteFacturacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarClientesActivosByIdUsuarioForReporte">
+      <soap:operation soapAction="http://tempuri.org/seleccionarClientesActivosByIdUsuarioForReporte" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2375,6 +2457,24 @@
     </wsdl:operation>
     <wsdl:operation name="detalleReporteCompraProductosFiltros">
       <soap12:operation soapAction="http://tempuri.org/detalleReporteCompraProductosFiltros" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="encabezadosReporteFacturacion">
+      <soap12:operation soapAction="http://tempuri.org/encabezadosReporteFacturacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarClientesActivosByIdUsuarioForReporte">
+      <soap12:operation soapAction="http://tempuri.org/seleccionarClientesActivosByIdUsuarioForReporte" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

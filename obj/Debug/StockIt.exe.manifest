@@ -66,38 +66,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt.exe" size="277000">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt.exe" size="280072">
       <assemblyIdentity name="StockIt" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>RvWfO/fBaDUJY6Yos7Vtxm0Iy9K9RkJZP8SatglQAVw=</dsig:DigestValue>
+        <dsig:DigestValue>RsQ4u0wAmhyhwgjej+0oPiQBAFqxUQx0jE+2sk13T34=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt_Entidades.dll" size="14848">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt_Entidades.dll" size="15360">
       <assemblyIdentity name="StockIt_Entidades" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bh4Fw09O5ntEPAJO0waE5GG6r6Nuvv5nb4vhir9BWKg=</dsig:DigestValue>
+        <dsig:DigestValue>H+12/DSDwoIH0K0PyCZSTDbAEvLRpb+8eloVQQth5UM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt_Logica.dll" size="117760">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt_Logica.dll" size="121856">
       <assemblyIdentity name="StockIt_Logica" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>XFO6k15kGYGlKPK+dHuxvLuS8h5lxhAd7sli4uRVs4U=</dsig:DigestValue>
+        <dsig:DigestValue>YgjzQeQSUN4YHdLFRZAVA5xqMs/SZYSSrNhVf7Knjrk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

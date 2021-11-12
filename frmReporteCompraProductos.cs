@@ -95,7 +95,7 @@ namespace StockIt
             btnImprimir.BorderStyle = BorderStyle.None;
         }
 
-        private void gridProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             seleccionarCompra();
         }
