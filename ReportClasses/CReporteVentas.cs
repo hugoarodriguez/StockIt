@@ -268,7 +268,7 @@ namespace StockIt.ReportClasses
 
 
                     /* Variables para encabezado */
-                    string TITULO = "FACTURA DE COMPRA DE PRODUCTOS";//Título a mostrar en el Encabezado
+                    string TITULO = "FACTURA DE VENTA";//Título a mostrar en el Encabezado
                     string fechaEmision = new LUtils().fechaHoraActual();//Fecha de creacion para poner en el PDF
 
                     //Obtenemos los datos del Encabezado
@@ -331,7 +331,7 @@ namespace StockIt.ReportClasses
 
                     var clientePhrase = new Phrase();
                     clientePhrase.Add(new Chunk("CLIENTE: ", negrita));
-                    clientePhrase.Add(new Chunk(this.nombreCliente, fuenteEmision));
+                    clientePhrase.Add(new Chunk(filtroCliente, fuenteEmision));
 
                     Chunk chunk = new Chunk();
                     document.Add(new Paragraph(chunk));
@@ -348,8 +348,8 @@ namespace StockIt.ReportClasses
 
                     #region Listado General de las Compras
                     //Encabezado de la tabla
-                    PdfPTable table = new PdfPTable(7);
-                    float[] widths = new float[] { 8f, 25f, 15f, 12f, 15f, 15f, 15f };
+                    PdfPTable table = new PdfPTable(5);
+                    float[] widths = new float[] { 15f, 30f, 15f, 15f, 25f };
                     table.SetWidths(widths);
 
                     _cell = new PdfPCell(new Paragraph("#", negrita));
@@ -368,7 +368,7 @@ namespace StockIt.ReportClasses
                     _cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     table.AddCell(_cell);
 
-                    _cell = new PdfPCell(new Paragraph("SUB TOTAL", negrita));
+                    _cell = new PdfPCell(new Paragraph("SUBTOTAL", negrita));
                     _cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     table.AddCell(_cell);
 
@@ -394,7 +394,6 @@ namespace StockIt.ReportClasses
                         _cell.HorizontalAlignment = Element.ALIGN_RIGHT;
                         table.AddCell(_cell);
 
-
                         _cell = new PdfPCell(new Paragraph(String.Concat("$", eDetalleFacturacion.MontoDetalleFacturacion.ToString("0.00")), fuente));
                         _cell.HorizontalAlignment = Element.ALIGN_RIGHT;
                         table.AddCell(_cell);
@@ -403,7 +402,7 @@ namespace StockIt.ReportClasses
                     }
 
                     #region Total de Compra
-                    _cell = new PdfPCell(new Paragraph("TOTAL", negrita)) { Colspan = 5 };
+                    _cell = new PdfPCell(new Paragraph("TOTAL", negrita)) { Colspan = 4 };
                     _cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     _cell.Border = Rectangle.LEFT_BORDER | Rectangle.TOP_BORDER | Rectangle.BOTTOM_BORDER;
                     table.AddCell(_cell);
