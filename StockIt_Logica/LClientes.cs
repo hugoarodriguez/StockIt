@@ -108,11 +108,11 @@ namespace StockIt_Logica
             }
         }
 
-        public DataTable SeleccionarClientesActivosByIdUsuarioForReporteDT(int idUsuario)
+        public DataTable SeleccionarClientesActivosByIdUsuarioForReporteDT(int idUsuario, DateTime fechaInicio, DateTime fechaFinal)
         {
             try
             {
-                DataSet ds = WS.seleccionarClientesActivosByIdUsuarioForReporte(idUsuario);
+                DataSet ds = WS.seleccionarClientesActivosByIdUsuarioForReporte(idUsuario, fechaInicio, fechaFinal);
 
                 return ds.Tables[0];
             }

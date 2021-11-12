@@ -891,6 +891,7 @@
             <s:element minOccurs="1" maxOccurs="1" name="fechaInicio" type="s:dateTime" />
             <s:element minOccurs="1" maxOccurs="1" name="fechaFinal" type="s:dateTime" />
             <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idCliente" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -912,6 +913,8 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaInicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaFinal" type="s:dateTime" />
           </s:sequence>
         </s:complexType>
       </s:element>

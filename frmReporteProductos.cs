@@ -29,7 +29,7 @@ namespace StockIt
         private void frmReporteProductos_Load(object sender, EventArgs e)
         {
             llenarDataGridView();
-            llenarCbmCategorias();
+            llenarCmbCategorias();
             llenarCmbProductos();
             cmbProductos.Enabled = false;
         }
@@ -120,7 +120,7 @@ namespace StockIt
             }
         }
 
-        private void llenarCbmCategorias()
+        private void llenarCmbCategorias()
         {
             DataTable dt = new LCategorias().SeleccionarCategoriasActivasByIdUsuarioDT(utils.getIdUsuario());
 
@@ -164,10 +164,10 @@ namespace StockIt
             dt.Columns.Add("#");
             dt.Columns.Add("PRODUCTO");
             dt.Columns.Add("CANTIDAD");
-            dt.Columns.Add("PRECIO LOTE");
+            dt.Columns.Add("FECHA\n COMPRA");
             dt.Columns.Add("PRECIO UNITARIO\n (COMPRA)");
             dt.Columns.Add("PRECIO UNITARIO\n (VENTA)");
-            dt.Columns.Add("FECHA\n COMPRA");
+            dt.Columns.Add("PRECIO LOTE");
 
 
             int numRegistro = 1;
@@ -175,10 +175,10 @@ namespace StockIt
             {
                 DataRow dr = dt.NewRow();
                 dr.Table.Rows.Add(numRegistro, detalleCompra.NombreProducto, detalleCompra.Cantidad.ToString(),
-                    String.Concat("$", detalleCompra.PrecioLote.ToString("0.00")),
+                    detalleCompra.FechaIngreso.ToString("dd-MM-yyyy"),
                     String.Concat("$", detalleCompra.PrecioUnitario.ToString("0.00")),
-                    String.Concat("$", detalleCompra.PrecioVenta.ToString("0.00")), 
-                    detalleCompra.FechaIngreso.ToString("dd-MM-yyyy"));
+                    String.Concat("$", detalleCompra.PrecioVenta.ToString("0.00")),
+                    String.Concat("$", detalleCompra.PrecioLote.ToString("0.00")));
                 numRegistro++;
             }
             dgvProductos.DataSource = dt;

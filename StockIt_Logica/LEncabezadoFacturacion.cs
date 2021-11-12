@@ -42,12 +42,12 @@ namespace StockIt_Logica
             }
         }
 
-        public List<EReporteFacturacionEncabezado> EncabezadosReporteFacturacion(DateTime fechaInicio, DateTime fechaFin, int idUsuario)
+        public List<EReporteFacturacionEncabezado> EncabezadosReporteFacturacion(DateTime fechaInicio, DateTime fechaFin, int idUsuario, int idCliente)
         {
             List<EReporteFacturacionEncabezado> lista = new List<EReporteFacturacionEncabezado>();
             try
             {
-                DataSet ds = WS.encabezadosReporteFacturacion(fechaInicio, fechaFin, idUsuario);
+                DataSet ds = WS.encabezadosReporteFacturacion(fechaInicio, fechaFin, idUsuario, idCliente);
 
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {

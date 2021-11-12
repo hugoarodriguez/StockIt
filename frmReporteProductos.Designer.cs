@@ -73,6 +73,7 @@ namespace StockIt
             // 
             this.cmbCateProc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbCateProc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            this.cmbCateProc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCateProc.FormattingEnabled = true;
             this.cmbCateProc.Location = new System.Drawing.Point(293, 175);
             this.cmbCateProc.Margin = new System.Windows.Forms.Padding(4);
@@ -85,6 +86,7 @@ namespace StockIt
             // 
             this.cmbProductos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            this.cmbProductos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProductos.FormattingEnabled = true;
             this.cmbProductos.Location = new System.Drawing.Point(721, 175);
             this.cmbProductos.Margin = new System.Windows.Forms.Padding(4);

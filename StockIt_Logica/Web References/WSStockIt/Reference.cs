@@ -1900,28 +1900,30 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/encabezadosReporteFacturacion", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataSet encabezadosReporteFacturacion(System.DateTime fechaInicio, System.DateTime fechaFinal, int idUsuario) {
+        public System.Data.DataSet encabezadosReporteFacturacion(System.DateTime fechaInicio, System.DateTime fechaFinal, int idUsuario, int idCliente) {
             object[] results = this.Invoke("encabezadosReporteFacturacion", new object[] {
                         fechaInicio,
                         fechaFinal,
-                        idUsuario});
+                        idUsuario,
+                        idCliente});
             return ((System.Data.DataSet)(results[0]));
         }
         
         /// <remarks/>
-        public void encabezadosReporteFacturacionAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, int idUsuario) {
-            this.encabezadosReporteFacturacionAsync(fechaInicio, fechaFinal, idUsuario, null);
+        public void encabezadosReporteFacturacionAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, int idUsuario, int idCliente) {
+            this.encabezadosReporteFacturacionAsync(fechaInicio, fechaFinal, idUsuario, idCliente, null);
         }
         
         /// <remarks/>
-        public void encabezadosReporteFacturacionAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, int idUsuario, object userState) {
+        public void encabezadosReporteFacturacionAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, int idUsuario, int idCliente, object userState) {
             if ((this.encabezadosReporteFacturacionOperationCompleted == null)) {
                 this.encabezadosReporteFacturacionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnencabezadosReporteFacturacionOperationCompleted);
             }
             this.InvokeAsync("encabezadosReporteFacturacion", new object[] {
                         fechaInicio,
                         fechaFinal,
-                        idUsuario}, this.encabezadosReporteFacturacionOperationCompleted, userState);
+                        idUsuario,
+                        idCliente}, this.encabezadosReporteFacturacionOperationCompleted, userState);
         }
         
         private void OnencabezadosReporteFacturacionOperationCompleted(object arg) {
@@ -1933,24 +1935,28 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/seleccionarClientesActivosByIdUsuarioForReporte", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataSet seleccionarClientesActivosByIdUsuarioForReporte(int idUsuario) {
+        public System.Data.DataSet seleccionarClientesActivosByIdUsuarioForReporte(int idUsuario, System.DateTime fechaInicio, System.DateTime fechaFinal) {
             object[] results = this.Invoke("seleccionarClientesActivosByIdUsuarioForReporte", new object[] {
-                        idUsuario});
+                        idUsuario,
+                        fechaInicio,
+                        fechaFinal});
             return ((System.Data.DataSet)(results[0]));
         }
         
         /// <remarks/>
-        public void seleccionarClientesActivosByIdUsuarioForReporteAsync(int idUsuario) {
-            this.seleccionarClientesActivosByIdUsuarioForReporteAsync(idUsuario, null);
+        public void seleccionarClientesActivosByIdUsuarioForReporteAsync(int idUsuario, System.DateTime fechaInicio, System.DateTime fechaFinal) {
+            this.seleccionarClientesActivosByIdUsuarioForReporteAsync(idUsuario, fechaInicio, fechaFinal, null);
         }
         
         /// <remarks/>
-        public void seleccionarClientesActivosByIdUsuarioForReporteAsync(int idUsuario, object userState) {
+        public void seleccionarClientesActivosByIdUsuarioForReporteAsync(int idUsuario, System.DateTime fechaInicio, System.DateTime fechaFinal, object userState) {
             if ((this.seleccionarClientesActivosByIdUsuarioForReporteOperationCompleted == null)) {
                 this.seleccionarClientesActivosByIdUsuarioForReporteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnseleccionarClientesActivosByIdUsuarioForReporteOperationCompleted);
             }
             this.InvokeAsync("seleccionarClientesActivosByIdUsuarioForReporte", new object[] {
-                        idUsuario}, this.seleccionarClientesActivosByIdUsuarioForReporteOperationCompleted, userState);
+                        idUsuario,
+                        fechaInicio,
+                        fechaFinal}, this.seleccionarClientesActivosByIdUsuarioForReporteOperationCompleted, userState);
         }
         
         private void OnseleccionarClientesActivosByIdUsuarioForReporteOperationCompleted(object arg) {

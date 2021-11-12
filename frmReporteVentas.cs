@@ -20,6 +20,8 @@ namespace StockIt
         List<EDetalleFacturacion> eDetalleFacturacionList = new List<EDetalleFacturacion>();
         EReporteFacturacionEncabezado eReporteFacturacionEncabezado;
         int idEncabezadoFacturacion = 0;
+        int idCliente = 0;
+        string nombreCliente = "";
 
         public frmReporteVentas()
         {
@@ -30,17 +32,19 @@ namespace StockIt
         {
             dtpFechaInicio.Value = DateTime.Parse(new LUtils().fechaHoraActual()).Date;
             dtpFechaFinal.Value = DateTime.Parse(new LUtils().fechaHoraActual()).Date;
-            llenarCbxCategorias();
+            llenarCbxClientes();
             llenarDataGridViewConEncabezados();
         }
 
         private void dtpFechaInicio_ValueChanged(object sender, EventArgs e)
         {
+            llenarCbxClientes();
             btnImprimir.Enabled = false;
         }
 
         private void dtpFechaFin_ValueChanged(object sender, EventArgs e)
         {
+            llenarCbxClientes();
             btnImprimir.Enabled = false;
         }
 
@@ -74,6 +78,7 @@ namespace StockIt
             }
             else
             {
+                getValoresSeleccionados();
                 llenarDataGridViewConEncabezados();
                 btnImprimir.Enabled = true;
             }
@@ -94,6 +99,8 @@ namespace StockIt
             {
                 dtpFechaInicio.Value = DateTime.Parse(new LUtils().fechaHoraActual()).Date;
                 dtpFechaFinal.Value = DateTime.Parse(new LUtils().fechaHoraActual()).Date;
+                idCliente = 0;
+                nombreCliente = "";
                 llenarDataGridViewConEncabezados();
             }
         }
@@ -105,9 +112,12 @@ namespace StockIt
 
         #region Métodos creados
 
-        private void llenarCbxCategorias()
+        private void llenarCbxClientes()
         {
-            DataTable dt = new LClientes().SeleccionarClientesActivosByIdUsuarioForReporteDT(utils.getIdUsuario());
+            DateTime fechaInicio = dtpFechaInicio.Value.Date;
+            DateTime fechaFinal = dtpFechaFinal.Value.Date;
+
+            DataTable dt = new LClientes().SeleccionarClientesActivosByIdUsuarioForReporteDT(utils.getIdUsuario(), fechaInicio, fechaFinal);
 
             DataRow dr = dt.NewRow();
             dr["ID_CLIENTE"] = "0";
@@ -121,12 +131,32 @@ namespace StockIt
             cbxCliente.SelectedIndex = 0;
         }
 
+        private void getValoresSeleccionados()
+        {
+            if (cbxCliente.SelectedIndex > 0)
+            {
+                idCliente = int.Parse(cbxCliente.SelectedValue.ToString());
+
+                DataRowView rowView = cbxCliente.SelectedItem as DataRowView;
+                if (rowView != null)
+                {
+                    nombreCliente = rowView["CLIENTE"].ToString();
+                }
+            }
+            else
+            {
+                idCliente = 0;
+                nombreCliente = "";
+            }
+        }
+
         private void llenarDataGridViewConEncabezados()
         {
             DateTime fechaInicio = dtpFechaInicio.Value.Date;
             DateTime fechaFinal = dtpFechaFinal.Value.Date;
 
-            eReporteFacturacionEncabezadoList = new LEncabezadoFacturacion().EncabezadosReporteFacturacion(fechaInicio, fechaFinal, utils.getIdUsuario());
+            eReporteFacturacionEncabezadoList = new LEncabezadoFacturacion().EncabezadosReporteFacturacion(fechaInicio, fechaFinal, utils.getIdUsuario(), 
+                idCliente);
 
             DataTable dt = new DataTable();
             dt.Columns.Add("ID");

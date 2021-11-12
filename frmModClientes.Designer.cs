@@ -155,6 +155,7 @@ namespace StockIt
             // 
             this.cbxSexoClie.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbxSexoClie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            this.cbxSexoClie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSexoClie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSexoClie.FormattingEnabled = true;
             this.cbxSexoClie.Location = new System.Drawing.Point(215, 390);
