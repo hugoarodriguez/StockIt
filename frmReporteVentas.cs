@@ -56,7 +56,9 @@ namespace StockIt
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             CReporteVentas cReporteVentas = new CReporteVentas();
-            cReporteVentas.generarReporteVentas();
+            cReporteVentas.generarReporte(idEncabezadoFacturacion, eReporteFacturacionEncabezadoList, eDetalleFacturacionList, 
+                eReporteFacturacionEncabezado, dtpFechaInicio.Value.Date.ToString("dd-MM-yyyy"), dtpFechaFinal.Value.Date.ToString("dd-MM-yyyy"), 
+                nombreCliente);
         }
 
         private void btnImprimir_MouseHover(object sender, EventArgs e)
@@ -140,7 +142,9 @@ namespace StockIt
                 DataRowView rowView = cbxCliente.SelectedItem as DataRowView;
                 if (rowView != null)
                 {
-                    nombreCliente = rowView["CLIENTE"].ToString();
+                    int indexComa = rowView["CLIENTE"].ToString().IndexOf(",");
+                    nombreCliente = rowView["CLIENTE"].ToString().Substring(0, indexComa);
+                    Console.WriteLine("Nombre Cliente: " + nombreCliente);
                 }
             }
             else
