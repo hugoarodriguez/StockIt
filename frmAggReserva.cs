@@ -103,7 +103,7 @@ namespace StockIt
                         eDetalleReservas.IdProducto = int.Parse(productosVR[i].Name);
                         NumericUpDown objNUDCanReserva = (NumericUpDown)productosVR[i].Controls.Find("nudCanReserva", true).SingleOrDefault();
                         eDetalleReservas.Cantidad = ((int)objNUDCanReserva.Value);
-                        eDetalleReservas.PrecioProducto = productosVR[i].PreProd;
+                        eDetalleReservas.PrecioProducto = productosVR[i].PreProdPromedio;
                         eDetalleReservas.Monto = productosVR[i].SubTotal;
                         indexProducto++;
                         eDetallesReservasList.Add(eDetalleReservas);
@@ -185,6 +185,7 @@ namespace StockIt
                     productosVR[i].PreProd = eCardProductosList[i].Precio;
                     productosVR[i].CanProdN = eCardProductosList[i].UnidadesNuevas;
                     productosVR[i].PreProdN = eCardProductosList[i].PrecioNuevo;
+                    productosVR[i].PreProdPromedio = 0.0;
                     productosVR[i].SubTotal = 0.0;
 
                     //Creación de btnEditar
@@ -214,16 +215,22 @@ namespace StockIt
                             int canProdReservarExtsNuevas = 1;
                             if (canProdReservar <= existenciasActuales)
                             {
-                                subTotalNuevo = canProdReservar * precioActual;
+                                subTotalNuevo = Math.Round(canProdReservar * precioActual, 2, MidpointRounding.AwayFromZero);
                                 precioPromedio = precioActual;
                             }
                             else
                             {
                                 canProdReservarExtsNuevas = (canProdReservar - existenciasActuales);
                                 //Obtenemos el nuevo precio
-                                precioPromedio = ((existenciasActuales * precioActual) + (canProdReservarExtsNuevas * precioNuevo)) / canProdReservar;
-                                subTotalNuevo = canProdReservar * precioPromedio;
+                                double calculoActual = Math.Round((existenciasActuales * precioActual), 2, MidpointRounding.AwayFromZero);
+                                double calculoNuevo = Math.Round((canProdReservarExtsNuevas * precioNuevo), 2, MidpointRounding.AwayFromZero);
+                                precioPromedio = Math.Round(((calculoActual + calculoNuevo) / canProdReservar), 2, MidpointRounding.AwayFromZero);
+                                subTotalNuevo = Math.Round((canProdReservar * precioPromedio), 2, MidpointRounding.AwayFromZero);
                             }
+
+                            //Le asiganmos el valor al PrecioPromedio, que es el que se debe guardar en la BD
+                            productoVRCardItem.PreProdPromedio = precioPromedio;
+
 
                             //Detectamos la opción seleccionada del numericUpDown
                             if (subTotalAntiguo <= subTotalNuevo)
@@ -234,10 +241,14 @@ namespace StockIt
                                     if (canProdReservar > existenciasActuales)
                                     {
                                         int cantProdReservarAntigua = (canProdReservar - 1);
-                                        double precioPromedioAntiguo = ((existenciasActuales * precioActual) + ((canProdReservarExtsNuevas - 1) * precioNuevo)) / cantProdReservarAntigua;
+                                        double calculoActual = Math.Round((existenciasActuales * precioActual), 2, MidpointRounding.AwayFromZero);
+                                        double calculoNuevo = Math.Round(((canProdReservarExtsNuevas - 1) * precioNuevo), 2, MidpointRounding.AwayFromZero);
+                                        double precioPromedioAntiguo = Math.Round(((calculoActual + calculoNuevo) / cantProdReservarAntigua), 2, MidpointRounding.AwayFromZero);
 
-                                        totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
-                                        totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                        double restar = Math.Round((cantProdReservarAntigua * precioPromedioAntiguo), 2, MidpointRounding.AwayFromZero);
+                                        totalReserva = totalReserva - restar;
+                                        double sumar = Math.Round((canProdReservar * precioPromedio), 2, MidpointRounding.AwayFromZero);
+                                        totalReserva = totalReserva + sumar;
                                     }
                                     else
                                     {
@@ -257,18 +268,26 @@ namespace StockIt
                                     if (canProdReservar ==  existenciasActuales)
                                     {
                                         int cantProdReservarAntigua = (canProdReservar + 1);
-                                        double precioPromedioAntiguo = ((existenciasActuales * precioActual) + ((canProdReservarExtsNuevas) * precioNuevo)) / cantProdReservarAntigua;
+                                        double calculoActual = Math.Round((existenciasActuales * precioActual), 2, MidpointRounding.AwayFromZero);
+                                        double calculoNuevo = Math.Round(((canProdReservarExtsNuevas) * precioNuevo), 2, MidpointRounding.AwayFromZero);
+                                        double precioPromedioAntiguo = Math.Round(((calculoActual + calculoNuevo) / cantProdReservarAntigua), 2, MidpointRounding.AwayFromZero);
 
-                                        totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
-                                        totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                        double restar = Math.Round((cantProdReservarAntigua * precioPromedioAntiguo), 2, MidpointRounding.AwayFromZero);
+                                        totalReserva = totalReserva - restar;
+                                        double sumar = Math.Round((canProdReservar * precioPromedio), 2, MidpointRounding.AwayFromZero);
+                                        totalReserva = totalReserva + sumar;
                                     }
                                     else
                                     {
                                         int cantProdReservarAntigua = (canProdReservar + 1);
-                                        double precioPromedioAntiguo = ((existenciasActuales * precioActual) + ((canProdReservarExtsNuevas + 1) * precioNuevo)) / cantProdReservarAntigua;
+                                        double calculoActual = Math.Round((existenciasActuales * precioActual), 2, MidpointRounding.AwayFromZero);
+                                        double calculoNuevo = Math.Round(((canProdReservarExtsNuevas + 1) * precioNuevo), 2, MidpointRounding.AwayFromZero);
+                                        double precioPromedioAntiguo = Math.Round(((calculoActual + calculoNuevo) / cantProdReservarAntigua), 2, MidpointRounding.AwayFromZero);
 
-                                        totalReserva = totalReserva - (cantProdReservarAntigua * precioPromedioAntiguo);
-                                        totalReserva = totalReserva + (canProdReservar * precioPromedio);
+                                        double restar = Math.Round((cantProdReservarAntigua * precioPromedioAntiguo), 2, MidpointRounding.AwayFromZero);
+                                        totalReserva = totalReserva - restar;
+                                        double sumar = Math.Round((canProdReservar * precioPromedio), 2, MidpointRounding.AwayFromZero);
+                                        totalReserva = totalReserva + sumar;
                                     }
                                 }
                                 else

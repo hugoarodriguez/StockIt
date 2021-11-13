@@ -13,6 +13,12 @@ namespace StockIt
 {
     class Utils
     {
+        public decimal RoundUp(decimal value, decimal step)
+        {
+            var multiplicand = Math.Ceiling(value / step);
+            return step * multiplicand;
+        }
+
         public int getIdUsuario()
         {
             int r = 0;

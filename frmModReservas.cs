@@ -112,7 +112,7 @@ namespace StockIt
                         eDetalleReservas.IdProducto = int.Parse(productosVR[i].Name);
                         NumericUpDown objNUDCanReserva = (NumericUpDown)productosVR[i].Controls.Find("nudCanReserva", true).SingleOrDefault();
                         eDetalleReservas.Cantidad = ((int)objNUDCanReserva.Value);
-                        eDetalleReservas.PrecioProducto = productosVR[i].PreProd;
+                        eDetalleReservas.PrecioProducto = productosVR[i].PreProdPromedio;
                         eDetalleReservas.Monto = productosVR[i].SubTotal;
                         indexProducto++;
                         eDetallesReservasListNuevo.Add(eDetalleReservas);
@@ -207,6 +207,7 @@ namespace StockIt
                     productosVR[i].PreProdN = eCardProductosList[i].PrecioNuevo;
                     productosVR[i].PreProdR = 0.0;
                     productosVR[i].CanProdR = 0;
+                    productosVR[i].PreProdPromedio = 0.0;
                     productosVR[i].SubTotalR = 0.0;
                     //Asignamos los valores del producto reservado
                     for (int j = 0; j < eDetalleReservasListActual.Count; j++)
@@ -292,6 +293,10 @@ namespace StockIt
                                     subTotalNuevo = canProdReservar * precioPromedio;
                                 }
                             }
+
+                            //Le asiganmos el valor al PrecioPromedio, que es el que se debe guardar en la BD
+                            productoVRCardItem.PreProdPromedio = precioPromedio;
+
                             #endregion
 
                             //Detectamos la opción seleccionada del numericUpDown

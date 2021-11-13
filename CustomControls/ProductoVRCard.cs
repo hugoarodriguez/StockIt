@@ -28,6 +28,7 @@ namespace StockIt.CustomControls
         private int canProdR;//Cantidad de producto Reservado
         private double preProdR;//Precio del producto Reservado
         private double subTotalR;//Sub Total del producto reservado
+        private double preProdPromedio;//Precio promedio del producto Reservado (Enviar esto como parámetro a guardar en la BD)
         private NumericUpDown nudCanReservaProp;
 
         [Category("Custom Props")]
@@ -105,6 +106,13 @@ namespace StockIt.CustomControls
         {
             get { return subTotalR; }
             set { subTotalR = value;}
+        }
+
+        [Category("Custom Props")]
+        public double PreProdPromedio
+        {
+            get { return preProdPromedio; }
+            set { preProdPromedio = value;}
         }
 
         [Category("Custom Props")]
