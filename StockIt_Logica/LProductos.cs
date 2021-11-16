@@ -214,9 +214,8 @@ namespace StockIt_Logica
             }
         }
 
-        //Método para generar Reporte de Productos
-        /* Modificar cuando se agrege el método necesario en el WebService */
-        public List<EReporteProductosDetalle> ReporteProductos(int idProducto, DateTime fechaInicio, DateTime fechaFinal, int idCategoria, int idUsuario)
+        //Método para generar Reporte de Productos Específicado
+        public List<EReporteProductosDetalle> DetalleReporteCompraProductosFiltros(int idProducto, DateTime fechaInicio, DateTime fechaFinal, int idCategoria, int idUsuario)
         {
             List<EReporteProductosDetalle> lista = new List<EReporteProductosDetalle>();
             try
@@ -252,6 +251,20 @@ namespace StockIt_Logica
             try
             {
                 DataSet ds = WS.seleccionarProductosByIdCategoria(idCategoria);
+
+                return ds.Tables[0];
+            }
+            catch (Exception)
+            {
+                return new DataTable();
+            }
+        }
+
+        public DataTable SeleccionarProductosByIdUsuarioFechasAndIdCategoriaForReporte(int idUsuario, DateTime fechaInicio, DateTime fechaFinal, int idCategoria)
+        {
+            try
+            {
+                DataSet ds = WS.seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReporte(idUsuario, fechaInicio, fechaFinal, idCategoria);
 
                 return ds.Tables[0];
             }

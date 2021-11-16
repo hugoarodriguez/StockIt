@@ -1,4 +1,6 @@
 ﻿using StockIt.ReportClasses;
+using StockIt_Entidades;
+using StockIt_Logica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,25 +10,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using StockIt_Entidades;
-using StockIt_Logica;
 
 namespace StockIt
 {
-    public partial class frmReporteProductos : Form
+    public partial class frmReporteVentasEsp : Form
     {
         Utils utils = new Utils();
         int idCategoria = 0;
         int idProducto = 0;
         string nombreCategoria;
         string nombreProducto;
-        List<EReporteProductosDetalle> eReporteProductosDetalleList;
-        public frmReporteProductos()
+        List<EReporteFacturacionDetalle> eReporteFacturacionDetalleList;
+
+        public frmReporteVentasEsp()
         {
             InitializeComponent();
         }
 
-        private void frmReporteProductos_Load(object sender, EventArgs e)
+        private void frmReporteClientes_Load(object sender, EventArgs e)
         {
             llenarDataGridView();
             llenarCmbCategorias();
@@ -37,10 +38,10 @@ namespace StockIt
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             getValoresSeleccionados();
-            
-            CReporteProductos cReporteProductos = new CReporteProductos();
+
+            /*CReporteProductos cReporteProductos = new CReporteProductos();
             cReporteProductos.generarReporte(idCategoria, idProducto, dtpFechaInicio.Value.Date.ToString("dd-MM-yyyy"),
-                dtpFechaFinal.Value.Date.ToString("dd-MM-yyyy"), eReporteProductosDetalleList, nombreCategoria, nombreProducto);
+                dtpFechaFinal.Value.Date.ToString("dd-MM-yyyy"), eReporteFacturacionDetalleList, nombreCategoria, nombreProducto);*/
         }
 
         private void btnImprimir_MouseHover(object sender, EventArgs e)
@@ -67,6 +68,18 @@ namespace StockIt
             cmbProductos.SelectedIndex = 0;
             getValoresSeleccionados();
             llenarDataGridView();
+        }
+
+        private void dtpFechaInicio_ValueChanged(object sender, EventArgs e)
+        {
+            llenarCmbCategorias();
+            btnImprimir.Enabled = false;
+        }
+
+        private void dtpFechaFinal_ValueChanged(object sender, EventArgs e)
+        {
+            llenarCmbCategorias();
+            btnImprimir.Enabled = false;
         }
 
         private void cmbCateProc_SelectedIndexChanged(object sender, EventArgs e)
@@ -122,7 +135,10 @@ namespace StockIt
 
         private void llenarCmbCategorias()
         {
-            DataTable dt = new LCategorias().SeleccionarCategoriasActivasByIdUsuarioDT(utils.getIdUsuario());
+            DateTime fechaInicio = dtpFechaInicio.Value.Date;
+            DateTime fechaFinal = dtpFechaFinal.Value.Date;
+
+            DataTable dt = new LCategorias().SeleccionarCategoriasActivasByIdUsuarioAndFechasForReporte(utils.getIdUsuario(), fechaInicio, fechaFinal);
 
             DataRow dr = dt.NewRow();
             dr["ID_CATEGORIA"] = "0";
@@ -138,7 +154,11 @@ namespace StockIt
 
         private void llenarCmbProductos()
         {
-            DataTable dt = new LProductos().seleccionarProductosByIdCategoria(idCategoria);
+            DateTime fechaInicio = dtpFechaInicio.Value.Date;
+            DateTime fechaFinal = dtpFechaFinal.Value.Date;
+
+            DataTable dt = new LProductos().SeleccionarProductosByIdUsuarioFechasAndIdCategoriaForReporte(utils.getIdUsuario(), fechaInicio, fechaFinal, 
+                idCategoria);
 
             DataRow dr = dt.NewRow();
             dr["ID_PRODUCTO"] = "0";
@@ -157,31 +177,41 @@ namespace StockIt
             DateTime fechaInicio = dtpFechaInicio.Value.Date;
             DateTime fechaFinal = dtpFechaFinal.Value.Date;
 
-            eReporteProductosDetalleList = new LProductos().DetalleReporteCompraProductosFiltros(idProducto, fechaInicio, fechaFinal, idCategoria, 
+            eReporteFacturacionDetalleList = new LDetalleFacturacion().DetalleReporteVentaProductosFiltros(idProducto, fechaInicio, fechaFinal, idCategoria,
                 utils.getIdUsuario());
 
             DataTable dt = new DataTable();
             dt.Columns.Add("#");
             dt.Columns.Add("PRODUCTO");
             dt.Columns.Add("CANTIDAD");
-            dt.Columns.Add("FECHA\nCOMPRA");
-            dt.Columns.Add("PRECIO UNITARIO\n(COMPRA)");
-            dt.Columns.Add("PRECIO UNITARIO\n(VENTA)");
-            dt.Columns.Add("PRECIO LOTE");
+            dt.Columns.Add("PRECIO");
+            dt.Columns.Add("MONTO");
+            dt.Columns.Add("CATEGORÍA");
+            dt.Columns.Add("FECHA\nVENTA");
 
 
             int numRegistro = 1;
-            foreach (EReporteProductosDetalle detalleCompra in eReporteProductosDetalleList)
+            foreach (EReporteFacturacionDetalle detalleVenta in eReporteFacturacionDetalleList)
             {
                 DataRow dr = dt.NewRow();
-                dr.Table.Rows.Add(numRegistro, detalleCompra.NombreProducto, detalleCompra.Cantidad.ToString(),
-                    detalleCompra.FechaIngreso.ToString("dd-MM-yyyy"),
-                    String.Concat("$", detalleCompra.PrecioUnitario.ToString("0.00")),
-                    String.Concat("$", detalleCompra.PrecioVenta.ToString("0.00")),
-                    String.Concat("$", detalleCompra.PrecioLote.ToString("0.00")));
+                dr.Table.Rows.Add(numRegistro, detalleVenta.NombreProducto, detalleVenta.Cantidad.ToString(),
+                    String.Concat("$", detalleVenta.Precio.ToString("0.00")),
+                    String.Concat("$", detalleVenta.MontoDetalleFacturacion.ToString("0.00")),
+                    detalleVenta.Categoria,
+                    detalleVenta.FechaFacturacion.ToString("dd-MM-yyyy"));
                 numRegistro++;
             }
             dgvProductos.DataSource = dt;
+
+            if(idCategoria <= 0)
+            {
+                dgvProductos.Columns[5].Visible = true;
+            }
+            else
+            {
+                dgvProductos.Columns[5].Visible = false;
+            }
+
             deshabilitarOrdenamientoDGV();
         }
 

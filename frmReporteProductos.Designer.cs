@@ -55,7 +55,7 @@ namespace StockIt
             this.label1.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.label1.Size = new System.Drawing.Size(1136, 100);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Reporte Compras de Productos Específicado";
+            this.label1.Text = "Reporte de Compras de Productos Específicado";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2

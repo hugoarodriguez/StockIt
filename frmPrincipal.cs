@@ -225,7 +225,7 @@ namespace StockIt
 
         private void btnReporteClientes_Click(object sender, EventArgs e)
         {
-            frmReporteClientes formularioHijo = new frmReporteClientes();
+            frmReporteVentasEsp formularioHijo = new frmReporteVentasEsp();
             utils.setFormToPanelFormularioHijo(formularioHijo);
             lblFormOpen.Text = formularioHijo.Name;
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción

@@ -12,7 +12,7 @@ using StockIt_Logica;
 
 namespace StockIt.ReportClasses
 {
-    class CReporteClientes
+    class CReporteVentasEsp
     {
         LUtils lUtils = new LUtils();
         Utils utils = new Utils();
