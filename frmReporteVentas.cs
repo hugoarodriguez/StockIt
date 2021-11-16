@@ -94,6 +94,7 @@ namespace StockIt
                 dtpFechaInicio.Enabled = true;
                 dtpFechaFinal.Enabled = true;
                 btnFiltrar.Enabled = true;
+                cbxCliente.Enabled = true;
                 btnLimpiar.Text = "Limpiar";
                 llenarDataGridViewConEncabezados();
             }
@@ -144,7 +145,6 @@ namespace StockIt
                 {
                     int indexComa = rowView["CLIENTE"].ToString().IndexOf(",");
                     nombreCliente = rowView["CLIENTE"].ToString().Substring(0, indexComa);
-                    Console.WriteLine("Nombre Cliente: " + nombreCliente);
                 }
             }
             else
@@ -213,6 +213,7 @@ namespace StockIt
         {
             if (dgvVentas.SelectedRows.Count > 0)
             {
+                cbxCliente.Enabled = false;
                 foreach (DataGridViewRow row in dgvVentas.SelectedRows)
                 {
                     try
@@ -227,6 +228,7 @@ namespace StockIt
                         eReporteFacturacionEncabezado = new EReporteFacturacionEncabezado();
                         //Utilizar solo el atributo NombreCliente para contener Nombre y Apellido del cliente
                         eReporteFacturacionEncabezado.NombreCliente = row.Cells[2].Value.ToString();
+                        nombreCliente = row.Cells[2].Value.ToString();
                         eReporteFacturacionEncabezado.TelefonoCliente = row.Cells[3].Value.ToString();
                         eReporteFacturacionEncabezado.FechaFacturacion = DateTime.Parse(row.Cells[4].Value.ToString());
                         eReporteFacturacionEncabezado.MontoEncabezadoFacturacion = Double.Parse(row.Cells[5].Value.ToString().Replace("$", ""));

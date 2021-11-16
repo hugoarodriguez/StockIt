@@ -178,6 +178,7 @@ namespace StockIt
                         eReporteProductosEncabezado.Monto = Double.Parse(row.Cells[4].Value.ToString().Replace("$", ""));
 
                         idEncabezadoCompraProductos = int.Parse(row.Cells[0].Value.ToString());
+                        Console.WriteLine("Id Encabezado Compra: " + idEncabezadoCompraProductos.ToString());
                         //Llenar dgvProductos con el detalle de la compra seleccionada
                         llenarDataGridViewConDetalle();
                     }

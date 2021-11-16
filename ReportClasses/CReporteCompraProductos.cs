@@ -251,7 +251,7 @@ namespace StockIt.ReportClasses
 
 
                     /* Variables para encabezado */
-                    string TITULO = "FACTURA DE COMPRA DE PRODUCTOS";//Título a mostrar en el Encabezado
+                    string TITULO = "FACTURA DE\nCOMPRA DE PRODUCTOS";//Título a mostrar en el Encabezado
                     string fechaEmision = new LUtils().fechaHoraActual();//Fecha de creacion para poner en el PDF
 
                     //Obtenemos los datos del Encabezado

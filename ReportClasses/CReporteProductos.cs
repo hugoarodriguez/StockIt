@@ -65,7 +65,7 @@ namespace StockIt.ReportClasses
 
 
                     /* Variables para encabezado */
-                    string TITULO = "REPORTE DE PRODUCTOS";//Título a mostrar en el Encabezado
+                    string TITULO = "REPORTE DE COMPRAS DE PRODUCTOS ESPECÍFICADO";//Título a mostrar en el Encabezado
                     string fechaEmision = new LUtils().fechaHoraActual();//Fecha de creacion para poner en el PDF
 
                     //Obtenemos los datos del Encabezado
