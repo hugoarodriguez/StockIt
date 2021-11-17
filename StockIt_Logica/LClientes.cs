@@ -148,5 +148,20 @@ namespace StockIt_Logica
                 return eCliente;
             }
         }
+
+        public DataTable SeleccionarClientesByIdUsuarioFechasAndEstadoReservaForReporteDT(int idUsuario, DateTime fechaInicio, DateTime fechaFinal, 
+            string estadoReserva)
+        {
+            try
+            {
+                DataSet ds = WS.seleccionarClientesByIdUsuarioFechasAndEstadoReservaForReporte(idUsuario, fechaInicio, fechaFinal, estadoReserva);
+
+                return ds.Tables[0];
+            }
+            catch (Exception)
+            {
+                return new DataTable();
+            }
+        }
     }
 }

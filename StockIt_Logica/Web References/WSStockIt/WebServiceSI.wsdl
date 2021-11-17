@@ -885,6 +885,99 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="encabezadosReporteReservas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fechaInicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaFinal" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="estadoReserva" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idCliente" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="encabezadosReporteReservasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="encabezadosReporteReservasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="detalleReporteReservas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEncabezadoReserva" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="detalleReporteReservasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="detalleReporteReservasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarEstadosReservaByIdUsuarioAndFechasForReporte">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaInicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaFinal" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarEstadosReservaByIdUsuarioAndFechasForReporteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="seleccionarEstadosReservaByIdUsuarioAndFechasForReporteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarClientesByIdUsuarioFechasAndEstadoReservaForReporte">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaInicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaFinal" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="estadoReserva" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarClientesByIdUsuarioFechasAndEstadoReservaForReporteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="seleccionarClientesByIdUsuarioFechasAndEstadoReservaForReporteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="encabezadosReporteFacturacion">
         <s:complexType>
           <s:sequence>
@@ -1340,6 +1433,30 @@
   <wsdl:message name="detalleReporteCompraProductosFiltrosSoapOut">
     <wsdl:part name="parameters" element="tns:detalleReporteCompraProductosFiltrosResponse" />
   </wsdl:message>
+  <wsdl:message name="encabezadosReporteReservasSoapIn">
+    <wsdl:part name="parameters" element="tns:encabezadosReporteReservas" />
+  </wsdl:message>
+  <wsdl:message name="encabezadosReporteReservasSoapOut">
+    <wsdl:part name="parameters" element="tns:encabezadosReporteReservasResponse" />
+  </wsdl:message>
+  <wsdl:message name="detalleReporteReservasSoapIn">
+    <wsdl:part name="parameters" element="tns:detalleReporteReservas" />
+  </wsdl:message>
+  <wsdl:message name="detalleReporteReservasSoapOut">
+    <wsdl:part name="parameters" element="tns:detalleReporteReservasResponse" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarEstadosReservaByIdUsuarioAndFechasForReporteSoapIn">
+    <wsdl:part name="parameters" element="tns:seleccionarEstadosReservaByIdUsuarioAndFechasForReporte" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarEstadosReservaByIdUsuarioAndFechasForReporteSoapOut">
+    <wsdl:part name="parameters" element="tns:seleccionarEstadosReservaByIdUsuarioAndFechasForReporteResponse" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarClientesByIdUsuarioFechasAndEstadoReservaForReporteSoapIn">
+    <wsdl:part name="parameters" element="tns:seleccionarClientesByIdUsuarioFechasAndEstadoReservaForReporte" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarClientesByIdUsuarioFechasAndEstadoReservaForReporteSoapOut">
+    <wsdl:part name="parameters" element="tns:seleccionarClientesByIdUsuarioFechasAndEstadoReservaForReporteResponse" />
+  </wsdl:message>
   <wsdl:message name="encabezadosReporteFacturacionSoapIn">
     <wsdl:part name="parameters" element="tns:encabezadosReporteFacturacion" />
   </wsdl:message>
@@ -1590,6 +1707,22 @@
     <wsdl:operation name="detalleReporteCompraProductosFiltros">
       <wsdl:input message="tns:detalleReporteCompraProductosFiltrosSoapIn" />
       <wsdl:output message="tns:detalleReporteCompraProductosFiltrosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="encabezadosReporteReservas">
+      <wsdl:input message="tns:encabezadosReporteReservasSoapIn" />
+      <wsdl:output message="tns:encabezadosReporteReservasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="detalleReporteReservas">
+      <wsdl:input message="tns:detalleReporteReservasSoapIn" />
+      <wsdl:output message="tns:detalleReporteReservasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarEstadosReservaByIdUsuarioAndFechasForReporte">
+      <wsdl:input message="tns:seleccionarEstadosReservaByIdUsuarioAndFechasForReporteSoapIn" />
+      <wsdl:output message="tns:seleccionarEstadosReservaByIdUsuarioAndFechasForReporteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarClientesByIdUsuarioFechasAndEstadoReservaForReporte">
+      <wsdl:input message="tns:seleccionarClientesByIdUsuarioFechasAndEstadoReservaForReporteSoapIn" />
+      <wsdl:output message="tns:seleccionarClientesByIdUsuarioFechasAndEstadoReservaForReporteSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="encabezadosReporteFacturacion">
       <wsdl:input message="tns:encabezadosReporteFacturacionSoapIn" />
@@ -2064,6 +2197,42 @@
     </wsdl:operation>
     <wsdl:operation name="detalleReporteCompraProductosFiltros">
       <soap:operation soapAction="http://tempuri.org/detalleReporteCompraProductosFiltros" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="encabezadosReporteReservas">
+      <soap:operation soapAction="http://tempuri.org/encabezadosReporteReservas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="detalleReporteReservas">
+      <soap:operation soapAction="http://tempuri.org/detalleReporteReservas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarEstadosReservaByIdUsuarioAndFechasForReporte">
+      <soap:operation soapAction="http://tempuri.org/seleccionarEstadosReservaByIdUsuarioAndFechasForReporte" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarClientesByIdUsuarioFechasAndEstadoReservaForReporte">
+      <soap:operation soapAction="http://tempuri.org/seleccionarClientesByIdUsuarioFechasAndEstadoReservaForReporte" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2589,6 +2758,42 @@
     </wsdl:operation>
     <wsdl:operation name="detalleReporteCompraProductosFiltros">
       <soap12:operation soapAction="http://tempuri.org/detalleReporteCompraProductosFiltros" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="encabezadosReporteReservas">
+      <soap12:operation soapAction="http://tempuri.org/encabezadosReporteReservas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="detalleReporteReservas">
+      <soap12:operation soapAction="http://tempuri.org/detalleReporteReservas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarEstadosReservaByIdUsuarioAndFechasForReporte">
+      <soap12:operation soapAction="http://tempuri.org/seleccionarEstadosReservaByIdUsuarioAndFechasForReporte" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarClientesByIdUsuarioFechasAndEstadoReservaForReporte">
+      <soap12:operation soapAction="http://tempuri.org/seleccionarClientesByIdUsuarioFechasAndEstadoReservaForReporte" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

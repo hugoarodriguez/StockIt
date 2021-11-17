@@ -58,6 +58,8 @@
     <Compile Include="EReporteProductos.cs" />
     <Compile Include="EReporteProductosDetalle.cs" />
     <Compile Include="EReporteProductosEncabezado.cs" />
+    <Compile Include="EReporteReservasDetalle.cs" />
+    <Compile Include="EReporteReservasEncabezado.cs" />
     <Compile Include="EUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

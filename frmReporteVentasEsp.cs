@@ -27,7 +27,7 @@ namespace StockIt
             InitializeComponent();
         }
 
-        private void frmReporteClientes_Load(object sender, EventArgs e)
+        private void frmReporteVentasEsp_Load(object sender, EventArgs e)
         {
             llenarDataGridView();
             llenarCmbCategorias();

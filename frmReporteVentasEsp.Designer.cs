@@ -235,7 +235,7 @@ namespace StockIt
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmReporteVentasEsp";
             this.Text = "frmReporteClientes";
-            this.Load += new System.EventHandler(this.frmReporteClientes_Load);
+            this.Load += new System.EventHandler(this.frmReporteVentasEsp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnImprimir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
