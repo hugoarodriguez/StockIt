@@ -87,6 +87,7 @@ namespace StockIt_Logica
                     eReporteReservasEncabezado.IdEncabezadoReserva = int.Parse(row["ID_ENCABEZADO_RESERVAS"].ToString());
                     eReporteReservasEncabezado.NombreCliente = row["NOMBRE_CLIENTE"].ToString();
                     eReporteReservasEncabezado.ApellidoCliente = row["APELLIDO_CLIENTE"].ToString();
+                    eReporteReservasEncabezado.TelefonoCliente = row["TELEFONO_CLIENTE"].ToString();
                     eReporteReservasEncabezado.FechaReserva = DateTime.Parse(row["FECHA_RESERVA"].ToString());
                     eReporteReservasEncabezado.FechaPromesaEntrega = DateTime.Parse(row["FECHA_PROMESA_RESERVA"].ToString());
                     eReporteReservasEncabezado.MontoEncabezadoReserva = double.Parse(row["MONTO_ENCABEZADO_RESERVA"].ToString());

@@ -58,10 +58,10 @@ namespace StockIt
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            /*CReporteVentas cReporteVentas = new CReporteVentas();
-            cReporteVentas.generarReporte(idEncabezadoReserva, eReporteFacturacionEncabezadoList, eDetalleFacturacionList,
-                eReporteFacturacionEncabezado, dtpFechaInicio.Value.Date.ToString("dd-MM-yyyy"), dtpFechaFinal.Value.Date.ToString("dd-MM-yyyy"),
-                nombreCliente);*/
+            CReporteReservas cReporteReservas = new CReporteReservas();
+            cReporteReservas.generarReporte(idEncabezadoReserva, eReporteReservasEncabezadoList, eDetalleReservasList,
+                eReporteReservasEncabezado, dtpFechaInicio.Value.Date.ToString("dd-MM-yyyy"), dtpFechaFinal.Value.Date.ToString("dd-MM-yyyy"),
+                nombreEstadoReserva, nombreCliente);
         }
 
         private void cbxEstadoReserva_SelectedIndexChanged(object sender, EventArgs e)
@@ -197,8 +197,7 @@ namespace StockIt
                 DataRowView rowView = cbxCliente.SelectedItem as DataRowView;
                 if (rowView != null)
                 {
-                    int indexComa = rowView["CLIENTE"].ToString().IndexOf(",");
-                    nombreCliente = rowView["CLIENTE"].ToString().Substring(0, indexComa);
+                    nombreCliente = rowView["CLIENTE"].ToString();
                 }
             }
             else
@@ -220,6 +219,7 @@ namespace StockIt
             dt.Columns.Add("ID");
             dt.Columns.Add("#");
             dt.Columns.Add("CLIENTE");
+            dt.Columns.Add("TELÉFONO");
             dt.Columns.Add("F. RESERVA");
             dt.Columns.Add("F. PROMESA\nENTREGA");
             dt.Columns.Add("MONTO");
@@ -231,6 +231,7 @@ namespace StockIt
                 DataRow dr = dt.NewRow();
                 dr.Table.Rows.Add(encabezadoReserva.IdEncabezadoReserva, numRegistro,
                     String.Concat(encabezadoReserva.NombreCliente, " ", encabezadoReserva.ApellidoCliente),
+                    encabezadoReserva.TelefonoCliente,
                     encabezadoReserva.FechaReserva.ToString("dd-MM-yyyy"), encabezadoReserva.FechaPromesaEntrega.ToString("dd-MM-yyyy"), 
                     String.Concat("$", encabezadoReserva.MontoEncabezadoReserva.ToString("0.00")), 
                     encabezadoReserva.EstadoReserva);
@@ -285,12 +286,12 @@ namespace StockIt
                         //Obtenemos los datos para el encabezado de la compra
                         eReporteReservasEncabezado = new EReporteReservasEncabezado();
                         //Utilizar solo el atributo NombreCliente para contener Nombre y Apellido del cliente
-                        eReporteReservasEncabezado.NombreCliente = row.Cells[2].Value.ToString();
-                        nombreCliente = row.Cells[2].Value.ToString();
-                        eReporteReservasEncabezado.FechaReserva = DateTime.Parse(row.Cells[3].Value.ToString());
-                        eReporteReservasEncabezado.FechaPromesaEntrega = DateTime.Parse(row.Cells[4].Value.ToString());
-                        eReporteReservasEncabezado.MontoEncabezadoReserva = Double.Parse(row.Cells[5].Value.ToString().Replace("$", ""));
-                        eReporteReservasEncabezado.EstadoReserva = row.Cells[6].Value.ToString();
+                        eReporteReservasEncabezado.NombreCliente = row.Cells[2].Value.ToString() + " TEL.:" + row.Cells[3].Value.ToString();
+                        nombreCliente = row.Cells[2].Value.ToString() + " TEL.:" + row.Cells[3].Value.ToString();
+                        eReporteReservasEncabezado.FechaReserva = DateTime.Parse(row.Cells[4].Value.ToString());
+                        eReporteReservasEncabezado.FechaPromesaEntrega = DateTime.Parse(row.Cells[5].Value.ToString());
+                        eReporteReservasEncabezado.MontoEncabezadoReserva = Double.Parse(row.Cells[6].Value.ToString().Replace("$", ""));
+                        eReporteReservasEncabezado.EstadoReserva = row.Cells[7].Value.ToString();
 
                         idEncabezadoReserva = int.Parse(row.Cells[0].Value.ToString());
                         //Llenar dgvVentas con el detalle de la compra seleccionada
