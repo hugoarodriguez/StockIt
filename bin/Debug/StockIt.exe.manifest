@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt.exe" size="288776">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockIt.exe" size="293896">
       <assemblyIdentity name="StockIt" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>TkjnqJxQDZX8zg7RTHzaRE30SUjnFBMZnZHs6jnOT2w=</dsig:DigestValue>
+        <dsig:DigestValue>sY7DQEmRoKXkOvSbgLlLEvBESvUaUyrOMitZAkwY5IU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

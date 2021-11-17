@@ -39,9 +39,9 @@ namespace StockIt
         {
             getValoresSeleccionados();
 
-            /*CReporteProductos cReporteProductos = new CReporteProductos();
-            cReporteProductos.generarReporte(idCategoria, idProducto, dtpFechaInicio.Value.Date.ToString("dd-MM-yyyy"),
-                dtpFechaFinal.Value.Date.ToString("dd-MM-yyyy"), eReporteFacturacionDetalleList, nombreCategoria, nombreProducto);*/
+            CReporteVentasEsp cReporteVentasEsp = new CReporteVentasEsp();
+            cReporteVentasEsp.generarReporte(idCategoria, idProducto, dtpFechaInicio.Value.Date.ToString("dd-MM-yyyy"),
+                dtpFechaFinal.Value.Date.ToString("dd-MM-yyyy"), eReporteFacturacionDetalleList, nombreCategoria, nombreProducto);
         }
 
         private void btnImprimir_MouseHover(object sender, EventArgs e)
@@ -58,6 +58,7 @@ namespace StockIt
         {
             getValoresSeleccionados();
             llenarDataGridView();
+            btnImprimir.Enabled = true;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
