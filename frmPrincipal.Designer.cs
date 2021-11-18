@@ -34,10 +34,10 @@ namespace StockIt
             this.btnAcercaDe = new System.Windows.Forms.Button();
             this.lblIdUsuario = new System.Windows.Forms.Label();
             this.panelSubMenuReportes = new System.Windows.Forms.Panel();
-            this.btnReporteClientes = new System.Windows.Forms.Button();
+            this.btnReporteVentasEsp = new System.Windows.Forms.Button();
             this.btnReporteVentas = new System.Windows.Forms.Button();
             this.btnReporteReservas = new System.Windows.Forms.Button();
-            this.btnReporteProductos = new System.Windows.Forms.Button();
+            this.btnReporteComprasEsp = new System.Windows.Forms.Button();
             this.btnReporteCompraProductos = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnReservas = new System.Windows.Forms.Button();
@@ -137,10 +137,10 @@ namespace StockIt
             // panelSubMenuReportes
             // 
             this.panelSubMenuReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(163)))), ((int)(((byte)(203)))));
-            this.panelSubMenuReportes.Controls.Add(this.btnReporteClientes);
+            this.panelSubMenuReportes.Controls.Add(this.btnReporteVentasEsp);
             this.panelSubMenuReportes.Controls.Add(this.btnReporteVentas);
             this.panelSubMenuReportes.Controls.Add(this.btnReporteReservas);
-            this.panelSubMenuReportes.Controls.Add(this.btnReporteProductos);
+            this.panelSubMenuReportes.Controls.Add(this.btnReporteComprasEsp);
             this.panelSubMenuReportes.Controls.Add(this.btnReporteCompraProductos);
             this.panelSubMenuReportes.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMenuReportes.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -150,23 +150,23 @@ namespace StockIt
             this.panelSubMenuReportes.Size = new System.Drawing.Size(251, 200);
             this.panelSubMenuReportes.TabIndex = 12;
             // 
-            // btnReporteClientes
+            // btnReporteVentasEsp
             // 
-            this.btnReporteClientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReporteClientes.FlatAppearance.BorderSize = 0;
-            this.btnReporteClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporteClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporteClientes.ForeColor = System.Drawing.Color.White;
-            this.btnReporteClientes.Location = new System.Drawing.Point(0, 156);
-            this.btnReporteClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReporteClientes.Name = "btnReporteClientes";
-            this.btnReporteClientes.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnReporteClientes.Size = new System.Drawing.Size(251, 39);
-            this.btnReporteClientes.TabIndex = 4;
-            this.btnReporteClientes.Text = "Clientes";
-            this.btnReporteClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporteClientes.UseVisualStyleBackColor = true;
-            this.btnReporteClientes.Click += new System.EventHandler(this.btnReporteClientes_Click);
+            this.btnReporteVentasEsp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReporteVentasEsp.FlatAppearance.BorderSize = 0;
+            this.btnReporteVentasEsp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporteVentasEsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteVentasEsp.ForeColor = System.Drawing.Color.White;
+            this.btnReporteVentasEsp.Location = new System.Drawing.Point(0, 156);
+            this.btnReporteVentasEsp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReporteVentasEsp.Name = "btnReporteVentasEsp";
+            this.btnReporteVentasEsp.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnReporteVentasEsp.Size = new System.Drawing.Size(251, 39);
+            this.btnReporteVentasEsp.TabIndex = 4;
+            this.btnReporteVentasEsp.Text = "Ventas Esp.";
+            this.btnReporteVentasEsp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporteVentasEsp.UseVisualStyleBackColor = true;
+            this.btnReporteVentasEsp.Click += new System.EventHandler(this.btnReporteVentasEsp_Click);
             // 
             // btnReporteVentas
             // 
@@ -204,23 +204,23 @@ namespace StockIt
             this.btnReporteReservas.UseVisualStyleBackColor = true;
             this.btnReporteReservas.Click += new System.EventHandler(this.btnReporteReservas_Click);
             // 
-            // btnReporteProductos
+            // btnReporteComprasEsp
             // 
-            this.btnReporteProductos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReporteProductos.FlatAppearance.BorderSize = 0;
-            this.btnReporteProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporteProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporteProductos.ForeColor = System.Drawing.Color.White;
-            this.btnReporteProductos.Location = new System.Drawing.Point(0, 39);
-            this.btnReporteProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReporteProductos.Name = "btnReporteProductos";
-            this.btnReporteProductos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnReporteProductos.Size = new System.Drawing.Size(251, 39);
-            this.btnReporteProductos.TabIndex = 1;
-            this.btnReporteProductos.Text = "Productos";
-            this.btnReporteProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporteProductos.UseVisualStyleBackColor = true;
-            this.btnReporteProductos.Click += new System.EventHandler(this.btnReporteProductos_Click);
+            this.btnReporteComprasEsp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReporteComprasEsp.FlatAppearance.BorderSize = 0;
+            this.btnReporteComprasEsp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporteComprasEsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteComprasEsp.ForeColor = System.Drawing.Color.White;
+            this.btnReporteComprasEsp.Location = new System.Drawing.Point(0, 39);
+            this.btnReporteComprasEsp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReporteComprasEsp.Name = "btnReporteComprasEsp";
+            this.btnReporteComprasEsp.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnReporteComprasEsp.Size = new System.Drawing.Size(251, 39);
+            this.btnReporteComprasEsp.TabIndex = 1;
+            this.btnReporteComprasEsp.Text = "Compras Esp.";
+            this.btnReporteComprasEsp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporteComprasEsp.UseVisualStyleBackColor = true;
+            this.btnReporteComprasEsp.Click += new System.EventHandler(this.btnReporteComprasEsp_Click);
             // 
             // btnReporteCompraProductos
             // 
@@ -536,7 +536,7 @@ namespace StockIt
         private System.Windows.Forms.Panel panelSubMenuReportes;
         private System.Windows.Forms.Button btnReporteVentas;
         private System.Windows.Forms.Button btnReporteReservas;
-        private System.Windows.Forms.Button btnReporteProductos;
+        private System.Windows.Forms.Button btnReporteComprasEsp;
         private System.Windows.Forms.Button btnReporteCompraProductos;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnReservas;
@@ -545,7 +545,7 @@ namespace StockIt
         public System.Windows.Forms.LinkLabel lklCorreo;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Button btnAcercaDe;
-        private System.Windows.Forms.Button btnReporteClientes;
+        private System.Windows.Forms.Button btnReporteVentasEsp;
     }
 }
 

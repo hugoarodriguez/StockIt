@@ -51,6 +51,7 @@ namespace StockIt
         {
             if (lklCorreo.Text.Trim() != "")
             {
+                lblNombre.Text = new LUsuarios().getNombreUsuario(lklCorreo.Text.Trim());
                 EUsuario eUsuario = new EUsuario();
                 eUsuario.Correo = lklCorreo.Text.Trim();
                 bool r = new LUsuarios().GetEstadoPasswordTemporal(eUsuario);
@@ -199,7 +200,7 @@ namespace StockIt
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
-        private void btnReporteProductos_Click(object sender, EventArgs e)
+        private void btnReporteComprasEsp_Click(object sender, EventArgs e)
         {
             frmReporteProductos formularioHijo = new frmReporteProductos();
             utils.setFormToPanelFormularioHijo(formularioHijo);
@@ -223,7 +224,7 @@ namespace StockIt
             ocultarSubMenu();//Ocultamos Sub Menu siempre que se seleccione una opción
         }
 
-        private void btnReporteClientes_Click(object sender, EventArgs e)
+        private void btnReporteVentasEsp_Click(object sender, EventArgs e)
         {
             frmReporteVentasEsp formularioHijo = new frmReporteVentasEsp();
             utils.setFormToPanelFormularioHijo(formularioHijo);
