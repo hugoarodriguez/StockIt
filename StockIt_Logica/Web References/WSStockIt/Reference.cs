@@ -128,6 +128,10 @@ namespace StockIt_Logica.WSStockIt {
         
         private System.Threading.SendOrPostCallback detalleReporteCompraProductosFiltrosOperationCompleted;
         
+        private System.Threading.SendOrPostCallback seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePEOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePEOperationCompleted;
+        
         private System.Threading.SendOrPostCallback encabezadosReporteReservasOperationCompleted;
         
         private System.Threading.SendOrPostCallback detalleReporteReservasOperationCompleted;
@@ -338,6 +342,12 @@ namespace StockIt_Logica.WSStockIt {
         
         /// <remarks/>
         public event detalleReporteCompraProductosFiltrosCompletedEventHandler detalleReporteCompraProductosFiltrosCompleted;
+        
+        /// <remarks/>
+        public event seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePECompletedEventHandler seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePECompleted;
+        
+        /// <remarks/>
+        public event seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePECompletedEventHandler seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePECompleted;
         
         /// <remarks/>
         public event encabezadosReporteReservasCompletedEventHandler encabezadosReporteReservasCompleted;
@@ -1930,6 +1940,75 @@ namespace StockIt_Logica.WSStockIt {
             if ((this.detalleReporteCompraProductosFiltrosCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.detalleReporteCompraProductosFiltrosCompleted(this, new detalleReporteCompraProductosFiltrosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePE", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePE(int idUsuario, System.DateTime fechaInicio, System.DateTime fechaFinal) {
+            object[] results = this.Invoke("seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePE", new object[] {
+                        idUsuario,
+                        fechaInicio,
+                        fechaFinal});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePEAsync(int idUsuario, System.DateTime fechaInicio, System.DateTime fechaFinal) {
+            this.seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePEAsync(idUsuario, fechaInicio, fechaFinal, null);
+        }
+        
+        /// <remarks/>
+        public void seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePEAsync(int idUsuario, System.DateTime fechaInicio, System.DateTime fechaFinal, object userState) {
+            if ((this.seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePEOperationCompleted == null)) {
+                this.seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePEOperationCompleted = new System.Threading.SendOrPostCallback(this.OnseleccionarCategoriasActivasByIdUsuarioAndFechasForReportePEOperationCompleted);
+            }
+            this.InvokeAsync("seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePE", new object[] {
+                        idUsuario,
+                        fechaInicio,
+                        fechaFinal}, this.seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePEOperationCompleted, userState);
+        }
+        
+        private void OnseleccionarCategoriasActivasByIdUsuarioAndFechasForReportePEOperationCompleted(object arg) {
+            if ((this.seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePECompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePECompleted(this, new seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePECompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReporteP" +
+            "E", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePE(int idUsuario, System.DateTime fechaInicio, System.DateTime fechaFinal, int idCategoria) {
+            object[] results = this.Invoke("seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePE", new object[] {
+                        idUsuario,
+                        fechaInicio,
+                        fechaFinal,
+                        idCategoria});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePEAsync(int idUsuario, System.DateTime fechaInicio, System.DateTime fechaFinal, int idCategoria) {
+            this.seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePEAsync(idUsuario, fechaInicio, fechaFinal, idCategoria, null);
+        }
+        
+        /// <remarks/>
+        public void seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePEAsync(int idUsuario, System.DateTime fechaInicio, System.DateTime fechaFinal, int idCategoria, object userState) {
+            if ((this.seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePEOperationCompleted == null)) {
+                this.seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePEOperationCompleted = new System.Threading.SendOrPostCallback(this.OnseleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePEOperationCompleted);
+            }
+            this.InvokeAsync("seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePE", new object[] {
+                        idUsuario,
+                        fechaInicio,
+                        fechaFinal,
+                        idCategoria}, this.seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePEOperationCompleted, userState);
+        }
+        
+        private void OnseleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePEOperationCompleted(object arg) {
+            if ((this.seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePECompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePECompleted(this, new seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePECompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -3629,6 +3708,58 @@ namespace StockIt_Logica.WSStockIt {
         private object[] results;
         
         internal detalleReporteCompraProductosFiltrosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePECompletedEventHandler(object sender, seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePECompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePECompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePECompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePECompletedEventHandler(object sender, seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePECompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePECompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePECompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

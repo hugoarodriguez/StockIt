@@ -93,6 +93,7 @@ namespace StockIt
             this.cmbProductos.Name = "cmbProductos";
             this.cmbProductos.Size = new System.Drawing.Size(199, 24);
             this.cmbProductos.TabIndex = 9;
+            this.cmbProductos.SelectedIndexChanged += new System.EventHandler(this.cmbProductos_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -178,6 +179,7 @@ namespace StockIt
             this.dtpFechaFinal.Name = "dtpFechaFinal";
             this.dtpFechaFinal.Size = new System.Drawing.Size(265, 22);
             this.dtpFechaFinal.TabIndex = 45;
+            this.dtpFechaFinal.ValueChanged += new System.EventHandler(this.dtpFechaFinal_ValueChanged);
             // 
             // dtpFechaInicio
             // 
@@ -187,6 +189,7 @@ namespace StockIt
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(265, 22);
             this.dtpFechaInicio.TabIndex = 44;
+            this.dtpFechaInicio.ValueChanged += new System.EventHandler(this.dtpFechaInicio_ValueChanged);
             // 
             // label4
             // 

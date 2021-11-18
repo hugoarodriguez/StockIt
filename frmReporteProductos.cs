@@ -55,8 +55,17 @@ namespace StockIt
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            getValoresSeleccionados();
-            llenarDataGridView();
+            if (dtpFechaInicio.Value > dtpFechaFinal.Value)
+            {
+                utils.messageBoxFormatoIncorrecto("La Fecha Inicio debe ser inferior a la Fecha Final");
+                dtpFechaInicio.Focus();
+            }
+            else
+            {
+                getValoresSeleccionados();
+                llenarDataGridView();
+                btnImprimir.Enabled = true;
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -67,6 +76,18 @@ namespace StockIt
             cmbProductos.SelectedIndex = 0;
             getValoresSeleccionados();
             llenarDataGridView();
+        }
+
+        private void dtpFechaInicio_ValueChanged(object sender, EventArgs e)
+        {
+            llenarCmbCategorias();
+            btnImprimir.Enabled = false;
+        }
+
+        private void dtpFechaFinal_ValueChanged(object sender, EventArgs e)
+        {
+            llenarCmbCategorias();
+            btnImprimir.Enabled = false;
         }
 
         private void cmbCateProc_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,6 +103,11 @@ namespace StockIt
                 llenarCmbProductos();
                 cmbProductos.Enabled = false;
             }
+        }
+
+        private void cmbProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnImprimir.Enabled = false;
         }
 
         #region Métodos Creados
@@ -122,7 +148,10 @@ namespace StockIt
 
         private void llenarCmbCategorias()
         {
-            DataTable dt = new LCategorias().SeleccionarCategoriasActivasByIdUsuarioDT(utils.getIdUsuario());
+            DateTime fechaInicio = dtpFechaInicio.Value.Date;
+            DateTime fechaFinal = dtpFechaFinal.Value.Date;
+
+            DataTable dt = new LCategorias().SeleccionarCategoriasActivasByIdUsuarioAndFechasForReportePE(utils.getIdUsuario(), fechaInicio, fechaFinal);
 
             DataRow dr = dt.NewRow();
             dr["ID_CATEGORIA"] = "0";
@@ -138,7 +167,11 @@ namespace StockIt
 
         private void llenarCmbProductos()
         {
-            DataTable dt = new LProductos().seleccionarProductosByIdCategoria(idCategoria);
+            DateTime fechaInicio = dtpFechaInicio.Value.Date;
+            DateTime fechaFinal = dtpFechaFinal.Value.Date;
+
+            DataTable dt = new LProductos().SeleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePE(utils.getIdUsuario(), fechaInicio, 
+                fechaFinal, idCategoria);
 
             DataRow dr = dt.NewRow();
             dr["ID_PRODUCTO"] = "0";

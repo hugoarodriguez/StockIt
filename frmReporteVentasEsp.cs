@@ -139,7 +139,7 @@ namespace StockIt
             DateTime fechaInicio = dtpFechaInicio.Value.Date;
             DateTime fechaFinal = dtpFechaFinal.Value.Date;
 
-            DataTable dt = new LCategorias().SeleccionarCategoriasActivasByIdUsuarioAndFechasForReporte(utils.getIdUsuario(), fechaInicio, fechaFinal);
+            DataTable dt = new LCategorias().SeleccionarCategoriasActivasByIdUsuarioAndFechasForReporteVE(utils.getIdUsuario(), fechaInicio, fechaFinal);
 
             DataRow dr = dt.NewRow();
             dr["ID_CATEGORIA"] = "0";

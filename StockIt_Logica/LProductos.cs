@@ -273,5 +273,19 @@ namespace StockIt_Logica
                 return new DataTable();
             }
         }
+
+        public DataTable SeleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePE(int idUsuario, DateTime fechaInicio, DateTime fechaFinal, int idCategoria)
+        {
+            try
+            {
+                DataSet ds = WS.seleccionarProductosByIdUsuarioFechasAndIdCategoriaForReportePE(idUsuario, fechaInicio, fechaFinal, idCategoria);
+
+                return ds.Tables[0];
+            }
+            catch (Exception)
+            {
+                return new DataTable();
+            }
+        }
     }
 }

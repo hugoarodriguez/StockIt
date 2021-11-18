@@ -113,11 +113,25 @@ namespace StockIt_Logica
             }
         }
 
-        public DataTable SeleccionarCategoriasActivasByIdUsuarioAndFechasForReporte(int idUsuario, DateTime fechaInicio, DateTime fechaFinal)
+        public DataTable SeleccionarCategoriasActivasByIdUsuarioAndFechasForReporteVE(int idUsuario, DateTime fechaInicio, DateTime fechaFinal)
         {
             try
             {
                 DataSet ds = WS.seleccionarCategoriasActivasByIdUsuarioAndFechasForReporte(idUsuario, fechaInicio, fechaFinal);
+
+                return ds.Tables[0];
+            }
+            catch (Exception)
+            {
+                return new DataTable();
+            }
+        }
+
+        public DataTable SeleccionarCategoriasActivasByIdUsuarioAndFechasForReportePE(int idUsuario, DateTime fechaInicio, DateTime fechaFinal)
+        {
+            try
+            {
+                DataSet ds = WS.seleccionarCategoriasActivasByIdUsuarioAndFechasForReportePE(idUsuario, fechaInicio, fechaFinal);
 
                 return ds.Tables[0];
             }
