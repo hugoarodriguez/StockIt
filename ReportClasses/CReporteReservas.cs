@@ -193,11 +193,11 @@ namespace StockIt.ReportClasses
                     _cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     table.AddCell(_cell);
 
-                    _cell = new PdfPCell(new Paragraph("FECHA\nPROMESA\nENTREGA", negrita));
+                    _cell = new PdfPCell(new Paragraph("FECHA\nRESERVA", negrita));
                     _cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     table.AddCell(_cell);
 
-                    _cell = new PdfPCell(new Paragraph("FECHA\nRESERVA", negrita));
+                    _cell = new PdfPCell(new Paragraph("FECHA\nPROMESA\nENTREGA", negrita));
                     _cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     table.AddCell(_cell);
 
